@@ -34,23 +34,53 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-</head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Philosopher&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet" type="text/css"/>
 
-<body class="bg-black muli">
-        <div class="flex justify-between">
-           <video width="323" height="323" loop muted autoplay poster="img/videoframe.jpg">
+
+
+
+<style>
+.canvas {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  z-index: 1;
+
+}
+</style><br><p>
+<div class="top-container">
+    <canvas id=c></canvas>
+ <div class="overlay">
+          <video width="23%" loop muted autoplay poster="img/videoframe.jpg">
                     <source src="http://inoculate.media/assets/images/inoculatemedia_logo.mp4" type="video/mp4">
                 </video>
+                <div class="overlay">
 
-            <h1>INOCULATE MEDIA</h1>
+
+            <div class="inline-block br-round bg-indigo-30 indigo-lightest p-2 fs-s2 mb-5">
+             <div class="bg-indigo indigo-lightest br-round px-3 py-1 mr-3 fs-s3">Canada <div justify=center> <img src="./assets/images/flag.svg" width="35px"  height="18px" alt="canadianflag"></div>
+                We are coming to Vancouver.</div>
+            </div></div>
+
+         <h1>INOCULATE MEDIA</h1></div>
 
            <style>
               h1 {
 	display: inline;
-	position: relative;
-	font: 150px Helvetica, Sans-Serif;
-	letter-spacing: -5px;
-	color: rgba(0,0,255,0.5);
+	position: absolute;
+    font-family: Philosopher, Sans-Serif;
+    color: rgba(0,0,255,0.5);
+	font-size: 13vw;
+	letter-spacing: 1px;
+
 }
 
 h1:after {
@@ -59,10 +89,23 @@ h1:after {
 	color: rgba(255,0,0,0.5);
 }
 
-.flex-container {
+              h3 {
+	display: inline;
+	position: relative;
+	font-family: Philosopher, Sans-Serif;
+    color: rgba(0,220,44,0.5);
+    font-size: 5vw;
+	letter-spacing: 1px;
+
+}
+
+
+.top-container {
   display: flex;
   flex-wrap: nowrap;
-  background-color: bg-indigo-lightest-10;
+  position: relative;
+    margin: 0 auto;
+
 }
 
 .flex-container > div {
@@ -77,26 +120,218 @@ h1:after {
 .flex-container-logo {
   display: flex;
   flex-wrap: wrap;
-  height: 700px;
+  flex-direction: row;
   justify-content: center;
   flex-direction: row
+
 }
+
+.overlay {
+    position: absolute;
+    margin: 0 auto;
+    z-index: 2;
+
+ }
+
 </style><br><p>
+<script>
+var w = c.width = window.innerWidth,
+    h = c.height = window.innerHeight,
+    ctx = c.getContext( '2d' ),
+
+    minDist = 10,
+    maxDist = 30,
+    initialWidth = 10,
+    maxLines = 100,
+    initialLines = 4,
+    speed = 5,
+
+    lines = [],
+    frame = 0,
+    timeSinceLast = 0,
+
+    dirs = [
+   // straight x, y velocity
+      [ 0, 1 ],
+      [ 1, 0 ],
+      [ 0, -1 ],
+    	[ -1, 0 ],
+   // diagonals, 0.7 = sin(PI/4) = cos(PI/4)
+      [ .7, .7 ],
+      [ .7, -.7 ],
+      [ -.7, .7 ],
+      [ -.7, -.7]
+    ],
+    starter = { // starting parent line, just a pseudo line
+
+      x: w / 2,
+      y: h / 2,
+      vx: 0,
+      vy: 0,
+      width: initialWidth
+    };
+
+function init() {
+
+  lines.length = 0;
+
+  for( var i = 0; i < initialLines; ++i )
+    lines.push( new Line( starter ) );
+
+  ctx.fillStyle = '#222';
+  ctx.fillRect( 0, 0, w, h );
+
+  // if you want a cookie ;)
+  // ctx.lineCap = 'round';
+}
+function getColor( x ) {
+
+  return 'hsl( hue, 80%, 30% )'.replace(
+  	'hue', x / w * 180 + frame
+  );
+}
+function anim() {
+
+  window.requestAnimationFrame( anim );
+
+  ++frame;
+
+  ctx.shadowBlur = 0;
+  ctx.fillStyle = 'rgba(0,0,0,.02)';
+  ctx.fillRect( 0, 0, w, h );
+  ctx.shadowBlur = .5;
+
+  for( var i = 0; i < lines.length; ++i )
+
+    if( lines[ i ].step() ) { // if true its dead
+
+      lines.splice( i, 1 );
+      --i;
+
+    }
+
+  // spawn new
+
+  ++timeSinceLast
+
+  if( lines.length < maxLines && timeSinceLast > 10 && Math.random() < .5 ) {
+
+    timeSinceLast = 0;
+
+    lines.push( new Line( starter ) );
+
+    // cover the middle;
+    ctx.fillStyle = ctx.shadowColor = getColor( starter.x );
+    ctx.beginPath();
+    ctx.arc( starter.x, starter.y, initialWidth, 0, Math.PI * 2 );
+    ctx.fill();
+  }
+}
+
+function Line( parent ) {
+
+  this.x = parent.x | 0;
+  this.y = parent.y | 0;
+  this.width = parent.width / 1.25;
+
+  do {
+
+    var dir = dirs[ ( Math.random() * dirs.length ) |0 ];
+    this.vx = dir[ 0 ];
+    this.vy = dir[ 1 ];
+
+  } while (
+    ( this.vx === -parent.vx && this.vy === -parent.vy ) || ( this.vx === parent.vx && this.vy === parent.vy) );
+
+  this.vx *= speed;
+  this.vy *= speed;
+
+  this.dist = ( Math.random() * ( maxDist - minDist ) + minDist );
+
+}
+Line.prototype.step = function() {
+
+  var dead = false;
+
+  var prevX = this.x,
+      prevY = this.y;
+
+  this.x += this.vx;
+  this.y += this.vy;
+
+  --this.dist;
+
+  // kill if out of screen
+  if( this.x < 0 || this.x > w || this.y < 0 || this.y > h )
+    dead = true;
+
+  // make children :D
+  if( this.dist <= 0 && this.width > 1 ) {
+
+    // keep yo self, sometimes
+    this.dist = Math.random() * ( maxDist - minDist ) + minDist;
+
+    // add 2 children
+    if( lines.length < maxLines ) lines.push( new Line( this ) );
+    if( lines.length < maxLines && Math.random() < .5 ) lines.push( new Line( this ) );
+
+    // kill the poor thing
+    if( Math.random() < .2 ) dead = true;
+  }
+
+  ctx.strokeStyle = ctx.shadowColor = getColor( this.x );
+  ctx.beginPath();
+  ctx.lineWidth = this.width;
+  ctx.moveTo( this.x, this.y );
+  ctx.lineTo( prevX, prevY );
+  ctx.stroke();
+
+  if( dead ) return true
+}
+
+init();
+anim();
+
+window.addEventListener( 'resize', function() {
+
+  w = c.width = window.innerWidth;
+  h = c.height = window.innerHeight;
+  starter.x = w / 2;
+  starter.y = h / 2;
+
+  init();
+} )
+</script>
+
+
+</div>
+</div>
+</head>
+
+
+<body class="bg-black muli">
+
 
 
 
             </div>
 
-        <div class="mx-5 md-mx-l5">
-            <div class="inline-block br-round bg-indigo-30 indigo-lightest p-2 fs-s2 mb-5">
-                <div class="bg-indigo indigo-lightest br-round px-3 py-1 mr-3 fs-s3">Canada</div>
-                We are coming to Vancouver.</div> <img src="./assets/images/flag.svg" width="40px"  height="20px" alt="canadianflag">
-            </div></div>
+
 
 
     <!-- hero section -->
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/588109386?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;h=48b7f50d47" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="What a Wonderful World.mp4"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<div style="padding:56.25% 0 0 0;position:relative; z-index: 0;"><iframe src="https://player.vimeo.com/video/588109386?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;h=48b7f50d47" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="What a Wonderful World.mp4"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script><br><br>
 
+
+        <div class="flex-container-logo">
+<div> <h3>Current Projects</h3></div></div>
+ <div class="flex-container-logo">
+  <div><img src="http://inoculate.media/assets/images/flow_banner2.jpg" width="800px" alt="flow realtime audio workow"></div>
+  <div><Img src="http://inoculate.media/assets/images/aurora.png" width="800px" alt="aurora"></div></div><br>
+  <div class="flex-container-logo">
+    <div><Img src="http://inoculate.media/assets/images/ion2.png" width="400px" alt="ionophere data storage"></div>
+
+</div></div>
  </section>
     <!-- footer -->
     <footer class="p-5 md-p-l5 bg-indigo-lightest-10">
@@ -175,11 +410,7 @@ h1:after {
                  </form>
                 </div></div>
         </div>
-        <div class="flex-container-logo">
-  <div><img src="http://inoculate.media/assets/images/flow_banner2.jpg" width="600px" alt="flow realtime audio workow"></div>
-  <div><Img src="http://inoculate.media/assets/images/ion2.png" width="400px" alt="ionophere data storage"></div>
-  <div>3</div>
-</div>
+
     </footer>
     </div>
     <!-- Read the Formbutton docs at formspree.io/formbutton/docs. See more examples at codepen.io/formspree -->
@@ -216,6 +447,7 @@ h1:after {
       }
     }
   });
+
 </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
@@ -224,6 +456,7 @@ h1:after {
     <script src="https://steamystreams.com/app/src/content/capture/video-video/js/main.js" async></script>
     <script src="assets/js/script.js"></script>
     <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
+
 </body>
 
 </html>
