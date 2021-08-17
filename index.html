@@ -112,29 +112,26 @@ h1:after {
                         </ul>
                     </div>
                     <div class="w-33pc md-px-10 mb-10">
-                        <h5 class="white">Product</h5>
+                        <h5 class="white">Products and Services</h5>
                         <ul class="list-none mt-5 fs-s2">
-                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">About
-                                    Us</a></li>
-                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">Jobs</a>
+                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">Video/Streaming
+                                    </a></li>
+                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">Audio Engineering</a>
                             </li>
                             <li class="my-3"><a href="#"
-                                    class="white opacity-70 no-underline hover-underline">Contact</a></li>
-                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">Media</a>
+                                    class="white opacity-70 no-underline hover-underline">Design Services</a></li>
+                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">API</a>
                             </li>
                         </ul>
                     </div>
                     <div class="w-33pc md-px-10 mb-10">
                         <h5 class="white">Support</h5>
                         <ul class="list-none mt-5 fs-s2">
-                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">About
-                                    Us</a></li>
-                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">Jobs</a>
+                            <li class="my-3"><a href="http://inoculate.media/sales.html" class="white opacity-70 no-underline hover-underline">Contact sales team
+                                  </a></li>
+                            <li class="my-3"><a href="http://inoculate.media/tech.html"class="white opacity-70 no-underline hover-underline">Contact tech support</a>
                             </li>
-                            <li class="my-3"><a href="#"
-                                    class="white opacity-70 no-underline hover-underline">Contact</a></li>
-                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">Media</a>
-                            </li>
+                           </li>
                         </ul>
                     </div>
                 </div>
@@ -152,23 +149,61 @@ h1:after {
                             data-feather="instagram" class="absolute-center h-4"></i></a>
                 </div>
             </div>
+
               <div class="w-100pc md-w-25pc">
                 <div class="flex w-75pc md-w-100pc mx-auto">
                   <form
                      action="https://formspree.io/f/mrgroqje"
                                    method="POST"
+                                   enctype="multipart/form-data"
                      >
                       <label>
                       <h5 class="white"> To recieve email updates:</h5>
-                     <input type="email"
-                        class="input flex-grow-1 bw-0 fw-200 bg-indigo-lightest-10 white ph-indigo-lightest focus-white opacity-80 fs-s3 py-5 br-r-0"  placeholder="Enter your email address for updates"> </label>
 
-                     <button class="button bg-indigo indigo-lightest fw-300 fs-s3 br-l-0">Submit</button>
+                        <class="input flex-grow-1 bw-0 fw-200 bg-indigo-lightest-10 white ph-indigo-lightest focus-white opacity-80 fs-s3 py-5 br-r-0">
+                            <input type="email" name="_replyto" placeholder="Enter your email address for updates">
+
+                     <button class="button bg-indigo indigo-lightest fw-300 fs-s3 br-l-0" button type="submit">Submit</button>
                  </form>
                 </div></div>
         </div>
     </footer>
     </div>
+    <!-- Read the Formbutton docs at formspree.io/formbutton/docs. See more examples at codepen.io/formspree -->
+<script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+<script>
+  /* paste this line in verbatim */
+  window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
+  /* customize formbutton below*/
+  formbutton("create", {
+    action: "https://formspree.io/f/mrgroqje",
+    title: "How can we help?",
+    fields: [
+      {
+        type: "email",
+        label: "Email:",
+        name: "email",
+        required: true,
+        placeholder: "your@email.com"
+      },
+      {
+        type: "textarea",
+        label: "Message:",
+        name: "message",
+        placeholder: "What's on your mind?",
+      },
+      { type: "submit" }
+    ],
+    styles: {
+      title: {
+        backgroundColor: "#4520c9"
+      },
+      button: {
+        backgroundColor: "#ed2856"
+      }
+    }
+  });
+</script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
