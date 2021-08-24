@@ -29,7 +29,7 @@
 <meta name="twitter:title" content="Inoculate Media - Advanced colour technology and solutions for digital">
 <meta name="twitter:description" content="We have been geeking on color technology for over 30 years and have worked with folks from Pixar, Olympus, Industrial Light and Magic, Canon, Sony.">
 <meta name="twitter:image" content="http://inoculate.media/assets/images/File_000.png">
-    <link rel="stylesheet" href="https://steamystreams.com/assets/CSS/shorthand.min.css" />
+    <link rel="stylesheet" href="https://steamystreams.com/assets/scss/style.scss" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:200,300,400,500,600,700,800,900&display=swap" />
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
@@ -41,6 +41,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Philosopher&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet" type="text/css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+
 
 
 
@@ -55,32 +59,35 @@
   z-index: 1;
 
 }
-</style><br><p>
+</style>
+<br><p>
 <div class="top-container">
-    <canvas id=c></canvas>
- <div class="overlay">
-          <video width="23%" loop muted autoplay poster="img/videoframe.jpg">
-                    <source src="http://inoculate.media/assets/images/inoculatemedia_logo.mp4" autoplay=1&loop=1&autopause=0" type="video/mp4">
-                </video>
+
+ <div class="overlay-xray">
+          <img src="./assets/images/jet.jpg" width="100%" alt="x-ray">
+          </div>
                 <div class="overlay">
 
-         <h1>INOCULATE MEDIA</h1></div>
+
+            </div>
+
+         <h1>LES BARONS | THE BARONS</h1></div>
 
            <style>
               h1 {
 	display: inline;
 	position: absolute;
-    font-family: Philosopher, Sans-Serif;
-    color: rgba(0,0,255,0.5);
-	font-size: 13vw;
-	letter-spacing: 1px;
+  font-family: 'Merienda One', cursive;
+  color: rgba(255,255,255,0.7);
+	font-size: 6.6vw;
+	letter-spacing: 2px;
 
 }
 
 h1:after {
-	content: "INOCULATE MEDIA";
+	content:
 	position: absolute; left: 10px; top: 5px;
-	color: rgba(255,0,0,0.5);
+	color: rgba(20,199,130,0.8);
 }
 
               h3 {
@@ -123,187 +130,25 @@ h1:after {
 .overlay {
     position: absolute;
     margin: 0 auto;
+    z-index: 8;
+
+
+ }
+.overlay-xray {
+    position: absolute;
+    margin: 0 auto;
     z-index: 2;
+    opacity:.4;
 
  }
 
+
 </style><br><p>
-<script>
-var w = c.width = window.innerWidth,
-    h = c.height = window.innerHeight,
-    ctx = c.getContext( '2d' ),
-
-    minDist = 10,
-    maxDist = 30,
-    initialWidth = 10,
-    maxLines = 100,
-    initialLines = 4,
-    speed = 5,
-
-    lines = [],
-    frame = 0,
-    timeSinceLast = 0,
-
-    dirs = [
-   // straight x, y velocity
-      [ 0, 1 ],
-      [ 1, 0 ],
-      [ 0, -1 ],
-    	[ -1, 0 ],
-   // diagonals, 0.7 = sin(PI/4) = cos(PI/4)
-      [ .7, .7 ],
-      [ .7, -.7 ],
-      [ -.7, .7 ],
-      [ -.7, -.7]
-    ],
-    starter = { // starting parent line, just a pseudo line
-
-      x: w / 2,
-      y: h / 2,
-      vx: 0,
-      vy: 0,
-      width: initialWidth
-    };
-
-function init() {
-
-  lines.length = 0;
-
-  for( var i = 0; i < initialLines; ++i )
-    lines.push( new Line( starter ) );
-
-  ctx.fillStyle = '#222';
-  ctx.fillRect( 0, 0, w, h );
-
-  // if you want a cookie ;)
-  // ctx.lineCap = 'round';
-}
-function getColor( x ) {
-
-  return 'hsl( hue, 80%, 30% )'.replace(
-  	'hue', x / w * 180 + frame
-  );
-}
-function anim() {
-
-  window.requestAnimationFrame( anim );
-
-  ++frame;
-
-  ctx.shadowBlur = 0;
-  ctx.fillStyle = 'rgba(0,0,0,.02)';
-  ctx.fillRect( 0, 0, w, h );
-  ctx.shadowBlur = .5;
-
-  for( var i = 0; i < lines.length; ++i )
-
-    if( lines[ i ].step() ) { // if true its dead
-
-      lines.splice( i, 1 );
-      --i;
-
-    }
-
-  // spawn new
-
-  ++timeSinceLast
-
-  if( lines.length < maxLines && timeSinceLast > 10 && Math.random() < .5 ) {
-
-    timeSinceLast = 0;
-
-    lines.push( new Line( starter ) );
-
-    // cover the middle;
-    ctx.fillStyle = ctx.shadowColor = getColor( starter.x );
-    ctx.beginPath();
-    ctx.arc( starter.x, starter.y, initialWidth, 0, Math.PI * 2 );
-    ctx.fill();
-  }
-}
-
-function Line( parent ) {
-
-  this.x = parent.x | 0;
-  this.y = parent.y | 0;
-  this.width = parent.width / 1.25;
-
-  do {
-
-    var dir = dirs[ ( Math.random() * dirs.length ) |0 ];
-    this.vx = dir[ 0 ];
-    this.vy = dir[ 1 ];
-
-  } while (
-    ( this.vx === -parent.vx && this.vy === -parent.vy ) || ( this.vx === parent.vx && this.vy === parent.vy) );
-
-  this.vx *= speed;
-  this.vy *= speed;
-
-  this.dist = ( Math.random() * ( maxDist - minDist ) + minDist );
-
-}
-Line.prototype.step = function() {
-
-  var dead = false;
-
-  var prevX = this.x,
-      prevY = this.y;
-
-  this.x += this.vx;
-  this.y += this.vy;
-
-  --this.dist;
-
-  // kill if out of screen
-  if( this.x < 0 || this.x > w || this.y < 0 || this.y > h )
-    dead = true;
-
-  // make children :D
-  if( this.dist <= 0 && this.width > 1 ) {
-
-    // keep yo self, sometimes
-    this.dist = Math.random() * ( maxDist - minDist ) + minDist;
-
-    // add 2 children
-    if( lines.length < maxLines ) lines.push( new Line( this ) );
-    if( lines.length < maxLines && Math.random() < .5 ) lines.push( new Line( this ) );
-
-    // kill the poor thing
-    if( Math.random() < .2 ) dead = true;
-  }
-
-  ctx.strokeStyle = ctx.shadowColor = getColor( this.x );
-  ctx.beginPath();
-  ctx.lineWidth = this.width;
-  ctx.moveTo( this.x, this.y );
-  ctx.lineTo( prevX, prevY );
-  ctx.stroke();
-
-  if( dead ) return true
-}
-
-init();
-anim();
-
-window.addEventListener( 'resize', function() {
-
-  w = c.width = window.innerWidth;
-  h = c.height = window.innerHeight;
-  starter.x = w / 2;
-  starter.y = h / 2;
-
-  init();
-} )
-</script>
 
 
 </div>
 </div>
 </head>
-
-
-<body class="bg-black muli">
 
 
 
@@ -314,16 +159,12 @@ window.addEventListener( 'resize', function() {
 
 
     <!-- hero section -->
-<div style="padding:56.25% 0 0 0;position:relative; z-index-0"><iframe src="https://player.vimeo.com/video/588109386?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;h=48b7f50d47"  autoplay=1&loop=1&autopause=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="What a Wonderful World.mp4"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script><br> <br>
 
 
         <div class="flex-container-logo">
 <div> <h3>Current Projects</h3></div></div>
  <div class="flex-container-logo">
-  <div><img src="http://inoculate.media/assets/images/flow_banner2.jpg" width="800px" alt="flow realtime audio workow"></div>
-  <div><Img src="http://inoculate.media/assets/images/aurora.png" width="800px" alt="aurora"></div></div><br>
-  <div class="flex-container-logo">
-    <div><Img src="http://inoculate.media/assets/images/ion2.png" width="400px" alt="ionophere data storage"></div>
+  <div><img src="les_barons.jpg" width="800px" alt="les barons"></div>
 
 </div></div>
  </section>
@@ -450,6 +291,7 @@ window.addEventListener( 'resize', function() {
     <script src="https://steamystreams.com/app/src/content/capture/video-video/js/main.js" async></script>
     <script src="assets/js/script.js"></script>
     <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
+   <script src=" https://cdnjs.cloudflare.com/ajax/libs/animejs/1.0.0/anime.min.js</script>
 
 </body>
 
