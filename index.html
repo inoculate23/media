@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Primary Meta Tags -->
-<meta name="title" content="Inoculate Media - Color Technology and Streaming Solutions">
-<meta name="description" content="We have been geeking on color technology for over 30 years and have worked with folks from Pixar, Olympus, Industrial Light and Magic, Canon, Sony">
-<meta name="keywords" content="codec,av1,transcoding,mux,streaming,webrtc,video conference,chat,video,services,vancouver,canada">
+<meta name="title" content="Les Barons | The Barons - Electronic Music">
+<meta name="description" content="New Music">
+<meta name="keywords" content="techno,experimental,music,electronic,canada,psychic tv">
 <meta name="robots" content="index, follow">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="language" content="English">
@@ -15,13 +15,14 @@
 <meta name="contact" content="craig@i4foundation.ca">
 <meta name="revisit-after" content="7">
 
+
 <!-- Open Graph / Facebook -->
-<meta property="og:title" content="Inoculate Media - Colour Technology">
+<meta property="og:title" content="Les barons | The barons">
 <meta property="og:site_name" content="Inoculate Media - Advanced colour technology and solutions for digital">
 <meta property="og:url" content="http://inoculate.media">
 <meta property="og:description" content="e have been geeking on color technology for over 30 years and have worked with folks from Pixar, Olympus, Industrial Light and Magic, Canon, and Sony.">
 <meta property="og:type" content="article">
-<meta property="og:image" content="http://inoculate.media/assets/images/File_000.png">
+<meta property="og:image" content="http://inoculate.media/barons/assets/images/les_barons.jpg">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary">
@@ -41,6 +42,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Philosopher&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet" type="text/css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+
 
 
 
@@ -52,42 +56,45 @@
   top: 0;
   left: 0;
   background-color: black;
-  z-index: 1;
+  z-index: -1;
 
 }
 </style><br><p>
 <div class="top-container">
-    <canvas id=c></canvas>
- <div class="overlay">
-          <video width="23%" loop muted autoplay poster="img/videoframe.jpg">
-                    <source src="http://inoculate.media/assets/images/inoculatemedia_logo.mp4" type="video/mp4">
-                </video>
-                <div class="overlay">
 
 
-            <div class="inline-block br-round bg-indigo-30 indigo-lightest p-2 fs-s2 mb-5">
-             <div class="bg-indigo indigo-lightest br-round px-3 py-1 mr-3 fs-s3">Canada <div justify=center> <img src="./assets/images/flag.svg" width="35px"  height="18px" alt="canadianflag"></div>
-                We are coming to Vancouver.</div>
-            </div></div>
+ <div class="overlay-xray">
+          <img src="https://inoculate.media/barons/assets/images/jet.png" width="100%" alt="x-ray">
+          </div>
 
-         <h1>INOCULATE MEDIA</h1></div>
+
+
+<div class="flex-container">
+
+           <h1>LES BARONS | THE BARONS</h1></div>
 
            <style>
-              h1 {
+     h1 {
 	display: inline;
 	position: absolute;
-    font-family: Philosopher, Sans-Serif;
-    color: rgba(0,0,255,0.5);
-	font-size: 13vw;
-	letter-spacing: 1px;
+  font-family: 'Merienda One', cursive;
+  color: rgba(255,255,255,0.7);
+	font-size: 5vw;
+	letter-spacing: 2px;
 
 }
 
+     h4 {
+  font-family: 'Merienda One', cursive;
+  color: rgba(255,255,255);
+
+}
 h1:after {
-	content: "INOCULATE MEDIA";
+	content:
 	position: absolute; left: 10px; top: 5px;
-	color: rgba(255,0,0,0.5);
+	color: rgba(20,199,130,0.8);
 }
+
 
               h3 {
 	display: inline;
@@ -116,192 +123,47 @@ h1:after {
   line-height: 75px;
   font-size: 30px;
 }
-
+.flex-container {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  justify: center;
+  font-size: 30px;
+}
 .flex-container-logo {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  flex-direction: row
+  align-items: stretch;
 
 }
 
+flex-container-ot {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  justify-content: flex-end;
+
+}
 .overlay {
     position: absolute;
     margin: 0 auto;
     z-index: 2;
 
  }
+ .overlay-xray {
+    position: absolute;
+    margin: 0 auto;
+    z-index: 7;
+    opacity:.7;
+
+ }
 
 </style><br><p>
-<script>
-var w = c.width = window.innerWidth,
-    h = c.height = window.innerHeight,
-    ctx = c.getContext( '2d' ),
-
-    minDist = 10,
-    maxDist = 30,
-    initialWidth = 10,
-    maxLines = 100,
-    initialLines = 4,
-    speed = 5,
-
-    lines = [],
-    frame = 0,
-    timeSinceLast = 0,
-
-    dirs = [
-   // straight x, y velocity
-      [ 0, 1 ],
-      [ 1, 0 ],
-      [ 0, -1 ],
-    	[ -1, 0 ],
-   // diagonals, 0.7 = sin(PI/4) = cos(PI/4)
-      [ .7, .7 ],
-      [ .7, -.7 ],
-      [ -.7, .7 ],
-      [ -.7, -.7]
-    ],
-    starter = { // starting parent line, just a pseudo line
-
-      x: w / 2,
-      y: h / 2,
-      vx: 0,
-      vy: 0,
-      width: initialWidth
-    };
-
-function init() {
-
-  lines.length = 0;
-
-  for( var i = 0; i < initialLines; ++i )
-    lines.push( new Line( starter ) );
-
-  ctx.fillStyle = '#222';
-  ctx.fillRect( 0, 0, w, h );
-
-  // if you want a cookie ;)
-  // ctx.lineCap = 'round';
-}
-function getColor( x ) {
-
-  return 'hsl( hue, 80%, 30% )'.replace(
-  	'hue', x / w * 180 + frame
-  );
-}
-function anim() {
-
-  window.requestAnimationFrame( anim );
-
-  ++frame;
-
-  ctx.shadowBlur = 0;
-  ctx.fillStyle = 'rgba(0,0,0,.02)';
-  ctx.fillRect( 0, 0, w, h );
-  ctx.shadowBlur = .5;
-
-  for( var i = 0; i < lines.length; ++i )
-
-    if( lines[ i ].step() ) { // if true its dead
-
-      lines.splice( i, 1 );
-      --i;
-
-    }
-
-  // spawn new
-
-  ++timeSinceLast
-
-  if( lines.length < maxLines && timeSinceLast > 10 && Math.random() < .5 ) {
-
-    timeSinceLast = 0;
-
-    lines.push( new Line( starter ) );
-
-    // cover the middle;
-    ctx.fillStyle = ctx.shadowColor = getColor( starter.x );
-    ctx.beginPath();
-    ctx.arc( starter.x, starter.y, initialWidth, 0, Math.PI * 2 );
-    ctx.fill();
-  }
-}
-
-function Line( parent ) {
-
-  this.x = parent.x | 0;
-  this.y = parent.y | 0;
-  this.width = parent.width / 1.25;
-
-  do {
-
-    var dir = dirs[ ( Math.random() * dirs.length ) |0 ];
-    this.vx = dir[ 0 ];
-    this.vy = dir[ 1 ];
-
-  } while (
-    ( this.vx === -parent.vx && this.vy === -parent.vy ) || ( this.vx === parent.vx && this.vy === parent.vy) );
-
-  this.vx *= speed;
-  this.vy *= speed;
-
-  this.dist = ( Math.random() * ( maxDist - minDist ) + minDist );
-
-}
-Line.prototype.step = function() {
-
-  var dead = false;
-
-  var prevX = this.x,
-      prevY = this.y;
-
-  this.x += this.vx;
-  this.y += this.vy;
-
-  --this.dist;
-
-  // kill if out of screen
-  if( this.x < 0 || this.x > w || this.y < 0 || this.y > h )
-    dead = true;
-
-  // make children :D
-  if( this.dist <= 0 && this.width > 1 ) {
-
-    // keep yo self, sometimes
-    this.dist = Math.random() * ( maxDist - minDist ) + minDist;
-
-    // add 2 children
-    if( lines.length < maxLines ) lines.push( new Line( this ) );
-    if( lines.length < maxLines && Math.random() < .5 ) lines.push( new Line( this ) );
-
-    // kill the poor thing
-    if( Math.random() < .2 ) dead = true;
-  }
-
-  ctx.strokeStyle = ctx.shadowColor = getColor( this.x );
-  ctx.beginPath();
-  ctx.lineWidth = this.width;
-  ctx.moveTo( this.x, this.y );
-  ctx.lineTo( prevX, prevY );
-  ctx.stroke();
-
-  if( dead ) return true
-}
-
-init();
-anim();
-
-window.addEventListener( 'resize', function() {
-
-  w = c.width = window.innerWidth;
-  h = c.height = window.innerHeight;
-  starter.x = w / 2;
-  starter.y = h / 2;
-
-  init();
-} )
-</script>
 
 
 </div>
@@ -312,6 +174,11 @@ window.addEventListener( 'resize', function() {
 <body class="bg-black muli">
 
 
+ <DIV CLASS="CANVAS">
+ <video autoplay muted loop width="100%" position="absolute">
+  <source src="https://inoculate.media/barons/assets/images/b2.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 
             </div>
@@ -320,24 +187,23 @@ window.addEventListener( 'resize', function() {
 
 
     <!-- hero section -->
-<div style="padding:56.25% 0 0 0;position:relative; z-index: 0;"><iframe src="https://player.vimeo.com/video/588109386?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;h=48b7f50d47" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="What a Wonderful World.mp4"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script><br><br>
 
 
+    <div class="flex-container-logo"><!-- Wimpy Player -->
+
+<iframe src="https://cdn.plrjs.com/player/nk65t91494i69/ac5hgreztwsc.html?file=https://inoculate.media/assets/audio/les_barons_playlist.txt" type="text/html" width="640" height="360" frameborder="0" allowfullscreen=""></iframe>
         <div class="flex-container-logo">
 <div> <h3>Current Projects</h3></div></div>
  <div class="flex-container-logo">
-  <div><img src="http://inoculate.media/assets/images/flow_banner2.jpg" width="800px" alt="flow realtime audio workow"></div>
-  <div><Img src="http://inoculate.media/assets/images/aurora.png" width="800px" alt="aurora"></div></div><br>
-  <div class="flex-container-logo">
-    <div><Img src="http://inoculate.media/assets/images/ion2.png" width="400px" alt="ionophere data storage"></div>
-
+  <div><img src="https://inoculate.media/assets/images/flow_banner2.jpg" width="800px" alt="flow realtime audio workow"></div>
+  <div><Img src="https://inoculate.media/assets/images/aurora.png" width="800px" alt="aurora"></div></div><br>
 </div></div>
  </section>
     <!-- footer -->
     <footer class="p-5 md-p-l5 bg-indigo-lightest-10">
 
-
-
+<div class"flex-container-ot">
+<div> <img src="https://inoculate.media/barons/assets/images/les_barons.jpg" width="800px"
                 </div></div>
             <div class="w-100pc md-w-50pc">
                 <div class="flex justify-around">
@@ -370,9 +236,9 @@ window.addEventListener( 'resize', function() {
                     <div class="w-33pc md-px-10 mb-10">
                         <h5 class="white">Support</h5>
                         <ul class="list-none mt-5 fs-s2">
-                            <li class="my-3"><a href="http://inoculate.media/sales.html" class="white opacity-70 no-underline hover-underline">Contact sales team
+                            <li class="my-3"><a href="https://inoculate.media/sales.html" class="white opacity-70 no-underline hover-underline">Contact sales team
                                   </a></li>
-                            <li class="my-3"><a href="http://inoculate.media/tech.html"class="white opacity-70 no-underline hover-underline">Contact tech support</a>
+                            <li class="my-3"><a href="https://inoculate.media/tech.html"class="white opacity-70 no-underline hover-underline">Contact tech support</a>
                             </li>
                            </li>
                         </ul>
