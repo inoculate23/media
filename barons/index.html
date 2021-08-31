@@ -52,10 +52,12 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: black;
+  background-color: white;
   z-index: -1;
 
 }
+
+
 </style><br><p>
 <div class="top-container">
 
@@ -100,8 +102,6 @@ h1:after {
 	letter-spacing: 1px;
 
 }
-
-
 
 
 .top-container {
@@ -155,8 +155,13 @@ background-color: #fad13c;
 
 .flex-container-player {
    display: flex;
-  justify-content: center;
-  flex-direction: column;
+   flex-wrap: wrap;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   align-content: space-between;
+   align-items: baseline;
+
 
 }
 
@@ -167,6 +172,9 @@ background-color: #fad13c;
   justify-content: center;
   align-items: stretch;
   margins: 100px;
+  align-content: space-between;
+  align-items: baseline;
+
 
 }
 
@@ -184,14 +192,62 @@ background-color: #fad13c;
     margin: 0 auto;
     z-index: 2;
 
- }
+}
  .overlay-xray {
     position: absolute;
     margin: 0 auto;
     z-index: 7;
     opacity:.7;
+}
 
- }
+ .overlay-player {
+    position: absolute;
+    margin: 0 auto;
+    z-index: 7;
+    opacity:.7;
+}
+ .myButton {
+	-moz-box-shadow: 0px 10px 14px -7px #276873;
+	-webkit-box-shadow: 0px 10px 14px -7px #276873;
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #599bb3), color-stop(1, #408c99));
+	background:-moz-linear-gradient(top, #599bb3 5%, #408c99 100%);
+	background:-webkit-linear-gradient(top, #599bb3 5%, #408c99 100%);
+	background:-o-linear-gradient(top, #599bb3 5%, #408c99 100%);
+	background:-ms-linear-gradient(top, #599bb3 5%, #408c99 100%);
+	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#408c99',GradientType=0);
+	background-color:#599bb3;
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:19px;
+	font-weight:bold;
+	padding:12px 13px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #408c99), color-stop(1, #599bb3));
+	background:-moz-linear-gradient(top, #408c99 5%, #599bb3 100%);
+	background:-webkit-linear-gradient(top, #408c99 5%, #599bb3 100%);
+	background:-o-linear-gradient(top, #408c99 5%, #599bb3 100%);
+	background:-ms-linear-gradient(top, #408c99 5%, #599bb3 100%);
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#599bb3',GradientType=0);
+	background-color:#408c99;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+
 
 </style><br><p>
 
@@ -215,17 +271,20 @@ background-color: #fad13c;
 
 
 
-
     <!-- hero section -->
-
-
 
 <div class="flex-container-logo">
 <div class audio><iframe src="https://cdn.plrjs.com/player/nk65t91494i69/ac5hgreztwsc.html?file=https://inoculate.media/assets/audio/les_barons_playlist.txt" type="text/html" width="400px" height="500px" frameborder="0" allowfullscreen=""></iframe>
-
+</div></div>
+<div class="flex-container-player">
+<div class="flex-container-logo">
+<div class="flex-container-player">
+<div><img src="https://inoculate.media/barons/assets/images/flac.png" width="120px" alt="buy the high resolutio flac download">
+<div><a href="https://www.i4foundation.ca/inoculate" class="myButton">Purchase download</a>
 </div>
-
-
+<div class="flex-container-logo">
+<div><h4 class="white">High resolution FLAC download including three more tracks only $10.00!</p>
+</div></div></div>
 
 <div> <h3>Related Projects (more info soon)</h3></div></div>
  <div class="flex-container-logo">
@@ -318,5 +377,6 @@ background-color: #fad13c;
     <script src="assets/js/script.js"></script>
     <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
     </footer>
+    <div><h4 class="white">.-- .... .- - / .- / .--. .-.. . .- ... .- -. - / ... ..- .-. .--. .-. .. ... . .-.-.- / .... --- .-- / .- .-. . / -.-- --- ..- / - --- -.. .- -.-- ..--..</h4>
 </body>
 </html>
