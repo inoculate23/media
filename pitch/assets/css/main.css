@@ -88,7 +88,30 @@ input, select, textarea {
 			-ms-transform: rotate(360deg);
 			transform: rotate(360deg);
 		}
-	}
+
+		full-width {
+			position: relative;
+			width: 800px;
+			height: 486px;
+		}
+
+	img_tv_mask {
+position: absolute;
+left: 0px;
+top: 0px;
+opacity .5;
+z-index: 10;
+}
+
+img_video_mask {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 100%;
+border: none;
+height: 100%;
+z-index: -10;
+}
 
 	@-webkit-keyframes load-spinner {
 		0% {
@@ -3385,12 +3408,22 @@ input, select, textarea {
 
 /* Panel (Spotlight) */
 
-	.panel.spotlight {
+    .panel.spotlight {
+	-moz-align-items: -moz-stretch;
+	-webkit-align-items: -webkit-stretch;
+	-ms-align-items: -ms-stretch;
+	align-items: stretch;
+	position: relative;
+}
+
+	.panel_spotlight_media {
 		-moz-align-items: -moz-stretch;
 		-webkit-align-items: -webkit-stretch;
 		-ms-align-items: -ms-stretch;
-		align-items: stretch;
+		align-items: center;
 		position: relative;
+		margin-top: 40;
+
 	}
 
 		.panel.spotlight > * {
@@ -3413,14 +3446,22 @@ input, select, textarea {
 			padding: 3.5rem 3.5rem 2rem 3.5rem ;
 		}
 
-		.panel.spotlight .image {
+		.panel.spotlight_media .image {
 			position: absolute;
 			top: 0;
 			left: 0;
 			width: 100%;
 			height: 100%;
-			z-index: 0;
+			z-index: 10;
+			opacity: .9;
 		}
+		.panel_spotlight_media .video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 800px;
+			height: 483px;
+			z-index: -10;
 
 			.panel.spotlight .image img {
 				-moz-object-fit: cover;
