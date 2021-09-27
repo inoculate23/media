@@ -469,7 +469,60 @@
             </div>
         </div>
     </section>
+                  <form
+                     action="https://formspree.io/f/mrgroqje"
+                                   method="POST"
+                                   enctype="multipart/form-data"
+                     >
+                      <label>
+                      <h5 class="white"> To recieve email updates:</h5>
 
+                        <class="input flex-grow-1 bw-0 fw-200 bg-indigo-lightest-10 white ph-indigo-lightest focus-white opacity-80 fs-s3 py-5 br-r-0">
+                            <input type="email" name="_replyto" placeholder="Enter your email address for updates">
+
+                     <button class="button bg-indigo indigo-lightest fw-300 fs-s3 br-l-0" button type="submit">Submit</button>
+                 </form>
+                </div></div>
+        </div>
+
+    </footer>
+    </div>
+    <!-- Read the Formbutton docs at formspree.io/formbutton/docs. See more examples at codepen.io/formspree -->
+<script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+<script>
+  /* paste this line in verbatim */
+  window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
+  /* customize formbutton below*/
+  formbutton("create", {
+    action: "https://formspree.io/f/mrgroqje",
+    title: "How can we help?",
+    fields: [
+      {
+        type: "email",
+        label: "Email:",
+        name: "email",
+        required: true,
+        placeholder: "your@email.com"
+      },
+      {
+        type: "textarea",
+        label: "Message:",
+        name: "message",
+        placeholder: "What's on your mind?",
+      },
+      { type: "submit" }
+    ],
+    styles: {
+      title: {
+        backgroundColor: "#4520c9"
+      },
+      button: {
+        backgroundColor: "#ed2856"
+      }
+    }
+  });
+
+</script>
     <!-- footer -->
     <footer class="p-5 md-p-l5 bg-indigo-lightest-10">
         <div class="flex flex-wrap">
@@ -544,9 +597,6 @@
             </div>
         </div>
     </footer>
-    <a class="fixed top-50pc right-0 p-3 bg-indigo white hover-scale-up-1 ease-300 no-underline" href="https://gum.co/tifJM" target="_blank" >
-        <i class="w-4" data-feather="download"></i>
-    </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
