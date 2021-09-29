@@ -42,6 +42,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Philosopher&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet" type="text/css"/>
 </head>
+<header>
+
+<div class="flex-container">
+ <h1>Inoculate Radio</h1>
+<script type="text/javascript">var cstruid = 551150;var cstrdark = "TRUE";</script>
+<script type="text/javascript" src="//cdn.caster.fm/0070B7/widgets/status.js"></script>
+<!--   DO NOT REMOVE THE LINKS BELOW, THEY  WILL BE HIDDEN (AND WILL HELP US A LOT)   -->
+<a id="cstrlb" href="http://www.caster.fm/">Free Shoutcast Hosting</a><a id="cstrlb2" href="http://www.caster.fm/">Radio Stream Hosting</a>
+<div id="cstrdiv"></div>
+<script type='text/javascript'>
+var cstrFreePlayerUid = 551150;var cstrFreePlayerTheme = 'blue';var cstrFreePlayerColor = '';
+</script>
+ <script type='text/javascript' src='//corscdn.caster.fm/freeplayer/FreePlanPlayerEmbed.js'></script>
+ <!--   DO NOT REMOVE THE LINKS BELOW, THEY  WILL BE HIDDEN (AND WILL HELP US A LOT)   -->
+ <a id='cstrFreePlayerBL1' href='//www.caster.fm/'>Free Shoutcast Hosting</a><a id='cstrFreePlayerBL2' href='//www.caster.fm/'>Radio Stream Hosting</a>
+  <div id='cstrFreePlayerDiv'></div>
+            </div>
+
+</header>
+
+
 <style>
 .canvas {
 
@@ -54,24 +75,37 @@
 
 }
 
+.container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
 
-</style><br><p>
-<div class="top-container">
-<div class="overlay-xray">
-     <iframe width="1200" height="800" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+<div class="container">
+<div class="overlay-xray"</div>
+  <iframe class="responsive-iframe" src="https://www.youtube.com/embed/ICmWwxaTmB8?controls=0autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" ></iframe>
+</div>
 
 
 
-<div class="flex-container">
-
-           <h1>Inoculate Radio</h1>
 
            <style>
      h1 {
 	display: inline;
 	position: absolute;
-  font-family: 'Merienda One', cursive;
+  font-family: Philosopher, Sans-Serif;
   color: rgba(01,01,01,0.8);
 	font-size: 4vw;
 	letter-spacing: 2px;
@@ -118,7 +152,7 @@ h1:after {
   font-size: 30px;
 }
 .flex-container {
-background-color: #fad13c;
+background-color: #723cfa;
   margin: 10px;
   text-align: center;
   line-height: 75px;
@@ -190,6 +224,7 @@ background-color: #fad13c;
  .overlay-xray {
     position: absolute;
     margin: 0 auto;
+    width=100%;
     z-index: -7;
     opacity:.7;
 }
@@ -256,7 +291,7 @@ background-color: #fad13c;
 
  <DIV CLASS="CANVAS">
  <video autoplay muted loop width="100%" position="absolute">
-  <source src="./assets/video/ball.mp4" type="video/mp4">
+  <source src="" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 <script type="text/javascript">var cstruid = 551150;var cstrdark = "TRUE";</script>
