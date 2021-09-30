@@ -45,12 +45,14 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
+
+<div class="flex-container-head-2">
+ <div><img src="https://inoculate.media/assets/images/banner_short.png"> </img>
+ </div></div>
+
 </head>
 <header>
   <div class="row" class="Flex">
-
-    <div class="col-md">
- <div><img src="https://inoculate.media/assets/images/banner_short.png" </img>
 <div class="col-md">
     <script type='text/javascript'>
 var cstrFreePlayerUid = 551150;var cstrFreePlayerTheme = 'blue';var cstrFreePlayerColor = '';
@@ -71,24 +73,10 @@ var cstrFreePlayerUid = 551150;var cstrFreePlayerTheme = 'blue';var cstrFreePlay
     </div>
 
 </header>
-<div class="flex-container-head">
-<div><img src="https://inoculate.media/assets/images/gif/pyramid.gif" width="30%" height="30%" class="center" position="absolute"<p>
-</div></div>
-
-<div class="flex-container-head-2">
- <div><img src="https://inoculate.media/assets/images/gif/recycle.gif" width="30%" height="30%" opacity=".3" class="center"><p>
-</div></div>
 <style>
 
-.canvas {
 
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: white;
-  z-index: -1;
 
-}
 .center {
   display: block;
   margin-left: auto;
@@ -169,43 +157,25 @@ background-color: #723cfa;
 
 }
 .flex-container-head {
-  margin: 10px;
-  position: fixed;
-  text-align: center;
-  line-height: 75px;
-  font-size: 30px;
+ position: relative;
   width: 100%;
   margin: 10px;
   text-align: center;
   justify-content: center;
   height: 80px;
-  z-index: 5;
+    z-index: 5;
 }
 
 .flex-container-head > div {
-  background-color: #fad13c
-  width: 200px;
-  margin: 10px;
- text-align: center;
-  line-height: 75px;
-  font-size: 30px;
-
-  margin: 2px
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  opacity: .4;
-  z-index: 5;
+  position: absolute;
+        top: 0px;
+        right: 0px;
+  z-index= 5;
 
 }
 
 .flex-container-head-2 {
-  margin: 10px;
-  position: absolute;
-  text-align: center;
-  line-height: 75px;
-  font-size: 30px;
+  position: relative;
   width: 100%;
   margin: 10px;
   text-align: center;
@@ -216,19 +186,28 @@ background-color: #723cfa;
 }
 
 .flex-container-head-2 > div {
-  background-color: #fad13c
-  width: 200px;
-  margin: 10px;
- text-align: center;
-  line-height: 75px;
-  font-size: 30px;
+  position: absolute;
+        top: 0px;
+        right: 0px;
+  z-index= -5;
 
-  margin: 2px
+}
+
+.flex-container-head-3 {
+ position: relative;
+  width: 100%;
+  margin: 10px;
   text-align: center;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  z-index= 5;
+  justify-content: center;
+  height: 80px;
+
+}
+
+.flex-container-head-3 > div {
+  position: absolute;
+        top: 0px;
+        left: 10px;
+
 
 }
 #container-footer {
@@ -240,7 +219,6 @@ background-color: #723cfa;
   z-index= 5;
 
 }
-
 
 
 .container-footer > div {
@@ -264,12 +242,11 @@ background-color: #723cfa;
 
 .flex-container-logo {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   align-items: stretch;
   margins: 100px;
-  align-content: space-between;
+  align-content: center;
   align-items: baseline;
 
 
