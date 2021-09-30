@@ -53,8 +53,7 @@
 </head>
 <header>
 </header>
-  <div class="row" class="Flex">
-<div class="col-md">
+<span class="inlne">
     <script type='text/javascript'>
 var cstrFreePlayerUid = 551150;var cstrFreePlayerTheme = 'blue';var cstrFreePlayerColor = '';
 </script>
@@ -62,7 +61,7 @@ var cstrFreePlayerUid = 551150;var cstrFreePlayerTheme = 'blue';var cstrFreePlay
  <!--   DO NOT REMOVE THE LINKS BELOW, THEY  WILL BE HIDDEN (AND WILL HELP US A LOT)   -->
  <a id='cstrFreePlayerBL1' href='//www.caster.fm/'>Free Shoutcast Hosting</a><a id='cstrFreePlayerBL2' href='//www.caster.fm/'>Radio Stream Hosting</a>
   <div class="player">
-  <div id='cstrFreePlayerDiv'></div>></div>
+  <div id='cstrFreePlayerDiv'></div></div></span>
 
 
     <div class="col-sm">
@@ -76,9 +75,14 @@ var cstrFreePlayerUid = 551150;var cstrFreePlayerTheme = 'blue';var cstrFreePlay
 
 
 <style>
+.inline-element {
+  display: inline;
+  width: 1000px; /* ❌ won't have any effect */
+  height: 1000px; /* ❌ won't have any effect */
+}
 
 .player {
-display: inline-block;
+display: inline;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
