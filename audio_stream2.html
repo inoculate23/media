@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Primary Meta Tags -->
+<meta name="title" content="Inoculate Media - Color Technology and Streaming Solutions">
+<meta name="description" content="We have been geeking on color technology for over 30 years and have worked with folks from Pixar, Olympus, Industrial Light and Magic, Canon, Sony">
+<meta name="keywords" content="codec,av1,transcoding,mux,streaming,webrtc,video conference,chat,video,services,vancouver,canada">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<meta name="author" content="Craig Ellenwood">
+<meta name="contact" content="craig@i4foundation.ca">
+<meta name="revisit-after" content="7">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:title" content="Inoculate Radio">
+<meta property="og:site_name" content="Inoculate Media">
+<meta property="og:url" content="http://inoculate.media">
+<meta property="og:description" content="We have been geeking on color technology for over 30 years and have worked with folks from Pixar, Olympus, Industrial Light and Magic, Canon, and Sony.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="http://inoculate.media/assets/images/File_000.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@inoculatemedia">
+<meta name="twitter:title" content="Inoculate Radio">
+<meta name="twitter:description" content="We have been geeking on color technology for over 30 years and have worked with folks from Pixar, Olympus, Industrial Light and Magic, Canon, Sony.">
+<meta name="twitter:image" content="http://inoculate.media/assets/images/File_000.png">
+    <link rel="stylesheet" href="https://steamystreams.com/assets/CSS/shorthand.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:200,300,400,500,600,700,800,900&display=swap" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Philosopher&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet" type="text/css"/>
+</head>
+<header>
+
+<div class="top-container">
+ <h1>Inoculate Radio</h1>
+</header>
+<style>
+.canvas {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  opacity: .2;
+  z-index: -10;
+
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+
+
+
+
+
+           <style>
+     h1 {
+	display: inline;
+	position: absolute;
+  font-family: Philosopher, Sans-Serif;
+  color: rgba(01,01,01,0.8);
+	font-size: 4vw;
+	letter-spacing: 2px;
+
+}
+
+     h4 {
+  font-family: 'Merienda One', cursive;
+  color: rgba(255,250,0);
+
+}
+h1:after {
+	content:
+	position: absolute; left: 10px; top: 5px;
+	color: rgba(20,199,130,0.8);
+}
+              h3 {
+	display: inline;
+	position: relative;
+	font-family: Philosopher, Sans-Serif;
+    color: rgba(200,200,200,0.5);
+    font-size: 5vw;
+	letter-spacing: 1px;
+
+}
+
+
+.top-container {
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+    margin: 0 auto;
+     flex-direction: row;
+  align-items: stretch;
+
+}
+
+
+.flex-container > div {
+  background-color: #fad13c
+  width: 100px;
+  margin: 10px;
+
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+.flex-container {
+background-color: #723cfa;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+
+   width: 100%;
+  margin: 10px;
+  text-align: center;
+  justify-content: center;
+  height: 80px;
+
+}
+#container-footer {
+  margin: 2px
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+
+}
+
+.container-footer > div {
+  margin: 10px;
+  padding: 10px;
+  flex-direction: row;
+
+}
+
+.flex-container-player {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   align-content: space-between;
+   align-items: baseline;
+
+
+}
+
+.flex-container-logo {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  margins: 100px;
+  align-content: space-between;
+  align-items: baseline;
+
+
+}
+
+.flex-container-ot {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  justify-content: center;
+
+}
+.overlay {
+    position: absolute;
+    margin: 0 auto;
+    z-index: 2;
+
+}
+ .overlay-xray {
+    position: absolute;
+    margin: 0 auto;
+    width=100%;
+    z-index: -7;
+    opacity:.7;
+}
+
+ .overlay-player {
+    position: absolute;
+    margin: 0 auto;
+    z-index: 7;
+    opacity:.7;
+}
+ .myButton {
+	-moz-box-shadow: 0px 10px 14px -7px #276873;
+	-webkit-box-shadow: 0px 10px 14px -7px #276873;
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #599bb3), color-stop(1, #408c99));
+	background:-moz-linear-gradient(top, #599bb3 5%, #408c99 100%);
+	background:-webkit-linear-gradient(top, #599bb3 5%, #408c99 100%);
+	background:-o-linear-gradient(top, #599bb3 5%, #408c99 100%);
+	background:-ms-linear-gradient(top, #599bb3 5%, #408c99 100%);
+	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#408c99',GradientType=0);
+	background-color:#599bb3;
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:19px;
+	font-weight:bold;
+	padding:12px 13px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #408c99), color-stop(1, #599bb3));
+	background:-moz-linear-gradient(top, #408c99 5%, #599bb3 100%);
+	background:-webkit-linear-gradient(top, #408c99 5%, #599bb3 100%);
+	background:-o-linear-gradient(top, #408c99 5%, #599bb3 100%);
+	background:-ms-linear-gradient(top, #408c99 5%, #599bb3 100%);
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#599bb3',GradientType=0);
+	background-color:#408c99;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+</style>
+</head>
+<body class="bg-black muli">
+    <!-- hero section -->
+    		 	 	<link rel="stylesheet" type="text/css" media="screen" href="//cdn.caster.fm/0070B7/userpage/stylesheets/style.css" />
+
+        <link href='//fonts.googleapis.com/css?family=Droid+Sans:regular,bold' rel='stylesheet' type='text/css' />
+        <!-- IE HACKS -->
+                <!--[if IE]><link rel="stylesheet" type="text/css" href="//cdn.caster.fm/0070B7/userpage/stylesheets/ie.css" /><![endif]-->
+        <!--[if IE 7]> <link href="//cdn.caster.fm/0070B7/userpage/stylesheets/fuckie.css" rel="stylesheet" type="text/css"> <![endif]-->
+        <!--[if IE]> <style type="text/css"> #promo p {color:#999 !important;}.userpage_nav_title {color:#999 !important;}</style>  <![endif]-->
+		<!-- /IE HACKS -->
+
+		<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.caster.fm/0070B7/userpage/stylesheets/dark.css" />
+		           		<link href="https://corscdn.caster.fm/jp/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
+                <title>Inoculate Radio</title>
+        <script type="text/javascript">
+		<!--
+ 				 if( (self.parent && !(self.parent===self))
+    &&(self.parent.frames.length!=0)){
+    self.parent.location=document.location
+}
+		//-->
+		</script>
+
+    </head>
+    <body   class="bdark" style='background: url("//cdn.caster.fm/0070B7/userpage/img/bg_custom.gif") repeat-x scroll 0 0 #000000!important;'>
+        <div style='display:none' id='sbbhscc'></div>
+          <script type="text/javascript">
+            var sbbvscc='';
+            var sbbgscc='';
+            function genPid() {return String.fromCharCode(100)+String.fromCharCode(107) ; };
+          </script>
+        <div id='sbbfrcc' style='position: absolute; top: -10px; left: 30px; font-size:1px'></div>
+  <script type="text/javascript">(function(XHR){var open=XHR.prototype.open;var send=XHR.prototype.send;var parser=document.createElement('a');XHR.prototype.open=function(method, url, async, user, pass){if(typeof async=='undefined'){async=true;}parser.href=url;if(parser.host==''){parser.href=parser.href;}this.ajax_hostname=parser.hostname;open.call(this, method, url, async, user, pass);};XHR.prototype.send=function(data){if(location.hostname==this.ajax_hostname)this.setRequestHeader("X-MOD-SBB-CTYPE", "xhr");send.call(this, data);}})(XMLHttpRequest);if(typeof(fetch)!="undefined"){var nsbbfetch=fetch;fetch=function(url, init){if(typeof(url)==="object" && typeof(url.url)==="string"){init={method: url.method, mode: url.mode, cache: url.cache, credentials: url.credentials, headers: url.headers, body: url.body};url=url.url;}function sbbSd(url, domain){var parser=document.createElement('a');parser.href=url;if(parser.host==''){parser.href=parser.href;}return parser.hostname==location.hostname;}if(sbbSd(url, document.domain)){init=typeof init !=='undefined' ? init :{};if(typeof(init.headers)==="undefined"){init.headers={};}init.headers['X-MOD-SBB-CTYPE']='fetch';}return nsbbfetch(url, init);};}function sbbgc(check_name){var start=document.cookie.indexOf(check_name+"=");var oVal='';var len=start+check_name.length+1;if((!start)&&(document.cookie.substring(0,check_name.length)!=check_name)){oVal='';}else if(start==-1){oVal='';}else{var end=document.cookie.indexOf(';',len);if(end==-1)end=document.cookie.length;var oVal=document.cookie.substring(len,end);};return oVal;}function addmg(inm,ext){var primgobj=document.createElement('IMG');primgobj.src=window.location.protocol+"//"+window.location.hostname+(window.location.port && window.location.port!=80 ? ':'+window.location.port: '')+"/sbbi/?sbbpg="+inm+(ext?"&"+ext:"");var sbbDiv=document.getElementById('sbbfrcc');sbbDiv.appendChild(primgobj);};function addprid(prid){var oldVal=sbbgc("PRLST");if((oldVal.indexOf(prid)==-1)&&(oldVal.split('/').length<5)){if(oldVal!=''){oldVal+='/';}document.cookie='PRLST='+oldVal+escape(prid)+';path=/; SameSite=Lax;';}}var sbbeccf=function(){this.sp3="jass";this.sf1=function(vd){return sf2(vd)+32;};var sf2=function(avd){return avd*12;};this.sf4=function(yavd){return yavd+2;};var strrp=function(str, key, value){if(str.indexOf('&'+key+'=')> -1 || str.indexOf(key+'=')==0){var idx=str.indexOf('&'+key+'=');if(idx==-1)idx=str.indexOf(key+'=');var end=str.indexOf('&', idx+1);var newstr;if(end !=-1)newstr=str.substr(0, idx)+str.substr(end+(idx ? 0 : 1))+'&'+key+'='+value;else newstr=str.substr(0, idx)+'&'+key+'='+value;return newstr;}else return str+'&'+key+'='+value;};var strgt=function(name, text){if(typeof text !='string')return "";var nameEQ=name+"=";var ca=text.split(/[;&]/);for(var i=0;i < ca.length;i++){var c=ca[i];while(c.charAt(0)==' ')c=c.substring(1, c.length);if(c.indexOf(nameEQ)==0)return c.substring(nameEQ.length, c.length);}return "";};this.sfecgs={sbbgh:function(){var domain=document.location.host;if(domain.indexOf('www.')==0)domain=domain.replace('www.', '');return domain;}, f:function(name, value){var fv="";if(window.globalStorage){var host=this.sbbgh();try{if(typeof(value)!="undefined")globalStorage[host][name]=value;else{fv=globalStorage[host][name];if(typeof(fv.toString)!="undefined")fv=fv.toString();}}catch(e){}}return fv;}, name:"sbbrf"};this.sfecls={f:function(name, value){var fv="";try{if(window.localStorage){if(typeof(value)!="undefined")localStorage.setItem(name, value);else{fv=localStorage.getItem(name);if(typeof(fv.toString)!="undefined")fv=fv.toString();}}}catch(e){}return fv;}, name:"sbbrf"};this.sbbcv=function(invl){try{var invalArr=invl.split("-");if(invalArr.length>1){if(invalArr[0]=="A"||invalArr[0]=="D"){invl=invalArr[1];}else invl="";}if(invl==null||typeof(invl)=="undefined"||invl=="falseImgUT"||invl=="undefined"||invl=="null"||invl!=encodeURI(invl))invl="";if(typeof(invl).toLowerCase()=="string")if(invl.length>20)if(invl.substr(0,2)!="h4")invl="";}catch(ex){invl="";}return invl;};this.sbbsv=function(fv){for(var elm in this){if(this[elm].name=="sbbrf"){this[elm].f("altutgv2",fv);}}document.cookie="UTGv2="+fv+';expires=Tue, 29-Mar-22 03:53:41 GMT;path=/; SameSite=Lax;';};this.sbbgv=function(){var valArr=Array();var currVal="";for(var elm in this){if(this[elm].name=="sbbrf"){currVal=this[elm].f("altutgv2");currVal=this.sbbcv(currVal);if(currVal!="")valArr[currVal]=(typeof(valArr[currVal])!="undefined"?valArr[currVal]+1:1);}}var lb=0;var fv="";for(var val in valArr){if(valArr[val]>lb){fv=val;lb=valArr[val]}}if(fv=="")fv=sbbgc("UTGv2");fv=this.sbbcv(fv);if(fv!="")this.sbbsv(fv);else this.sbbsv("D-h4863577a6ab22b0b7f397c9d50c69ae3987");return fv;};};function m2vr(m1,m2){var i=0;var rc="";var est="ghijklmnopqrstuvwyz";var rnum;var rpl;var charm1=m1.charAt(i);var charm2=m2.charAt(i);while(charm1!=""||charm2!=""){rnum=Math.floor(Math.random()* est.length);rpl=est.substring(rnum,rnum+1);rc+=(charm1==""?rpl:charm1)+(charm2==""?rpl:charm2);i++;charm1=m1.charAt(i);charm2=m2.charAt(i);}return rc;}function sbbls(prid){try{var eut=sbbgc("UTGv2");window.sbbeccfi=new sbbeccf();window.sbbgs=sbbeccfi.sbbgv();if(eut!=sbbgs && sbbgs!="" && typeof(sbbfcr)=="undefined"){addmg('utMedia',"vii="+m2vr("e52597a31b96cf648ca949fa187b8afb",sbbgs));}var sbbiframeObj=document.createElement('IFRAME');var dfx=new Date();sbbiframeObj.id='SBBCrossIframe';sbbiframeObj.title='SBBCrossIframe';sbbiframeObj.tabindex='-1';sbbiframeObj.lang='en';sbbiframeObj.style.visibility='hidden';sbbiframeObj.setAttribute('aria-hidden', 'true');sbbiframeObj.style.border='0px';if(document.all){sbbiframeObj.style.position='absolute';sbbiframeObj.style.top='-1px';sbbiframeObj.style.height='1px';sbbiframeObj.style.width='28px';}else{sbbiframeObj.style.height='1px';sbbiframeObj.style.width='0px';}sbbiframeObj.scrolling="NO";sbbiframeObj.src=window.location.protocol+"//"+window.location.hostname+(window.location.port && window.location.port!=80 ? ':'+window.location.port: '')+'/sbbi/?sbbpg=sbbShell&gprid='+prid + '&sbbgs='+sbbgs+'&ddl='+(Math.round(dfx.getTime()/1000)-1632974021)+'';var sbbDiv=document.getElementById('sbbfrcc');sbbDiv.appendChild(sbbiframeObj);}catch(ex){;}}try{var y=unescape(sbbvscc.replace(/^<\!\-\-\s*|\s*\-\->$/g,''));document.getElementById('sbbhscc').innerHTML=y;var x=unescape(sbbgscc.replace(/^<\!\-\-\s*|\s*\-\->$/g,''));}catch(e){x='function genPid(){return "jser";}';}try{if(window.gprid==undefined)document.write('<'+'script type="text/javascri'+'pt">'+x+"var gprid=genPid();addprid(gprid);sbbls(gprid);<"+"/script>");}catch(e){addprid("dwer");}</script>
+        <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=166311660064610";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+        <div class="wrap">
+            <div id="menu_user" >
+
+            	<div class="sharebuttons">
+            	<div class="fb-like" data-href="http://inoculate.caster.fm" data-width="450" data-layout="button_count" data-show-faces="false" data-send="true"></div>
+            	<a href="https://twitter.com/share" class="twitter-share-button" data-url="//inoculate.caster.fm">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            	</div>
+
+
+                <ul class="userpage_nav_title" style="overflow: hidden;float:left;font-size: 14px;color: #F4F4F4;text-shadow: #1C4D5E 1px 1px 1px; font-weight: bold;"><li>Next Broadcast:   -  </li>  </ul>
+
+
+
+            </div>
+
+            <div style="clear:both;" id="logo">
+                 <h1 class="logoimg" style='width: 700px !important;  height: 200px !important; background: url("images/user_logo/user_logo_id_551150.jpg") repeat scroll center center transparent!important; margin-top:10px !important; margin-bottom:15px !important;'> <a href="//www.caster.fm">Free Shoutcast - Free Internet Radio</a></h1>
+
+            </div>
+
+    <div id="left" style="">
+      <h2><span class="micon-mic-2"  style="padding-right: 15px;margin-left: 5px;"></span>Inoculate Radio
+
+
+      			      	<span id="playerset2" title="Player Settings" class="micon-settings upsp-mainbutt " style="float:right;margin-right: 6px;">
+ 		<span style="width:1px;text-indent: -9999999px;position: absolute;" class="">Player Settings</span>
+		</span>
+
+
+		<span href="#player_links_cont" rel="player_links_cont" id="players_toggle" class="upsp-tooltipB micon-play-2 upsp-mainbutt "  title=" Tune In With Your Media Player"style=" font-size: 24px;margin-right: 11px;margin-top: -1px;float:right;">
+ 		<span style="width:1px;text-indent: -9999999px;position: absolute;" class=""> Tune In With Your Media Player</span>
+		</span>
+
+		<span href="#embed" rel="embed" id="embed_toggle" class="upsp-tooltipB micon-code upsp-mainbutt "  title="Get Embed Code"style=" font-size: 24px;margin-right: 11px;margin-top: -1px;float:right;">
+ 		<span style="width:1px;text-indent: -9999999px;position: absolute;" class="">Embed</span>
+		</span>
+
+
+
+</h2>
+
+<div style="padding-left:10px;text-align: center;padding-bottom: 5px;">
+
+
+
+</div>
+
+
+                       <div style="">
+                       <div  style="display:block;width:538px;height:200px;border: 6px solid #E1E1E1;" class='border_radi jp-jplayer' id="player">
+                       	<div id="player_inner"></div>
+
+
+
+		</div>
+
+
+                        <div class="boxe  border_radi">
+                           <div id="jp_container_1" style='' class="jp-audio">
+			<div class="jp-type-single">
+				<div class="jp-gui jp-interface">
+					<ul class="jp-controls">
+						<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+						<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+						<li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+						<li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+						<li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+						<li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+					</ul>
+					<div class="jp-progress">
+						<div class="jp-seek-bar">
+							<div class="jp-play-bar"></div>
+						</div>
+					</div>
+					<div class="jp-volume-bar">
+						<div class="jp-volume-bar-value"></div>
+					</div>
+					<div class="jp-time-holder">
+						<div class="jp-current-time"></div>
+						<div class="jp-duration"></div>
+
+						<ul class="jp-toggles">
+							<li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
+							<li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="jp-no-solution" style='border:0px!important;left:40%;'>
+					<span>Html5 Player Not Supported</span>
+					This Method is not supported by your browser, Please select another player type.
+				</div>
+			</div></div>
+			</div>
+
+
+                </div>
+
+                <p style="margin-top:10px;" class="subtitle">Electronic </p>
+                 <!-- google_ad_section_start -->
+                 <div class="maintext">
+         <p>From Vancouver BC Canada, it's <strong>Inoculate Radio by Inoculate Media.</strong></p><p>Inoculate Media is a core module of The i4 Foundation, an organization that strives to create positive change in the post-pandemic world.<br />
+https://inoculate.media</p><p>If you would like to host a show on our station, reach out to us.</p>
+         </div>
+       <!-- google_ad_section_end -->
+       <div class="maintext_cl upsp-tooltipB" title="Show More/Less">
+       <div class="maintext_cld"  data-tooltip="Hide expanded content" aria-label="Hide expanded content" >
+       <img class="maintext_cldi" src="//cdn.caster.fm/0070B7/userpage/img/cleardot.gif" >
+       </div>
+       </div>
+
+                             <!--
+
+                       -->
+
+
+
+
+                        <!--   ############    ***************      AUTH REQ  Block  START     ******************        ############## -->
+
+                     <!--   ############    ***************      AUTH REQ  Block  END     ******************        ############## -->
+
+
+                          <br style="clear:both;" />
+
+
+
+<div id="blocks_conteiner">
+
+<div id="embed" style="display:none">
+<h2><span class="micon-code"  style="padding-right: 15px;margin-left: 5px;"></span>Embedded Player Code</h2>
+<div class="boxe form_class form">
+            <p class="wall_messagebit" style="min-height:0px !important; font-weight:normal;text-align:center;">Copy and paste the following code where you want the player to be displayed</p>
+            <div style=" text-align: left;font-size: 13px;">
+
+            <textarea id="em_code" readonly="readonly" style="float:none;width: 93%;height: 140px;" onclick="this.select();" ><script type="text/javascript">var cstrFreePlayerUid = 551150;var cstrFreePlayerTheme = "yellow";var cstrFreePlayerColor = "";</script>
+<script type="text/javascript" src="https://corscdn.caster.fm/freeplayer/FreePlanPlayerEmbed.js"></script>
+<!--   DO NOT REMOVE THE LINKS BELOW, THEY  WILL BE HIDDEN (AND WILL HELP US A LOT)   -->
+<a id="cstrFreePlayerBL1" href="//www.caster.fm/">Free Shoutcast Hosting</a><a id="cstrFreePlayerBL2" href="https://www.caster.fm/">Radio Stream Hosting</a>
+<div id="cstrFreePlayerDiv"></div></textarea>
+ 			<div style="clear:both;"></div>
+            </div>
+    </div>
+</div>
+
+<!--   ############    ***************      Players Links Overlay Cont      ******************        ############## -->
+<div id="player_links_cont" style="display:none">
+<h2><span class="micon-play-2"  style="padding-right: 15px;margin-left: 5px;"></span>Tune In With Your Media Player</h2>
+<div class="boxe form_class form">
+        <div id="players_links_real" >
+            <p class="wall_messagebit" style="min-height:0px !important; font-weight:bold;text-align:center;"> Tune-In Links Are Unique to You, You Cannot Share These Links.</p>
+            <div style="border: 0px none; text-align: center;">
+                <div style="padding-left:100px;">
+               <a style="text-indent: -99999px;float:left;" class="upsp-bg2 usps-wnmp_pls upsp-tooltip" rel="nofollow" href="players_links.php?server=shaincast.caster.fm&amp;port=17816&amp;auth=authndd0b658d947893402897b88066d348cc&amp;type=pls" title="Listen In Winamp"> Listen In Winamp PLS File</a>
+                <a  style="text-indent: -99999px;float:left;" class="upsp-bg2 usps-vlc_m3u upsp-tooltip"  rel="nofollow" href="players_links.php?server=shaincast.caster.fm&amp;port=17816&amp;auth=authndd0b658d947893402897b88066d348cc&amp;type=m3u"  title="Listen In VLC">    Listen In VLC M3U File    </a>
+
+                <a style="text-indent: -99999px;float:left;" class="upsp-bg2 usps-wmp upsp-tooltip" rel="nofollow"  href="players_links.php?server=shaincast.caster.fm&amp;port=17816&amp;auth=authndd0b658d947893402897b88066d348cc&amp;type=wpl"  title="Listen In Windows Media Player">  Listen In Windows Media Player   </a>
+                <a style="text-indent: -99999px;float:left;" class="upsp-bg2 usps-itunes upsp-tooltip" rel="nofollow"  href="players_links.php?server=shaincast.caster.fm&amp;port=17816&amp;auth=authndd0b658d947893402897b88066d348cc&amp;type=qtl"  title="Listen In Itunes/QuickTime">  Listen In Itunes/QuickTime   </a>
+
+                <a style="text-indent: -99999px;float:left;" class="upsp-bg2 usps-realp_ram upsp-tooltip" rel="nofollow"  href="players_links.php?server=shaincast.caster.fm&amp;port=17816&amp;auth=authndd0b658d947893402897b88066d348cc&amp;type=ram"  title="Listen In RealPlayer">  Listen In RealPlayer   </a>
+            </div>
+            <br class="clear" /><br />
+
+
+            </div>
+            <div style="text-align: center;padding-top:5px;margin-top:5px;border: 0px none; text-align: left;border-top:1px solid #B7DDF2;font-size: 13px;">
+               <p class="wall_messagebit" style="min-height:0px !important; font-weight:bold;text-align:center;"> Direct Link To Be Added Manualy</p>
+            <input type="text" value="http://shaincast.caster.fm:17816/listen.mp3?authndd0b658d947893402897b88066d348cc" size="80" readonly="readonly" style="float:none;width:500px;" onclick="this.select();" />
+
+            </div>
+        </div>
+    </div>
+</div>
+ <!--   ############    ***************    END  Players Links Overlay Cont      ******************        ############## -->
+
+
+    <!--   ############    ***************      WALL  Block  START     ******************        ############## -->
+
+
+    <div id="wall_block">
+        <h2><span class="micon-home-2"  style="padding-right: 15px;margin-left: 5px;"></span><span class="iehtwo" style="padding-left:0px;">Radio Dashboard</span>
+           </h2>
+
+        <div class="clear" ></div>
+
+
+<div id="caster_wall" class="wall_replica boxe" style="padding:10px; background-color:#ffffffad!important;">
+
+<div class="fb-like"  data-href="http://inoculate.caster.fm"  data-send="true" data-width="450" data-show-faces="true" data-font="segoe ui"  data-colorscheme="dark"   ></div>
+<br />
+<div class="fb-comments" data-href="inoculate.caster.fm" data-numposts="5" data-width="522"  data-colorscheme="dark"   ></div>
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+    <!--   ############    ***************      WALL  Block  END     ******************        ############## -->
+
+
+
+    <!--   ############    ***************      SONG REQ  Block  START     ******************        ############## -->
+
+        <!--   ############    ***************      SONG REQ  Block  END     ******************        ############## -->
+
+
+
+<!--   ############    ***************      YOUTUBE  Block  START     ******************        ############## -->
+<!--   ############    ***************      YOUTUBE  Block  END     ******************        ############## -->
+
+<!--   ############    ***************      PHOTOS  Block  START     ******************        ############## -->
+<!--   ############    ***************      PHOTOS  Block  END     ******************        ############## -->
+
+
+
+<!--   ############    ***************      CHAT  Block  START     ******************        ############## -->
+         <div id="livechat_block"  style="display: none;">
+     <h2><span class="micon-bubbles"  style="padding-right: 15px;margin-left: 5px;"></span>Live Chat</h2>
+    <div style="" id="chat_form" class="boxe form_class form">
+
+        <form style="padding: 1.5px;" id="chatform" method="post" action="#">
+            <fieldset>
+                <p class="subtitle" style="margin-bottom: 13px;"><a href="#" onclick="updateShoutbox();return false;" style="padding-right:10px;">Refresh</a>  The Chat May Cause the Broadcast Lag\Delay</p>
+
+                                                 <input onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;" style="width:90px;margin-bottom:0px;height:22px;" value="Name"  maxlength="25" type="text" id="chatname" />
+                <input onfocus="this.value='';" style="width:250px;margin-bottom:0px;height:22px;" value="Message"  maxlength="255" type="text" id="chatmessage" />
+
+                <button style="margin-left:10px;margin-top:0px;" value="Shout IT" id="chatsubmit" type="button">Shout IT !!!</button>
+                 <hr style="clear:both;margin-top:8px;margin-bottom:8px;" />
+                <div class="chat_content">
+
+                    <ul>
+                        <li>&nbsp;</li>
+                    </ul>
+                </div>
+
+
+                                <div class="spacer"></div>
+            </fieldset>
+        </form>
+
+    </div>
+    <div class="spacer" style="clear:both;"></div>
+    </div>
+    <!--   ############    ***************      CHAT  Block  END     ******************        ############## -->
+
+<!--   ############    ***************      Schedule  Block  START     ******************        ############## -->
+                                                 <div id="broadcaststimes_block"  style="display: none;">
+                        <h2><span class="micon-calendar"  style="padding-right: 15px;margin-left: 5px;"></span>Broadcast Schedule</h2>
+
+
+
+                        	                        	<div id="scedualbox" class="boxe">
+
+                        <div class="wall_eventbit" style="min-height:0px !important;text-align: center;font-weight: bold;">2021-09-29</div>
+
+                                                <div class="wall_messagebit" style="min-height:0px !important;">
+
+
+
+                        <div style="">Launch</div>
+                        <div style="font-weight: bold;"> 14:00  <div style="display:inline;font-weight: normal;">( 7 hours ago ) </div></div>
+                        <div style="clear;both;"></div>
+                        </div>
+
+
+
+                                             </div>
+
+                       </div>
+
+
+
+ <!--   ############    ***************      SCEDUAL  Block  END     ******************        ############## -->
+
+ </div>
+
+
+ <!--  IS PRV OK -->  <!--  IS PRV OK -->
+
+  </div>
+
+
+<!--   ############    ***************      SIdeBar Cont     ******************        ############## -->
+<div id="side" style='margin:0px;'>
+	<div id="sidesub" style="">
+
+    <!--   ############    ***************     Rating     ******************        ############## -->
+
+
+	<div title="Vote for Inoculate Radio" id="rank_up" style="float: left;vertical-align: middle;cursor: pointer;height: 12px!important;width: 12px!important;" class="navbut upsp-mainbutt upsp-tooltipB">
+	<a   class="micon-thumbs-up" style="font-size: 14px;" href="#" onclick="return false;"><span style="width:1px;text-indent: -9999999px;position: absolute;" class="">Vote for this radio station</span></a>
+	</div>
+
+
+
+    <div title="1 Voted for this radio" id="num_votes" style="float:left;margin-left:4px;padding:7px;padding-top:0px;height:24px;text-align:center;width: 131px;font-size: 16px;font-weight: bold;"  class="form_class  upsp-tooltip">
+        <div class="upsp-bg zero_star"></div><div class="upsp-bg zero_star"></div><div class="upsp-bg zero_star"></div><div class="upsp-bg zero_star"></div><div class="upsp-bg zero_star"></div>
+    </div>
+     <div id="current_locatime_cont" title="All Times are Set To America/Los_Angeles Timezone" style="text-align: center;font-weight: bold;font-size: 14px;padding-top:7px;float:right;color: #747474;font-family: 'Droid Sans',arial,serif;"  class="form_class  upsp-tooltip">
+      	<span style="" id="current_locatime"></span>
+	</div>
+
+
+<div style="clear:both;" ></div>
+
+
+    <!--   ############    ***************      Radio Status Block  START     ******************        ############## -->
+        <!--   ############    ***************      FLASH PLAYER  Block  START     ******************        ############## -->
+          <!--   If Bitrate Is Normal -->
+
+
+    <div id="listenings2" class="boxe form_class form" style="margin-top:6px;">
+
+        <form style="padding: 1.5px;" id="listening_ply" method="post" action="#">
+            <fieldset>
+                <div class="wall_eventbit" style="border: 0px none; text-align: center;">
+                 <div style="padding-top: 5px; font-weight: bold;"> LIVE BROADCAST !!!</div>
+                    Broadcast Started  7 hours ago <br /> Listeners:  <span id="listeners_cont">1</span>
+                    <div style="padding-top: 10px; font-weight: bold;">
+                        <div style="text-decoration: underline;">Now Playing:</div>
+                        <div style="font-weight: normal;" id="now_play_cont"></div>
+</div>
+
+<div style="padding-top: 10px; font-weight: bold;">
+                        <div style="text-decoration: underline;">Stream Info:</div>
+                        <div id="streaminfo_cont" style="font-weight: normal;">
+                        	<u>Title:</u> Inoculate Radio<br />
+                        	<u>Description:</u> Music and information for the post-pandemic world<br />
+                        	<u>Genre:</u> Techno<br />
+                        	<u>Website:</u> https://inoculate.media<br />
+                        	<u>Bitrate:</u> 128<br />
+
+                        </div>
+</div>
+
+                    <!-- ############ UPGRADE   ############### -->
+                </div>
+
+                <div class="spacer"></div>
+            </fieldset>
+        </form>
+
+    </div>
+
+<div style="clear:both;" ></div>
+
+       <!-- SERVER_STATUS !=0  AND != 1 -->
+        <!--   ############    ***************      FLASH PLAYER  Block  END     ******************        ############## -->
+
+    <div style="" id="main_buttons_wrap2">
+
+          <!--   ############    ***************      WALL  Block  START     ******************        ############## -->
+
+    <div  style="" title="Radio Dashboard" class="navbut upsp-mainbutt upsp-tooltipB">
+ <a   class="micon-home-2" href="#wall_block" ><span style="width:1px;text-indent: -9999999px;position: absolute;" class="">Radio Dashboard</span></a>
+  </div>
+
+    <!--   ############    ***************      WALL  Block  END     ******************        ############## -->
+
+    <!--   ############    ***************      SONG REQ  Block  START     ******************        ############## -->
+        <!--   ############    ***************      SONG REQ  Block  END     ******************        ############## -->
+
+        <!--   ############    ***************      PHOTOS  Block  START     ******************        ############## -->
+       <!--   ############    ***************      PHOTOS  Block  END     ******************        ############## -->
+
+
+
+    <!--   ############    ***************     VIDEOS  Block  START     ******************        ############## -->
+        <!--   ############    ***************      VIDEOS  Block  END     ******************        ############## -->
+
+
+    <!--   ############    ***************      CHAT  Block  START     ******************        ############## -->
+        <div title="Live Chat"  class="navbut upsp-mainbutt upsp-tooltipB">
+ <a   class="micon-bubbles" href="#livechat_block"><span style="width:1px;text-indent: -9999999px;position: absolute;" class="">Live Chat</span></a>
+  </div>
+        <!--   ############    ***************      CHAT  Block  END     ******************        ############## -->
+
+
+
+    <!--   ############    ***************     SCEDGUAL  Block  START     ******************        ############## -->
+        <div  title="Broadcasts Schedule" class="navbut upsp-mainbutt upsp-tooltipB">
+  <a   class="micon-calendar" href="#broadcaststimes_block"><span style="width:1px;text-indent: -9999999px;position: absolute;" class="">Broadcasts Schedule</span></a>
+</div>
+
+        <!--   ############    ***************      SCEDGUAL  Block  END     ******************        ############## -->
+
+
+
+</div> <!-- END BUTTONS WRAP -->
+
+<div style="clear:both;" ><br /></div>
+
+
+
+
+
+     <!--   ############    ***************      AD BLOCK  START     ******************        ##############
+        <div class="sidebar_ablock">
+    	<span class="ainner">advertisement</span>
+  <script type="text/javascript"><!--
+google_ad_client = "ca-pub-8564350834636168";
+/* Userpages_Side_WIDE */
+google_ad_slot = "1790158325";
+google_ad_width = 300;
+google_ad_height = 600;
+//--Q>            ######################### TO ACTIVATE REMOVE THE Q
+</script>
+<script type="text/javascript"
+src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+        </div>
+        <br />
+        <!--   ############    ***************      AD BLOCK END    ******************        ############## -->
+
+<div style='padding-top:0;clear:both;display:none;'>  <!--  YAHAV: DISABED THIS TO DIUSABLE THE BIG NASTY QUERY  -->
+	<h2 class="hititle" style="text-align:center;font-family: 'Droid Sans', Arial,Helvetica,sans-serif !important;"><span class="micon-tree" style="padding-top:1px;"></span><span class="iehtwo" style="padding-left:0px;text-align:center;">Similar Radio Stations:</span> </h2>
+	<div class="clear"></div>
+	      <div style="text-align: center;font-size: 15px;
+font-weight: bold;">None</div>
+
+
+</div>
+
+</div>
+<div class="adde_left" style="position: absolute;"> <span class="ainner" style='text-align:center;'>advertisement<span class='remad' style="display:none;float:right;margin-right:10px;font-weight:bold;font-size:14px;cursor:pointer;">X</span></span></div></div><div style="clear:both;"></div>
+<div class="sidebar_ablock bottomab" style="padding: 0;float:none;margin-bottom:20px;margin-top:25px;">
+             <span class="ainner">advertisement<span class='remad' style="display:none;float:right;margin-right:10px;font-weight:bold;font-size:14px;cursor:pointer;">X</span></span>
+
+ <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</div>
+
+
+
+
+<div id="ad_acord" style="clear:both;padding-bottom: 5px;">
+  <!--  <h3><a href="#">Related Ads</a></h3> -->
+    <div style="margin:0 auto;width:728px;">
+<input type="hidden" name="IL_IN_TAG" value="2"/>
+</div>
+
+</div>
+
+</div>
+
+
+<div id="promo" >
+    <div class="wrap">
+
+
+
+
+            <p style="padding-right:50px;float:right;"><a href="//www.caster.fm/"><img class="casterlogo" src="//cdn.caster.fm/0070B7/images/logo_small.png" alt="Powered by Caster.fm" /></a></p>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+ <script>
+if (!window.jQuery) {
+    document.write('<script src="https://cdn.caster.fm/0070B7/userpage/js/jquery.1.6.2.min.js"><\/script>');
+}
+</script>
+        <script type="text/javascript" src="https://cdn.caster.fm/0070B7/userpage/js/libs.min.js"></script>
+        <script type="text/javascript" src="https://cdn.caster.fm/0070B7/userpage/js/integ.js"></script>
+
+        <script type="text/javascript" src="https://corscdn.caster.fm/jp/jquery.jplayer.min.js"></script>
+   		<script type="text/javascript">
+var chatintvalid = 0;var yt_imported = 0;var pt_imported = 0;var scedual_scroll = 0;var fb_imported = 0;var tw_imported = 0;var bg_imported = 0;var last_played;var last_shout;
+var prv_ok=0;
+var isyoutube=0;
+var server_status=2;
+var listeners=1;
+var user_id = 551150;
+var shoutbox = 1;
+var token = "muke85ktkospj3fbk8gs00fqv5";
+var schedule= 1;
+var schedule_gtzero=0;
+var timezone_offset=-7;
+var allowed_vote=0;
+var votes = 1;
+var facebook_wall = 0;
+var twitter_wall = 0;
+var soundcloud_wall = 0;
+var blogger_wall = 0;
+var mixcloud_wall = 0;
+var spotify_wall = 0;
+var facebook_uid="";
+var facebook_access_token = "";
+var blogger_name = "";
+var ytname = "";
+var ytmethod = "";
+var isphotos = 0;
+var ptsource = "";
+var ptuser = "";
+var ptalbum = "";
+var song_request = 0;
+var playertype = "html5";
+var server_url = "shaincast.caster.fm";
+var server_port = "17816";
+var listener_auther = "authndd0b658d947893402897b88066d348cc";
+var podcasts = 0;
+var podcastsarray=new Array();
+var podcastsidx = 0;
+	schedule_gtzero = 1;  prv_ok = 1; var altad_side,wrapmargin,loff;
+</script>
+
+<script type="text/javascript" src="//cdn.caster.fm/0070B7/userpage/js/user.js"></script>
+
+
+<noscript>
+<p style="background:none repeat scroll 0 0 #B90A0A;
+   border-bottom:2px solid #FF2F2F;
+   border-top:2px solid #FF2F2F;
+   color:white;
+   font-size:15px;
+   font-weight:bold;
+   padding:5px 20px 5px 45px;
+   position:fixed;
+   text-align:left;
+   top:3px;
+   width:100%;
+   z-index:199;">
+    Please Enable Javascript For Full Functionality. </p>
+</noscript>
+
+ <div class="flex-container-logo">
+ <div class="flex flex-wrap">
+ <div> <h3>Related Projects (more info soon)</h3></div>
+  <div><img src="https://inoculate.media/assets/images/flow_banner2.jpg" width="100%" alt="flow realtime audio workow"></div>
+  <div><Img src="https://inoculate.media/assets/images/aurora.png" width="100%" alt="aurora"></div><br>
+</div></div>
+ </section>
+
+ <!-- footer -->
+    <footer class="p-5 md-p-l5 bg-indigo-lightest-10 white opacity-70 ">
+        <div class="flex flex-wrap">
+            <div class="white opacity-90 md-w-25pc mb-10">
+                <h3>Inoculate Media</h3>
+                <div class="white opacity-70 fs-s2 mt-4 md-pr-10">
+                    <img src="https://inoculate.media/assets/images/inoculate_325x325_trans.png" width="125px" Height="125px"></src>
+                </div>
+            </div>
+            <div class="w-100pc md-w-50pc">
+                <div class="flex justify-around">
+                    <div class="w-33pc md-px-10 mb-10">
+                        <h5 class="white">Company</h5>
+                        <ul class="list-none mt-5 fs-s2">
+                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">About
+                                    Us</a></li>
+                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">Jobs</a>
+                            </li>
+                            <li class="my-3"><a href="#"
+                                    class="white opacity-70 no-underline hover-underline">Contact</a></li>
+                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">Media</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-33pc md-px-10 mb-10">
+                        <h5 class="white">Product</h5>
+                        <ul class="list-none mt-5 fs-s2">
+                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">About
+                                    Us</a></li>
+                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">Jobs</a>
+                            </li>
+                            <li class="my-3"><a href="#"
+                                    class="white opacity-70 no-underline hover-underline">Contact</a></li>
+                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">Media</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-33pc md-px-10 mb-10">
+                        <h5 class="white">Support</h5>
+                        <ul class="list-none mt-5 fs-s2">
+                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">About
+                                    Us</a></li>
+                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">Jobs</a>
+                            </li>
+                            <li class="my-3"><a href="#"
+                                    class="white opacity-70 no-underline hover-underline">Contact</a></li>
+                            <li class="my-3"><a href="#" class="white opacity-70 no-underline hover-underline">Media</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100pc md-w-25pc">
+                <div class="flex w-75pc md-w-100pc mx-auto">
+                    <input type="text"
+                        class="input flex-grow-1 bw-0 fw-200 bg-indigo-lightest-10 white ph-indigo-lightest focus-white opacity-80 fs-s3 py-5 br-r-0"
+                        placeholder="Email Address">
+                    <button class="button bg-indigo indigo-lightest fw-300 fs-s3 br-l-0">Start</button>
+                </div>
+                <div class="flex justify-around my-8">
+                    <a href="#" class="relative p-5 bg-indigo br-round white hover-scale-up-1 ease-400"><i
+                            data-feather="twitter" class="absolute-center h-4"></i></a>
+                    <a href="#" class="relative p-5 bg-indigo br-round white hover-scale-up-1 ease-400"><i
+                            data-feather="facebook" class="absolute-center h-4"></i></a>
+                    <a href="#" class="relative p-5 bg-indigo br-round white hover-scale-up-1 ease-400"><i
+                            data-feather="instagram" class="absolute-center h-4"></i></a>
+
+  </div>
+
+
+
+     <style>
+       #snackbar {
+         visibility: hidden;
+         min-width: 400px;
+         margin-left: -125px;
+         background-color: #333;
+         color: rgb(134, 130, 130);
+         text-align: center;
+         border-radius: 12px;
+         padding: 12px;
+         position: sticky
+         position:
+         z-index: 1;
+         left: 50px;
+         bottom: 30px;
+         font-size: 17px;
+
+
+       }
+
+       #snackbar.show {
+         visibility: visible;
+         -webkit-animation: fadein .5, fadeout .5s .5s;
+         animation: fadein .5s, fadeout .5s .5s;
+       }
+
+       @-webkit-keyframes fadein {
+         from {bottom: 0; opacity: 0;}
+         to {bottom: 30px; opacity: 1;}
+       }
+
+       @keyframes fadein {
+         from {bottom: 0; opacity: 0;}
+         to {bottom: 30px; opacity: 1;}
+       }
+
+       @-webkit-keyframes fadeout {
+         from {bottom: 30px; opacity: 1;}
+         to {bottom: 0; opacity: 0;}
+       }
+
+       @keyframes fadeout {
+         from {bottom: 30px; opacity: 1;}
+         to {bottom: 0; opacity: 0;}
+       }
+
+       </style>
+
+
+
+       <h2>Snackbar / Toast</h2>
+       <button onclick="myFunction()">Grab a snack</button>
+       <div id="snackbar">
+         <element class="row">
+           <element class="col-3">
+             <element class="row aln-center">
+         <img src="https://inoculate.media/barons/assets/images/launch_900px.jpg" width="400px"><br></element>
+       <script>
+          function myFunction() {
+            var x = document.getElementById("snackbar")
+            x.classList.add("show");
+            setTimeout(function(){ x.className = x.className.replace("show", "media/assets/images/inoculate_325x325_trans.png"); }, 3000);
+        }
+       </script></element> </body>
+</section>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
