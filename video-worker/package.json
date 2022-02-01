@@ -1,0 +1,88 @@
+{
+  "_from": "video-worker",
+  "_id": "video-worker@1.1.17",
+  "_inBundle": false,
+  "_integrity": "sha512-36w0bumK2BYuFgYEXM1vD99qYEz5fkZEaPX3bSSJC6y0eoDGAApAq+ZN4gVd5ikZzHvQo+1YbepwzpLCGSZYuQ==",
+  "_location": "/video-worker",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "video-worker",
+    "name": "video-worker",
+    "escapedName": "video-worker",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/video-worker/-/video-worker-1.1.17.tgz",
+  "_shasum": "78b8104fe059daf014c7454772173ddd9e5ef606",
+  "_spec": "video-worker",
+  "_where": "/Users/craigellenwood",
+  "author": {
+    "name": "nK",
+    "email": "https://nkdev.info"
+  },
+  "bugs": {
+    "url": "https://github.com/nk-o/video-worker/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "global": "^4.4.0"
+  },
+  "deprecated": false,
+  "description": "API wrapper for Youtube, Vimeo and Self-Hosted videos",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/register": "^7.15.3",
+    "babel-loader": "^8.2.2",
+    "del": "^6.0.0",
+    "eslint-config-nk": "^0.0.20",
+    "gulp": "^4.0.2",
+    "gulp-header": "^2.0.9",
+    "gulp-if": "^3.0.0",
+    "gulp-load-plugins": "^2.0.7",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-watch": "^5.0.1",
+    "json-file": "^0.1.0",
+    "lint-staged": "^11.2.0",
+    "micromatch": "^4.0.4",
+    "simple-git-hooks": "^2.6.1",
+    "vinyl-named": "^1.1.0",
+    "webpack": "^5.57.1",
+    "webpack-stream": "^7.0.0"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "homepage": "https://github.com/nk-o/video-worker",
+  "keywords": [
+    "video",
+    "youtube",
+    "vimeo",
+    "api"
+  ],
+  "license": "MIT",
+  "main": "src/video-worker.esm.js",
+  "name": "video-worker",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nk-o/video-worker.git"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "js-lint": "eslint src/",
+    "js-lint-fix": "eslint --fix src/",
+    "update-git-hooks": "npx simple-git-hooks"
+  },
+  "version": "1.1.17"
+}
