@@ -83,7 +83,7 @@ function main() {
 
     const texture = initTexture(gl);
 
-    const video = setupVideo('https://inoculate.media/assets/images/inoculate_512.mp4');
+    const video = setupVideo('https://inoculate.media/player2/index_files/latex.mp4');
 
     var then = 0;
 
