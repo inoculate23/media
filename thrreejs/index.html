@@ -20,8 +20,8 @@
 	<body ontouchstart="">
 		<script type="module">
 
-			import * as THREE from './js/three.module.js';
-			import { APP } from './js/app.js';
+			import * as THREE from 'https://inoculate.media/threejs/js/three.module.js';
+			import { APP } from 'https://inoculate.media/threejs/js/three.module.js';
 			import { VRButton } from './js/VRButton.js';
 
 			window.THREE = THREE; // Used by APP Scripts.
@@ -46,7 +46,7 @@
 			} );
 
 			var button = document.createElement( 'a' );
-			button.href = 'https://threejs.org/editor/#file=' + location.href.split( '/' ).slice( 0, - 1 ).join( '/' ) + '/app.json';
+			button.href = 'https://threejs.org/editor/#file=' + location.href.split( '/' ).slice( 0, - 1 ).join( '/' ) + 'https://inoculate.media/threejs/app.json';
 			button.style.cssText = 'position: absolute; bottom: 20px; right: 20px; padding: 10px 16px; color: #fff; border: 1px solid #fff; border-radius: 20px; text-decoration: none;';
 			button.target = '_blank';
 			button.textContent = 'EDIT';
