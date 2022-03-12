@@ -11,15 +11,14 @@
 <meta name="language" content="English">
 <meta name="revisit-after" content="10 days">
 <meta name="author" content="Inoculate Media">
-
-
-
-
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap" rel="stylesheet">		
+		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap" rel="stylesheet">	
+        <script src="./index_files/gl-matrix-min.js" integrity="sha512-Nh4xnzEGCha5mEMQ3Z8kITDDOA+4uOmlfCccHxOdxpLnK+fWJSbF5uR+rZ+dHX6kgSH+tVl2cM6i65Ed5WtmyA==" crossorigin="anonymous" defer="">
+        </script>
+        <script src="https://inoculate.media/player/index_files/webgl-demo.js" defer=""></script>	
 		
 		<style>  
 		   html {
@@ -41,7 +40,13 @@
 	#top-right {
 		position:absolute;                 
 		top:0;                         
-		right:0;    
+		right:10px;    
+        z-index:30;                     
+	}
+    #top-right2 {
+		position:absolute;                 
+		top:20px;                         
+		right:130px;    
         z-index:30;                     
 	}
 
@@ -50,8 +55,8 @@
         position: absolute;
         font-family: 'Merienda One', cursive;
         color: rgba(43, 42, 43, 0.8);
-        font-size: 1.3vw;
-        letter-spacing: 1px;
+        font-size: 1.2vw;
+        letter-spacing: .8px;
     }
 
     h4 {
@@ -133,7 +138,7 @@
 
     .text-flex {
         width:20.8%;
-        margin-top:85px;
+        margin-top:35px;
         position:absolute;
         flex-direction:column;
         background-color:rgb(14, 135, 165);
@@ -141,6 +146,7 @@
         opacity:.8;
         
     }
+ 
 
    .modal-body {
         font-family: monospace;
@@ -161,8 +167,19 @@
         position: relative;
        
       }
+      #toggle2{
+        visibility: hidden;
+        opacity: 1;
+        position: relative;
+       
+      }
       
       #toggle:checked ~ dialog {
+        display: block;
+        
+      }
+
+      #toggle2:checked ~ dialog {
         display: block;
         
       }
@@ -193,9 +210,11 @@
 	  opacity:.3;
 
 	}
+  
 
 	</style>
 	</head>
+
 	<body>
         	<!-- Import maps polyfill -->
 		<!-- Remove this when import maps will be widely supported -->
@@ -230,7 +249,24 @@
 			<video width="180%" loop="true" autoplay="autoplay" muted><source src="textures/unplug.mp4" type="video/mp4"></video></div>
 
             <div class="text-flex"> <div class="modal-body"> <input type="checkbox" id="toggle">
-                <label for="toggle">Open Message</label>
+                <label for="toggle">Controls</label>
+                
+                <dialog >
+                  <p>
+                   
+                    <h1>How to use this</h1><br><br>
+                    -Works best on computer rather than phone.<br>
+                    -Music may not play the first time so let the 3d objects load, then hit refresh.<br>
+                    -Drag mouse or finger in background to rotate objects.<br>
+                    -Use scroll wheel or two finger gesture to zoom objects.<br>
+                    </p>
+                
+                  
+                  <label for="toggle">close</label>
+                </dialog></div>
+
+           <div class="modal-body"> <input type="checkbox"  id="toggle2">
+                <label for="toggle2">Open Message</label>
                 
                 <dialog >
                   <p>
@@ -250,11 +286,13 @@
                     Happy birthday Fred!<br> Cheers! Craig</h4>  </p>
                 
                   
-                  <label for="toggle">close</label>
+                  <label for="toggle2">close</label>
                 </dialog></div>
                 <div class="#bottom">
                     <video width="100%" source src="textures/feels.mp4" muted type="video/mp4" autoplay loop ></video>
-                </div></div>                <h3>Web gl innovations and design by<br> <a href="https://inoculate.media">Inoculate Media</a><br>
+                </div></div>                
+                <div id="top-right"><img src="https://inoculate.media/assets/images/inoculate.gif" width="110px" height="110px" alt="logo"></div>
+                <div id="top-right2">><h3>Web gl innovations and design by <a href="https://inoculate.media">Inoculate Media</a><br></h3></div>
 
                 </div></div>
         </body>
