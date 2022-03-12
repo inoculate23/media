@@ -49,9 +49,9 @@
         display: inline;
         position: absolute;
         font-family: 'Merienda One', cursive;
-        color: rgba(01, 01, 01, 0.8);
-        font-size: 4vw;
-        letter-spacing: 2px;
+        color: rgba(43, 42, 43, 0.8);
+        font-size: 1.3vw;
+        letter-spacing: 1px;
     }
 
     h4 {
@@ -144,11 +144,11 @@
 
    .modal-body {
         font-family: monospace;
-        font-size: 20px;
+        font-size: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
-        height:25vh;
+        height:42vh;
         margin-top:200;
         padding: 0;
         width: 80%;
@@ -164,18 +164,20 @@
       
       #toggle:checked ~ dialog {
         display: block;
+        
       }
       
       label{
         background: rgb(243, 188, 9);
         color: rgb(192, 12, 12);
-        padding: .3em .4em;
+        padding: 1em 1em;
         border-radius: 4px;
       
       }
 
 	  dialog  {
         animation: appear 350ms ease-in 1;
+        height:34vh;
         max-width: 500px;
       }
 	  .sketchfab-embed-wrapper  {
@@ -191,48 +193,15 @@
 	  opacity:.3;
 
 	}
-  #overlay {
-    position: absolute;
-    font-size: 16px;
-    z-index: 60;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background: rgba(146, 114, 114, 0.0);
-  }
-  
-    #overlay button {
-      background: transparent;
-      border: 0;
-      opacity: 0.0;
-      border: 1px solid rgb(255, 255, 255);
-      border-radius: 4px;
-      color: #ffffff;
-      padding: 12px 18px;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
-  
-        
-	  
+
 	</style>
-	
-
 	</head>
-
 	<body>
         	<!-- Import maps polyfill -->
 		<!-- Remove this when import maps will be widely supported -->
 		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
     <div id="container"></div>
-		<div id="overlay">
-			<button id="startplay">Play</button>
-		</div>
+		
     <script>
         var v = document.getElementById('startplay'; 'myVideo2');
         v.addEventListener(
@@ -264,10 +233,22 @@
                 <label for="toggle">Open Message</label>
                 
                 <dialog >
-                  <p></p>
-                    
-                    Happy birthday Fred!<br> Best, Craig</h4>  </p>
-                    
+                  <p>
+                   
+                    <h1>Index of /audio/sax</h1><br><br>
+                    <ul><li><a href="http://www.simongarcia.co.uk/audio/"> Parent Directory</a></li>
+                    <li><a href="http://www.simongarcia.co.uk/audio/sax/Anything_For_You.mp3"> Anything_For_You.mp3</a></li>
+                    <li><a href="http://www.simongarcia.co.uk/audio/sax/Careless_Whisper.mp3"> Careless_Whisper.mp3</a></li>
+                    <li><a href="http://www.simongarcia.co.uk/audio/sax/Closest_Thing_Crazy.mp3"> Closest_Thing_Crazy.mp3</a></li>
+                    <li><a href="http://www.simongarcia.co.uk/audio/sax/Crazy_Rhythm.mp3"> Crazy_Rhythm.mp3</a></li>
+                    <li><a href="http://www.simongarcia.co.uk/audio/sax/Forever_Love.mp3"> Forever_Love.mp3</a></li>
+                    <li><a href="http://www.simongarcia.co.uk/audio/sax/Let_There_Be_Love.mp3"> Let_There_Be_Love.mp3</a></li>
+                    <li><a href="http://www.simongarcia.co.uk/audio/sax/The_Rose.mp3"> The_Rose.mp3</a></li>
+                    <li><a href="Thttp://www.simongarcia.co.uk/audio/sax/The_Wind_Beneath_My_Wings.mp3"> The_Wind_Beneath_My_Wings.mp3</a></li>
+                    <li><a href="http://www.simongarcia.co.uk/audio/sax/When_I_Fall_In_Love.mp3"> When_I_Fall_In_Love.mp3</a></li>
+                    </ul>
+                    Happy birthday Fred!<br> Cheers! Craig</h4>  </p>
+                
                   
                   <label for="toggle">close</label>
                 </dialog></div>
