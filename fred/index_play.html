@@ -15,8 +15,10 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
-        		
+		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap" rel="stylesheet">	
+        <script src="./index_files/gl-matrix-min.js" integrity="sha512-Nh4xnzEGCha5mEMQ3Z8kITDDOA+4uOmlfCccHxOdxpLnK+fWJSbF5uR+rZ+dHX6kgSH+tVl2cM6i65Ed5WtmyA==" crossorigin="anonymous" defer="">
+        </script>
+		
 		<style>  
 		   html {
         overflow:auto;
@@ -139,7 +141,7 @@
         position:absolute;
         flex-direction:column;
         background-image:rgb(14, 135, 165);
-        z-index:19;
+        z-index:20;
         opacity:.8;
         
     }
@@ -154,8 +156,10 @@
         height:32vh;
         margin-top:200;
         padding: 0;
+        border:#ce1818
+        line-width:6px;
         width: 80%;
-        z-index:100;
+        z-index:5;
       }
 
       #toggle{
@@ -207,7 +211,9 @@
 	  opacity:.3;
 
 	}
-  
+    .play-toggle {
+        
+    }
 
 	</style>
 	</head>
@@ -217,29 +223,34 @@
 		<!-- Remove this when import maps will be widely supported -->
 		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
     <div id="container"></div>
-		
+    <div id="overlay">
+        <button id="play-toggle">Play</button>
+    </div>
     <script>
-        var v = document.getElementById('startplay'; 'myVideo2');
-        v.addEventListener(
-            'play', 
-            function() { 
-                v.play();
-            }, 
-            false);
-        
-        v.onclick = function() {
-            if (v.paused) {
-                v.play();
+        $('.play-toggle').click(function () {
+            if ($(this).hasClass('playvideo')) {
+               $(this).removeClass('playvideo');
+               $(this).find('.play').css({
+                "visibility": "hidden",
+               });
+               $(this).find('.pause').css({
+                "visibility": "visible",
+            });
             } else {
-                v.pause();
+               $(this).addClass('playvideo');
+               $(this).find('.play').css({
+                "visibility": "visible",
+               });
+               $(this).find('.pause').css({
+                "visibility": "hidden",
+               });
             }
-        
-            return false;
-        };
+        });
+       
     </script>
         <div id="myDIV">
 			<div id="myVideo2">
-				<video width="180%" loop="true" autoplay="autoplay" controls ><source src="textures/hbd_Cut.mp4" type="video/mp4"></video>
+				<video width="180%" loop="true" autoplay="autoplay" controls ><source src="textures/HBD_Cut.mp4" type="video/mp4"></video>
 			 </div>
              <div class="sketchfab-embed-wrapper"> <iframe title="Saxophone player in Kitano, Kobe" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="1920" height="1080" src="https://sketchfab.com/models/5d2b96f1795a48d1aa6ab55b85d41830/embed?autospin=1&autostart=1&transparent=1&ui_infos=0&ui_hint=0&dnt=1"> </iframe> </div>
           <div id="myVideo">
@@ -252,9 +263,10 @@
                   <p>
                    
                     <h1>How to use this</h1><br><br>
+                    -Click on background to start video.
                     -Works best on computer rather than phone.<br>
                     -Music may not play the first time so let the 3d objects load, then hit refresh.<br>
-                    -Go download some sax songs.<br>
+                   
                     </p>
                 
                   
@@ -282,14 +294,35 @@
                     Happy birthday Fred!<br> Cheers! Craig</h4>  </p>
                 
                   
-                  <label for="toggle2">close</label>
+         
                 </dialog></div>
                 <div class="#bottom">
-                    <img src="textures/panel.webp" width="120px" height="120px">
+                    <video width="100%" source src="textures/feels.mp4" muted type="video/mp4" autoplay loop ></video>
                 </div></div>                
                 <div id="top-right"><img src="https://inoculate.media/assets/images/inoculate.gif" width="110px" height="110px" alt="logo"></div>
                 <div id="top-right2"><h3>Web gl innovations and design by <a href="https://inoculate.media">Inoculate Media</a><br></h3></div>
 
                 </div></div>
+                <script>
+                    $('.play-toggle').click(function () {
+                        if ($(this).hasClass('playvideo')) {
+                           $(this).removeClass('playvideo');
+                           $(this).find('.play').css({
+                            "visibility": "hidden",
+                           });
+                           $(this).find('.pause').css({
+                            "visibility": "visible",
+                        });
+                        } else {
+                           $(this).addClass('playvideo');
+                           $(this).find('.play').css({
+                            "visibility": "visible",
+                           });
+                           $(this).find('.pause').css({
+                            "visibility": "hidden",
+                           });
+                        }
+                    });
+                </script>
         </body>
 </html>
