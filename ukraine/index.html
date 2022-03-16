@@ -12,9 +12,6 @@
 		</style>
 	</head>
 	<body>
-	<video id="video" loop crossOrigin="anonymous" playsinline style="display:none">
-			<source src="textures/hacker.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-		</video>
 
 		<!-- Import maps polyfill -->
 		<!-- Remove this when import maps will be widely supported -->
@@ -23,7 +20,7 @@
 		<script type="importmap">
 			{
 				"imports": {
-					"three": "../build/three.module.js"
+					"three": "https://inoculate.media/ukraine/build/three.module.js"
 				}
 			}
 		</script>
@@ -32,7 +29,7 @@
 
 			import * as THREE from 'three';
 
-			import Stats from './jsm/libs/stats.module.js';
+			import Stats from 'https://inoculate.media/ukraine/jsm/libs/stats.module.js';
 
 			let camera, scene, renderer, stats;
 			let cube, sphere, material;
