@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+
+	<head>	
+<!-- Primary Meta Tags -->
+<title>Happy Birthday and saxophones, Fred</title>
+<meta name="title" content="Happy Birthday and saxophones, Fred">
+<meta name="description" content="a web gl birthday card">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<meta name="revisit-after" content="10 days">
+<meta name="author" content="Inoculate Media">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="/js/gl-matrix-min.js" integrity="sha512-Nh4xnzEGCha5mEMQ3Z8kITDDOA+4uOmlfCccHxOdxpLnK+fWJSbF5uR+rZ+dHX6kgSH+tVl2cM6i65Ed5WtmyA==" crossorigin="anonymous" defer></script>
+
+
+		
+		<style>  
+		   html {
+        overflow:hidden;
+    }
+
+    a {
+      display: inline-block;
+    }
+    body {
+		background-color: black;
+	}
+
+	#bottom {
+		position:absolute;                 
+		bottom:0;                         
+		left:0;
+		background-color: #000000; 
+        z-index:40;                        
+	}
+
+	#top-right {
+		position:absolute;                 
+		top:0;                         
+		right:10px;    
+        z-index:30;                     
+	}
+    #top-right2 {
+		position:absolute;                 
+		top: 44px;                         
+		right:130px;    
+        z-index:30;                     
+	}
+
+    h1 {
+        display: inline;
+        position: absolute;
+        font-family: 'Merienda One', cursive;
+        color: rgba(43, 42, 43, 0.8);
+        font-size: 1.2vw;
+        letter-spacing: .8px;
+    }
+
+    h4 {
+        display: inline;
+        position: relative;
+        font-family: 'Quicksand', sans-serif;;
+        color: rgb(240, 175, 11);
+        font-size: 1.2vw;
+        letter-spacing: 1px;
+    }
+
+    h2 {
+        display: inline;
+        position: relative;
+        font-family: 'Quicksand', sans-serif;;
+        color: rgb(233, 139, 25);
+        font-size: 2.0vw;
+        letter-spacing: 1px;
+    }
+    
+	a {
+		color: hotpink;
+	  }
+    h3 {
+        display: inline;
+        position: relative;
+        font-family: 'Quicksand', sans-serif;;
+        color:rgb(233, 139, 25);
+        font-size: 1.5vw;
+        letter-spacing: 1px;
+    }
+    
+	#myDIV {
+		width:100%;
+		position:absolute;
+		height:100%;
+		background-color:#ce1818;
+        z-index:-60;
+	}
+
+	#myVideo {
+	position:absolute;
+	width:60%;
+	height: auto;
+	opacity:1!important;
+	z-index: -2;
+	}
+
+	#myVideo2 {
+		position:absolute;
+		width:100%;
+		height: auto;
+		opacity:.4!important;
+		z-index: 10;
+    tyle="padding:56.25% 0 0 0;position:absolute;
+		}
+
+    .video-container {
+        width:100%; /* this make container fluid*/
+        height:50%;
+        ;
+        background-color: rgb(34, 34, 34); /* this make content background-color*/
+        margin-right: auto; /* this make content center*/
+        margin-left: auto; /* this make content center*/
+        z-index:100;
+        }
+
+	.mygroup{
+	  width:30%;
+	  height:auto;
+	  display:flex;
+     flex-direction:column;
+	  position:absolute;
+	  background-color:yellow;
+	  border:3px solid;
+	  align-items:flex-start ;
+	  opacity:.5;
+	  z-index:8;
+	}
+
+    .text-flex {
+        width:20.8%;
+        margin-top:5px;
+        position:absolute;
+        flex-direction:column;
+        background-image:rgb(14, 135, 165);
+        z-index:20;
+        opacity:.8;
+        
+    }
+ 
+
+   .modal-body {
+        font-family: monospace;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height:32vh;
+        margin-top:200;
+        padding: 0;
+        border:#ce1818
+        line-width:6px;
+        width: 80%;
+        z-index:5;
+      }
+
+      #toggle{
+        visibility: hidden;
+        opacity: 1;
+        position: relative;
+       
+      }
+      #toggle2{
+        visibility: hidden;
+        opacity: 1;
+        position: relative;
+       
+      }
+      
+      #toggle:checked ~ dialog {
+        display: block;
+        
+      }
+
+      #toggle2:checked ~ dialog {
+        display: block;
+        
+      }
+      
+      label{
+        background: rgb(243, 188, 9);
+        color: rgb(192, 12, 12);
+        padding: 1em 1em;
+        border-radius: 4px;
+      
+      }
+
+	  dialog  {
+        animation: appear 350ms ease-in 1;
+        height:34vh;
+        max-width: 500px;
+      }
+	  .sketchfab-embed-wrapper  {
+		  position: absolute;
+		z-index:0;
+        opacity:1;
+
+	  }
+
+	  .sketchfab-embed-wrapper2  {
+		position: absolute;
+	  z-index:1;
+	  opacity:.3;
+
+	}
+    .play-toggle {
+        
+    }
+glcanvas  {
+z-index: 3;
+opacity:7;
+background-color: white;
+position: absolute;
+
+  
+}
+	</style>
+	</head>
+
+	<body>
+
+
+ 
+        	<!-- Import maps polyfill -->
+		<!-- Remove this when import maps will be widely supported -->
+		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+    <div id="container"></div>
+  
+
+    
+        <div id="myDIV">
+          <div id="myVideo2">
+       
+          <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/688643948?h=5bdb71303c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Happy Birthday To You!! _ Sax Latino House Party @Felicity saxophonist (1080p_25fps_H264-128kbit_AAC)"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>         </div>
+		
+          <div class="sketchfab-embed-wrapper"> <iframe title="Saxophone player in Kitano, Kobe" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="1920" height="1080" src="https://sketchfab.com/models/5d2b96f1795a48d1aa6ab55b85d41830/embed?autospin=1&autostart=1&transparent=1&ui_infos=0&ui_hint=0&dnt=1"> </iframe> </div>
+          <div id="myVideo">
+			<video width="180%" loop="true" autoplay="autoplay" muted><source src="textures/unplug.mp4" type="video/mp4"></video></div>
+
+            <div class="text-flex"> <div class="modal-body"> <input type="checkbox" id="toggle">
+                <label for="toggle">Controls</label>
+                
+                <dialog >
+                  <p>
+                   
+                    <h1>How to use this</h1><br><br>
+                    -Click on background to start video.
+                    -Works best on computer rather than phone.<br>
+                    -Music may not play the first time so let the 3d objects load, then hit refresh.<br>
+                   
+                    </p>
+                
+                  
+                  <label for="toggle">close</label>
+                </dialog></div>
+
+           <div class="modal-body"> <input type="checkbox"  id="toggle2">
+                <label for="toggle2">Open Message</label>
+                
+                <dialog >
+                  <p>
+                   
+                    <h1>Index of /audio/sax</h1><br><br>
+                    <ul><li><a href="http://www.simongarcia.co.uk/audio/"> Parent Directory</a></li>
+                    <li><a href="http://www.simongarcia.co.uk/audio/sax/Anything_For_You.mp3"> Anything_For_You.mp3</a></li>
+                    <li><a href="http://www.simongarcia.co.uk/audio/sax/Careless_Whisper.mp3"> Careless_Whisper.mp3</a></li>
+                    <li><a href="http://www.simongarcia.co.uk/audio/sax/Closest_Thing_Crazy.mp3"> Closest_Thing_Crazy.mp3</a></li>
+                    <li><a href="http://www.simongarcia.co.uk/audio/sax/Crazy_Rhythm.mp3"> Crazy_Rhythm.mp3</a></li>
+                    <li><a href="http://www.simongarcia.co.uk/audio/sax/Forever_Love.mp3"> Forever_Love.mp3</a></li>
+                    <li><a href="http://www.simongarcia.co.uk/audio/sax/Let_There_Be_Love.mp3"> Let_There_Be_Love.mp3</a></li>
+                    <li><a href="http://www.simongarcia.co.uk/audio/sax/The_Rose.mp3"> The_Rose.mp3</a></li>
+                    <li><a href="Thttp://www.simongarcia.co.uk/audio/sax/The_Wind_Beneath_My_Wings.mp3"> The_Wind_Beneath_My_Wings.mp3</a></li>
+                    <li><a href="http://www.simongarcia.co.uk/audio/sax/When_I_Fall_In_Love.mp3"> When_I_Fall_In_Love.mp3</a></li>
+                    </ul>
+                    Happy birthday Fred!<br> Cheers! Craig</h4>  </p>
+                
+                  
+         
+                </dialog></div>
+                <div class="#bottom">
+                  <div> <canvas id="glcanvas" width="250" height="250" autoplay controls></canvas></div>
+                </div></div>                
+                <div id="top-right"><img src="https://inoculate.media/assets/images/inoculate.gif" width="110px" height="110px" alt="logo"></div>
+                <div id="top-right2"><h3>Web gl innovations and design by <a href="https://inoculate.media">Inoculate Media</a><br></h3></div>
+
+                </div></div>
+        
+
+        </body>
+        <script src="/js/webgl-demo.js" defer></script>
+
+</html>
