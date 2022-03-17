@@ -85,7 +85,7 @@ startGUI();
 
 function
 getWebGLContext(canvas) {
-    const params = { alpha: true, ctx.globalAlpha = 0.5, depth: false, stencil: false, antialias: false, preserveDrawingBuffer: false };
+    const params = { alpha: true, depth: false, stencil: false, antialias: false, preserveDrawingBuffer: false };
     let gl = canvas.getContext('webgl2', params);
     const isWebGL2 = !!gl;
     if (!isWebGL2) gl = canvas.getContext('webgl',
