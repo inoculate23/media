@@ -12,12 +12,11 @@
 let mic;
 
 function setup() {
-  createCanvas(1280, 720);
+  const canvas = document.getElementsByTagName('canvas')[0];
+resizeCanvas();
   
   // Simulation section
 
-const canvas = document.getElementsByTagName('canvas')[0];
-resizeCanvas();
 
 let config = {
     SIM_RESOLUTION: 128,
