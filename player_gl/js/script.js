@@ -28,6 +28,7 @@ SOFTWARE.
 // Simulation section
 
 const canvas = document.getElementsByTagName('canvas')[0];
+ctx.globalAlpha = 0.5;
 resizeCanvas();
 
 let config = {
