@@ -12,7 +12,7 @@
 let mic;
 
 function setup() {
-  const canvas = document.getElementsByTagName('canvas')[0];
+  const canvas = document.getElementsByTagName('mycCnvas')[0];
 resizeCanvas();
   
   // Simulation section
