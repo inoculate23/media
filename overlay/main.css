@@ -56,6 +56,10 @@ a, button, input, select {
 	}
 }
 
+Video {
+Opacity: .7;
+}
+
 #overlay {
 	position: absolute;
 	font-size: 16px;
