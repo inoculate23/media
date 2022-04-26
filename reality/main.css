@@ -18,7 +18,13 @@ h2 {
 	filter: drop-shadow(30px 10px 4px #4444dd);
 }
 
-
+h3 {
+	font-family: 'Play', sans-serif;
+	color: #orange;
+	margin-right: 5px;
+	font size: 15px;
+	
+}
 
 a {
 	color: #ff0;
