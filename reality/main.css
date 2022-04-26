@@ -7,6 +7,14 @@ body {
 	overscroll-behavior: none;
 	background-image: url(./textures/hacker.png);
 }
+h1. {
+	font-family: 'Play', sans-serif;
+	color: #fff;
+	font size: 30px;
+	filter: drop-shadow(0 0 0.75rem crimson);
+}
+
+
 
 a {
 	color: #ff0;
