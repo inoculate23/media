@@ -54,7 +54,7 @@
 		<script type="importmap">
 			{
 				"imports": {
-					"three": "https://steamystreams.com/overlay/build/three.module.js"
+					"three": "https://inoculate.media/reality/build/three.module.js"
 				}
 			}
 		</script>
@@ -68,6 +68,8 @@
 			import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
 			import { AfterimagePass } from './jsm/postprocessing/AfterimagePass.js';
 			import { CopyShader } from './jsm/shaders/CopyShader.js';
+			import Stats from './jsm/libs/stats.module.js';
+			import { GUI } from './jsm/libs/lil-gui.module.min.js';
 			
 
 			let container;
@@ -215,6 +217,8 @@
 
 				composer = new EffectComposer( renderer );
 				composer.addPass( new RenderPass( scene, camera ) );
+				afterimagePass = new AfterimagePass();
+				composer.addPass( afterimagePass );
 
 
 
@@ -223,6 +227,16 @@
 				window.addEventListener( 'resize', onWindowResize );
 
 			}
+			
+			function createGUI() {
+
+				const gui = new GUI( { name: 'Trails' } );
+				gui.add( afterimagePass.uniforms[ 'damp' ], 'value', 0, 1 ).step( 0.001 );
+				gui.add( params, 'enable' );
+				
+
+			}
+
 
 			function onWindowResize() {
 
