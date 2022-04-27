@@ -1,0 +1,169 @@
+html, body {
+	margin: 0;
+	height: 100%;
+	margin: 0;
+	color: #fff;
+	overscroll-behavior: none;
+	background-image: url(./textures/hacker.png);
+}
+h1 {
+	font-family: 'Philosopher', sans-serif;
+	color: #fff;
+	font-size: 30px;
+	filter: drop-shadow(0 0 0.75rem crimson);
+}
+
+h2 {
+	font-family: 'Philosopher', sans-serif;
+	color: #fff;
+	font-size: 15px;
+	filter: drop-shadow(30px 10px 4px #4444dd);
+}
+
+h3 {
+	font-family: 'Philosopher', sans-serif;
+	color: #fff;
+	margin-right: 5px;
+	font-size: 15px;
+	
+}
+
+a {
+	color: #44dd56;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+button {
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+#info {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	text-align: center;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	z-index: 1; /* TODO Solve this in HTML */
+}
+
+a, button, input, select {
+	pointer-events: auto;
+}
+
+.lil-gui {
+	z-index: 2 !important; /* TODO Solve this in HTML */
+}
+
+@media all and ( max-width: 640px ) {
+	.lil-gui.root { 
+		right: auto;
+		top: auto;
+		max-height: 50%;
+		max-width: 80%;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+#overlay {
+	position: absolute;
+	font-size: 16px;
+	z-index: 3;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-image: url(./textures/hacker.png);
+	opacity: 1.0;
+
+}
+
+	#overlay button {
+		background-color:rgb(245, 237, 239);
+		border: 4px;
+		border-color: #fff;
+		border-radius: 4px;
+		color: #ce1616;
+		padding: 12px 18px;
+		text-transform: uppercase;
+		cursor: pointer;
+		z-index: 4;
+	}
+
+#notSupported {
+	width: 50%;
+	margin: auto;
+	background-color: #f00;
+	margin-top: 20px;
+	padding: 10px;
+}
+
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	justify-content: space-around;
+	flex-direction: row;
+  }
+  
+  .button-83 {
+	appearance: button;
+	background-color: transparent;
+	background-image: linear-gradient(to bottom, rgb(89, 235, 84), #1ac415);
+	border: 2 solid #2e302f;
+	border-radius: .5rem;
+	box-sizing: border-box;
+	color: #0d8f38;
+	column-gap: 1rem;
+	cursor: pointer;
+	display: flex;
+	font-family: 'Philosopher', sans-serif;
+	font-size: 100%;
+	font-weight: 700;
+	line-height: 30px;
+	margin-top: 7px;
+	outline: 2px solid transparent;
+	padding: .5rem .5rem;
+	text-align: center;
+	text-transform: none;
+	transition: all .1s cubic-bezier(.4, 0, .2, 1);
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	box-shadow: -6px 8px 10px rgba(81,41,10,0.1),0px 2px 2px rgba(81,41,10,0.2);
+  }
+  
+  .button-83:active {
+	background-color: #f3f4f6;
+	box-shadow: -1px 2px 5px rgba(81,41,10,0.15),0px 1px 1px rgba(81,41,10,0.15);
+	transform: translateY(0.125rem);
+  }
+  
+  .button-83:focus {
+	box-shadow: rgba(72, 35, 7, .46) 0 0 0 4px, -6px 8px 10px rgba(81,41,10,0.1), 0px 2px 2px rgba(81,41,10,0.2);
+  }
+  i {
+	  color:#0d8f38
+  }
+  #c {
+  width: 100%;
+    height: 100%;
+    display: block;
+    background: url(https://inoculate.media/reality2/textures/matrix.jpg) no-repeat center center;
+    background-size: cover;
+  }
