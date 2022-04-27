@@ -1,9 +1,6 @@
 html, body {
 	margin: 0;
 	height: 100%;
-	margin: 0;
-	color: #fff;
-	overscroll-behavior: none;
 	background-image: url(./textures/hacker.png);
 }
 h1 {
@@ -79,7 +76,7 @@ a, button, input, select {
 #overlay {
 	position: absolute;
 	font-size: 16px;
-	z-index: 3;
+	z-index: 500;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -88,7 +85,7 @@ a, button, input, select {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	background-image: url(./textures/hacker.png);
+	range: url(./textures/hacker.png);
 	opacity: 1.0;
 
 }
@@ -157,13 +154,35 @@ a, button, input, select {
   .button-83:focus {
 	box-shadow: rgba(72, 35, 7, .46) 0 0 0 4px, -6px 8px 10px rgba(81,41,10,0.1), 0px 2px 2px rgba(81,41,10,0.2);
   }
-  i {
-	  color:#0d8f38
-  }
+
   #c {
   width: 100%;
     height: 100%;
     display: block;
-    background: url(https://inoculate.media/reality2/textures/matrix.jpg) no-repeat center center;
-    background-size: cover;
+	z-index: 2;
+	position: absolute;
   }
+  #canvas {
+	width: 100%;
+	  height: 100%;
+	  display: block;
+	  background-size: 100%;
+	  z-index: 2;
+	  position: absolute;
+	}
+	canvas {
+		width: 100%;
+		  height: 100%;
+		  display: block;
+		  background-size: 100%;
+		  z-index: 2;
+		  position: absolute;
+		}
+		video{
+			z-index: -1001;
+			opacity: .5;
+		}
+	#lil-gui-name-1 {
+		.name: Trails;
+	}
+	
