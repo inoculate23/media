@@ -25,14 +25,12 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-		<script src="https://kit.fontawesome.com/7ee3e4959e.js" crossorigin="anonymous"></script>
 	</head>
 	<div class="info">
 	<div class="flex-container">
 		<div><H1>What is reality?</H1> </div>
 		
 <div>  <a class="button-83" role="button" href="https://inoculate.media/fluid/index.html"><h1>Next Demo</h1></a></button>
-
            </div> 
 	</header>
 	<body>
@@ -45,8 +43,9 @@
 		<video id="video" loop crossOrigin="anonymous" playsinline style="display:none">
 			<source src="textures/hacker.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 		</video>
-	
 	</div>
+		<canvas></canvas>
+
 
 		<!-- Import maps polyfill -->
 		<!-- Remove this when import maps will be widely supported -->
@@ -74,6 +73,7 @@
 			let container;
 			let afterimagePass;
 			let camera, scene, renderer;
+			let background;
 
 			let video, texture, material, mesh;
 
@@ -93,15 +93,6 @@
 				xgrid = 10,
 				ygrid = 4;
 
-		
-			
-			// Make sure the image is loaded first otherwise nothing will draw.
-			function main() {
-				const canvas = document.querySelector('#c');
-				const renderer = new THREE.WebGLRenderer({
-					canvas,
-					alpha: true,
-				  });}
 			
 			
 			const startButton = document.getElementById( 'startButton' );
@@ -126,13 +117,21 @@
 				scene = new THREE.Scene();
 			
 
+			// Make sure the image is loaded first otherwise nothing will draw.
+			const loader = new THREE.TextureLoader();
+			scene.background = loader.load( 'https://inoculate.media/reality2/textures/matrix.jpg' );
 				const light = new THREE.DirectionalLight( 0xffffff );
 				light.position.set( 0.5, 1, 1 ).normalize();
 				scene.add( light );
 
 
-			
-
+				function render(time) {
+					time *= 0.001;
+				   
+					const canvas = renderer.domElement;
+					camera.aspect = canvas.clientWidth / canvas.clientHeight;
+					camera.updateProjectionMatrix();
+				}
 				renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
@@ -144,6 +143,7 @@
 
 					this.currentTime = 3;
 
+			
 				} );
 
 				texture = new THREE.VideoTexture( video );
