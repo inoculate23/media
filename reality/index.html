@@ -41,10 +41,10 @@
 		<div class="container">
 	  
 		<video id="video" loop crossOrigin="anonymous" playsinline style="display:none">
-			<source src="textures/reality_3.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+			<source src="https://f004.backblazeb2.com/file/inoculate-video-public/reality_3.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 		</video>
 	</div>
-		<canvas></canvas>
+		
 
 
 		<!-- Import maps polyfill -->
@@ -70,7 +70,7 @@
 			import { CopyShader } from './jsm/shaders/CopyShader.js';
 			import Stats from './jsm/libs/stats.module.js';
 			import { GUI } from './jsm/libs/lil-gui.module.min.js';
-			
+
 
 			let container;
 			let afterimagePass;
@@ -91,15 +91,19 @@
 			const meshes = [],
 				materials = [],
 
-				xgrid = 10,
-				ygrid = 4;
+				xgrid = 16,
+				ygrid = 9;
 
-			
+				const params = {
+
+					enable: true
+				};
 			
 			const startButton = document.getElementById( 'startButton' );
 			startButton.addEventListener( 'click', function () {
 		 
 				init();
+				createGUI();
 				animate();
 
 			} );
@@ -119,14 +123,7 @@
 			
 
 			// Make sure the image is loaded first otherwise nothing will draw.
-			function main() {
-				const canvas = document.querySelector('canvas');
-				ctx = canvas.getContext('2d');
-				context.fillStyle = "rgba(0, 0, 200, 0.5)";
-				const renderer = new THREE.WebGLRenderer({
-					canvas,
-					alpha: true,
-				  });}
+
 				const light = new THREE.DirectionalLight( 0xffffff );
 				light.position.set( 0.5, 1, 1 ).normalize();
 				scene.add( light );
@@ -163,7 +160,7 @@
 				const uy = 1 / ygrid;
 
 				const xsize = 380 / xgrid;
-				const ysize = 204 / ygrid;
+				const ysize = 200 / ygrid;
 
 				const parameters = { color: 0xffffff, map: texture };
 
@@ -217,9 +214,9 @@
 
 				composer = new EffectComposer( renderer );
 				composer.addPass( new RenderPass( scene, camera ) );
+				
 				afterimagePass = new AfterimagePass();
 				composer.addPass( afterimagePass );
-
 
 
 				//
@@ -227,16 +224,14 @@
 				window.addEventListener( 'resize', onWindowResize );
 
 			}
-			
+
 			function createGUI() {
 
 				const gui = new GUI( { name: 'Trails' } );
 				gui.add( afterimagePass.uniforms[ 'damp' ], 'value', 0, 1 ).step( 0.001 );
 				gui.add( params, 'enable' );
-				
 
 			}
-
 
 			function onWindowResize() {
 
