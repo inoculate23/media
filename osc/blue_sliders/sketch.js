@@ -44,7 +44,7 @@ function setup() {
     //  "Gray"
     //  "Blue"
     //  "TerminalGreen"
-    gui.loadStyle("TerminalBlue");
+    gui.loadStyle("Gray");
   
   //// OBJECT STYLE SETTINGS
     // There are two ways to setStyle() for objects.
