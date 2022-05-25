@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <style>
+          body {
+            background-color: rgb(11, 11, 11);
+          }
+        .flexcontainer {
+            position: relative;
+           flex-direction: row;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+            padding-bottom: 0px;
+          }
+          
+          /* Then style the iframe to fit in the container div with full height and width */
+          .responsive-iframe-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+        
+            width: 100%;
+            height: 85%;
+            overflow: hidden;
+            background-color: rgb(11, 11, 11);
+            border: none;
+            
+          }
+.iframe{
+    border: none;
+    overflow: visible;
+    background-color: rgb(11, 11, 11);
+    bottom: 300;
+    right: 0;
+
+}
+          .responsive-iframe-bottom {
+            position: relative;
+            margin-left: 12px;
+            margin-bottom: 0px;
+            padding: 0px;
+            width: 1000px; 
+            height: 540px;
+            background-color: rgb(11, 11, 11);
+            border: none;
+          }
+          .flexcontainer-bottom-left {
+            display: flex;
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+          
+           flex-direction: row;
+            width: 100%;
+          }
+          .flexcontainer-bottom-right {
+            display: flex;
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: right;
+             align-content: flex-end;
+           flex-direction: row;
+            width: 48%;
+          }
+
+    </style>
+
+    <script>
+        // Network Settings
+let bridgeIp = '127.0.0.1:8081';
+let ipIn = '127.0.0.1';
+let ipOut = '127.0.0.1';
+    </script>
+
+    <div class="flexcontainer">
+  <iframe class="responsive-iframe-top" src="https://inoculate.media/osc/sliderBank/index.html" accelerometer="self" scrolling="no"></iframe>
+  </div> 
+  <div class="flexcontainer-bottom-left">
+   <iframe src="https://inoculate.media/osc/blue_sliders/index.html" width="880px" height="540px" accelerometer="self" scrolling="no"></iframe>
+</div>
+
+ <iframe class="responsive-iframe-bottom" src="https://inoculate.media/osc/tone_gen/index.html" width="610px" height="190px" accelerometer="self" scrolling="no"></iframe>
+
+ 
+  </div>
+</body>
+</html>
