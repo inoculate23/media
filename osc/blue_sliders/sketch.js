@@ -109,7 +109,7 @@ function setup() {
 }
 
 function draw() {
-  background(11);
+  background(0);
   drawGui();  
 }
 
