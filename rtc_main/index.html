@@ -36,9 +36,28 @@
 	a:visited{ 
 		color: blue; 
 	}
+	.canvas {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  z-index: 1;
+
+}
+	.top-container {
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+    margin: 0 auto;
+
+}
+
 </style>
     </head>
     <body>
+	    <div class="top-container">
+    <canvas id=c></canvas>
 	    <script>
 var w = c.width = window.innerWidth,
     h = c.height = window.innerHeight,
