@@ -247,15 +247,8 @@
                 initialize();
             })();
         </script>
-        <script>
-            const remoteVideo = document.querySelector('#remoteVideo');
-
-            peerConnection.addEventListener('track', async (event) => {
-                const [remoteStream] = event.streams;
-                remoteVideo.srcObject = remoteStream;
-            });
-        </script>
-        <script src="/socket.io/socket.io.js"></script>
+     
+      
           <script src="adapter.js"></script>
         <script src="main.js"></script>
     </body>
