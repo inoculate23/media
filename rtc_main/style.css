@@ -1,16 +1,18 @@
 body {
     font-family: 'Lato', sans-serif;
-    background-color: white;
+    background-color: rgb(53, 52, 52);
 	min-width: 450px;
 }
 
 h1 {
     font-size: 1.75em;
+    color: whitesmoke
 }
 
 h2 {
     text-align: center;
     font-size: 4em; 
+    color: rgb(235, 245, 243)
 }
 
 td {
@@ -22,7 +24,7 @@ input {
 }
 
 a:visited{ 
-	color: blue; 
+	color: rgb(137, 137, 140); 
 }
 
 .display {
@@ -42,11 +44,12 @@ a:visited{
 }
 
 .display-box {
-    border: 2px solid black;
+    border: 2px solid rgb(78, 12, 139);
 }
 
 .title {
     vertical-align: top;
+    color:rgb(235, 245, 243)
 }
 
 .standby {
@@ -78,7 +81,7 @@ a:visited{
     vertical-align: text-top;
     font-weight: bold;
     margin-bottom: 10px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid rgb(118, 23, 156);
     
 }
 
@@ -91,7 +94,7 @@ a:visited{
 }
 
 .msg-time {
-    color: blue;
+    color: rgb(202, 233, 130);
 }
 
 .cueMsg {
