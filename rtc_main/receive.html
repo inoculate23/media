@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width">
         <title>Peer-to-Peer Cue System --- Reciever</title>
         <link rel="stylesheet" href="style.css">
-   
+   <script src="sharescreen.js"></script>
 
     </head>
     <body>
@@ -39,15 +39,38 @@
                 <td class="display-box hidden" id="off"><h2>All Off</h2></td>
             </tr>
         </table>
-        <video id="localVideo" autoplay playsinline></video>
-        <video id="remoteVideo" autoplay playsinline></video>
+        <video id="Stream" autoplay playsinline></video>
+        <video id="remoteStream" autoplay playsinline></video>
+ 
         
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <script src='https://8x8.vc/external_api.js' async></script>
+        <style>html, body, #jaas-container { height: 100%; }</style>
+        <script type="text/javascript">
+          window.onload = () => {
+            const api = new JitsiMeetExternalAPI("8x8.vc", {
+              roomName: "vpaas-magic-cookie-e5d5eabc175e42e889c8e4f2c3b9dcc9/SampleAppEthicalCompetencesFosterWildly",
+              parentNode: document.querySelector('#jaas-container')
+            });
+          }
+        </script>
+      </head>
+      <body><div id="jaas-container" /></body>
+    </html>
+  
         
         <div>
           <button id="startButton">Start</button>
           <button id="callButton">Call</button>
           <button id="hangupButton">Hang Up</button>
         </div>
+        <script>
+            var screenStream = await navigator.mediaDevices.getDisplayMedia({
+                video: true
+            });
+        </script>
         <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
         <script type="text/javascript">
 
@@ -67,7 +90,7 @@
                 var sendMessageBox = document.getElementById("sendMessageBox");
                 var sendButton = document.getElementById("sendButton");
                 var clearMsgsButton = document.getElementById("clearMsgsButton");
-
+             
                 /**
                  * Create the Peer object for our end of the connection.
                  *
@@ -126,6 +149,15 @@
                         console.log(err);
                         alert('' + err);
                     });
+                    peer.on('call', function(call) {
+                        // Answer the call, providing our mediaStream
+                        call.answer(mediaStream);
+                      });
+                      call.on('stream', function(stream) {
+                        // `stream` is the MediaStream of the remote peer.
+                        // Here you'd add it to an HTML video/canvas element.
+                      });
+                     
                 };
 
                 /**
