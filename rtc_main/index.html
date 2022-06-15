@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,9 +23,14 @@
 	
 	h2 {
 		text-align: center;
-		font-size: 4em; 
+		font-size: 3em; 
+		color: aliceblue; 
 	}
-	
+	h3 {
+		text-align: center;
+		font-size: 1em;
+		color: aliceblue; 
+	}
 	td {
 		width: 50%;
 	}
@@ -34,7 +40,7 @@
 	}
 	
 	a:visited{ 
-		color: blue; 
+		color: rgb(156, 156, 161); 
 	}
 	.canvas {
 
@@ -52,7 +58,12 @@
     margin: 0 auto;
 
 }
-
+.text_container{
+	z-index: 20;
+	margin-left: 15px;
+	margin-top: 10px;
+	Position: absolute;
+}
 </style>
     </head>
     <body>
@@ -226,21 +237,25 @@ window.addEventListener( 'resize', function() {
   init();
 } )
 </script>
-		<h1>WebRTC Cue System</h1>
-
-		<div style="position: relative; top: 10px; margin-left: 40px; line-height: 20px;">
-			<a href="receive.html" target="_blank">receive.html</a>
-
-			<br><br>
-
-			<a href="send.html" target="_blank">send.html</a>
-
+		<div class="text_container">
 		
+			<h2>WebRTC Cue System</h2>
+			<a href="receive.html" target="_blank"><h1>Open Receiver</h1></a>
+
+			
+
+			<a href="send.html" target="_blank"><h1>Open Sender</h1></a>
+			<br>
+		
+		<h3>Then pair sender and reciever with encryption code
+			<br>and send: data, cues, screenshares, remote desktop, and video calls.</h3>
+
+		</div>
 
 		
 		</div>
 		<div style="position: absolute; top: 15%; margin-left: 50%">
 		<img src="jp.png" width="500px" height="500px"></div>
-
+<h3>Copyright Inoculate Media</h3>
     </body>
 </html>
