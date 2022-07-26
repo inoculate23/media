@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RandomBoxes</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"></script>
+  
+  <script src="../../p5.easycam.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  
+  
+  <script id="phong.vert" type="x-shader/x-vertex"> 
+    // preload the texture
+    const textureKey = assets.queue({
+      url: 'images/charles-unsplash.jpg',
+      type: 'texture',
+    })
+    
+    // load any queued assets
+    assets.load({ renderer: webgl.renderer }).then(() => {
+      // show canvas
+      webgl.canvas.style.visibility = ''
+    
+    
+    void main() {
+    
+      // camera/eye space
+      vec3 vertNormal = normalize(uNormalMatrix * var_vertNormal);
+      vec3 vertPos    = (uModelViewMatrix * vec4(var_vertPos, 1)).xyz;
+      vec3 vertDir    = -normalize(vertPos);
+
+      // summed up light contributions
+      vec3 fragcol = vec3(0.0);
+      
+      float kdView = 1.0;// - sqrt(max(dot(vertNormal, vertDir), 0.0));
+  
+      // if(!gl_FrontFacing)
+      {
+        // ambientlight
+        {
+          fragcol += material.diff * ambientlight.col;
+        }
+        
+        // directlights
+        for(int i = 0; i < NUM_DIRECTLIGHTS; i++)
+        {
+          DirectLight light = directlights[i];
+        
+          // light direction
+          vec3 lightDir = light.dir;
+        
+          // diffuse, specular
+          float kd = getKd(vertNormal, lightDir);
+          float ks = getKs(vertNormal, lightDir, vertDir) * kdView;
+        
+          fragcol += material.diff * light.col * kd;
+          fragcol += material.spec * light.col * ks * (1.0 - step(kd, 0.0));
+        }
+        
+        // pointlights
+        for(int i = 0; i < NUM_POINTLIGHTS; i++)
+        {
+    
+          PointLight light = pointlights[i];
+          
+          // light direction
+          vec3 lightDir = normalize(vertPos - light.pos);
+          
+          // attenuation/fallofff
+          float lightDist = distance(light.pos, vertPos);
+          float att = attenuation(light.att, lightDist);
+          
+          // diffuse specular
+          float kd = getKd(vertNormal, lightDir         );
+          float ks = getKs(vertNormal, lightDir, vertDir) * kdView;
+          
+          fragcol += material.diff * light.col * kd * att;
+          fragcol += material.spec * light.col * ks * att * (1.0 - step(kd, 0.0));
+        }
+      }
+      
+      fragcol = clamp(fragcol, 0.0, 1.0);
+
+      // frag, out
+      gl_FragColor = vec4(fragcol, 1);
+      
+      // gamma, 2.2
+      gl_FragColor.xyz = pow(gl_FragColor.xyz, vec3(1.0/2.2));
+      
+      gl_FragColor = clamp(gl_FragColor, vec4(0.0), vec4(1.0));
+
+    }
+    const elements = new THREE.Group()
+    const NUM_ELEMENTS = 50
+    for (let i = 0; i < NUM_ELEMENTS; i++) {
+      const geometry = new THREE.IcosahedronGeometry(random(0.1, 0.5))
+      const material = new ProjectedMaterial({
+        // use the scene camera itself
+        camera: webgl.camera,
+        texture: assets.get(textureKey),
+        color: '#3149D5',
+      })
+      const element = new THREE.Mesh(geometry, material)
+  
+      // move the meshes any way you want!
+      if (i < NUM_ELEMENTS * 0.4) {
+        element.position.x = random(-0.7, 0.7)
+        element.position.y = random(-1.3, 0.5)
+        element.position.z = random(-0.3, 0.3)
+        element.scale.multiplyScalar(1.4)
+      } else {
+        element.position.x = random(-1.5, 1.5, true)
+        element.position.y = random(-2, 2, true)
+        element.position.z = random(-0.5, 0.5)
+      }
+      element.rotation.x = random(0, Math.PI * 2)
+      element.rotation.y = random(0, Math.PI * 2)
+      element.rotation.z = random(0, Math.PI * 2)
+  
+      // and when you're ready project the texture!
+      project(element)
+  
+      elements.add(element)
+    }
+  
+    webgl.scene.add(elements)
+  
+    elements.rotation.y = Math.PI / 2
+    webgl.onUpdate(() => {
+      elements.rotation.y -= 0.003
+    })
+  
+    // start animation loop
+    webgl.start()
+    webgl.draw()
+  })
+  </script>
+  
+  
+
+</head>
+<body oncontextmenu="return false;">
+
+  <div id="hud" class="unselectable"><ul></ul></div>
+
+  <script src="RandomBoxes.js"></script>
+
+</body>
+
+</html>
