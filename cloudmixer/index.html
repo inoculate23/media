@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en-GB" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=yes,initial-scale=1,maximum-scale=1">
+    <title>Ckoud Video Mixer</title>
+    <meta name="author" content="Inoculate Media">
+    <meta name="description" content="Robots like making art too">
+    <meta name="keywords" content="AV,mixer,effects,webgl,HTML5 Canvas">
+    <meta name="subject" content="Cloud Video Mixer">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://inoculate.media/cloudmixer/index.html" />
+    <meta property="og:title" content="Cloud Video Mixer">
+    <meta property="og:description" content="Robots like making art too">
+    <meta property="og:site_name" content="Inoculate Media">
+    <meta name="twitter:title" content="Cloud Video Mixer">
+    <meta name="twitter:description" content="Robots like making art too">
+    <link rel="stylesheet" type="text/css" href="css/style.min.css">
+    <link rel="stylesheet" type="text/css" href="css/nouislider.min.css">
+    <link rel="stylesheet" type="text/css" href="css/nouislider.pips.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <script src="js/recorder.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="js/snaps_hls.js"></script>
+    <script src="js/echo.js"></script>
+
+
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Monospace;
+            font-size: 13px;
+            line-height: 24px;
+            z-index: 20;
+            overscroll-behavior: none;
+        }
+        
+        h1 {
+            color: rgb(244, 248, 244);
+        }
+        
+        h2 {
+            color: rgb(244, 248, 244);
+        }
+        
+        h3 {
+            color: black;
+        }
+        
+        .video-container {
+            display: flex;
+            flex-direction: row;
+            padding: 5px;
+            width: 85%;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(68, 7, 119);
+            z-index: 25;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: row;
+            padding: 5px;
+            width: 90%;
+            justify-content: center;
+            border-radius: 18px;
+            border-color: #3c3c3e;
+            border-width: 10px;
+            align-items: self-position;
+            Z-index: 25;
+        }
+        
+        .shader-container {
+            padding: 20px;
+            margin: 10px;
+            background: #000000;
+            font-size: 21px;
+            line-height: 1.3em;
+            border-radius: 20px;
+            box-shadow: 0 0 0 4px #fff, 2px 1px 6px 4px rgba(10, 10, 0, .5);
+            font-weight: 400;
+            Opacity: 100%;
+            Z-index: 10;
+        }
+        
+        .shader-container>div {
+            background-color: #000000;
+            margin: 5%;
+            padding: 20px;
+            font-size: 30px;
+            Z-index: 10;
+            Opacity: 100%;
+        }
+        
+        .shader-container2 {
+            padding: 20px;
+            margin: 10px;
+            background: #000000;
+            font-size: 21px;
+            line-height: 1.3em;
+            border-radius: 50px;
+            box-shadow: 0 0 0 4px #fff, 2px 1px 6px 4px rgba(10, 10, 0, .5);
+            font-weight: 400;
+            Opacity: 60%;
+            Z-index: 10;
+        }
+        
+        .top {
+            background-color: #000000;
+            margin: 5%;
+            padding: 20px;
+            font-size: 30px;
+            Z-index: 40;
+        }
+        
+        .canvas-container {
+            display: flex;
+            flex-direction: row;
+            padding: 5px;
+            width: 97%;
+            justify-content: center;
+            border-radius: 18px;
+            border-color: #3c3c3e;
+            border-width: 10px;
+            align-items: self-position;
+        }
+        
+        .flex-container {
+            flex-direction: column;
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 18px;
+            border-color: #3c3c3e;
+            border-width: 10px;
+            justify-content: center;
+            width: 100%;
+            align-items: center;
+            Z-index: 30;
+            Opacity: 100%;
+        }
+        
+        .flex-container>div {
+            background-color: #000000;
+            margin: 5%;
+            padding: 20px;
+            font-size: 30px;
+            Opacity: 100%;
+        }
+        
+        .camera-container {
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            margin: 55%;
+            width: 85%;
+            align-items: self-position;
+            box-shadow: 0 0 0 4px #fff, 2px 1px 6px 4px rgba(10, 10, 0, .5);
+            justify-content: space-around;
+            Z-index: 10;
+        }
+        
+        .camera-container>div {
+            font-size: 30px;
+            align-items: self-position;
+            Z-index: 10;
+            Opacity: 10%;
+        }
+        
+        .holder {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -10;
+            pointer-events: none;
+        }
+        
+        .inner {
+            z-index: 25;
+        }
+    </style>
+
+
+
+    <div class="holder"><iframe allowfullscreen src="https://www.shadertoy.com/embed/dsfGzr?gui=false&t=10&paused=false&muted=false" style="width: 100%; height: 100%; top: 0; right: 0; bottom: 0; left: 0; z-index: -1;"></iframe></div>
+
+
+</head>
+
+<body>
+    <div id="log">
+        <div class="inner"></div>
+    </div>
+    <script>
+        window.setupConsoleLogRedirection();
+    </script>
+
+    <script>
+        // --- Get the list of shaders' ID from ShaderToy
+        function fetchBy(crit) { // (id,crit) {
+            // turn active button in bold
+            document.getElementById('love').style.fontWeight = 'normal';
+            document.getElementById('newest').style.fontWeight = 'normal';
+            document.getElementById(crit).style.fontWeight = 'bold';
+            //id.style.fontWeight = 'bold';
+
+            xhr = new XMLHttpRequest(); // asynch for init page displays
+            xhr.open('GET', "https://www.shadertoy.com/api/v1/shaders/query/inoculate_media?sort=" + crit + "&key=rdrKMw", true);
+            xhr.onreadystatechange = processList;
+            xhr.send();
+            p = document.getElementById("display");
+            p.innerHTML = "<i>Contacting Shadertoy...</i>";
+        }
+
+        function processList(e) {
+            if (xhr.readyState == 4 && xhr.status == 200) { // list received
+                test = document.getElementById("test");
+                //test.innerHTML = xhr.responseText;
+                p = document.getElementById("display");
+                list = JSON.parse(xhr.responseText).Results;
+                p.innerHTML = list.length + " shaders : <br>";
+                loadPreviews();
+            }
+        }
+
+
+        // --- Build (asynchronous) display preview, prepare iframe@shadertoy
+        function loadPreviews() {
+            cache = "";
+            for (var i = 0; i < list.length; i++) { // list.length
+                id = list[i]; // shader Id          
+                cache += //  p.innerHTML += // NB: ultra-slow if many DOM inserts
+                    "<span " // " id='"+id+"' href=javascript:load()"
+                    +
+                    "onclick=\"javascript:loadShader(this,'" + id + "');\" style='cursor: pointer' >" // trigger
+                    // NB: onclick provides 'this' while 'href=JS' don't     
+                    +
+                    "<img id='img:" + id + "' height= 180 width=300  src='" +
+                    "blank.gif' alt='' data-echo='" // true load on demand asynchronous  // -background
+                    //+ "stub.jpg'>"
+                    +
+                    "https://www.shadertoy.com/media/shaders/" + id + ".jpg'>" +
+                    "</span>\n";
+                // NB: 'visibility:hidden' would preload. 'display:none' doesn't (really ?).
+            }
+            p.innerHTML += cache;
+
+            echo.init({ // setup deferred images loading
+                offset: 100,
+                throttle: 250,
+                unload: false
+                    //, callback: function (element, op) { console.log(element, 'has been', op + 'ed') }
+            });
+        }
+
+        // --- On click, load glsl shader and replace preview
+        function loadShader(id, shdt) {
+            // id = document.getElementById(shdt);
+            id.innerHTML = '<iframe allowfullscreen="" frameborder="0" height="180" src="https://www.shadertoy.com/embed/' + shdt + '?gui=true&amp;t=10&amp;paused=false"></iframe>';
+        }
+    </script>
+
+
+    <div class="flex-container">
+        <div class="camera-container">
+            <h1>HLS.JS Player</h1>
+            <button id="snapbutton1" onclick="snap();"><i class="fa fa-camera fa-3" aria-hidden="false"></i>
+		  <video id="video" height="600" controls>   
+		  </video></button>
+
+            <section id="header">
+                <div class="inner">
+
+                </div>
+
+
+                <!-- Options and filters -->
+                <section id="accordion">
+                    <center>
+
+
+                        <h1> My Shadertoys catalog</h1>
+
+                    </center>
+                    <div class="shader-container">
+                        <h2> Sorted by: &nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="fa-solid fa-filter"></i><a href="index.html">Ordered list of Shadertoys</a>
+                            <i class="fa-solid fa-filter"></i> <a href="https://www.shadertoy.com/user/inoculate_media/sort=newest&filter=">All
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Sort by<i class="fa-solid fa-filter"></i>
+     <a id='love' href='javascript:fetchBy("love")'>likes</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="fa-solid fa-filter"></i>
+                            <a id='newest' href='javascript:fetchBy("newest")'>date</a>
+                            <script>
+                                fetchBy("love");
+                            </script>
+                            <p>
+
+                                <span id="test"></span>
+                                <span id="display"><p></p></span></div>
+
+                    <div class="shader-container">
+
+
+
+                        <h1> Pexels Video Api</h1>
+
+                        <div id="demo"></div>
+                    </div>
+
+
+
+
+
+
+                    <div id="controls">
+
+
+
+                        <input type="text" class="button" placeholder="Search Stock Videos" id="myInput">
+                        <button type="button" class="button" onclick="getInputValue();">Submit</button>
+
+                        <script>
+                            function getInputValue() {
+                                // Selecting the input element and get its value
+                                var inputVal = document.getElementById("myInput").value;
+
+                                //var town ='garstang';
+                                var term = inputVal;
+
+                                var myHeaders = new Headers();
+                                myHeaders.append("term", inputVal);
+
+
+
+
+                                var url = "https://eo5s5v4yk85m7bn.m.pipedream.net";
+
+                                var requestOptions = {
+                                    method: 'GET',
+                                    headers: myHeaders,
+                                    redirect: 'follow'
+
+                                };
+
+                                fetch(url, requestOptions)
+                                    .then(response => response.text())
+                                    // .then(result => console.log(result))
+                                    .then(result => document.getElementById("demo").innerHTML =
+                                        "<strong>The answer is: </strong>" + (result))
+                                    .catch(error => console.log('error', error));
+                            }
+                        </script>
+
+
+                        <script>
+                            randomimagebutton.onclick = (event) => {
+                                loadDoc();
+                            };
+
+                            function loadDoc() {
+                                var xhttp = new XMLHttpRequest();
+                                xhttp.onreadystatechange = function() {
+                                    if (this.readyState == 4 && this.status == 200) {
+                                        var data = JSON.parse(this.responseText);
+
+                                        document.getElementById("myvideo2").src = data.videos[0].video_files[3].link
+
+
+                                        console.log(JSON.parse(JSON.stringify(obj)))
+
+                                    }
+                                };
+                                xhttp.open("GET", "https://chaturbate.com/api/public/affiliates/onlinerooms/?wm=aqAcE&client_ip=request_ip&gender=f&hd=true&limit=8", );
+                                xhttp.send();
+                            }
+                        </script>
+
+
+
+                    </div>
+        </div>
+    </div>
+    <script>
+        var video = document.getElementById('video');
+        if (Hls.isSupported()) {
+            var hls = new Hls({
+                debug: true,
+            });
+            hls.loadSource('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8');
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MEDIA_ATTACHED, function() {
+                video.muted = true;
+                video.play();
+            });
+        }
+        // hls.js is not supported on platforms that do not have Media Source Extensions (MSE) enabled.
+        // When the browser has built-in HLS support (check using `canPlayType`), we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video element through the `src` property.
+        // This is using the built-in support of the plain video element, without using hls.js.
+        else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8';
+            video.addEventListener('canplay', function() {
+                video.play();
+            });
+        }
+    </script>
+
+    </div>
+
+    <br>
+    </div>
+    </div>
+    </section>
+
+    <br>
+
+    <!-- <main>
+		<script>
+			,imageToCanvas: function(image) {
+		var canvas = window.document.createElement("canvas");
+		canvas.width = image.width;
+		canvas.height = image.height;
+		var context = canvas.getContext("2d",null);
+		context.drawImage(image,0,0);
+		return canvas;
+	}
+				
+		};
+
+	
+		</script>
+
+		
+	
+		<div class="sampleimages">
+<!-- fix cb api
+<img id="defaultimage" src="data.results[7].image_url" alt="default image - this is the default image that will be geometrized into geometric primitives when the page loads">
+
+ <img id="defaultimage" src="assets/images/demo_images/model.jpg" alt="default image - this is the default image that will be geometrized into geometric primitives when the page loads">
+-->
+    <div id="sampleimages">
+        <img id="color.png" alt="default image - this is the default image that will be geometrized into geometric primitives when the page loads">
+    </div>
+    </div>
+    <script>
+        // Get handles on the video and canvas elements
+        var video = document.querySelector('video');
+        var canvas = document.querySelector('#myCanvas');
+        // Get a handle on the 2d context of the canvas element
+        var context = myCanvas.getContext('2d');
+        // Define some vars required later
+        var w, h, ratio;
+
+        // Add a listener to wait for the 'loadedmetadata' state so the video's dimensions can be read
+        var video = document.getElementById('video');
+        video.onloadedmetadata = function() {
+
+            // Calculate the ratio of the video's width to height
+            ratio = video.videoWidth / video.videoHeight;
+            // Define the required width as 100 pixels smaller than the actual video's width
+            w = video.videoWidth - '100';
+            // Calculate the height based on the video's width and the ratio
+            h = parseInt(w / ratio, '10');
+            // Set the canvas width and height to the values just calculated
+            myCanvas.width = video.videoWidth;
+            myCanvas.height = video.videoHeight;
+        }, false;
+
+        // Takes a snapshot of the video
+        function snap() {
+            window.addEventListener('click', snapbutton1);
+            // Define the size of the rectangle that will be filled (basically the entire element)
+            context.fillRect(0, 0, w, h);
+            // Grab the image from the video
+            context.drawImage(video, 0, 0, w, h);
+        }
+        var dataURL = myCanvas.toDataURL();
+        snapbutton1.addEventListener("click", logData);
+
+        function logData() {
+            console.log(dataURL);
+        }
+    </script>
+    </div>
+    <div id="currentsvgcontainer">
+        <abbr class="geometrize_bitmap_Bitmap"><canvas id="myCanvas"></canvas><a id='a'></a>
+
+			</div></div></div>
+
+	<!-----
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	// Define some vars required later
+<script>
+	document.getElementById("this1.#mycanvas").onmousedown = function(e) {
+		var file = document.getElementById("this1.#myCanvas")
+		var reader = new FileReader();
+		reader.onload = function() {
+		  console.log(reader.result);
+		  document.getElementById("display").src = reader.result;
+		  // image editing
+		  // ...
+	  var blob = window.dataURLtoBlob(reader.result);
+		  console.log(blob, new File([blob], "image.png", {
+			type: "image/png"
+		  }));
+		};
+		reader.readAsDataURL(file);
+	  };
+	</script>
+
+-->
+	<script type="text/javascript" src="js/wNumb.min.js"></script>
+	<script type="text/javascript" src="js/nouislider.min.js"></script>
+	<script type="text/javascript" src="js_new/geometrize.js"></script>
+  
+</body>
+</html>
