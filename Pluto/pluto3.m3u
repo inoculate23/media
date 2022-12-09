@@ -1,6 +1,6 @@
 #EXTM3U
 #EXTINF:0,Channel 1
-#EXTM3U x-tvg-url="https://i.mjh.nz/PlutoTV/all.xml.gz"
+#EXTINF:-1 tvg-id="5ba3fb9c4b078e0f37ad34e8" tvg-chno="51" tvg-logo="https://images.pluto.tv/channels/5ba3fb9c4b078e0f37ad34e8/colorLogoPNG.png" group-title="USA",Pluto TV Spotlight
 #EXTINF:0,Channel 2
 #EXTINF:-1 tvg-id="5ba3fb9c4b078e0f37ad34e8" tvg-chno="51" tvg-logo="https://images.pluto.tv/channels/5ba3fb9c4b078e0f37ad34e8/colorLogoPNG.png" group-title="USA",Pluto TV Spotlight
 #EXTINF:0,Channel 3
