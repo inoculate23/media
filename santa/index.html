@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow: hidden; height: 100%">
+
+<head>
+    <title>three-basic</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <style>
+        html,
+        body {
+            background-color: black;
+        }
+        
+        .blog-bg-container {
+            width: 300px;
+            height: 100px;
+            background-color: #e3e3e3;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+            z-index: 90;
+        }
+        
+        .blog-description {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 20px 20px 20px;
+            background-color: #1bafc4;
+            position: absolute;
+            height: 100%;
+            -webkit-transition: all .4s ease-in-out;
+            -moz-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+            display: block;
+            z-index: 100;
+        }
+        
+        .blog-description h2 {
+            margin: 20px 0;
+            z-index: 100;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <script src="bundle.js"></script>
+
+    <div class="blog-bg-container">
+        <img src="help.png" alt="help">
+
+        <h2>Help</h2>
+
+        <p>Use your finger or mouse to rotate the scene and pinch to zoon in and out.
+        </p>
+
+        <p><strong>+</strong></p>
+        </a>
+    </div>
+
+    </div>
+    </div>
+
+
+    <script>
+        (function($) {
+
+            var bbcheight = $(".blog-bg-container").height() - 67;
+
+            $('.blog-description').css('top', bbcheight + 'px');
+
+            $(".blog-bg-container")
+                .mouseenter(function() {
+                    $(this).find('.blog-description ').css('top', '0px');
+                })
+                .mouseleave(function() {
+                    $(this).find('.blog-description ').css('top', bbcheight + 'px');
+                });
+
+        })(jQuery);
+    </script>
+    <div class="blog-bg-container">
+        <a href="#" class="blog-description">
+            <h2>Hello</h2>
+
+            <p>The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.</p>
+
+            <p><strong>+</strong></p>
+        </a>
+    </div>
+</body>
+
+
+
+
+</html>

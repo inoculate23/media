@@ -1,0 +1,878 @@
+{
+  "id": "2689c9f0-04b8-11eb-8837-cdfa74da3f12",
+  "version": "1.0.0-beta.2",
+  "name": "three-js-basic",
+  "nodes": [
+    {
+      "id": "8iuJZs7qg",
+      "name": "Three.Renderer",
+      "x": 390,
+      "y": 120,
+      "templateName": "Custom",
+      "params": [
+        {
+          "name": "render",
+          "value": true
+        },
+        {
+          "name": "Log Scene"
+        }
+      ]
+    },
+    {
+      "id": "dSl6qHuID",
+      "name": "Orbit Controls",
+      "x": -690,
+      "y": -165,
+      "templateName": "Orbit Controls",
+      "params": []
+    },
+    {
+      "id": "K65YimZsq",
+      "name": "Texture Loader",
+      "x": -1101,
+      "y": 213,
+      "templateName": "Texture Loader",
+      "params": [
+        {
+          "name": "url",
+          "value": "assets/cc0textures/lsd_2K_color.jpg"
+        },
+        {
+          "name": "encoding",
+          "value": "sRGB"
+        }
+      ]
+    },
+    {
+      "id": "FdJgrSqzQ",
+      "name": "GLTF Scene",
+      "x": -195,
+      "y": 525,
+      "templateName": "GLTF Scene",
+      "params": [
+        {
+          "name": "in",
+          "source": {
+            "id": "dSvq7LN6l",
+            "port": "out"
+          }
+        },
+        {
+          "name": "url",
+          "value": "assets/glTF-Sample-Models/santa_aka_l4d2-boomer/scene.gltf"
+        },
+        {
+          "name": "visible",
+          "value": true
+        },
+        {
+          "name": "position",
+          "value": [
+            23.06,
+            -70.52,
+            -44.66
+          ]
+        },
+        {
+          "name": "rotation",
+          "value": [
+            -7.5,
+            -20.24,
+            6.24
+          ]
+        },
+        {
+          "name": "scale",
+          "value": [
+            1,
+            1.02,
+            0.22
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wkyNXDa41",
+      "name": "DirectionalLight",
+      "x": -870,
+      "y": -165,
+      "templateName": "DirectionalLight",
+      "params": [
+        {
+          "name": "position",
+          "value": [
+            10,
+            10,
+            10
+          ]
+        },
+        {
+          "name": "target",
+          "value": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "color",
+          "value": [
+            0.13496153504085903,
+            0.44124111858776527,
+            1.0000000000000049,
+            1
+          ]
+        },
+        {
+          "name": "intensity",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "duWRqeGgU",
+      "name": "MeshStandardMaterial",
+      "x": -1077,
+      "y": 385,
+      "templateName": "MeshStandardMaterial",
+      "params": [
+        {
+          "name": "color",
+          "value": [
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "metalness",
+          "value": 0.3
+        },
+        {
+          "name": "roughness",
+          "value": 0.22
+        },
+        {
+          "name": "map",
+          "source": {
+            "id": "K65YimZsq",
+            "port": "texture"
+          }
+        },
+        {
+          "name": "normalMap",
+          "source": {
+            "id": "NIFCIGKbY",
+            "port": "texture"
+          }
+        },
+        {
+          "name": "roughnesslMap",
+          "source": {
+            "id": "U-9WHWYi4",
+            "port": "texture"
+          }
+        }
+      ]
+    },
+    {
+      "id": "4qVRXnGLl",
+      "name": "Mesh",
+      "x": -1074,
+      "y": 439,
+      "templateName": "Mesh",
+      "params": [
+        {
+          "name": "geometry",
+          "value": null
+        },
+        {
+          "name": "material",
+          "source": {
+            "id": "duWRqeGgU",
+            "port": "material"
+          }
+        },
+        {
+          "name": "position",
+          "value": [
+            -9.2,
+            -10.76,
+            -19.98
+          ]
+        },
+        {
+          "name": "rotation",
+          "source": {
+            "id": "VGz3xJSC1",
+            "port": "rotation"
+          }
+        },
+        {
+          "name": "scale",
+          "value": [
+            4.84,
+            5.42,
+            4.8
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4YhqzV0YU",
+      "name": "MeshStandardMaterial",
+      "x": -691,
+      "y": 418,
+      "templateName": "MeshStandardMaterial",
+      "params": [
+        {
+          "name": "color",
+          "value": [
+            0.9098039215686274,
+            0.7254901960784313,
+            0.4117647058823529,
+            1
+          ]
+        },
+        {
+          "name": "metalness",
+          "value": 0.51
+        },
+        {
+          "name": "roughness",
+          "value": 0
+        },
+        {
+          "name": "map",
+          "source": {
+            "id": "ezBSQCXPL",
+            "port": "texture"
+          }
+        },
+        {
+          "name": "normalMap",
+          "source": {
+            "id": "V26Tg63d4z",
+            "port": "texture"
+          }
+        },
+        {
+          "name": "roughnesslMap",
+          "source": {
+            "id": "1IfxVFvivK",
+            "port": "texture"
+          }
+        }
+      ]
+    },
+    {
+      "id": "g4fGliXJIW",
+      "name": "Mesh",
+      "x": -712,
+      "y": 472,
+      "templateName": "Custom",
+      "params": [
+        {
+          "name": "geometry",
+          "value": null
+        },
+        {
+          "name": "material",
+          "source": {
+            "id": "4YhqzV0YU",
+            "port": "material"
+          }
+        },
+        {
+          "name": "position",
+          "value": [
+            -1.46,
+            -11.7,
+            -16.64
+          ]
+        },
+        {
+          "name": "rotation",
+          "source": {
+            "id": "4K4jKikxL",
+            "port": "rotation"
+          }
+        },
+        {
+          "name": "scale",
+          "value": [
+            3.5,
+            3.5,
+            3.5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "BFGj1qtf0",
+      "name": "MeshStandardMaterial",
+      "x": 45,
+      "y": 495,
+      "templateName": "MeshStandardMaterial",
+      "params": [
+        {
+          "name": "color",
+          "value": [
+            0.9647058823529412,
+            0.9686274509803922,
+            0.9490196078431372,
+            1
+          ]
+        },
+        {
+          "name": "metalness",
+          "value": 0.13
+        },
+        {
+          "name": "roughness",
+          "value": 0.98
+        },
+        {
+          "name": "map",
+          "source": {
+            "id": "qaUEJDS3Y",
+            "port": "texture"
+          }
+        },
+        {
+          "name": "normalMap",
+          "source": {
+            "id": "c9Urq2UK7",
+            "port": "texture"
+          }
+        },
+        {
+          "name": "roughnesslMap",
+          "source": {
+            "id": "zahaer64w",
+            "port": "texture"
+          }
+        }
+      ]
+    },
+    {
+      "id": "zO8y0snJE3",
+      "name": "Mesh",
+      "x": 45,
+      "y": 540,
+      "templateName": "Mesh",
+      "params": [
+        {
+          "name": "geometry",
+          "value": null
+        },
+        {
+          "name": "material",
+          "source": {
+            "id": "BFGj1qtf0",
+            "port": "material"
+          }
+        },
+        {
+          "name": "position",
+          "value": [
+            -7.04,
+            -38.54,
+            -21.32
+          ]
+        },
+        {
+          "name": "rotation",
+          "value": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "scale",
+          "value": [
+            20,
+            50,
+            20
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mE39yGgqn",
+      "name": "DirectionalLight",
+      "x": -870,
+      "y": -120,
+      "templateName": "DirectionalLight",
+      "params": [
+        {
+          "name": "position",
+          "value": [
+            -10,
+            10,
+            -10
+          ]
+        },
+        {
+          "name": "target",
+          "value": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "color",
+          "value": [
+            0.8133823109526103,
+            0.2880060879239224,
+            0.4300195234737869,
+            1
+          ]
+        },
+        {
+          "name": "intensity",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "dSvq7LN6l",
+      "name": "Time",
+      "x": -531,
+      "y": -76,
+      "templateName": "Time",
+      "params": [
+        {
+          "name": "in",
+          "source": {
+            "id": "8iuJZs7qg",
+            "port": "out"
+          }
+        }
+      ]
+    },
+    {
+      "id": "zWYs79JSv",
+      "name": "EnvMap",
+      "x": -690,
+      "y": -120,
+      "templateName": "EnvMap",
+      "params": [
+        {
+          "name": "url",
+          "value": "assets/hdrihaven/cayley_lookout_2k.hdr"
+        }
+      ]
+    },
+    {
+      "id": "qaUEJDS3Y",
+      "name": "Texture Loader",
+      "x": -136,
+      "y": 385,
+      "templateName": "Texture Loader",
+      "params": [
+        {
+          "name": "url",
+          "value": "assets/cc0textures/stickered_wood.jpg"
+        },
+        {
+          "name": "encoding",
+          "value": "sRGB"
+        }
+      ]
+    },
+    {
+      "id": "zahaer64w",
+      "name": "Texture Loader",
+      "x": 120,
+      "y": 450,
+      "templateName": "Texture Loader",
+      "params": [
+        {
+          "name": "url",
+          "value": "assets/cc0textures/WoodFloor041_2K_Roughness.jpg"
+        },
+        {
+          "name": "encoding",
+          "value": "Linear"
+        }
+      ]
+    },
+    {
+      "id": "NIFCIGKbY",
+      "name": "Texture Loader",
+      "x": -1086,
+      "y": 273,
+      "templateName": "Texture Loader",
+      "params": [
+        {
+          "name": "url",
+          "value": "assets/cc0textures/lsd_2K_Normal.jpg"
+        },
+        {
+          "name": "encoding",
+          "value": "Linear"
+        }
+      ]
+    },
+    {
+      "id": "U-9WHWYi4",
+      "name": "Texture Loader",
+      "x": -1056,
+      "y": 318,
+      "templateName": "Texture Loader",
+      "params": [
+        {
+          "name": "url",
+          "value": "assets/cc0textures/2_lsd_2K_Normal.jpg"
+        },
+        {
+          "name": "encoding",
+          "value": "Linear"
+        }
+      ]
+    },
+    {
+      "id": "VGz3xJSC1",
+      "name": "Animate Rotate Cube",
+      "x": -762,
+      "y": 50,
+      "templateName": "Custom",
+      "draft": "module.exports = (node, graph) => {\n  const triggerIn = node.triggerIn(\"in\");\n  const speedIn = node.in(\"speed\", 1);\n  const rotationOut = node.out(\"rotation\", [0, 0, 0]);\n\n  const rotation = [0, 0, 0];\n\n  triggerIn.onTrigger = (props) => {\n    rotation[1] += props.deltaTime * speedIn.value;\n    node.comment = rotation.map((f) => f.toFixed(0));\n    rotationOut.setValue(rotation);\n  };\n};``",
+      "params": [
+        {
+          "name": "in",
+          "source": {
+            "id": "dSvq7LN6l",
+            "port": "out"
+          }
+        },
+        {
+          "name": "speed",
+          "value": 18.72
+        }
+      ]
+    },
+    {
+      "id": "c9Urq2UK7",
+      "name": "Texture Loader",
+      "x": 45,
+      "y": 330,
+      "templateName": "Custom",
+      "draft": "module.exports = (node, graph) => {\n  const { THREE } = graph;\n  const encodings = {\n    Linear: THREE.LinearEncoding,\n    sRGB: THREE.sRGBEncoding,\n  };\n\n  const urlIn = node.in(\"url\", \"\", { type: \"asset\", thumbnails: true });\n  const encodingIn = node.in(\"encoding\", \"sRGB\", {\n    type: \"dropdown\",\n    values: Object.keys(encodings),\n  });\n  const textureOut = node.out(\"texture\", null);\n\n  let textureLoader = new THREE.TextureLoader();\n\n  let texture = null;\n\n  urlIn.onChange = (url) => {\n    if (!url) return;\n    node.comment = url;\n    textureLoader.load(url, (map) => {\n      texture = map;\n      texture.wrapS = THREE.RepeatWrapping;\n      texture.wrapT = THREE.RepeatWrapping;\n      texture.anisotropy = 4;\n      texture.encoding = encodings[encodingIn.value];\n      map.anisotropy = 4;\n      textureOut.setValue(texture);\n    });\n  };\n\n  encodingIn.onChange = (encoding) => {\n    if (texture) {\n      texture.encoding = encodings[encoding];\n      textureOut.setValue(texture);\n    }\n  };\n\n  node.onDestroy = () => {\n    if (texture) {\n      texture.dispose();\n      texture = null;\n    }\n  };\n};\n",
+      "params": [
+        {
+          "name": "url",
+          "value": "assets/cc0textures/WoodFloor041_2K_Normal.jpg"
+        },
+        {
+          "name": "encoding",
+          "value": "Linear"
+        }
+      ]
+    },
+    {
+      "id": "ezBSQCXPL",
+      "name": "Texture Loader",
+      "x": -510,
+      "y": 281,
+      "templateName": "Texture Loader",
+      "params": [
+        {
+          "name": "url",
+          "value": "assets/cc0textures/2_lsd_2K_color.jpg"
+        },
+        {
+          "name": "encoding",
+          "value": "sRGB"
+        }
+      ]
+    },
+    {
+      "id": "1IfxVFvivK",
+      "name": "Texture Loader",
+      "x": -561,
+      "y": 371,
+      "templateName": "Texture Loader",
+      "params": [
+        {
+          "name": "url",
+          "value": "assets/cc0textures/2_lsd_2K_Normal.jpg"
+        },
+        {
+          "name": "encoding",
+          "value": "Linear"
+        }
+      ]
+    },
+    {
+      "id": "V26Tg63d4z",
+      "name": "Texture Loader",
+      "x": -514,
+      "y": 328,
+      "templateName": "Custom",
+      "draft": "module.exports = (node, graph) => {\n  const { THREE } = graph;\n  const encodings = {\n    Linear: THREE.LinearEncoding,\n    sRGB: THREE.sRGBEncoding,\n  };\n\n  const urlIn = node.in(\"url\", \"\", { type: \"asset\", thumbnails: true });\n  const encodingIn = node.in(\"encoding\", \"sRGB\", {\n    type: \"dropdown\",\n    values: Object.keys(encodings),\n  });\n  const textureOut = node.out(\"texture\", null);\n\n  let textureLoader = new THREE.TextureLoader();\n\n  let texture = null;\n\n  urlIn.onChange = (url) => {\n    if (!url) return;\n    node.comment = url;\n    textureLoader.load(url, (map) => {\n      texture = map;\n      texture.wrapS = THREE.RepeatWrapping;\n      texture.wrapT = THREE.RepeatWrapping;\n      texture.anisotropy = 4;\n      texture.encoding = encodings[encodingIn.value];\n      map.anisotropy = 4;\n      textureOut.setValue(texture);\n    });\n  };\n\n  encodingIn.onChange = (encoding) => {\n    if (texture) {\n      texture.encoding = encodings[encoding];\n      textureOut.setValue(texture);\n    }\n  };\n\n  node.onDestroy = () => {\n    if (texture) {\n      texture.dispose();\n      texture = null;\n    }\n  };\n};\n",
+      "params": [
+        {
+          "name": "url",
+          "value": "assets/glTF-Sample-Models/santa_aka_l4d2-boomer/textures/boomer_santa_normal.png"
+        },
+        {
+          "name": "encoding",
+          "value": "Linear"
+        }
+      ]
+    },
+    {
+      "id": "okkVpWOI-",
+      "name": "Time",
+      "x": -496,
+      "y": 149,
+      "templateName": "Time",
+      "params": [
+        {
+          "name": "in",
+          "source": {
+            "id": "8iuJZs7qg",
+            "port": "out"
+          }
+        }
+      ]
+    },
+    {
+      "id": "R9E01SbHe",
+      "name": "Time",
+      "x": -300,
+      "y": 149,
+      "templateName": "Time",
+      "params": [
+        {
+          "name": "in",
+          "source": {
+            "id": "8iuJZs7qg",
+            "port": "out"
+          }
+        }
+      ]
+    },
+    {
+      "id": "4K4jKikxL",
+      "name": "Animate Position",
+      "x": -612,
+      "y": 238,
+      "templateName": "Custom",
+      "params": [
+        {
+          "name": "in",
+          "source": {
+            "id": "dSvq7LN6l",
+            "port": "out"
+          }
+        },
+        {
+          "name": "speed",
+          "value": 8.32
+        }
+      ]
+    },
+    {
+      "id": "vzoJvyIGt",
+      "name": "EnvMap",
+      "x": -562,
+      "y": -283,
+      "templateName": "EnvMap",
+      "params": [
+        {
+          "name": "url",
+          "value": "assets/hdrihaven/sad_hdr.hdr"
+        }
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": "iWSBRUSoy",
+      "x": -195,
+      "y": 570,
+      "width": 180,
+      "height": 50,
+      "fontSize": 20,
+      "backgroundColor": [
+        0.1,
+        0.1,
+        0.1,
+        1
+      ],
+      "textColor": [
+        0.7,
+        0.7,
+        0.7,
+        1
+      ],
+      "text": "glTF Scene",
+      "collapseFlags": {}
+    },
+    {
+      "id": "b_29FgUhe",
+      "x": -870,
+      "y": -75,
+      "width": 180,
+      "height": 50,
+      "fontSize": 20,
+      "backgroundColor": [
+        0.1,
+        0.1,
+        0.1,
+        1
+      ],
+      "textColor": [
+        0.7,
+        0.7,
+        0.7,
+        1
+      ],
+      "text": "ENVIRONMENT",
+      "collapseFlags": {}
+    },
+    {
+      "id": "lK8N5zskJ",
+      "x": -770,
+      "y": 527,
+      "width": 180,
+      "height": 50,
+      "fontSize": 20,
+      "backgroundColor": [
+        0.1,
+        0.1,
+        0.1,
+        1
+      ],
+      "textColor": [
+        0.7,
+        0.7,
+        0.7,
+        1
+      ],
+      "text": "TORUS KNOT",
+      "collapseFlags": {}
+    },
+    {
+      "id": "4r9VT_SO7",
+      "x": -1121,
+      "y": 506,
+      "width": 180,
+      "height": 50,
+      "fontSize": 20,
+      "backgroundColor": [
+        0.1,
+        0.1,
+        0.1,
+        1
+      ],
+      "textColor": [
+        0.7,
+        0.7,
+        0.7,
+        1
+      ],
+      "text": "CUBE",
+      "collapseFlags": {}
+    },
+    {
+      "id": "EWtQqAAbO",
+      "x": 45,
+      "y": 600,
+      "width": 180,
+      "height": 50,
+      "fontSize": 20,
+      "backgroundColor": [
+        0.1,
+        0.1,
+        0.1,
+        1
+      ],
+      "textColor": [
+        0.7,
+        0.7,
+        0.7,
+        1
+      ],
+      "text": "FLOOR",
+      "collapseFlags": {}
+    },
+    {
+      "id": "mmjCH_Yt9",
+      "x": -1020,
+      "y": -405,
+      "width": 600,
+      "height": 100,
+      "fontSize": 48,
+      "backgroundColor": [
+        0.1607843137254902,
+        0.1607843137254902,
+        0.1607843137254902,
+        1
+      ],
+      "textColor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "text": "three.js basic",
+      "collapseFlags": {
+        "backgroundColor": false
+      }
+    },
+    {
+      "id": "GDMDeDu0OM",
+      "x": 1635,
+      "y": -435,
+      "width": 642,
+      "height": 150,
+      "fontSize": 36,
+      "backgroundColor": [
+        0.16419083846144028,
+        0.16419083846145374,
+        0.16419083846145277,
+        1
+      ],
+      "textColor": [
+        0.9999999999999524,
+        1.000000000000017,
+        1.0000000000000127,
+        1
+      ],
+      "text": "Simple 3d scene showing how to use three.js in Nodes.",
+      "collapseFlags": {
+        "backgroundColor": false
+      }
+    },
+    {
+      "id": "xHiFIiQGS",
+      "x": -255,
+      "y": -165,
+      "width": 180,
+      "height": 50,
+      "fontSize": 20,
+      "backgroundColor": [
+        0.1,
+        0.1,
+        0.1,
+        1
+      ],
+      "textColor": [
+        0.7,
+        0.7,
+        0.7,
+        1
+      ],
+      "text": "RENDERER",
+      "collapseFlags": {}
+    }
+  ]
+}

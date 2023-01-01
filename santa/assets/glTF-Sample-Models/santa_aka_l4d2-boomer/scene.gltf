@@ -1,0 +1,425 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 18317,
+      "max": [
+        29.00023078918457,
+        13.81859016418457,
+        72.14659118652344
+      ],
+      "min": [
+        -27.40134048461914,
+        -21.13661003112793,
+        -0.03551999852061272
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 219804,
+      "componentType": 5126,
+      "count": 18317,
+      "max": [
+        0.9992062449455261,
+        0.9998752474784851,
+        0.9998686909675598
+      ],
+      "min": [
+        -0.9995890855789185,
+        -0.9998308420181274,
+        -0.9998788237571716
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 18317,
+      "max": [
+        0.9999819993972778,
+        0.9999072551727295,
+        0.9979135990142822,
+        1.0
+      ],
+      "min": [
+        -0.9999926686286926,
+        -0.9999866485595703,
+        -0.9978485703468323,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 18317,
+      "max": [
+        0.998520016670227,
+        0.9962900280952454
+      ],
+      "min": [
+        0.0030799999367445707,
+        0.002300000051036477
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 105813,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 439608,
+      "componentType": 5126,
+      "count": 1010,
+      "max": [
+        21.428470611572266,
+        15.54697036743164,
+        76.40007781982422
+      ],
+      "min": [
+        -20.19710922241211,
+        -19.76310920715332,
+        6.651130199432373
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 451728,
+      "componentType": 5126,
+      "count": 1010,
+      "max": [
+        0.9999278783798218,
+        0.9980391263961792,
+        0.9992732405662537
+      ],
+      "min": [
+        -0.9994634985923767,
+        -0.998244047164917,
+        -0.9983124732971191
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 293072,
+      "componentType": 5126,
+      "count": 1010,
+      "max": [
+        0.9999622106552124,
+        0.9986135363578796,
+        0.9997923374176025,
+        1.0
+      ],
+      "min": [
+        -0.9981404542922974,
+        -0.9997837543487549,
+        -0.9970894455909729,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 146536,
+      "componentType": 5126,
+      "count": 1010,
+      "max": [
+        0.992579996585846,
+        0.994949996471405
+      ],
+      "min": [
+        0.005239999853074551,
+        0.0037700000684708357
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 423252,
+      "componentType": 5125,
+      "count": 4503,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "count": 1,
+      "max": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "min": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "type": "MAT4"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "floh (https://sketchfab.com/floh)",
+      "license": "CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)",
+      "source": "https://sketchfab.com/3d-models/santa-aka-l4d2-boomer-3b10642b08e043be9e94960aa2fbc2ff",
+      "title": "Santa aka L4D2-Boomer"
+    },
+    "generator": "Sketchfab-12.66.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 441264,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 154616,
+      "byteOffset": 441264,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 463848,
+      "byteOffset": 595880,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 309232,
+      "byteOffset": 1059728,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 64,
+      "byteOffset": 1368960,
+      "name": "floatBufferViews"
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 1369024,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/boomer_baseColor.png"
+    },
+    {
+      "uri": "textures/boomer_normal.png"
+    },
+    {
+      "uri": "textures/boomer_santa_baseColor.png"
+    },
+    {
+      "uri": "textures/boomer_santa_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "boomer",
+      "normalTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.6
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "boomer_santa",
+      "normalTexture": {
+        "index": 3
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 2
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.6
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "boomer_reference_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "boomer_reference_1",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TANGENT": 7,
+            "TEXCOORD_0": 8
+          },
+          "indices": 9,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "Root"
+    },
+    {
+      "children": [
+        3,
+        4
+      ],
+      "name": "boomer_reference_skeleton"
+    },
+    {
+      "name": "boomer_reference_skeleton_rootJoint"
+    },
+    {
+      "children": [
+        5,
+        6
+      ],
+      "name": "boomer_reference"
+    },
+    {
+      "mesh": 0,
+      "name": "boomer_reference_0"
+    },
+    {
+      "mesh": 1,
+      "name": "boomer_reference_1"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "skins": [
+    {
+      "inverseBindMatrices": 10,
+      "joints": [
+        3
+      ],
+      "skeleton": 3
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    }
+  ]
+}
