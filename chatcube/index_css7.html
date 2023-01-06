@@ -1,0 +1,504 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>three.js css3d - periodic table</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="main.css">
+		<style>
+			a {
+				color: #8ff;
+			}
+	
+
+		body {
+  background-image: url("./textures/cc_logo.png"), url("./textures/cc_logo.png");
+  background-color: #000000;
+}
+			#menu {
+				position: absolute;
+				bottom: 20px;
+				width: 100%;
+				text-align: center;
+			}
+
+			.element {
+				width: 1px;
+				height: 1px;
+				box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+				border: 1px solid rgba(127,255,255,0.25);
+				font-family: Helvetica, sans-serif;
+				text-align: center;
+				line-height: normal;
+				cursor: default;
+			
+			}
+			.img_url {
+				width: 50px;
+				height: 50px;
+				box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+				border: 1px solid rgba(127,255,255,0.25);
+				border-radius: 14px;
+            padding: 5px;
+				
+			}
+
+		
+
+				.element .number {
+					position: absolute;
+					top: 20px;
+					right: 20px;
+					font-size: 12px;
+					color: rgba(127,255,255,0.75);
+				}
+
+				.element .symbol {
+					position: absolute;
+					top: 40px;
+					left: 0px;
+					right: 0px;
+					font-size: 60px;
+					font-weight: bold;
+					color: rgba(255,255,255,0.75);
+					text-shadow: 0 0 10px rgba(0,255,255,0.95);
+					border-radius: 14px;
+            padding: 5px;
+				}
+
+				.element .details {
+					position: absolute;
+					bottom: 0px;
+					top: 0px;
+					left: 0px;
+					right: 0px;
+					font-size: 12px;
+					color: rgba(127,255,255,0.75);
+					border-radius: 14px;
+            padding: 5px;
+				}
+
+			button {
+				color: rgba(127,255,255,0.75);
+				background: transparent;
+				outline: 1px solid rgba(127,255,255,0.75);
+				border: 0px;
+				padding: 5px 10px;
+				cursor: pointer;
+			}
+
+			button:hover {
+				background-color: rgba(0,255,255,0.5);
+			}
+
+			button:active {
+				color: #000000;
+				background-color: rgba(0,255,255,0.75);
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="info"><a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> css3d - periodic table.</div>
+		<div id="container"></div>
+		<div id="menu">
+			<button id="table">TABLE</button>
+			<button id="sphere">SPHERE</button>
+			<button id="helix">HELIX</button>
+			<button id="grid">GRID</button>
+		</div>
+
+		<!-- Import maps polyfill -->
+		<!-- Remove this when import maps will be widely supported -->
+		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "../build/three.module.js",
+					"three/addons/": "./jsm/"
+				}
+			}
+		</script>
+
+		<script type="module">
+
+			import * as THREE from 'three';
+
+			import { TWEEN } from 'three/addons/libs/tween.module.min.js';
+			import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
+			import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
+
+			const table =[
+	"https://roomimg.stream.highwebmedia.com/ri/elaanna.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/onlysophiaelizabeth.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/heyhorny_cb.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/taylor_love_303.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/_timeless_paradox.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/coy_amina_.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/sassyt33n.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/eli_sun.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/tiffanyhouston_.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/sae__.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/miladenver.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/ginnybabe_.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/allayah.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/hotfallingdevil.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/kim__possible.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/maryrous.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/siamodo.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/pinkncrazy.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/_mari_.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/sophydiva.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/jenny_perry.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/pekadark.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/agata_adams.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/lady_big_squirt.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/curvyjules69.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/the_milf_steff.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/carmela_fox.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/princessasiana.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/anyeess.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/daily_love.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/annemanifique.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/loko_chi.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/mazzanti_.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/bad__babe.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/anabel054.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/enncandy.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/barbins.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/marmelado_babe.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/skinny_sis.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/kisimoto_key.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/tayasha.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/coastaldivas.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/oliviaogk.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/katya_loves.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/evelin_gh1.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/holy_rave.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/eatmypie69.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/candymini.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/lindawarners.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/ameliaviera.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/sapphirealice.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/hinatabroks.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/crystalnut.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/rennatha21.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/anime_baby22.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/toricowgirl.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/dinablush.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/wowevawow.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/evelinameow.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/diamond_jo.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/cinacramby.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/a_luscious_faith.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/sugaristic.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/_hey_siri_.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/whiterabbit0.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/anitacohen.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/likareed.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/dovia.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/_meghan_gomez1_.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/shycinderella.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/barbieprincess.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/happy_gir1.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/yoyo_manga.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/maryhillt.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/nicolle_mitchelle.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/tasha_allas.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/andrea_logan.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/alicechina.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/_demi_dee_.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/krisi_kiss.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/miss_anal_isabella.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/ammyadamss.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/elisa_kimm.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/saintlyn.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/vivian_cb.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/megancarlott_.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/kaylaa_fox.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/aileen_williams.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/byakkomoriko.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/rubyluka.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/korean_sua.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/dollorrie.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/emilymilf__.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/miss__lori.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/sweet_idol.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/ddboubou.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/valeriamessalina.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/andytea.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/ho1yh01e.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/lisa_panton.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/tina_nixon69.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/danikanappi.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/mika_chan1.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/hotangelalli.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/aleckssa.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/crystal_wild.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/sabrinagoddess.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/farradayy.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/lexy_sweet.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/teressalovee.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/hotmorena05.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/lovlybambi.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/whitee_angel.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/ava_blossom.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/leylami.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/one_more_cum.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/w0wgirls.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/maysunny.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/lean_lie.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/chloe_tailor.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/saejin_sia.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/asianbabymia.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/gingerlei.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/alannarack.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/angelalleanna.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/saraymonroe.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/sandyfairy.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/kralya_smile.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/asleeeymorgan.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/_sweetzoe_.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/xdangerousthornx.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/kitty_wood.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/mimi_lissa.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/erikalustx.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/_austra1ia.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/thaispice.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/liindsay_hill.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/aeliss9.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/lanajoseph.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/sirena99.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/tixxxy.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/misslullu.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/luna__ko.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/appr0ved.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/lifeispeachyxx.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/olivia_date.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/your_woman.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/vanessa_de_ville.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/elenawild.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/foxylovesyou.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/boobsbounce69.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/ps4pro.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/_lovly.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/yumi_uwu.jpg",
+	"https://roomimg.stream.highwebmedia.com/ri/crazyteeen.jpg"
+];
+
+			let camera, scene, renderer;
+			let controls;
+
+			const objects = [];
+			const targets = { table: [], sphere: [], helix: [], grid: [] };
+
+			init();
+			animate();
+
+			function init() {
+
+				camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
+				camera.position.z = 3000;
+
+				scene = new THREE.Scene();
+
+				// table
+
+				for ( let i = 0; i < table.length; i += 1 ) {
+
+					const element = document.createElement( 'div' );
+					element.className = 'element';
+					element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
+
+				
+
+					
+
+					const details = document.createElement( 'img' );
+					details.className = 'image_url';
+					details.src = table[ i ];
+					element.appendChild( details );
+
+					const objectCSS = new CSS3DObject( element );
+					objectCSS.position.x = Math.random() * 4000 - 2000;
+					objectCSS.position.y = Math.random() * 4000 - 2000;
+					objectCSS.position.z = Math.random() * 4000 - 2000;
+					scene.add( objectCSS );
+
+					objects.push( objectCSS );
+
+					//
+
+					const object = new THREE.Object3D();
+					object.position.x = ( table[ i + 3 ] * 140 ) - 1330;
+					object.position.y = - ( table[ i + 4 ] * 180 ) + 990;
+
+					targets.table.push( object );
+
+				}
+
+				// sphere
+
+				const vector = new THREE.Vector3();
+
+				for ( let i = 0, l = objects.length; i < l; i ++ ) {
+
+					const phi = Math.acos( - 1 + ( 2 * i ) / l );
+					const theta = Math.sqrt( l * Math.PI ) * phi;
+
+					const object = new THREE.Object3D();
+
+					object.position.setFromSphericalCoords( 800, phi, theta );
+
+					vector.copy( object.position ).multiplyScalar( 2 );
+
+					object.lookAt( vector );
+
+					targets.sphere.push( object );
+
+				}
+
+				// helix
+
+				for ( let i = 0, l = objects.length; i < l; i ++ ) {
+
+					const theta = i * 0.175 + Math.PI;
+					const y = - ( i * 8 ) + 450;
+
+					const object = new THREE.Object3D();
+
+					object.position.setFromCylindricalCoords( 900, theta, y );
+
+					vector.x = object.position.x * 2;
+					vector.y = object.position.y;
+					vector.z = object.position.z * 2;
+
+					object.lookAt( vector );
+
+					targets.helix.push( object );
+
+				}
+
+				// grid
+
+				for ( let i = 0; i < objects.length; i ++ ) {
+
+					const object = new THREE.Object3D();
+
+					object.position.x = ( ( i % 5 ) * 400 ) - 800;
+					object.position.y = ( - ( Math.floor( i / 5 ) % 5 ) * 400 ) + 800;
+					object.position.z = ( Math.floor( i / 25 ) ) * 1000 - 2000;
+
+					targets.grid.push( object );
+
+				}
+
+				//
+
+				renderer = new CSS3DRenderer();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.getElementById( 'container' ).appendChild( renderer.domElement );
+
+				//
+
+				controls = new TrackballControls( camera, renderer.domElement );
+				controls.minDistance = 500;
+				controls.maxDistance = 6000;
+				controls.addEventListener( 'change', render );
+
+				const buttonTable = document.getElementById( 'table' );
+				buttonTable.addEventListener( 'click', function () {
+
+					transform( targets.table, 2000 );
+
+				} );
+
+				const buttonSphere = document.getElementById( 'sphere' );
+				buttonSphere.addEventListener( 'click', function () {
+
+					transform( targets.sphere, 2000 );
+
+				} );
+
+				const buttonHelix = document.getElementById( 'helix' );
+				buttonHelix.addEventListener( 'click', function () {
+
+					transform( targets.helix, 2000 );
+
+				} );
+
+				const buttonGrid = document.getElementById( 'grid' );
+				buttonGrid.addEventListener( 'click', function () {
+
+					transform( targets.grid, 2000 );
+
+				} );
+
+				transform( targets.table, 2000 );
+
+				//
+
+				window.addEventListener( 'resize', onWindowResize );
+
+			}
+
+			function transform( targets, duration ) {
+
+				TWEEN.removeAll();
+
+				for ( let i = 0; i < objects.length; i ++ ) {
+
+					const object = objects[ i ];
+					const target = targets[ i ];
+
+					new TWEEN.Tween( object.position )
+						.to( { x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration )
+						.easing( TWEEN.Easing.Exponential.InOut )
+						.start();
+
+					new TWEEN.Tween( object.rotation )
+						.to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )
+						.easing( TWEEN.Easing.Exponential.InOut )
+						.start();
+
+				}
+
+				new TWEEN.Tween( this )
+					.to( {}, duration * 2 )
+					.onUpdate( render )
+					.start();
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				render();
+
+			}
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+				TWEEN.update();
+
+				controls.update();
+
+			}
+
+			function render() {
+
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+	</body>
+</html>
