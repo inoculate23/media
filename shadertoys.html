@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en-GB" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=yes,initial-scale=1,maximum-scale=1">
+    <title>My Shadertoys</title>
+    <meta name="author" content="Inoculate Media">
+    <meta name="description" content="Robots like making art too">
+    <meta name="keywords" content="AV,mixer,effects,webgl,HTML5 Canvas">
+    <meta name="subject" content="Cloud Video Mixer">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://inoculate.media/" />
+    <meta property="og:title" content="Cloud Video Mixer">
+    <meta property="og:description" content="Robots like making art too">
+    <meta property="og:site_name" content="Inoculate Media">
+    <meta name="twitter:title" content="Cloud Video Mixer">
+    <meta name="twitter:description" content="Robots like making art too">
+    <link rel="stylesheet" type="text/css" href="css/style.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <script src="js/recorder.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+ 
+    <script src="js/echo.js"></script>
+
+
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Monospace;
+            font-size: 13px;
+            line-height: 24px;
+            z-index: 20;
+            overscroll-behavior: none;
+        }
+        
+        h1 {
+            color: rgb(244, 248, 244);
+        }
+        
+        h2 {
+            color: rgb(244, 248, 244);
+        }
+        
+        h3 {
+            color: black;
+        }
+        
+        .video-container {
+            display: flex;
+            flex-direction: row;
+            padding: 5px;
+            width: 85%;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(68, 7, 119);
+            z-index: 1025;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: row;
+            padding: 5px;
+            width: 70%;
+            justify-content: center;
+            border-radius: 18px;
+            border-color: #3c3c3e;
+            border-width: 10px;
+            align-items: self-position;
+            Z-index: 25;
+        }
+        
+        .shader-container {
+            width: 70%;
+            padding: 10px;
+            margin-right: 50%;
+            margin-left: 50%;
+            background: #111111;
+            font-size: 21px;
+            line-height: 1.3em;
+            border-radius: 20px;
+            box-shadow: 0 0 0 4px #fff, 2px 1px 6px 4px rgba(10, 10, 0, .5);
+            font-weight: 400;
+            
+            Z-index: 1000;
+        }
+        
+        .shader-container>div {
+            background-color: #000000;
+            margin: 5%;
+            padding: 20px;
+            font-size: 30px;
+            Z-index: 10;
+            Opacity: 100%;
+        }
+        
+        .shader-container2 {
+            padding: 20px;
+            margin: 10px;
+            background: #000000;
+            font-size: 21px;
+            line-height: 1.3em;
+            border-radius: 50px;
+            box-shadow: 0 0 0 4px #fff, 2px 1px 6px 4px rgba(10, 10, 0, .5);
+            font-weight: 400;
+            Opacity: 60%;
+            Z-index: 10;
+        }
+        
+        .top {
+            background-color: #000000;
+            margin: 5%;
+            padding: 20px;
+            font-size: 30px;
+            Z-index: 40;
+        }
+        
+        .canvas-container {
+            display: flex;
+            flex-direction: row;
+            padding: 5px;
+            width: 97%;
+            justify-content: center;
+            border-radius: 18px;
+            border-color: #3c3c3e;
+            border-width: 10px;
+            align-items: self-position;
+        }
+        
+        .flex-container {
+            flex-direction: column;
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 18px;
+            border-color: #3c3c3e;
+            border-width: 10px;
+            justify-content: center;
+            width: 100%;
+            align-items: center;
+            Z-index: 30;
+            Opacity: 100%;
+        }
+        
+        .flex-container>div {
+            background-color: #000000;
+            margin: 5%;
+            padding: 20px;
+            font-size: 30px;
+            Opacity: 100%;
+        }
+        
+        .camera-container {
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            margin: 550%;
+            width: 85%;
+            align-items: self-position;
+            box-shadow: 0 0 0 4px #fff, 2px 1px 6px 4px rgba(10, 10, 0, .5);
+            justify-content: space-around;
+            Z-index: 1000;
+        }
+        
+        .camera-container>div {
+            font-size: 30px;
+            align-items: self-position;
+            Z-index: 10;
+            Opacity: 10%;
+        }
+        
+        .holder {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -10;
+            pointer-events: none;
+        }
+        
+        .inner {
+            z-index: 25;
+        }
+    </style>
+
+
+
+    <div class="holder"><iframe allowfullscreen src="https://www.shadertoy.com/embed/DsfSDS?gui=false&t=10&paused=false&muted=false" style="width: 100%; height: 100%; top: 0; right: 0; bottom: 0; left: 0; z-index: -1;"></iframe></div>
+
+
+</head>
+
+<body>
+    <div id="log">
+        <div class="inner"></div>
+    </div>
+    <script>
+        window.setupConsoleLogRedirection();
+    </script>
+
+    <script>
+        // --- Get the list of shaders' ID from ShaderToy
+        function fetchBy(crit) { // (id,crit) {
+            // turn active button in bold
+            document.getElementById('love').style.fontWeight = 'normal';
+            document.getElementById('newest').style.fontWeight = 'normal';
+            document.getElementById(crit).style.fontWeight = 'bold';
+            //id.style.fontWeight = 'bold';
+
+            xhr = new XMLHttpRequest(); // asynch for init page displays
+            xhr.open('GET', "https://www.shadertoy.com/api/v1/shaders/query/kraig23?sort=" + crit + "&key=fdHt4W", true);
+            xhr.onreadystatechange = processList;
+            xhr.send();
+            p = document.getElementById("display");
+            p.innerHTML = "<i>Contacting Shadertoy...</i>";
+        }
+
+        function processList(e) {
+            if (xhr.readyState == 4 && xhr.status == 200) { // list received
+                test = document.getElementById("test");
+                //test.innerHTML = xhr.responseText;
+                p = document.getElementById("display");
+                list = JSON.parse(xhr.responseText).Results;
+                p.innerHTML = list.length + " shaders : <br>";
+                loadPreviews();
+            }
+        }
+
+
+        // --- Build (asynchronous) display preview, prepare iframe@shadertoy
+        function loadPreviews() {
+            cache = "";
+            for (var i = 0; i < list.length; i++) { // list.length
+                id = list[i]; // shader Id          
+                cache += //  p.innerHTML += // NB: ultra-slow if many DOM inserts
+                    "<span " // " id='"+id+"' href=javascript:load()"
+                    +
+                    "onclick=\"javascript:loadShader(this,'" + id + "');\" style='cursor: pointer' >" // trigger
+                    // NB: onclick provides 'this' while 'href=JS' don't     
+                    +
+                    "<img id='img:" + id + "' height= 270 width=450  src='" +
+                    "blank.gif' alt='' data-echo='" // true load on demand asynchronous  // -background
+                    //+ "stub.jpg'>"
+                    +
+                    "https://www.shadertoy.com/media/shaders/" + id + ".jpg'>" +
+                    "</span>\n";
+                // NB: 'visibility:hidden' would preload. 'display:none' doesn't (really ?).
+            }
+            p.innerHTML += cache;
+
+            echo.init({ // setup deferred images loading
+                offset: 100,
+                throttle: 250,
+                unload: false
+                    //, callback: function (element, op) { console.log(element, 'has been', op + 'ed') }
+            });
+        }
+
+        // --- On click, load glsl shader and replace preview
+        function loadShader(id, shdt) {
+            // id = document.getElementById(shdt);
+            id.innerHTML = '<iframe allowfullscreen="true"  autoplay="true" frameborder="10" height="270" width="470"  src="https://www.shadertoy.com/embed/' + shdt + '?gui=true&amp;t=10&amp;paused=false"></iframe>';
+        }
+    </script>
+
+
+
+                <!-- Options and filters -->
+                <section id="accordion">
+                    <center>
+
+
+                        <h1> My Shadertoys catalog (Click to play)</h1>
+
+                    </center>
+                    <div class="flex-container">
+                        <h2> Sorted by: &nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="fa-solid fa-filter"></i><a href="index.html">Ordered list of Shadertoys</a>
+                            <i class="fa-solid fa-filter"></i> <a href="https://www.shadertoy.com/user/kraig23/sort=newest&filter=">All
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Sort by<i class="fa-solid fa-filter"></i>
+     <a id='love' href='javascript:fetchBy("love")'>likes</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="fa-solid fa-filter"></i>
+                            <a id='newest' href='javascript:fetchBy("newest")'>date</a>
+                            <script>
+                                fetchBy("love");
+                            </script>
+                            <p>
+
+                                <span id="test"></span>
+                                <span id="display"><p></p></span></div>
+
+
+
+
+
+                     
+
+
+
+
+
+
+
+
+
+                    </div>
+        </div>
+    </div>
+
+  
+
+
+
+    </section>
+
+    <br>
+
+  
+</body>
+</html>
