@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+<!-- Primary Meta Tags -->
+<title>Inoculate Media - Where art and technology meet</title>
+<meta name="title" content="Inoculate Media - Where art and technology meet">
+<meta name="description" content="Inoculate Media designs experimental audio and video , webgl, custom designs, for live performance. Based in Las Vegas, Nevada.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metatags.io/">
+<meta property="og:title" content="Inoculate Media - Where art and technology meet">
+<meta property="og:description" content="Inoculate Media designs experimental audio and video , webgl, custom designs, for live performance. Based in Las Vegas, Nevada.">
+<meta property="og:image" content="https://inoculate.media/main/logo.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://metatags.io/">
+<meta property="twitter:title" content="Inoculate Media - Where art and technology meet">
+<meta property="twitter:description" content="Inoculate Media designs experimental audio and video , webgl, custom designs, for live performance. Based in Las Vegas, Nevada.">
+<meta property="twitter:image" content="https://inoculate.media/main/logo.png">
+		<link type="text/css" rel="stylesheet" href="css/main2.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+	</head>
+	<body>
+
+<div id="header">
+<h1>Inoculate Media - Where art and technology meet</h1>
+</div>
+<div id="panel">
+<div id="contentWrapper">
+	<img src="https://inoculate.media/main/logo.png">
+<div id="content">
+
+<ul>
+<div class="card">
+<h1>Projection Mapping</h1>
+<li><a href="https://inoculate.media/projection.html">
+	Area 15 Immersive Video</a>
+</li>
+<li><a href="https://inoculate.media/invent.html" target="_blank">
+    Invent yourself</a></li>
+	</div>
+	<div class="card">
+    <h1>WebGL Animation</h1>
+
+	<li><a href="https://inoculate.media/datacube/index.html" target="_blank">
+		DataCube - 3d CSS / API</a></li>
+	<li><a href="https://inoculate.media/shadertoy.html" target="_blank">
+		Shadertoy WebGL animations</a></li>
+<li><a href="https://inoculate.media/santa.html" target="_blank">
+Santa Claus  
+</a></li>
+</div>
+<div class="card">
+<h1>Video Experiments</h1></li>
+<li><a href="#WebRTC">WebRTC - Coming soon</a></li>
+</div>
+<div class="card">
+<h1>About</h1>
+<li><a href="/main/cv.pdf" target="_blank">Bio and CV</a>
+</li>
+		<li><a href="mailto:craig@inoculate.media" target="_blank">Contact</a>
+</li>
+</div>
+<div class="footer">
+  <p> All content copyright 2022 Inoculate Media</p>
+</div>
+
+
+		<!-- Import maps polyfill -->
+		<!-- Remove this when import maps will be widely supported -->
+		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "https://inoculate.media/sacred_snow/build/three.module.js"
+				}
+			}
+		</script>
+
+		<script type="module">
+
+			import * as THREE from 'three';
+
+		
+
+			
+
+			let camera, scene, renderer, parameters;
+			let mouseX = 0, mouseY = 0;
+
+			let windowHalfX = window.innerWidth / 2;
+			let windowHalfY = window.innerHeight / 2;
+
+			const materials = [];
+			init();
+			animate();
+
+			function init() {
+
+				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 2000 );
+				camera.position.z = 500;
+
+				scene = new THREE.Scene();
+				scene.fog = new THREE.FogExp2( 0x000000, 0.0050 );
+
+				const geometry = new THREE.BufferGeometry();
+				const vertices = [];
+
+				const textureLoader = new THREE.TextureLoader();
+
+				const sprite1 = textureLoader.load( '/main/textures/snow/sf2.png' );
+				const sprite2 = textureLoader.load( '/main/textures/snow/sf1.png' );
+				const sprite3 = textureLoader.load( '/main/textures/snow/sf3.png' );
+				const sprite4 = textureLoader.load( '/main/textures/snow/sf4.png' );
+				
+				
+			
+
+				for ( let i = 0; i < 10000; i ++ ) {
+
+					const x = Math.random() * 2000 - 1000;
+					const y = Math.random() * 2000 - 1000;
+					const z = Math.random() * 2000 - 1000;
+
+					vertices.push( x, y, z );
+
+				}
+
+				geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
+
+				parameters = [
+					[[ 0.80, 0.2, .9], sprite2, 20 ],
+					[[ 0.95, 0.1, 1.9 ], sprite3, 30 ],
+					[[ 0.90, 0.05, 0.9 ], sprite1, 10 ],
+					
+					[[ 0.80, 0, 1.0 ], sprite4, 5 ]
+				];
+
+				for ( let i = 0; i < parameters.length; i ++ ) {
+
+					const color = parameters[ i ][ 0 ];
+					const sprite = parameters[ i ][ 1 ];
+					const size = parameters[ i ][ 2 ];
+
+					materials[ i ] = new THREE.PointsMaterial( { size: size, map: sprite, blending: THREE.AdditiveBlending, depthTest: false, transparent: true } );
+					materials[ i ].color.setHSL( color[ 0 ], color[ .5 ], color[ .5 ] );
+
+					const particles = new THREE.Points( geometry, materials[ i ] );
+
+					particles.rotation.x = Math.random() * 266;
+					particles.rotation.y = Math.random() * 266;
+					particles.rotation.z = Math.random() * 266;
+
+					scene.add( particles );
+
+				}
+
+				//
+
+				renderer = new THREE.WebGLRenderer();
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.body.appendChild( renderer.domElement );
+
+				//
+
+
+				document.body.style.touchAction = 'none';
+				document.body.addEventListener( 'pointermove', onPointerMove );
+
+				//
+
+				window.addEventListener( 'resize', onWindowResize );
+
+			}
+
+			function onWindowResize() {
+
+				windowHalfX = window.innerWidth / 2;
+				windowHalfY = window.innerHeight / 2;
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			function onPointerMove( event ) {
+
+				if ( event.isPrimary === false ) return;
+
+				mouseX = event.clientX - windowHalfX;
+				mouseY = event.clientY - windowHalfY;
+
+			}
+
+			//
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+				render();
+			
+
+			}
+
+			function render() {
+
+				const time = Date.now() * 0.00005;
+
+				camera.position.x += ( mouseX - camera.position.x ) * 0.05;
+				camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
+
+				camera.lookAt( scene.position );
+
+				for ( let i = 0; i < scene.children.length; i ++ ) {
+
+					const object = scene.children[ i ];
+
+					if ( object instanceof THREE.Points ) {
+
+						object.rotation.y = time * ( i < 8 ? i + 1 : - ( i + 1 ) );
+
+					}
+
+				}
+
+				for ( let i = 0; i < materials.length; i ++ ) {
+
+					const color = parameters[ i ][ 0 ];
+
+					const h = ( 360 * ( color[ 0 ] + time ) % 360 ) / 360;
+					materials[ i ].color.setHSL( h, color[ 1 ], color[ 2 ] );
+
+				}
+
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+    
+	</body>
+</html>
