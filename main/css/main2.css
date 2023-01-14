@@ -561,6 +561,7 @@ iframe#viewer {
 
 
 .card {
+	opacity: .5;
 	border-radius: 3px;
 	overflow: hidden;
 	background-color: var(--secondary-background-color);
