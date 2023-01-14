@@ -592,13 +592,13 @@
                                                                         display: block;
                                                                     }
                                                                     #panel {
-                                                                        position: fixed;
+                                                                        position: relative;
                                                                         left: 0;
                                                                         top: 0;
                                                                         width: 100%;
                                                                         right: 0;
                                                                         z-index: 1000;
-                                                                        overflow-x: hidden;
+                                                                        overflow-x: scroll;
                                                                         transition: 0s 0s height;
                                                                         border: none;
                                                                         height: var(--header-height);
@@ -611,7 +611,7 @@
                                                                     #panelScrim {
                                                                         pointer-events: none;
                                                                         background-color: rgba(170, 55, 55, 0);
-                                                                        position: fixed;
+                                                                        position: relative;
                                                                         left: 0;
                                                                         right: 0;
                                                                         top: 0;
@@ -625,10 +625,10 @@
                                                                         background-color: rgba(0, 0, 0, 0.4);
                                                                     }
                                                                     #contentWrapper {
-                                                                        position: absolute;
+                                                                        position: relative;
                                                                         right: 0;
                                                                         top: 0;
-                                                                        bottom: 0;
+                                                                        bottom: 4;
                                                                         background: var(--background-color);
                                                                         box-shadow: 0 0 8px rgba(0, 0, 0, .1);
                                                                         width: calc(100vw - 60px);
