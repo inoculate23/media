@@ -9,11 +9,11 @@ body {
 }
 
 h1 {
-    color: rgb(244, 248, 244);
+    color: rgb(44, 48, 44);
 }
 
 h2 {
-    color: rgb(244, 248, 244);
+    color: rgb(44, 48, 44);
 }
 
 .holder {
@@ -32,14 +32,14 @@ h2 {
 /* unvisited link */
 
 a:link {
-    color: red;
+    color: grey;
 }
 
 
 /* visited link */
 
 a:visited {
-    color: green;
+    color: blue;
 }
 
 
@@ -53,7 +53,7 @@ a:hover {
 /* selected link */
 
 a:active {
-    color: blue;
+    color: teal;
 }
 
 a:hover {
