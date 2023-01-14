@@ -388,7 +388,31 @@
                                                                 #panel #content.minimal #previewsToggler {
                                                                     opacity: 1;
                                                                 }
-                                                                
+                                                                .main_container {
+                                                                    position: absolute;
+                                                                    z-index: 400;
+                                                                    right: 0px;
+                                                                    width: var(--panel-width);
+                                                                    height: 100%;
+                                                                    overflow: auto;
+                                                                    border-right: var(--border-style);
+                                                                    display: flex;
+                                                                    flex-direction: row;
+                                                                    transition: 0s 0s height;
+                                                                }
+                                                                video {
+                                                                    object-fit: fill;
+                                                                    position: relative;
+                                                                    z-index: -100;
+                                                                    right: 0px;
+                                                                    width: var(--panel-width);
+                                                                    height: 100%;
+                                                                    overflow: auto;
+                                                                    border-right: var(--border-style);
+                                                                    display: flex;
+                                                                    flex-direction: row;
+                                                                    transition: 0s 0s height;
+                                                                }
                                                                 body.home #panel #content h2 {
                                                                     margin-bottom: 2px;
                                                                     padding-bottom: 0px;
