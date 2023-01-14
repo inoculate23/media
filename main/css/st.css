@@ -5,7 +5,7 @@ body {
     line-height: 24px;
     z-index: 20;
     overscroll-behavior: none;
-    background-color: #3c3c3e;
+    background-image: url("https://inoclate.media/main/textures/duck.jpg");
 }
 
 h1 {
