@@ -1,7 +1,7 @@
                                                                 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
                                                                  :root {
                                                                     color-scheme: light dark;
-                                                                    --background-color: #fff;
+                                                          
                                                                     --secondary-background-color: #f7f7f7;
                                                                     --color-blue: #049EF4;
                                                                     --text-color: #444;
@@ -18,7 +18,7 @@
                                                                 @media (prefers-color-scheme: dark) {
                                                                      :root {
                                                                         --background-color: rgb(34, 34, 34);
-                                                                        --secondary-background-color: #1c1c1c;
+                                                                        --secondary-background-color: #9b3535;
                                                                         --text-color: #bbb;
                                                                         --secondary-text-color: #666;
                                                                         --border-style: 1px solid #444;
@@ -64,12 +64,12 @@
                                                                     color: var(--text-color);
                                                                     background-color: var(--background-color);
                                                                 }
-                                                                
+                                                    
                                                                 .footer {
                                                                     position: fixed;
-                                                                    left: 0;
+                                                                    left: 10;
                                                                     bottom: 0;
-                                                                    width: 100%;
+                                                                    width: 122%;
                                                                     color: rgb(255, 254, 254);
                                                                     text-align: center;
                                                                     z-index: 999;
@@ -93,18 +93,25 @@
                                                                     font-size: calc(var(--font-size) - 1px);
                                                                     line-height: var(--line-height);
                                                                     font-weight: 500;
-                                                                    color: var(--color-blue);
+                                                                    color: var(--color-blu);
                                                                 }
                                                                 
                                                                 h3 {
                                                                     font-family: 'Lato', sans-serif;
-                                                                    margin: 0;
-                                                                    font-weight: 500;
-                                                                    font-size: calc(var(--font-size) - 1px);
-                                                                    line-height: var(--line-height);
-                                                                    color: var(--secondary-text-color);
+                                                                    margin: 80;
+                                                                    font-weight: 100;
+                                                                    font-size: 20px;
+
+                                                                    color: whitesmoke;
                                                                 }
-                                                                
+                                                                h4 {
+                                                                    font-family: 'Press Start 2P', cursive;
+                                                                    padding: 10px;
+                                                                    margin: 16px 0;
+                                                                    font-size: 20px;
+                                                                    font-weight: 500;
+                                                                    color: rgb(252, 253, 251);
+                                                                }
                                                                 h1 a {
                                                                     color: var(--color-blue);
                                                                 }
@@ -136,7 +143,34 @@
                                                                     margin-left: 6px;
                                                                     font-size: .9rem;
                                                                 }
+                                                                #myvideo2 {
+                                                                 position: absolute;
+                                                                    width: 79%;
+                                                                    margin-left: 20%;
+                                                                    object-fit: fill;
+                                                                    z-index: 100;
+                                                                    opacity: .6;
                                                                 
+                                                                
+                                                                
+                                                                  }
+                                                                  #myvideo1 {
+                                                                      position: relative;
+                                                                    width: 79%;
+                                                                    margin-left: 20%;
+                                                                    object-fit: fill;
+                                                                    z-index: -1066;
+                                                                    opacity: 1;
+                                                                  }
+                                                                
+                                                                  .video-cover {
+                                                                      position: fixed;
+                                                                    width: 100;
+                                                                    height: 100;
+                                                                    bottom: 0; 
+                                                                    right: 0; 
+                                                                
+                                                                  }
                                                                 #panel {
                                                                     position: fixed;
                                                                     z-index: 110;
@@ -332,7 +366,7 @@
                                                                 
                                                                 #panel #content h3 {
                                                                     color: var(--text-color);
-                                                                    font-weight: 900;
+                                                                    font-weight: 500;
                                                                 }
                                                                 
                                                                 #panel #content h2 {
@@ -388,31 +422,7 @@
                                                                 #panel #content.minimal #previewsToggler {
                                                                     opacity: 1;
                                                                 }
-                                                                .main_container {
-                                                                    position: absolute;
-                                                                    z-index: 400;
-                                                                    right: 0px;
-                                                                    width: var(--panel-width);
-                                                                    height: 100%;
-                                                                    overflow: auto;
-                                                                    border-right: var(--border-style);
-                                                                    display: flex;
-                                                                    flex-direction: row;
-                                                                    transition: 0s 0s height;
-                                                                }
-                                                                video {
-                                                                    object-fit: fill;
-                                                                    position: relative;
-                                                                    z-index: -100;
-                                                                    right: 0px;
-                                                                    width: var(--panel-width);
-                                                                    height: 100%;
-                                                                    overflow: auto;
-                                                                    border-right: var(--border-style);
-                                                                    display: flex;
-                                                                    flex-direction: row;
-                                                                    transition: 0s 0s height;
-                                                                }
+                                                                
                                                                 body.home #panel #content h2 {
                                                                     margin-bottom: 2px;
                                                                     padding-bottom: 0px;
@@ -559,11 +569,14 @@
                                                                 }
                                                                 
                                                                 .card {
-                                                                    border-radius: 3px;
+                                                                    border-radius: 10px;
                                                                     overflow: hidden;
-                                                                    background-color: var(--secondary-background-color);
+                                                                    background-color: rgb(17, 17, 18);
                                                                     padding-bottom: 6px;
                                                                     margin-bottom: 16px;
+                                                                    padding-left: 19px;
+
+                                                
                                                                 }
                                                                 
                                                                 .card.selected {
@@ -587,14 +600,15 @@
                                                                 }
                                                                 
                                                                 .card .title {
-                                                                    padding: 8px 12px 4px;
+                                                                    padding: 10px 0px 0px;
+                                                                    margin: 5;
                                                                     font-size: calc(var(--font-size) - 1px);
                                                                     font-weight: 500;
                                                                     line-height: calc(var(--line-height) - 6px);
                                                                 }
                                                                 
                                                                 .card .tag {
-                                                                    background-color: var(--background-color);
+                                                                    background-color: blueviolet;
                                                                     color: var(--color-blue);
                                                                     margin-left: 6px;
                                                                     padding: 1px 6px 2px;
