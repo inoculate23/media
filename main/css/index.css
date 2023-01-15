@@ -18,7 +18,7 @@
                                                                 @media (prefers-color-scheme: dark) {
                                                                      :root {
                                                                         --background-color: rgb(34, 34, 34);
-                                                                        --secondary-background-color: #9b3535;
+                                                                        --secondary-background-color: #1c1c1c;
                                                                         --text-color: #bbb;
                                                                         --secondary-text-color: #666;
                                                                         --border-style: 1px solid #444;
