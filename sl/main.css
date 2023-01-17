@@ -75,9 +75,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font-family);
 }
 
-p {
 
-}
 
 blockquote {
   text-align: center;
@@ -395,6 +393,20 @@ img {
   /* TODO this is wrong */
   height: var(--golden-ratio-width-shorter);
 }
+#cal  {
+  width: 1400px;
+  height: 950px;
+  position: absolute;
+  margin: 100px;
+  margin-top: 50px;
+}
+.cal  {
+  width: 1400px;
+  height: 950px;
+  position: absolute;
+  margin: 100px;
+  margin-top: 50px;
+}
 /* projects: end */
 
 /* .content-container: begin */
@@ -455,19 +467,11 @@ img {
 }
 /* social media: end */
 
-/* footer: start */
-footer {
-  display: flex;
-  color: var(--footer-text-color);
-  font-family: var(--footer-font-family);
-  padding: var(--content-padding);
-  height: var(--golden-ratio-height-shorter);
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
 
-footer p {
-  margin-bottom: 1rem;
+
+footer .p .bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 /* footer: end */
