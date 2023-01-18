@@ -1,3 +1,6 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+</style>
 body {
     font-family: 'Lato', sans-serif;
     background-image: url("rtc_background.jpg");
@@ -18,10 +21,11 @@ h2 {
     font-size: 4em; 
     color: rgb(235, 245, 243);
 }
+
 h3 {
-    text-align: center;
-    font-size: 2em; 
-    color: yellow;
+	
+font-family: 'Share Tech Mono', monospace;
+	color: whitesmoke;
 }
 
 td {
