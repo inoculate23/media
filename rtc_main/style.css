@@ -4,6 +4,9 @@ body {
     background-color: black;
 	min-width: 450px;
 }
+header {
+	margin-left=25%;
+}
 
 h1 {
     font-size: 1.75em;
