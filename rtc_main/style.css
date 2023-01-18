@@ -26,6 +26,7 @@ h3 {
 	
 font-family: 'Share Tech Mono', monospace;
 	color: whitesmoke;
+	  font-size: 1.5em; 
 }
 
 td {
@@ -63,12 +64,15 @@ a:visited{
 }
 
 .title1 {
-    vertical-align: top;
-    color:rgb(235, 245, 243)
+	font-family: 'Share Tech Mono', monospace;
+	color: whitesmoke;
+	  font-size: 2.0em; 
 }
+
 .title2 {
-    vertical-align: top;
-    color:rgb(235, 245, 243)
+	font-family: 'Share Tech Mono', monospace;
+	color: whitesmoke;
+	  font-size: 1.5em; 
 }
 
 
