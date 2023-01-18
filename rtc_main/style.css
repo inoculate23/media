@@ -53,10 +53,15 @@ a:visited{
     border: 2px solid rgb(78, 12, 139);
 }
 
-.title {
+.title1 {
     vertical-align: top;
     color:rgb(235, 245, 243)
 }
+.title2 {
+    vertical-align: top;
+    color:rgb(235, 245, 243)
+}
+
 
 .standby {
     background-color: red;
