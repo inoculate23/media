@@ -8,7 +8,9 @@ body {
 	min-width: 450px;
 }
 header {
-	margin-left: 25%;
+	position: fixed;
+	width: 100%;
+	
 }
 
 h1 {
