@@ -51,20 +51,16 @@
                                                                 html,
                                                                 body {
                                                                     height: 100%;
+                                                                    font-family: 'Lato', sans-serif;
+                                                                    margin: 0px;
+                                                                    color: var(--text-color);
+                                                                    background-color: var(--background-color);
                                                                 }
                                                                 
                                                                 html {
                                                                     font-size: calc(var(--font-size) - 1px);
                                                                     line-height: calc(var(--line-height) - 1px);
-                                                                }
-                                                                
-                                                                body {
-                                                                    font-family: 'Roboto Mono', monospace;
-                                                                    margin: 0px;
-                                                                    color: var(--text-color);
-                                                                    background-color: var(--background-color);
-                                                                }
-                                                    
+                                                              
                                                                 .footer {
                                                                     position: fixed;
                                                                     left: 10;
@@ -147,6 +143,7 @@
                                                                   position: fixed;
                                                                   right: 0;
                                                                   bottom: 0;
+                                                                 
                                                                   min-width: 100%;
                                                                   min-height: 100%;
                                                                   z-index: 100;
@@ -156,6 +153,7 @@
                                                                   position: fixed;
                                                                   right: 0;
                                                                   bottom: 0;
+                                                                  top: 0;
                                                                   min-width: 100%;
                                                                   min-height: 100%;
                                                                   z-index: 100;
@@ -182,7 +180,7 @@
                                                                   }
                                                                 #panel {
                                                                     position: fixed;
-                                                                    z-index: 110;
+                                                                    z-index: 150;
                                                                     left: 0px;
                                                                     width: var(--panel-width);
                                                                     height: 100%;
