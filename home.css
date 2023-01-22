@@ -149,7 +149,7 @@
                                                                   bottom: 0;
                                                                   min-width: 100%;
                                                                   min-height: 100%;
-                                                                  z-index: 2000;
+                                                                  z-index: 100;
                                                                 }
 
                                                                   .myvideo2 {
@@ -158,7 +158,7 @@
                                                                   bottom: 0;
                                                                   min-width: 100%;
                                                                   min-height: 100%;
-                                                                  z-index: 2000;
+                                                                  z-index: 100;
                                                                 }
                                                                 
                                                                 
@@ -168,7 +168,7 @@
                                                                     width: 79%;
                                                                     margin-left: 20%;
                                                                     object-fit: fill;
-                                                                    z-index: -1066;
+                                                                    z-index: 100;
                                                                     opacity: 1;
                                                                   }
                                                                 
