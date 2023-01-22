@@ -37,11 +37,29 @@
 	</style>
 	</head>
 	<body>
+	
+<script>
+ jQuery(function($){
+      let video = document.getElementById('myvideo2');
+            document.getElementById('myvideo2').addEventListener('click', button_action);
+
+            function button_action() {
+                if (video.paused) {
+                    video.play();
+                    bgvideo.innerHTML = "Pause Video";
+                } else {
+                    video.pause();
+                    bgvideo.innerHTML = "Play Video"
+                }
+            };
+});
+</script>
+<button class="button" id="bgvideo">Pause Here</button>
        
 
 
 
-<video id="myvideo2" width="100% height="100% controls src="https://inoculate.media/invent_yourself/textures/reality_3_VP9.webm#t=1" type="video/webm"></video>	
+<video id="myvideo2" width="100% height="100%  src="https://inoculate.media/invent_yourself/textures/reality_3_VP9.webm#t=1" type="video/webm"></video>	
 
 
 
