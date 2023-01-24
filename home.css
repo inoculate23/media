@@ -155,16 +155,11 @@
                                                                     overflow-y: hidden;
                                                                     overflow-x: hidden;
                                                                     z-index: 102;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-}
 
                                                                 
+                                                                }
                                                                 
-                                                                
-                                                                  }
+                                                                  
                                                                   .myvideo2 {
                                                                     position: absolute;
                                                                     border: 0px;
@@ -177,7 +172,7 @@
                                                                     overflow-y: hidden;
                                                                     overflow-x: hidden;
                                                                     z-index: 102;
-                                                                
+                                                                  }
                                                                   .video-cover {
                                                                       position: fixed;
                                                                     width: 100;
@@ -491,7 +486,7 @@
                                                                     margin-bottom: 0px;
                                                                     background-color: #FFF;
                                                                     opacity: .9;
-                                                                    z-index: 105;
+                                                                    z-index: 2000;
                                                                     box-shadow: 0 0 4px rgba(0, 0, 0, .15);
                                                                 }
                                                                 
@@ -694,5 +689,6 @@
                                                                     }
                                                                     #panel.open #contentWrapper {
                                                                         transform: translate3d(-380px, 0, 0);
-                                                                    }
+                                                                    
+                                                                    }    }
                                                                 
