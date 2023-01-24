@@ -477,14 +477,38 @@
                                                                     /* Reset default margin */
                                                                 }
                                                                 
+                                                                #button {
+                                                                    position: fixed;
+                                                                    bottom: 16px;
+                                                                    right: 16px;
+                                                                    padding: 12px;
+                                                                    border-radius: 10px;
+                                                                    margin-bottom: 0px;
+                                                                    background-color: rgb(207, 146, 14);
+                                                                    opacity: .9;
+                                                                    z-index: 1000;
+                                                                    box-shadow: 0 0 4px rgba(0, 0, 0, .15);
+                                                                }
                                                                 .button {
                                                                     position: fixed;
                                                                     bottom: 16px;
                                                                     right: 16px;
                                                                     padding: 12px;
-                                                                    border-radius: 50%;
+                                                                    border-radius: 10px;
                                                                     margin-bottom: 0px;
-                                                                    background-color: #FFF;
+                                                                    background-color: rgb(207, 146, 14);
+                                                                    opacity: .9;
+                                                                    z-index: 1000;
+                                                                    box-shadow: 0 0 4px rgba(0, 0, 0, .15);
+                                                                }
+                                                                .vidbutton {
+                                                                    position: fixed;
+                                                                    bottom: 16px;
+                                                                    right: 76px;
+                                                                    padding: 12px;
+                                                                  
+                                                                    margin-bottom: 0px;
+                                                                    background-color: rgb(207, 146, 14);
                                                                     opacity: .9;
                                                                     z-index: 1000;
                                                                     box-shadow: 0 0 4px rgba(0, 0, 0, .15);
