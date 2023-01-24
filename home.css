@@ -486,7 +486,7 @@
                                                                     margin-bottom: 0px;
                                                                     background-color: #FFF;
                                                                     opacity: .9;
-                                                                    z-index: 2000;
+                                                                    z-index: 1000;
                                                                     box-shadow: 0 0 4px rgba(0, 0, 0, .15);
                                                                 }
                                                                 
