@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Flow 3d data visualizer API</title>
+		<title>t3D Datacube</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<script src="js/stringify.js"></script>
-		<link rel="stylesheet" href="main.css">
+		<script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+		<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+		<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
 		<style>
 			a {
 				color: #8ff;
@@ -13,10 +15,10 @@
 	
 
 		body {
-  background-image: url("./textures/flow_banner2.png"),
+  background-image: 
                     url("./textures/inoculate_275_trans.png");
-					border-radius: 14px;
-background-position: 5% 5%, 95% 5%;
+
+background-position: 3% 3%;
   background-repeat: no-repeat;
   background-color: #000000;
 }
@@ -61,11 +63,6 @@ background-position: 5% 5%, 95% 5%;
 					right: 20px;
 					font-size: 12px;
 					color: rgba(127,255,255,0.75);
-				}
-				.container {
-					width: 90%;
-					height: 80%;
-					top: 10%;
 				}
 
 				.element .symbol {
@@ -154,10 +151,11 @@ background-position: 5% 5%, 95% 5%;
 		<script type="module">
 
 			import * as THREE from 'three';
-
 			import { TWEEN } from 'three/addons/libs/tween.module.min.js';
 			import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
-			import { CSS3DRenderer, CSS3DObject } from './jsm/renderers/CSS3DRenderer.js';
+			import { CSS3DRenderer, CSS3DObject } from '/jsm/renderers/CSS3DRenderer.js';
+	
+
 			const table = [
 	"https://images.pexels.com/photos/12564254/pexels-photo-12564254.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=&h=200&w=280",
 	"https://images.pexels.com/photos/11643390/pexels-photo-11643390.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=&h=200&w=280",
@@ -337,6 +335,18 @@ background-position: 5% 5%, 95% 5%;
 	];
 
 
+let container;
+
+
+
+let targetRotation = 0;
+let targetRotationOnPointerDown = 0;
+
+let pointerX = 0;
+let pointerXOnPointerDown = 0;
+
+let windowHalfX = window.innerWidth / 2;
+
 
 let camera, scene, renderer;
 			let controls;
@@ -348,11 +358,18 @@ let camera, scene, renderer;
 			animate();
 
 			function init() {
-
-				camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, .5, 10000 );
-				camera.position.z = 3000;
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
 
 				scene = new THREE.Scene();
+
+				camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, .5, 15000 );
+				camera.position.z = 12000;
+				scene.add( camera );
+
+				const light = new THREE.PointLight( 0xffffff, 0.8 );
+				camera.add( light );
+
 
 				// table
 
@@ -368,6 +385,8 @@ let camera, scene, renderer;
 					details.className = 'image_url';
 					details.src = table[ i ];
 					element.appendChild( details );
+
+
 
 					const objectCSS = new CSS3DObject( element );
 					objectCSS.position.x = Math.random() * 4000 - 2000;
@@ -435,24 +454,32 @@ let camera, scene, renderer;
 
 					const object = new THREE.Object3D();
 
-					object.position.x = ( ( i % 5 ) * 400 ) - 1000;
+					object.position.x = ( ( i % 5 ) * 400 ) - 900;
 					object.position.y = ( - ( Math.floor( i / 5 ) % 5 ) * 400 ) + 800;
-					object.position.z = ( Math.floor( i / 25 ) ) * 500 - 3000;
+					object.position.z = ( Math.floor( i / 25 )  * 400) - 300;
 
 					targets.grid.push( object );
 
+					console.log(object.position.z);
 				}
 
 				//
 
 				renderer = new CSS3DRenderer();
+			
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.getElementById( 'container' ).appendChild( renderer.domElement );
+
+		
+
+				container.style.touchAction = 'none';
+				container.addEventListener( 'pointerdown', onPointerDown );
+
 
 				//
 
 				controls = new TrackballControls( camera, renderer.domElement );
-				controls.minDistance = 500;
+				controls.minDistance = 50;
 				controls.maxDistance = 6000;
 				controls.addEventListener( 'change', render );
 
@@ -522,6 +549,8 @@ let camera, scene, renderer;
 
 			function onWindowResize() {
 
+				windowHalfX = window.innerWidth / 2;
+
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
 
@@ -531,6 +560,7 @@ let camera, scene, renderer;
 
 			}
 
+			
 			function animate() {
 
 				requestAnimationFrame( animate );
@@ -538,14 +568,53 @@ let camera, scene, renderer;
 				TWEEN.update();
 
 				controls.update();
+				render();
+				
 
 			}
 
-			function render() {
+			//
 
-				renderer.render( scene, camera );
+			function onPointerDown( event ) {
 
-			}
+if ( event.isPrimary === false ) return;
+
+pointerXOnPointerDown = event.clientX - windowHalfX;
+targetRotationOnPointerDown = targetRotation;
+
+document.addEventListener( 'pointermove', onPointerMove );
+document.addEventListener( 'pointerup', onPointerUp );
+
+}
+
+function onPointerMove( event ) {
+
+if ( event.isPrimary === false ) return;
+
+pointerX = event.clientX - windowHalfX;
+
+targetRotation = targetRotationOnPointerDown + ( pointerX - pointerXOnPointerDown ) * 0.02;
+
+}
+
+function onPointerUp() {
+
+if ( event.isPrimary === false ) return;
+
+document.removeEventListener( 'pointermove', onPointerMove );
+document.removeEventListener( 'pointerup', onPointerUp );
+
+}
+
+
+
+function render() {
+
+
+renderer.render( scene, camera );
+
+}
+console.log(object.position.z);
 
 		</script>
 
