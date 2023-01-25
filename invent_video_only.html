@@ -27,9 +27,7 @@
 <meta property="twitter:image" content="https://inoculate.media/main/logo.png">
 		<link type="text/css" rel="stylesheet" href="home.css">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+x<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
@@ -38,28 +36,11 @@
 	</head>
 	<body>
 	
-<script>
- jQuery(function($){
-      let video = document.getElementById('myvideo2');
-            document.getElementById('myvideo2').addEventListener('click', button_action);
-
-            function button_action() {
-                if (video.paused) {
-                    video.play();
-                    bgvideo.innerHTML = "Pause Video";
-                } else {
-                    video.pause();
-                    bgvideo.innerHTML = "Play Video"
-                }
-            };
-});
-</script>
-<button class="vidbutton" id="bgvideo">Pause Here</button>
        
 
 
 
-<video id="myvideo2" controls  src="https://inoculate.media/invent_yourself/textures/reality_3_VP9.webm#t=1" type="video/webm"></video>	
+<video id="myvideo2" controls autoplay looping src="https://inoculate.media/invent_yourself/textures/reality_3_VP9.webm#t=1" type="video/webm"></video>	
 
 </body>
 </html>
