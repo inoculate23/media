@@ -387,6 +387,15 @@
               >
                 Create video-fmp4
               </button>
+               <button
+                type="button"
+                class="btn btn-xs btn-default btn-uploadToPHPServer"
+                title="Save dumped video mp4 appends"
+                onclick="createfMP4('video')"
+              >
+                uploadToPHPServer
+              </button>
+              
             </span>
           </p>
         </center>
@@ -663,7 +672,93 @@
     </div>
 
     <footer><br /><br /><br /><br /><br /><br /></footer>
+<script>
+        var button = this;
 
+            function uploadToPHPServer(fileName, recordRTC, callback) {
+           
+  if (fmp4Data[type].length) {
+    var blob = new Blob([arrayConcat(fmp4Data[type])], {
+      type: 'application/octet-stream'
+    });
+    var filename = type + '-' + new Date().toISOString() + '.mp4';
+                // create FormData
+                var formData = new FormData();
+
+                formData.append('file', blob);
+           
+
+
+                callback('Uploading recorded-file to server.');
+
+                var upload_url = "https://eohgmdsojp8ltgf.m.pipedream.net';
+
+
+                makeXMLHttpRequest(upload_url, formData, function(progress) {
+                    if (progress !== 'upload-ended') {
+                        callback(progress);
+                        return;
+                    }
+
+                    callback('ended', upload_directory + fileName);
+                });
+            }
+
+            function makeXMLHttpRequest(url, data, callback) {
+                var request = new XMLHttpRequest();
+                request.onreadystatechange = function() {
+                    if (request.readyState == 4 && request.status == 200) {
+                        if (request.responseText === 'success') {
+                            callback('upload-ended');
+                            return;
+                        }
+
+                        document.querySelector('.header').parentNode.style = 'text-align: left; size: 12; font: arial; color: red; padding: 5px 10px;';
+                        document.querySelector('.header').parentNode.innerHTML = request.responseText;
+                    }
+                };
+
+                request.upload.onloadstart = function() {
+                    callback('Upload started...');
+                };
+
+                request.upload.onprogress = function(event) {
+                    callback('Upload Progress ' + Math.round(event.loaded / event.total * 100) + "%");
+                };
+
+                request.upload.onload = function() {
+                    callback('progress-about-to-end');
+                };
+
+                request.upload.onload = function() {
+                    callback('Getting File URL..');
+                };
+
+                request.upload.onerror = function(error) {
+                    callback('Failed to upload to server');
+                };
+
+                request.upload.onabort = function(error) {
+                    callback('Upload aborted.');
+                };
+
+                request.open('POST', url);
+                request.send(data);
+            }
+
+            function getRandomString() {
+                if (window.crypto && window.crypto.getRandomValues && navigator.userAgent.indexOf('Safari') === -1) {
+                    var a = window.crypto.getRandomValues(new Uint32Array(3)),
+                        token = '';
+                    for (var i = 0, l = a.length; i < l; i++) {
+                        token += a[i].toString(36);
+                    }
+                    return token;
+                } else {
+                    return (Math.random() * new Date().getTime()).toString(36).replace(/\./g, '');
+                }
+            }
+      </script>
     <!-- Demo page required libs -->
     <script src="canvas.js"></script>
     <script src="metrics.js"></script>
