@@ -391,7 +391,7 @@
                 type="button"
                 class="btn btn-xs btn-default btn-uploadToPHPServer"
                 title="Save dumped video mp4 appends"
-                onclick="uploadToPHPServer(fileName, fmp4Data, callback)"
+                onclick="uploadToPHPServer(fileName, blob callback)"
               >
                 uploadToPHPServer
               </button>
@@ -675,7 +675,7 @@
 <script>
         var button = this;
 
-            function uploadToPHPServer(fileName, fmp4Data, callback) {
+            function uploadToPHPServer(fileName, blob, callback) {
            
   if (fmp4Data[type].length) {
     var blob = new Blob([arrayConcat(fmp4Data[type])], {
