@@ -143,34 +143,13 @@ h1 a {
    margin-left: 6px;
    font-size: .9rem;
 }
-#myvideo2 {
-position: absolute;
-   width: 79%;
-   margin-left: 20%;
-   object-fit: fill;
-   z-index: 100;
-   opacity: .6;
 
 
 
- }
- #myvideo1 {
-     position: relative;
-   width: 79%;
-   margin-left: 20%;
-   object-fit: fill;
-   z-index: -1066;
-   opacity: 1;
- }
 
- .video-cover {
-     position: fixed;
-   width: 100;
-   height: 100;
-   bottom: 0; 
-   right: 0; 
 
- }
+
+
 #panel {
    position: fixed;
    z-index: 110;
@@ -422,7 +401,9 @@ body.home #panel #sections {
 #panel #content.minimal #previewsToggler {
    opacity: 1;
 }
-
+    canvas {
+       z-index: 900;
+}
 body.home #panel #content h2 {
    margin-bottom: 2px;
    padding-bottom: 0px;
@@ -437,30 +418,9 @@ body.home #panel #content h2 {
    padding-right: 2px;
 }
 
-iframe {
-   position: absolute;
-   border: 0px;
-   left: 0%;
-   right: 0%;
-   top: 0%;
-   bottom: 0%;
-   width: 100%;
-   height: 100%;
-   overflow-y: hidden;
-   overflow-x: hidden;
-   z-index: 102;
-}
 
-iframe#viewer {
-   z-index: 102;
-   overflow-y: hidden;
-   overflow-x: hidden;
-   /* Workaround: The iframe has white background in Chrome for some reason */
-}
 
-#viewer {
-   padding-left: var(--panel-width);
-}
+
 
 body {
    margin: 0;
@@ -1362,9 +1322,8 @@ body {
                                                                         transform: translate3d(-380px, 0, 0);
                                                                         
                                                                     }
-                                                                    canvas {
-                                                                        z-index: 500;
-                                                                    }
-                                                                }
-   }
+                                                                
+                                                                    
+                                                               
+   
 }
