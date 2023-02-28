@@ -146,7 +146,9 @@ h1 a {
 
 
 
-
+canvas {
+   z-index: 900;
+   {
 
 
 
