@@ -166,7 +166,7 @@ video{
 }
 #panel {
 	position: fixed;
-	z-index: 100;
+	z-index: 1000;
 	left: 0px;
 	width: var(--panel-width);
 	height: 100%;
@@ -441,7 +441,7 @@ iframe {
 	position: absolute;
 	border: 0px;
 	left: 0;
-	right: 0;
+	right: 300px;
 	width: 100%;
 	height: 100%;
 	overflow: auto;
@@ -455,6 +455,10 @@ iframe#viewer {
 	padding-left: var(--panel-width);
 }
 
+canvas {
+z-index: 700;
+
+}
 #button {
 	position: fixed;
 	bottom: 16px;
