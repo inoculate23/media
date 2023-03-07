@@ -1,0 +1,524 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>t3D Datacube</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<script src="js/stringify.js"></script>
+		<script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+        <script  src="/build/three.js"></script>
+		<style>
+			a {
+				color: #8ff;
+			}
+	
+
+		body {
+  background-image: 
+                    url("./textures/inoculate_275_trans.png");
+
+background-position: 3% 3%;
+  background-repeat: no-repeat;
+  background-color: #000000;
+}
+
+			#menu {
+				position: absolute;
+				bottom: 20px;
+				width: 100%;
+				text-align: center;
+			}
+
+			.element {
+				width: 305px;
+				height: 210px;
+		
+               
+				box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+				border: 1px solid rgba(127,255,255,0.25);
+				font-family: Helvetica, sans-serif;
+				text-align: center;
+				line-height: normal;
+				cursor: default;
+			
+			}
+			.img_url {
+				width: 50px;
+				height: 50px;
+			width: 75%;
+			height: 75%;
+				box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+				border: 5px solid rgba(127,255,255,0.25);
+				border-radius: 14px;
+            padding: 5px;
+				
+			}
+
+		
+
+				.element .number {
+					position: absolute;
+					top: 20px;
+					right: 20px;
+					font-size: 12px;
+					color: rgba(127,255,255,0.75);
+				}
+
+				.element .symbol {
+					position: absolute;
+					top: 40px;
+					left: 0px;
+					right: 0px;
+					font-size: 60px;
+					font-weight: bold;
+					color: rgba(255,255,255,0.75);
+					text-shadow: 0 0 10px rgba(0,255,255,0.95);
+					border-radius: 14px;
+            padding: 5px;
+				}
+
+				.element .details {
+					position: absolute;
+					bottom: 0px;
+					top: 5px;
+					left: 0px;
+					right: 0px;
+					font-size: 12px;
+					color: rgba(127,255,255,0.75);
+					border-radius: 14px;
+            padding: 10px;
+				}
+
+			button {
+				color: rgba(127,255,255,0.75);
+				background: transparent;
+				outline: 1px solid rgba(127,255,255,0.75);
+				border: 0px;
+				padding: 5px 10px;
+				cursor: pointer;
+			}
+
+			button:hover {
+				background-color: rgba(0,255,255,0.5);
+			}
+
+			button:active {
+				color: #000000;
+				background-color: rgba(0,255,255,0.75);
+			}
+		
+        #data-table {
+            height: 500px;
+            width: 100%;
+			visibility: hidden;
+        }
+
+		</style>
+	</head>
+	<body>
+			
+
+		<div id="container">
+		
+
+		
+	
+			</div>
+
+
+		</div>
+		<div id="menu">
+			<button id="table">TABLE</button>
+			<button id="sphere">SPHERE</button>
+			<button id="helix">HELIX</button>
+			<button id="grid">GRID</button>
+		</div>
+
+		<!-- Import maps polyfill -->
+		<!-- Remove this when import maps will be widely supported -->
+		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+      
+        <script type="importmap">
+			{
+				"imports": {
+					"three": "./build/three.module.js",
+					"three/addons/": "./jsm/"
+				}
+			}
+		</script>
+
+		<script type="module">
+
+			import * as THREE from 'three';
+			import { TWEEN } from 'three/addons/libs/tween.module.min.js';
+			import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
+			import { CSS3DRenderer, CSS3DObject } from './jsm/renderers/CSS3DRenderer.js';
+
+			const table = [
+            
+            "https://player.vimeo.com/external/199944928.hd.mp4?s=7b387f6b16e078783bc94e316f98f52d9bc9b3e0&profile_id=169&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/199944928.sd.mp4?s=9110fea688984a285fe5cf6a8ab86bf9db2d3b58&profile_id=164&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/199944928.sd.mp4?s=9110fea688984a285fe5cf6a8ab86bf9db2d3b58&profile_id=165&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/199944928.hd.mp4?s=7b387f6b16e078783bc94e316f98f52d9bc9b3e0&profile_id=174&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/199944928.hd.mp4?s=7b387f6b16e078783bc94e316f98f52d9bc9b3e0&profile_id=119&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/199433617.hd.mp4?s=1770018c20604d41d60e4f574e7680a1bd15edb8&profile_id=174&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/199433617.sd.mp4?s=457abd2452a52548b8c02c503a91035ce8a713f0&profile_id=164&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/199433617.sd.mp4?s=457abd2452a52548b8c02c503a91035ce8a713f0&profile_id=165&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/204437641.hd.mp4?s=1819e218fd88e84bd4a3528ab8a0e471a604ddc6&profile_id=174&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/204437641.sd.mp4?s=e1e391b7f2191fafe08b5aecf8b35b8b4d86295f&profile_id=165&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/204437641.sd.mp4?s=e1e391b7f2191fafe08b5aecf8b35b8b4d86295f&profile_id=164&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/293771277.hd.mp4?s=2ad4acbe6c0addde93ec2b62fde0c9dc30e32a2a&profile_id=169&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/293771277.hd.mp4?s=2ad4acbe6c0addde93ec2b62fde0c9dc30e32a2a&profile_id=174&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/293771277.sd.mp4?s=fc74b6ce7dcd848bcd06edb7183c4f75a6cfde3f&profile_id=165&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/293771277.hd.mp4?s=2ad4acbe6c0addde93ec2b62fde0c9dc30e32a2a&profile_id=175&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/293771277.sd.mp4?s=fc74b6ce7dcd848bcd06edb7183c4f75a6cfde3f&profile_id=164&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/364640745.sd.mp4?s=490ef98d0645e7f07fbec224b71fe68aff79fc3f&profile_id=139&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/364640745.hd.mp4?s=f4b7b452e675644373a0650ddada295a6ac1f4b2&profile_id=170&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/364640745.sd.mp4?s=490ef98d0645e7f07fbec224b71fe68aff79fc3f&profile_id=164&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/364640745.hd.mp4?s=f4b7b452e675644373a0650ddada295a6ac1f4b2&profile_id=174&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/364640745.hd.mp4?s=f4b7b452e675644373a0650ddada295a6ac1f4b2&profile_id=172&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/364640745.hd.mp4?s=f4b7b452e675644373a0650ddada295a6ac1f4b2&profile_id=175&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/364640745.sd.mp4?s=490ef98d0645e7f07fbec224b71fe68aff79fc3f&profile_id=165&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/205484454.hd.mp4?s=4202086b3e4efc242bae3ad2019112f292cfda25&profile_id=172&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/205484454.sd.mp4?s=966a6c81260e0fb4f7459bc25f5222bc91125718&profile_id=165&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/205484454.hd.mp4?s=4202086b3e4efc242bae3ad2019112f292cfda25&profile_id=119&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/205484454.hd.mp4?s=4202086b3e4efc242bae3ad2019112f292cfda25&profile_id=174&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/205484454.hd.mp4?s=4202086b3e4efc242bae3ad2019112f292cfda25&profile_id=170&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/205484454.sd.mp4?s=966a6c81260e0fb4f7459bc25f5222bc91125718&profile_id=164&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/368064896.sd.mp4?s=62ea7eba7cbffc3d0d10da8630b3635585979411&profile_id=139&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/368064896.hd.mp4?s=d3282b778a447a1c6bcbdb9f5a8d95cec0f143b6&profile_id=174&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/368064896.sd.mp4?s=62ea7eba7cbffc3d0d10da8630b3635585979411&profile_id=164&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/368064896.hd.mp4?s=d3282b778a447a1c6bcbdb9f5a8d95cec0f143b6&profile_id=175&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/368064896.sd.mp4?s=62ea7eba7cbffc3d0d10da8630b3635585979411&profile_id=165&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/195912614.hd.mp4?s=dcf574495f67befa57ad0a77b3febeeeba6d2988&profile_id=174&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/195912614.sd.mp4?s=3cdc0daaa57771e42c0b891a02a9411c9dd18565&profile_id=164&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/195912614.hd.mp4?s=dcf574495f67befa57ad0a77b3febeeeba6d2988&profile_id=119&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/195912614.sd.mp4?s=3cdc0daaa57771e42c0b891a02a9411c9dd18565&profile_id=165&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/189497340.sd.mp4?s=92748421cc173f6c2c740344211d00d89fbc64e8&profile_id=165&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/189497340.sd.mp4?s=92748421cc173f6c2c740344211d00d89fbc64e8&profile_id=164&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/189497340.hd.mp4?s=740c006c4e69d6303efd9ffc63ef180ec2d118c9&profile_id=174&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/189497340.hd.mp4?s=740c006c4e69d6303efd9ffc63ef180ec2d118c9&profile_id=119&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/363342919.sd.mp4?s=1f50f61b3d280bc060961feb1a48077c68d2e77e&profile_id=165&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/363342919.sd.mp4?s=1f50f61b3d280bc060961feb1a48077c68d2e77e&profile_id=164&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/363342919.hd.mp4?s=90914b27741b2230f6ea7b2f1a0ef915ecbcb2d5&profile_id=174&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/363342919.hd.mp4?s=90914b27741b2230f6ea7b2f1a0ef915ecbcb2d5&profile_id=172&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/363342919.hd.mp4?s=90914b27741b2230f6ea7b2f1a0ef915ecbcb2d5&profile_id=170&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/363342919.hd.mp4?s=90914b27741b2230f6ea7b2f1a0ef915ecbcb2d5&profile_id=175&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/363342919.sd.mp4?s=1f50f61b3d280bc060961feb1a48077c68d2e77e&profile_id=139&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/371562948.hd.mp4?s=dd2eefcf97550744629a5a583cd0ccd617d1beed&profile_id=170&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/371562948.hd.mp4?s=dd2eefcf97550744629a5a583cd0ccd617d1beed&profile_id=174&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/371562948.hd.mp4?s=dd2eefcf97550744629a5a583cd0ccd617d1beed&profile_id=172&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/371562948.hd.mp4?s=dd2eefcf97550744629a5a583cd0ccd617d1beed&profile_id=175&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/371562948.sd.mp4?s=27fedf499c639429b000636f6ef08065d4168051&profile_id=164&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/371562948.sd.mp4?s=27fedf499c639429b000636f6ef08065d4168051&profile_id=139&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/371562948.sd.mp4?s=27fedf499c639429b000636f6ef08065d4168051&profile_id=165&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/311236486.hd.mp4?s=818d2d4806a6167a25dd406101a33219ba964fe7&profile_id=175&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/311236486.sd.mp4?s=bb1fa26011a5ba893cbfe8bc38fdf91af820c4b5&profile_id=165&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/311236486.sd.mp4?s=bb1fa26011a5ba893cbfe8bc38fdf91af820c4b5&profile_id=164&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/311236486.hd.mp4?s=818d2d4806a6167a25dd406101a33219ba964fe7&profile_id=174&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/200785110.hd.mp4?s=4317c2c4bb6b25c1f86e2dfc66227a16594753c2&profile_id=174&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/200785110.sd.mp4?s=c33ded3354a7a0f2a5a9ad3645f00c9612fb2ccc&profile_id=164&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/200785110.sd.mp4?s=c33ded3354a7a0f2a5a9ad3645f00c9612fb2ccc&profile_id=165&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/219330696.hd.mp4?s=121c19f803d3160232d1eb03bcfd3b521a92ac5b&profile_id=174&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/219330696.sd.mp4?s=41547c443d77b7b6e19be81217d738df042e5622&profile_id=164&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/219330696.sd.mp4?s=41547c443d77b7b6e19be81217d738df042e5622&profile_id=165&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/219330696.hd.mp4?s=121c19f803d3160232d1eb03bcfd3b521a92ac5b&profile_id=119&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/389735075.hd.mp4?s=beb1b70439506622e1a2ae57ac115e21cb5979b6&profile_id=170&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/389735075.sd.mp4?s=d6b72edbcace4f4737d38354cdda371359b4b5b0&profile_id=139&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/389735075.hd.mp4?s=beb1b70439506622e1a2ae57ac115e21cb5979b6&profile_id=172&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/389735075.hd.mp4?s=beb1b70439506622e1a2ae57ac115e21cb5979b6&profile_id=175&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/389735075.sd.mp4?s=d6b72edbcace4f4737d38354cdda371359b4b5b0&profile_id=164&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/389735075.hd.mp4?s=beb1b70439506622e1a2ae57ac115e21cb5979b6&profile_id=174&oauth2_token_id=57447761",
+            "https://player.vimeo.com/external/389735075.sd.mp4?s=d6b72edbcace4f4737d38354cdda371359b4b5b0&profile_id=165&oauth2_token_id=57447761"
+        
+	];
+
+        
+let container;
+
+
+
+let targetRotation = 0;
+let targetRotationOnPointerDown = 0;
+
+let pointerX = 0;
+let pointerXOnPointerDown = 0;
+
+let windowHalfX = window.innerWidth / 2;
+
+
+let camera, scene, renderer;
+			let controls;
+
+			const objects = [];
+			const targets = { table: [], sphere: [], helix: [], grid: [] };
+
+			init();
+			animate();
+
+			function init() {
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+
+				scene = new THREE.Scene();
+
+				camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, .5, 15000 );
+				camera.position.z = 12000;
+				scene.add( camera );
+
+				const light = new THREE.PointLight( 0xffffff, 0.8 );
+				camera.add( light );
+            }
+
+				// table
+
+				if (this.readyState == 4 && this.status == 200) {
+                    var data = JSON.parse(this.responseText);
+                    for(let i = 0; i < 100; i++) {
+                        const element = document.createElement( 'div' );
+                element.className = 'element';
+                element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
+              
+
+const video = document.getElementsByClassName('details');
+video.src = videos[i].video_files[i].link;
+element.append(details);
+
+                    
+
+					const objectCSS = new CSS3DObject( element );
+					objectCSS.position.x = Math.random() * 4000 - 2000;
+					objectCSS.position.y = Math.random() * 4000 - 2000;
+					objectCSS.position.z = Math.random() * 4000 - 2000;
+					scene.add( objectCSS );
+
+					objects.push( objectCSS );
+
+					//
+
+					const object = new THREE.Object3D();
+					object.position.x = ( table[ i + 3 ] * 140 ) - 1330;
+					object.position.y = - ( table[ i + 4 ] * 180 ) + 990;
+
+					targets.table.push( object );
+
+				}
+
+				// sphere
+
+				const vector = new THREE.Vector3();
+
+				for ( let i = 0, l = objects.length; i < l; i ++ ) {
+
+					const phi = Math.acos( - 1 + ( 2 * i ) / l );
+					const theta = Math.sqrt( l * Math.PI ) * phi;
+
+					const object = new THREE.Object3D();
+
+					object.position.setFromSphericalCoords( 800, phi, theta );
+
+					vector.copy( object.position ).multiplyScalar( 2 );
+
+					object.lookAt( vector );
+
+					targets.sphere.push( object );
+
+				}
+
+				// helix
+
+				for ( let i = 0, l = objects.length; i < l; i ++ ) {
+
+					const theta = i * 0.175 + Math.PI;
+					const y = - ( i * 8 ) + 450;
+
+					const object = new THREE.Object3D();
+
+					object.position.setFromCylindricalCoords( 900, theta, y );
+
+					vector.x = object.position.x * 2;
+					vector.y = object.position.y;
+					vector.z = object.position.z * 2;
+
+					object.lookAt( vector );
+
+					targets.helix.push( object );
+
+				}
+
+				// grid
+
+				for ( let i = 0; i < objects.length; i ++ ) {
+
+					const object = new THREE.Object3D();
+
+					object.position.x = ( ( i % 5 ) * 400 ) - 900;
+					object.position.y = ( - ( Math.floor( i / 5 ) % 5 ) * 400 ) + 800;
+					object.position.z = ( Math.floor( i / 25 )  * 400) - 300;
+
+					targets.grid.push( object );
+
+					console.log(object.position.z);
+				}
+
+				//
+
+				renderer = new CSS3DRenderer();
+			
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.getElementById( 'container' ).appendChild( renderer.domElement );
+
+		
+
+				container.style.touchAction = 'none';
+				container.addEventListener( 'pointerdown', onPointerDown );
+
+
+				//
+
+				controls = new TrackballControls( camera, renderer.domElement );
+				controls.minDistance = 50;
+				controls.maxDistance = 6000;
+				controls.addEventListener( 'change', render );
+
+				const buttonTable = document.getElementById( 'table' );
+				buttonTable.addEventListener( 'click', function () {
+
+					transform( targets.data-table, 2000 );
+
+				} );
+
+				const buttonSphere = document.getElementById( 'sphere' );
+				buttonSphere.addEventListener( 'click', function () {
+
+					transform( targets.sphere, 2000 );
+
+				} );
+
+				const buttonHelix = document.getElementById( 'helix' );
+				buttonHelix.addEventListener( 'click', function () {
+
+					transform( targets.helix, 2000 );
+
+				} );
+
+				const buttonGrid = document.getElementById( 'grid' );
+				buttonGrid.addEventListener( 'click', function () {
+
+					transform( targets.grid, 2000 );
+
+				} );
+
+				transform( targets.table, 2000 );
+
+				//
+
+				window.addEventListener( 'resize', onWindowResize );
+
+			}
+
+			function transform( targets, duration ) {
+
+				TWEEN.removeAll();
+
+				for ( let i = 0; i < objects.length; i ++ ) {
+
+					const object = objects[ i ];
+					const target = targets[ i ];
+
+					new TWEEN.Tween( object.position )
+						.to( { x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration )
+						.easing( TWEEN.Easing.Exponential.InOut )
+						.start();
+
+					new TWEEN.Tween( object.rotation )
+						.to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )
+						.easing( TWEEN.Easing.Exponential.InOut )
+						.start();
+
+				}
+
+				new TWEEN.Tween( this )
+					.to( {}, duration * 2 )
+					.onUpdate( render )
+					.start();
+
+			}
+
+			function onWindowResize() {
+
+				windowHalfX = window.innerWidth / 2;
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				render();
+
+			}
+
+			
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+				TWEEN.update();
+
+				controls.update();
+				render();
+				
+            
+			}
+
+			//
+
+			function onPointerDown( event ) {
+
+if ( event.isPrimary === false ) return;
+
+pointerXOnPointerDown = event.clientX - windowHalfX;
+targetRotationOnPointerDown = targetRotation;
+
+document.addEventListener( 'pointermove', onPointerMove );
+document.addEventListener( 'pointerup', onPointerUp );
+
+}
+
+function onPointerMove( event ) {
+
+if ( event.isPrimary === false ) return;
+
+pointerX = event.clientX - windowHalfX;
+
+targetRotation = targetRotationOnPointerDown + ( pointerX - pointerXOnPointerDown ) * 0.02;
+
+}
+
+function onPointerUp() {
+
+if ( event.isPrimary === false ) return;
+
+document.removeEventListener( 'pointermove', onPointerMove );
+document.removeEventListener( 'pointerup', onPointerUp );
+
+}
+
+
+
+function render() {
+
+
+renderer.render( scene, camera );
+
+}
+console.log(object.position.z);
+
+		</script>
+
+
+
+	
+	</body>
+</html>
