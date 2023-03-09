@@ -16,6 +16,25 @@
 
       <video height="600" id="video" controls></video>
     </center>
+  <div class="config-editor-wrapper">
+                <div class="config-editor-container">
+                    <div id="config-editor">Loading...</div>
+                </div>
+                <div class="config-editor-commands">
+                    <label for="config-persistence">
+              Persist
+              <input
+                name="config-persistence"
+                id="config-persistence"
+                type="checkbox"
+              />
+            </label>
+                    <button name="config-apply" onclick="applyConfigEditorValue()">
+              Apply
+            </button>
+                </div>
+            </div>
+        </div>
 
     <script>
       var video = document.getElementById('video');
