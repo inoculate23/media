@@ -61,16 +61,16 @@
 </script>
     <script>
 
-    <script>
-    
+      <script>
+
 
       var video = document.getElementById('video');
       if (Hls.isSupported()) {
         var hls = new Hls({
           debug: true,
-          const url = getCurrentURL()
+      
         });
-        hls.loadSource(url);
+        hls.loadSource(windowlocation.search - '?src=');
         hls.attachMedia(video);
         hls.on(Hls.Events.MEDIA_ATTACHED, function () {
           video.muted = true;
@@ -83,7 +83,7 @@
       else if (video.canPlayType('application/vnd.apple.mpegurl')) {
         video.src = (url);
         video.addEventListener('canplay', function () {
-          video.play(url);
+          video.play();
         });
       }
     </script>
