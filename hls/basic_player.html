@@ -43,6 +43,11 @@
          console.log(result)
       const url = getCurrentURL()
       console.log(url)
+      function useRegex(input) {
+    let regex = /https:\/\/inoculate\.media\/hls\/basic_player\.html\?src=[A-Za-z0-9]+:\/\/[A-Za-z0-9]+-([A-Za-z]+(\.[A-Za-z]+)+)\/[A-Za-z]+-([A-Za-z]+(\/[A-Za-z]+)+):([A-Za-z]+(_[A-Za-z]+)+)\/([A-Za-z0-9]+(\.[A-Za-z0-9]+)+)/i;
+    return regex.test(input);
+} 
+      console.log(input)
 
       var video = document.getElementById('video');
       if (Hls.isSupported()) {
