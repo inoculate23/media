@@ -40,15 +40,16 @@
       function getCurrentURL () {
         return window.location.href
       }
+      const url = getCurrentURL()
       console.log(url)
 
       var video = document.getElementById('video');
       if (Hls.isSupported()) {
         var hls = new Hls({
           debug: true,
-          const src = getCurrentURL()
+          const url = getCurrentURL()
         });
-        hls.loadSource(src);
+        hls.loadSource(url);
         hls.attachMedia(video);
         hls.on(Hls.Events.MEDIA_ATTACHED, function () {
           video.muted = true;
@@ -61,7 +62,7 @@
       else if (video.canPlayType('application/vnd.apple.mpegurl')) {
         video.src = (url);
         video.addEventListener('canplay', function () {
-          video.play(src);
+          video.play(url);
         });
       }
     </script>
