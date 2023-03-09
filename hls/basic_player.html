@@ -35,19 +35,34 @@
                 </div>
             </div>
         </div>
+<script>
+  function getCurrentURL () {
+    return window.location.href
+  }
+  
+  // Example
+  const url = getCurrentURL()
+  
+  url // https://ui.dev/get-current-url-javascript/
+  const {
+    host, hostname, href, origin, pathname, port, protocol, search
+  } = window.location
+  
+  host // "ui.dev"
+  hostname // "ui"
+  href // "https://ui.dev/get-current-url-javascript/?comments=false"
+  origin // "https://ui.dev"
+  pathname // "/get-current-url-javascript/""
+  port // ""
+  protocol // "https:"
+  search // "?comments=false"
+
+  console.log(url, pathname, search)
+</script>
+    <script>
 
     <script>
-      function getCurrentURL () {
-        return window.location.href
-      }
-         console.log(result)
-      const url = getCurrentURL()
-      console.log(url)
-      function useRegex(input) {
-    let regex = /https:\/\/inoculate\.media\/hls\/basic_player\.html\?src=[A-Za-z0-9]+:\/\/[A-Za-z0-9]+-([A-Za-z]+(\.[A-Za-z]+)+)\/[A-Za-z]+-([A-Za-z]+(\/[A-Za-z]+)+):([A-Za-z]+(_[A-Za-z]+)+)\/([A-Za-z0-9]+(\.[A-Za-z0-9]+)+)/i;
-    return regex.test(input);
-} 
-      console.log(input)
+    
 
       var video = document.getElementById('video');
       if (Hls.isSupported()) {
