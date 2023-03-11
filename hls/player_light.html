@@ -20,7 +20,7 @@
  
 var saveAsFile = function(fileName, fileContents) {
     if (typeof(Blob) != 'undefined') { // Alternative 1: using Blob
-        var videoFileAsBlob = new Blob(this.video), {type:'video.mp4'});
+        var videoFileAsBlob = new Blob(this.video), {type:'application/x-mpegURL'});
                                                      button.pause(function(url) {
                                 if (button.blobs && button.blobs.length) {
                                     var blob = new File(button.blobs, getFileName(fileExtension), {
