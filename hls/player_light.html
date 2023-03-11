@@ -47,30 +47,30 @@
                   //  return;
              //  }
 
-        var downloadLink = document.createElement("a");
-        downloadLink.download = fileName;
-        if (window.webkitURL != null) {
-            downloadLink.href = window.webkitURL.createObjectURL(videoFileAsBlob;
-        } else {
-            downloadLink.href = window.URL.createObjectURL(videoFileAsBlob);
-            downloadLink.onclick = document.body.removeChild(event.target);
+      //    var downloadLink = document.createElement("a");
+     //     downloadLink.download = fileName;
+      //    if (window.webkitURL != null) {
+     //         downloadLink.href = window.webkitURL.createObjectURL(videoFileAsBlob;
+      //     } else {
+        //       downloadLink.href = window.URL.createObjectURL(videoFileAsBlob);
+       //       downloadLink.onclick = document.body.removeChild(event.target);
          
-            document.body.appendChild(downloadLink);
-        }
-        downloadLink.click();
-    } else { // Alternative 2: using Data
-        var pp = document.createElement('a');
-        pp.setAttribute('href', 'data:video/mp4,' +
-            encodeURIComponent(fileContents));
-        pp.setAttribute('download', fileName);
-        pp.onclick = document.body.removeChild(event.target);
-        pp.click();
-    }
-} // saveAsFile
+       //       document.body.appendChild(downloadLink);
+      //    }
+      //    downloadLink.click();
+   //   } else { // Alternative 2: using Data
+      //    var pp = document.createElement('a');
+     //     pp.setAttribute('href', 'data:video/mp4,' +
+        //       encodeURIComponent(fileContents));
+      //    pp.setAttribute('download', fileName);
+      //    pp.onclick = document.body.removeChild(event.target);
+      //  pp.click();
+   // }
+//} // saveAsFile
 
 /* Example */
-var this.video = document.getElementByID('video')
-saveAsFile('out.mp4', JSON.stringify(jsonObject, null, 2));
+//var this.video = document.getElementByID('video')
+//saveAsFile('out.mp4', JSON.stringify(jsonObject, null, 2));
         </script>
   </head>
   <body>
