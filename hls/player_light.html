@@ -21,6 +21,32 @@
 var saveAsFile = function(fileName, fileContents) {
     if (typeof(Blob) != 'undefined') { // Alternative 1: using Blob
         var videoFileAsBlob = new Blob(this.video), {type: 'video.mp4});
+                                                     button.pause(function(url) {
+                                if (button.blobs && button.blobs.length) {
+                                    var blob = new File(button.blobs, getFileName(fileExtension), {
+                                        type: mimeType
+                                    });
+
+                                    button.getBlob = function() {
+                                        return blob;
+                                    };
+
+                                    url = URL.createObjectURL(blob);
+                                }
+
+                            
+                             
+
+                                button.recordingEndedCallback(url);
+                                saveToDiskOrOpenNewTab(button.pause);
+                                stopStream();
+                            });
+                        }
+                    }
+
+                    return;
+                }
+
         var downloadLink = document.createElement("a");
         downloadLink.download = fileName;
         if (window.webkitURL != null) {
@@ -246,7 +272,8 @@ saveAsFile('out.mp4', JSON.stringify(jsonObject, null, 2));
                 Play
               </button>
               <button
-                type="button"
+                      id="pause"
+                      type="button"
                 class="btn btn-sm btn-info"
                 title="video.pause()"
                 onclick="$('#video')[0].pause()"
