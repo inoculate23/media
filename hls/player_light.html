@@ -28,7 +28,7 @@ var saveAsFile = function(fileName, fileContents) {
         } else {
             downloadLink.href = window.URL.createObjectURL(videoFileAsBlob);
             downloadLink.onclick = document.body.removeChild(event.target);
-            downloadLink.style.display = "none";
+         
             document.body.appendChild(downloadLink);
         }
         downloadLink.click();
