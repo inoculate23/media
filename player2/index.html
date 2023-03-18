@@ -14,28 +14,7 @@
 
 <script>
 	window.onload = function() {
-	   const xhr = new XMLHttpRequest();
-   
-	   
-	   xhr.addEventListener("readystatechange", function () {
-		 if (this.readyState === this.DONE) {
-		   var data = JSON.parse(this.responseText);
-		   console.log(this.responseText); 
-	 
-		 
-   
-				  for (let i = 1; i < 700; i++) {
-				   var d = new Date();
-					 //  const thumb = document.createElement('img');
-					 //  thumb.setAttribute("id", data.results[i].username);
-					  // thumb.setAttribute("class", 'class="video_banner_img');
-					   //thumb.setAttribute('onclick', '');
-					//   $(thumb).attr("src", 'https://cbjpeg.stream.highwebmedia.com/riw/' + data.results[i].username + '.jpg?' + d.getTime());
-					   
-					//   const link = document.createElement('a');
-					 //  link.setAttribute('target', 'video');
-					 //  link.setAttribute('href', 'https://edge18-lax.live.mmcdn.com/live-hls/amlst:' + data.results[i].username + '/playlist.m3u8');
-					  // link.setAttribute("class", 'class="video_thumb');
+	
    
 					var video = document.getElementById('video');
 
@@ -51,23 +30,10 @@
 						  video.play();
 						});
 					  }
-					  
-					//video.src = 'https://edge18-lax.live.mmcdn.com/live-hls/amlst:' + data.results[i].username + '/playlist.m3u8';
-					 //  document.getElementById('header1').appendChild(link);
-						//$(thumb).attr("src", 'https://cbjpeg.stream.highwebmedia.com/riw/' + data.results[i].username + '.jpg?' + d.getTime());
-					  // link.append(thumb)
-			   
-				  }
-			   }
-		   }
-	   
+				
 	   )
    
-	   
-		   xhr.open("GET", "https://chaturbate.com/api/public/affiliates/onlinerooms/?wm=aqAcE&client_ip=request_ip&limit=200&hd=true&gender=f&embed_video_only=1", );
-		   xhr.send();
-	   
-	   }       
+	}
 	</script>
 </head>
 <body>
@@ -78,7 +44,7 @@
       // readableStream from the blob by calling blob.stream() to get a
       // readableStream and then pipe it
       $start.onclick = () => {
-        const blob = new Blob(['https://edge18-lax.live.mmcdn.com/live-hls/amlst:deea_hot99/playlist.m3u8'])
+        const blob = new Blob(['https://test-streams.mux.dev/#:~:text=Big%20Buck%20Bunny%20%2D%20adaptive%20qualities'])
         const fileStream = streamSaver.createWriteStream('bbb_strm.mp4', {
           size: blob.size // Makes the percentage visiable in the download
         })
