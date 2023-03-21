@@ -22,16 +22,16 @@
   h1, h2, h3 {
     font-family: 'Orbitron', sans-serif;
   }
-  h1 {
+  h3 {
     size: 77;
     margin-left: 5%;
     color:darkgreen;
   }
-  h3 {
-    color:dimgrey;
+  h2 {
+    color:rgb(234, 135, 14);
   }
-  h2 { 
-    color:darkorange;
+  h1 { 
+    color:rgb(255, 0, 76);
   }
   wrapper {
     width: 100%;
@@ -44,9 +44,13 @@
   }
   canvas {
     margin-left: 20%;
-    margin-top: 5%;
+    margin-top: 0%;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;  }
-  header {
+  #header1 {
+    margin-right: 5%;
+    margin-left: 30%;
+  }
+  #header2 {
     margin-right: 5%;
     margin-left: 90%;
   }
@@ -186,13 +190,16 @@
       </script>
 
   </head>
-  <header>
-    
-   <a href="https://inoculate.media/main/index_slider.html"><h2>Next page</h2> <img src="https://inoculate.media/main/next.png" width="50px" height="50px"></a>
+  <header id="header1">
+    <h1 class="heading" data-target-resolver></h1>
+
+  </header>
+  <header id="header2">
+    <a href="https://inoculate.media/main/index_slider.html"><h2>Next page</h2> <img src="https://inoculate.media/main/next.png" width="50px" height="50px"></a>
+
   </header>
   <body>
     <div class="container">
-      <h1 class="heading" data-target-resolver></h1>
        <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
     <main>
       <div class="wrapper">
