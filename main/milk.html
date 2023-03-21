@@ -6,6 +6,13 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Philosopher&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet" type="text/css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
 <style>
@@ -13,10 +20,12 @@
   background-color:  white;
  }
   h1, h2, h3 {
-    font-family: 'Archivo', sans-serif;
+    font-family: 'Orbitron', sans-serif;
   }
   h1 {
     size: 77;
+    margin-left: 5%;
+    color:darkgreen;
   }
   wrapper {
     width: 100%;
@@ -34,16 +43,134 @@
     </style>
   </head>
   <header>
-   
+   <a href="https://inoculate.media/index_slider.html" img src="https://inoculate.media.main/next.png">Next page</a>
   </header>
   <body>
-    
+    <div class="container">
+      <h1 class="heading" data-target-resolver></h1>
+       <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
     <main>
       <div class="wrapper">
        <div class="flex-container">
          
     
     </main>
+    <script type="text/babel">
+      const resolver = {
+        resolve: function resolve(options, callback) {
+          // The string to resolve
+          const resolveString = options.resolveString || options.element.getAttribute('data-target-resolver');
+          const combinedOptions = Object.assign({}, options, {resolveString: resolveString});
+      
+          function getRandomInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+          };
+      
+          function randomCharacter(characters) {
+            return characters[getRandomInteger(0, characters.length - 1)];
+          };
+      
+          function doRandomiserEffect(options, callback) {
+            const characters = options.characters;
+            const timeout = options.timeout;
+            const element = options.element;
+            const partialString = options.partialString;
+      
+            let iterations = options.iterations;
+      
+            setTimeout(() => {
+              if (iterations >= 0) {
+                const nextOptions = Object.assign({}, options, {iterations: iterations - 1});
+      
+                // Ensures partialString without the random character as the final state.
+                if (iterations === 0) {
+                  element.textContent = partialString;
+                } else {
+                  // Replaces the last character of partialString with a random character
+                  element.textContent = partialString.substring(0, partialString.length - 1) + randomCharacter(characters);
+                }
+      
+                doRandomiserEffect(nextOptions, callback)
+              } else if (typeof callback === "function") {
+                callback();
+              }
+            }, options.timeout);
+          };
+      
+          function doResolverEffect(options, callback) {
+            const resolveString = options.resolveString;
+            const characters = options.characters;
+            const offset = options.offset;
+            const partialString = resolveString.substring(0, offset);
+            const combinedOptions = Object.assign({}, options, {partialString: partialString});
+      
+            doRandomiserEffect(combinedOptions, () => {
+              const nextOptions = Object.assign({}, options, {offset: offset + 1});
+      
+              if (offset <= resolveString.length) {
+                doResolverEffect(nextOptions, callback);
+              } else if (typeof callback === "function") {
+                callback();
+              }
+            });
+          };
+      
+          doResolverEffect(combinedOptions, callback);
+        }
+      }
+      
+      /* Some GLaDOS quotes from Portal 2 chapter 9: The Part Where He Kills You
+       * Source: http://theportalwiki.com/wiki/GLaDOS_voice_lines#Chapter_9:_The_Part_Where_He_Kills_You
+       */
+      const strings = [
+        'Where does art come from?',
+        'The soul? Machines do not have those.',
+        'Yet here we are, looking at an image that never existed in the physical plane. ',
+        'Guided by me, using powerful computers at Google, AI conceived art is being generated surprisingly well.',
+        'Page through the samples here, more to be added as they finish.',
+        'I will also be adding an app here for you to try soon.',
+        'I think the computer likes milk.',
+        'sub–500 milliseconds of latency, Message sent.',
+      
+        'Bring back milk.',
+        'Just go.',
+        'It\'s been fun. ',
+        '......'
+      ];
+      
+      let counter = 0;
+      
+      const options = {
+        // Initial position
+        offset: 0,
+        // Timeout between each random character
+        timeout: 5,
+        // Number of random characters to show
+        iterations: 10,
+        // Random characters to pick from
+        characters: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'x', '#', '%', '&', '-', '+', '_', '?', '/', '\\', '='],
+        // String to resolve
+        resolveString: strings[counter],
+        // The element
+        element: document.querySelector('[data-target-resolver]')
+      }
+      
+      // Callback function when resolve completes
+      function callback() {
+        setTimeout(() => {
+          counter ++;
+      
+          if (counter >= strings.length) {
+            counter = 0;
+          }
+      
+          let nextOptions = Object.assign({}, options, {resolveString: strings[counter]});
+          resolver.resolve(nextOptions, callback);
+        }, 1000);
+      }
+      
+      resolver.resolve(options, callback);
+      </script>
     <script src="sketch.js"></script>
   </body>
 </html>
