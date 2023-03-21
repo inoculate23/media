@@ -27,6 +27,12 @@
     margin-left: 5%;
     color:darkgreen;
   }
+  h3 {
+    color:dimgrey;
+  }
+  h2 { 
+    color:darkorange;
+  }
   wrapper {
     width: 100%;
     justify-content: center;
@@ -39,22 +45,29 @@
   canvas {
     margin-left: 20%;
     margin-top: 5%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;  }
+  header {
+    margin-right: 5%;
+    margin-left: 90%;
+  }
+  footer {
+    margin-right: 5%;
+    margin-left: 19%;
+    display: flex;
+    flex-direction: row;
+    
+  }
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  align-items: center;
+  }
+  footer .item {
+    
+      flex-shrink: 3;
   }
     </style>
-  </head>
-  <header>
-   <a href="https://inoculate.media/index_slider.html" img src="https://inoculate.media.main/next.png">Next page</a>
-  </header>
-  <body>
-    <div class="container">
-      <h1 class="heading" data-target-resolver></h1>
-       <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
-    <main>
-      <div class="wrapper">
-       <div class="flex-container">
-         
-    
-    </main>
     <script type="text/babel">
       const resolver = {
         resolve: function resolve(options, callback) {
@@ -128,7 +141,7 @@
         'Yet here we are, looking at an image that never existed in the physical plane. ',
         'Guided by me, using powerful computers at Google, AI conceived art is being generated surprisingly well.',
         'Page through the samples here, more to be added as they finish.',
-        'I will also be adding an app here for you to try soon.',
+        'I will also be adding an app here for you to try soon. But feel free to run the Colab notebook, linked below.',
         'I think the computer likes milk.',
         'sub–500 milliseconds of latency, Message sent.',
       
@@ -171,6 +184,34 @@
       
       resolver.resolve(options, callback);
       </script>
+
+  </head>
+  <header>
+    
+   <a href="https://inoculate.media/index_slider.html"><h2>Next page</h2> <img src="https://inoculate.media/main/next.png" width="50px" height="50px"></a>
+  </header>
+  <body>
+    <div class="container">
+      <h1 class="heading" data-target-resolver></h1>
+       <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <main>
+      <div class="wrapper">
+       <div class="flex-container">
+         
+    
+    </main>
     <script src="sketch.js"></script>
+    <footer>
+      <div class="flex-container">
+        <div> 
+         <h3>"Milk delivery, 2023 Craig Ellenwood & Google Tensorflow running Disco Diffusion"</h3>
+                 
+         <div>
+      <a href="https://drive.google.com/file/d/1kPe-s4Sg-Mhrj6gifRVylz-oWP6ra1wr/view?usp=sharing"><img src="https://inoculate.media/main/Colab.png" width="200px"></a> 
+     
+          </div>  
+    
+  </div>
+    </footer>
   </body>
 </html>
