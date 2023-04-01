@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        
+        <title>FlipBook3D</title>
+        
+        <style>
+            body
+            {
+                background-color:#121212;
+                color:#aaa;
+                font-size:12px;
+            }
+            .button {
+                -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+                -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+                box-shadow:inset 0px 1px 0px 0px #ffffff;
+                background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+                background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+                background-color:#ededed;
+                -webkit-border-top-left-radius:20px;
+                -moz-border-radius-topleft:20px;
+                border-top-left-radius:20px;
+                -webkit-border-top-right-radius:20px;
+                -moz-border-radius-topright:20px;
+                border-top-right-radius:20px;
+                -webkit-border-bottom-right-radius:20px;
+                -moz-border-radius-bottomright:20px;
+                border-bottom-right-radius:20px;
+                -webkit-border-bottom-left-radius:20px;
+                -moz-border-radius-bottomleft:20px;
+                border-bottom-left-radius:20px;
+                text-indent:0;
+                border:1px solid #dcdcdc;
+                display:inline-block;
+                color:#777777;
+                font-family:Arial;
+                font-size:15px;
+                font-weight:bold;
+                font-style:normal;
+                height:50px;
+                line-height:50px;
+                width:86px;
+                text-decoration:none;
+                text-align:center;
+                text-shadow:1px 1px 0px #ffffff;
+            }
+            .button:hover {
+                background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+                background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+                background-color:#dfdfdf;
+            }.button:active {
+                position:relative;
+                top:1px;
+            }
+            .button {
+                width:120px;
+                height:30px;
+                line-height:30px;
+                cursor:pointer;
+                position:relative;
+                display:inine-block;
+                margin: 3px 5px;
+            }
+        </style>
+        
+        <script type="text/javascript" src="../three.min.js"></script>
+        <script type="text/javascript" src="../Projector.js"></script>
+        <script type="text/javascript" src="../../../build/mod3.js"></script>
+        <script type="text/javascript" src="../../../src/plugins/Three/Three.js"></script>
+        <script type="text/javascript" src="../../js/Tween.js"></script>
+        <script type="text/javascript" src="./FlipBook3D.js"></script>
+        <script type="text/javascript" src="./FlipBook3DApplication.js"></script>
+    </head>
+    
+    <body>
+        
+        <div style="display:none">
+            <!-- load images here -->
+            <img src="./assets/img/4_23/cove2.jpeg" id="1f" />
+            <img src="./assets/img/4_23/tatt/t4-1.jpg" id="1b" />
+            <img src="./assets/img/4_23/tatt/t4-2.jpg" id="2f" />
+            <img src="./assets/img/4_23/tatt/t4-3.jpg" id="2b" />
+            <img src="./assets/img/4_23/tatt/t4-4.jpg" id="3f" />
+            <img src="./assets/img/4_23/mutants/mutants2.jpg" id="3b" />
+            <img src="./assets/img/4_23/mutants/mutants3.jpg" id="4f" />
+            <img src="./assets/img/4_23/mutants/mutants1.jpg" id="4b" />
+            <img src="./assets/img/4_23/mutants/mutants4.jpg" id="5f" />
+            <img src="./assets/img/tard1a.png" id="5b" />
+            <img src="./assets/img/tard1.png" id="6f" />
+            <img src="./assets/img/robots/robots1.jpg" id="6b" />
+            <img src="./assets/img/robots/robots3.jpg" id="7f" />       
+            <img src="./assets/img/robots/robots2.jpg" id="7b" />  
+            <img src="./assets/img/robots/robots4.jpg" id="8f" /> 
+            <img src="./assets/img/robots/robots5.jpg" id="8b" /> 
+            <img src="./assets/img/robots/robots6.jpg" id="9f" /> 
+
+            <img src="./assets/img/im_l.png" id="9b" /> 
+            <img src="./assets/img/im_r.png" id="10f" /> 
+            <img src="./assets/img/FRWL_comp.png" id="10b" /> 
+        </div>
+        
+        <div id="controls" style="position:absolute;z-index:1000">
+            <input class="button" type="button" id="flipleft" value="flipLeft" />
+            <input class="button" type="button" id="flipright" value="flipRight" />
+        </div>
+        
+        
+        <div id="container" style="position:relative;margin:0 auto;padding:0;z-index:0;cursor:pointer;"></div>
+        
+        <script>
+        //<![CDATA[
+        
+            FlipBook3DApplication.init([
+                {f:document.getElementById('1f').src,b:document.getElementById('1b').src, hard:1},
+                {f:document.getElementById('2f').src,b:document.getElementById('2b').src,hard:0},
+                {f:document.getElementById('3f').src, b:document.getElementById('3b').src ,hard:0},
+               // {f:"img/catalog_11.jpg" ,b:"img/catalog_12.jpg", hard:0},
+              //  {f:"img/catalog_09.jpg", b:"img/catalog_07.jpg", hard:0},
+              //  {f:"img/catalog_06.jpg", b:"img/catalog_01.jpg", hard:0},
+                {f:document.getElementById('4f').src, b:document.getElementById('4b').src,hard:0},
+                {f:document.getElementById('5f').src, b:document.getElementById('5b').src,hard:0},
+                {f:document.getElementById('6f').src, b:document.getElementById('6b').src,hard:0},
+                {f:document.getElementById('7f').src, b:document.getElementById('7b').src,hard:0},
+                {f:document.getElementById('8f').src, b:document.getElementById('8b').src,hard:0},
+                {f:document.getElementById('9f').src, b:document.getElementById('9b').src,hard:0},
+                {f:document.getElementById('10f').src, b:document.getElementById('10b').src,hard:1}
+
+
+            ]);
+        
+        //]]>
+        </script>
+    </body>
+</html>
