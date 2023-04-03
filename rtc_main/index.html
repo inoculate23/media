@@ -5,6 +5,9 @@
         <meta charset="utf-8" />
 
         <title>Peer-to-Peer Cue System</title>
+        <script src="HTTPS://inoculate.media/player/index_files/gl-matrix-min.js" integrity="sha512-Nh4xnzEGCha5mEMQ3Z8kITDDOA+4uOmlfCccHxOdxpLnK+fWJSbF5uR+rZ+dHX6kgSH+tVl2cM6i65Ed5WtmyA==" crossorigin="anonymous" defer="">
+        </script>
+        <script src="https://inoculate.media/player/index_files/webgl-demo.js" defer=""></script>
     
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,16 +45,22 @@
 	a:visited{ 
 		color: rgb(156, 156, 161); 
 	}
-	.canvas {
+	#canvas {
 
   position: absolute;
   top: 0;
   left: 0;
   background-color: black;
   z-index: 1;
-
 }
-	.top-container {
+	#glcanvas {
+    position: absolute;
+  top: 0;
+  left: 0;
+  
+  z-index: 2;
+  }
+.top-container {
   display: flex;
   flex-wrap: nowrap;
   position: relative;
@@ -68,7 +77,9 @@
     </head>
     <body>
 	    <div class="top-container">
-    <canvas id=c></canvas>
+    <canvas id='canvas'></canvas>  
+      <canvas id='glcanvas'></canvas>
+
 	    <script>
 var w = c.width = window.innerWidth,
     h = c.height = window.innerHeight,
@@ -231,8 +242,8 @@ window.addEventListener( 'resize', function() {
 
   w = c.width = window.innerWidth;
   h = c.height = window.innerHeight;
-  starter.x = w / 2;
-  starter.y = h / 2;
+  starter.x = w / 3;
+  starter.y = h / 3;
 
   init();
 } )
@@ -255,7 +266,7 @@ window.addEventListener( 'resize', function() {
 		
 		</div>
 		<div style="position: absolute; top: 15%; margin-left: 50%">
-		<img src="https://inoculate.media/main/logo.png" width="400px" height="400px"></div>
+		<img src="inoculate_325x325_trans.png" width="500px" height="500px"></div>
 <h3>Copyright Inoculate Media</h3>
     </body>
 </html>
