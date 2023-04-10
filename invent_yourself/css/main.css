@@ -88,7 +88,7 @@ a, button, input, select {
 	justify-content: center;
 	flex-direction: column;
 	range: url(./textures/background.png);
-	opacity: 1.0;
+	opacity: .5;
 
 }
 
