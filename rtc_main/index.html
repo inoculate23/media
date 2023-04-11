@@ -5,9 +5,6 @@
         <meta charset="utf-8" />
 
         <title>Peer-to-Peer Cue System</title>
-        <script src="gl-matrix-min.js" integrity="sha512-Nh4xnzEGCha5mEMQ3Z8kITDDOA+4uOmlfCccHxOdxpLnK+fWJSbF5uR+rZ+dHX6kgSH+tVl2cM6i65Ed5WtmyA==" crossorigin="anonymous" defer="">
-        </script>
-        <script src="webgl-demo.js"</script>
     
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,26 +42,16 @@
 	a:visited{ 
 		color: rgb(156, 156, 161); 
 	}
-	#canvas {
-    width:100%;
-  height: 100%;
+	.canvas {
+
   position: absolute;
   top: 0;
   left: 0;
   background-color: black;
   z-index: 1;
+
 }
-	#glcanvas {
-    position: absolute;
-    width:100%;
-    height: 100%;
-    
-  top: 0;
-  left: 0;
-  
-  z-index: 2;
-  }
-.top-container {
+	.top-container {
   display: flex;
   flex-wrap: nowrap;
   position: relative;
@@ -81,13 +68,11 @@
     </head>
     <body>
 	    <div class="top-container">
-    <canvas id='canvas'></canvas>  
-      <canvas id='glcanvas'></canvas>
-
+    <canvas id=c></canvas>
 	    <script>
-var w = canvas.width = window.innerWidth,
-    h = canvas.height = window.innerHeight,
-    ctx = canvas.getContext( '2d' ),
+var w = c.width = window.innerWidth,
+    h = c.height = window.innerHeight,
+    ctx = c.getContext( '2d' ),
 
     minDist = 10,
     maxDist = 30,
@@ -246,8 +231,8 @@ window.addEventListener( 'resize', function() {
 
   w = c.width = window.innerWidth;
   h = c.height = window.innerHeight;
-  starter.x = w / 3;
-  starter.y = h / 3;
+  starter.x = w / 2;
+  starter.y = h / 2;
 
   init();
 } )
@@ -270,7 +255,7 @@ window.addEventListener( 'resize', function() {
 		
 		</div>
 		<div style="position: absolute; top: 15%; margin-left: 50%">
-		<img src="inoculate_325x325_trans.png" width="500px" height="500px"></div>
+		<img src="https://inoculate.media/rtc_main/inoculate_325x325_trans.png" width="3500px" height="350px"></div>
 <h3>Copyright Inoculate Media</h3>
     </body>
 </html>
