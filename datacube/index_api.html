@@ -26,14 +26,11 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<script src="js/stringify.js"></script>
 		<script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
-		<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
-		<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
 		<style>
 			a {
 				color: #8ff;
 			}
 	
-         
                 body {
                     font-family: Monospace;
                     background-color: #000;
@@ -85,8 +82,7 @@ background-position: 3% 3%;
 				
 			}
 
-		
-
+	
 				.element .number {
 					position: absolute;
 					top: 20px;
@@ -151,9 +147,6 @@ background-position: 3% 3%;
 
 		<div id="container">
 		
-
-		
-	
 			</div>
 
 
@@ -167,12 +160,10 @@ background-position: 3% 3%;
                 <li>Click a shape button</li>
                 <li>Drag Mouse left-right to rotate object</li>
                 <li>Pinch to zoom</li>
-             
-          
+            
 		</div>
        
-         
-		
+  
 		<!-- Import maps polyfill -->
 		<!-- Remove this when import maps will be widely supported -->
 		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
@@ -194,22 +185,14 @@ background-position: 3% 3%;
 			import { CSS3DRenderer, CSS3DObject } from './jsm/renderers/CSS3DRenderer.js';
 	
 
-
-
-
-
-		
 				let container;
-		
-		
 		
 		let targetRotation = 0.5;
 		
-		
 		let pointerX = 0;
 		
-		
 		let windowHalfX = window.innerWidth / 2;
+			
 		let element;
 		
 		let camera, scene, renderer;
@@ -221,22 +204,11 @@ background-position: 3% 3%;
 					init();
 					animate();
 		
-		
+			
+			//api to google images
 			 window.onload = function() {
-				   // var xhttp = new XMLHttpRequest();
-				   // xhttp.onreadystatechange = function() {
-					//    if (this.readyState == 4 && this.status == 200) {
-						//    var data = JSON.parse(this.responseText);
-						 //   for(let i = 0; i <200; i++) {
-		
-						
-							
-					
-							
-		
-							let response = fetch('https://www.google.com/search?q=geomeric+artistic+gif&tbm=isch&ved=2ahUKEwiku8uAoN3-AhWpLkQIHck-C3MQ2-cCegQIABAA&oq=geomeric+artistic+gif&gs_lcp=CgNpbWcQAzoECCMQJzoFCAAQgAQ6BwgAEIoFEEM6CggAEIoFELEDEEM6CAgAEIAEELEDOgQIABAeOgYIABAFEB46CQgAEBgQgAQQClD9LFjhdWCJeWgAcAB4AIABZYgB7wySAQQyMS4xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=1nlUZKT4BKndkPIPyf2smAc&bih=763&biw=1433', );
-		
-							fetch(url)
+			let response = fetch('https://www.google.com/search?q=geomeric+artistic+gif&tbm=isch&ved=2ahUKEwiku8uAoN3-AhWpLkQIHck-C3MQ2-cCegQIABAA&oq=geomeric+artistic+gif&gs_lcp=CgNpbWcQAzoECCMQJzoFCAAQgAQ6BwgAEIoFEEM6CggAEIoFELEDEEM6CAgAEIAEELEDOgQIABAeOgYIABAFEB46CQgAEBgQgAQQClD9LFjhdWCJeWgAcAB4AIABZYgB7wySAQQyMS4xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=1nlUZKT4BKndkPIPyf2smAc&bih=763&biw=1433', );
+		        fetch(url)
 			.then(response => {
 				for (var i = 0; i < response.items.length; i++) {
 					var data = JSON.parse(this.responseText);
