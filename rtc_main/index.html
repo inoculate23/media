@@ -10,10 +10,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
 <style>
-	body {
+	body, html {
 		font-family: 'Lato', sans-serif;
 		background-color: rgb(22, 21, 21);
 		min-width: 450px;
+		height: 100%;
+			width:100%;
 	}
 	
 	h1 {
@@ -28,12 +30,13 @@
 	}
 	h3 {
 		text-align: center;
-		font-size: 1em;
+		font-size: 1.5em;
 		color: aliceblue; 
 	}
 	td {
 		width: 50%;
 	}
+	    a { text-decoration: none; }
 	
 	input {
 		margin-bottom: 5px;
@@ -65,8 +68,11 @@
 	Position: absolute;
 }
 	#logo {
-		margin-left:5px;
+		margin-left:58%;
+		margin-right:5px;
 	}
+	#webrtc {
+		margin-botom:60px;
 </style>
     </head>
     <body>
@@ -257,9 +263,9 @@ window.addEventListener( 'resize', function() {
 		
 		</div>
 		<div style="position: absolute; top: 15%; margin-left: 50%">
-		<img id="logo" src="inoculate_325x325_trans.png" width="250px"/>
+		<img id="logo" src="inoculate_325x325_trans.png" width="250px" alt="inoculate media logo"/>
 			</div>
-	    <img src="webrtc-logo-horiz-retro-750.png" />
+	    <img id="webrtc" src="webrtc-logo-horiz-retro-750.png" alt="webrtc logo" />
 <h3>Copyright Inoculate Media</h3>
     </body>
 </html>
