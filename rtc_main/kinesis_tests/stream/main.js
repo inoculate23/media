@@ -18,7 +18,7 @@ const kinesisVideoClient = new AWS.KinesisVideo({
     region,
     accessKeyId,
     secretAccessKey,
-    correctClockSkew: true,
+    correctClockSkew: true
 });
 async function myfunction() {
 const getSignalingChannelEndpointResponse = await kinesisVideoClient
