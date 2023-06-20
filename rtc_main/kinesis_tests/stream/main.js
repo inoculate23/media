@@ -20,7 +20,7 @@ const kinesisVideoClient = new AWS.KinesisVideo({
     secretAccessKey,
     correctClockSkew: true,
 });
-
+async function myfunction() {
 const getSignalingChannelEndpointResponse = await kinesisVideoClient
     .getSignalingChannelEndpoint({
         ChannelARN: channelARN,
@@ -29,6 +29,7 @@ const getSignalingChannelEndpointResponse = await kinesisVideoClient
             Role: KVSWebRTC.Role.VIEWER,
         },
     })
+
     .promise();
 const endpointsByProtocol = getSignalingChannelEndpointResponse.ResourceEndpointList.reduce((endpoints, endpoint) => {
     endpoints[endpoint.Protocol] = endpoint.ResourceEndpoint;
@@ -134,6 +135,6 @@ peerConnection.addEventListener('track', event => {
     }
     remoteView.srcObject = event.streams[0];
 });
-
+}
 signalingClient.open();
 
