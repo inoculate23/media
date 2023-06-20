@@ -1,4 +1,3 @@
-<script src="https://unpkg.com/amazon-kinesis-video-streams-webrtc/dist/kvs-webrtc.min.js"></script>
 
 // DescribeSignalingChannel API can also be used to get the ARN from a channel name.
 const channelARN = 'arn:aws:kinesisvideo:us-west-2:123456789012:channel/test-channel/1234567890';
