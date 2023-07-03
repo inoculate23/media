@@ -1,0 +1,11 @@
+Model Information:
+* title:	Flying Bee
+* source:	https://sketchfab.com/3d-models/flying-bee-ba935104d4774583af65828289e8aad5
+* author:	fredbear1211 (https://sketchfab.com/fredbear1211)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Flying Bee" (https://sketchfab.com/3d-models/flying-bee-ba935104d4774583af65828289e8aad5) by fredbear1211 (https://sketchfab.com/fredbear1211) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
