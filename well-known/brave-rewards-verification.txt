@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: inoculate.media
+Token: 665af8161dc7e86a660e0af34ae1c21fe3ff17ab8eebbef4a2117316c082683d
