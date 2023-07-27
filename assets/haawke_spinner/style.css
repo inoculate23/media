@@ -1,0 +1,33 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+  background-color: black;
+  width: 1700px;
+  height: 600px;
+}
+ 
+#container {
+            min-height: 100vh; /* mobile viewport bug fix */
+            min-height: -webkit-fill-available;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: red;
+           }
+        
+#sketch {
+         position: relative;
+         background-color: green;
+        }
+img2 {
+  position: absoute;
+  margin-left:25px;
+  width: 100px;
+  height: 100px;
+  alpha: .5;
+  opacity: .7;
+}
