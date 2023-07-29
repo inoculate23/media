@@ -1,0 +1,27 @@
+{
+  "name": "meshrtc-v2-forked",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "@vis-three/stats-render-strategy": "0.5.1",
+    "bootstrap": "5.2.3",
+    "dat.gui": "0.7.9",
+    "parcel-bundler": "^1.6.1",
+    "three": "0.139.2",
+    "three-instanced-uniforms-mesh": "0.47.0",
+    "troika-three-utils": "0.47.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.0",
+    "typescript": "4.4.4"
+  },
+  "resolutions": {
+    "@babel/preset-env": "7.13.8"
+  },
+  "keywords": []
+}
