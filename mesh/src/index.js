@@ -1,4 +1,4 @@
-import WorldTemplate from "./World";
+import WorldTemplate from "./World.js";
 
 function main() {
   const container = document.getElementById("app");
