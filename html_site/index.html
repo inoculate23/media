@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" class="h-full bg-[color:var(--html-bg-color,theme(colors.white))]">
+  <head>
+    <meta charset="utf-8" />
+    <link
+    href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      
+            :root {
+               
+              --light: #5433d9;
+              /* or any other variables/style */
+            }
+            [data-theme='forest'] {
+              --dark: #fcfaf6;
+            }
+            [data-theme='lofi'] {
+              --accent: #e48715;
+            }
+              
+        
+              @media (prefers-color-scheme: dark){
+                :root{
+                  --my-color: #252b30;
+                }
+              }
+              html, body {
+                background-color: rgb(14, 2, 29);
+              }
+    </style>
+  </head>
+  <body>
+    <header class="synthwwave">
+           </div>
+        </div>
+      </div>
+
+      <div class="navbar bg-base-100" >
+        <div class="navbar-start">
+          <img src="images/logo.png" width="40px">
+          <div class="dropdown">
+          
+            <label tabindex="0" class="btn btn-ghost btn-circle">
+
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+            </label>
+            <a class="btn btn-ghost normal-case text-xl">Haawke Neural Technology</a>
+          
+            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+              <li><a>Homepage</a></li>
+              <li><a>Portfolio</a></li>
+              <li><a>About</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="navbar-center">
+
+        
+          <button data-set-theme="light" class="btn btn-sm btn btn-outline btn-primary">Light</button>
+          <button data-set-theme="dark" data-act-class="ACTIVECLASS" class="btn btn-sm btn btn-outline btn-secondary">dark</button>
+          
+        
+        </div>
+
+        <div class="navbar-end">
+        
+          <button class="btn btn-ghost btn-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+          </button>
+          <button class="btn btn-ghost btn-circle">
+            <div class="indicator">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+              <span class="badge badge-xs badge-primary indicator-item"></span>
+            </div>
+          </button>
+        </div>
+      </div>
+      
+  <!-- Mobile menu, show/hide based on menu open state. -->
+  <div class="lg:hidden" role="dialog" aria-modal="true">
+    <!-- Background backdrop, show/hide based on slide-over state. -->
+    <div class="fixed inset-0 z-10"></div>
+    <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+      <div class="flex items-center justify-between">
+        <a href="#" class="-m-1.5 p-1.5">
+          <span class="sr-only">Your Company</span>
+          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+        </a>
+        <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+          <span class="sr-only">Close menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="mt-6 flow-root">
+        <div class="-my-6 divide-y divide-gray-500/10">
+          <div class="space-y-2 py-6">
+            <div class="-mx-3">
+              <button type="button" class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" aria-controls="disclosure-1" aria-expanded="false">
+                Product
+                <!--
+                  Expand/collapse icon, toggle classes based on menu open state.
+
+                  Open: "rotate-180", Closed: ""
+                -->
+                <svg class="h-5 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              <!-- 'Product' sub-menu, show/hide based on menu state. -->
+              <div class="mt-2 space-y-2" id="disclosure-1">
+                <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Analytics</a>
+                <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Engagement</a>
+                <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Security</a>
+                <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Integrations</a>
+                <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Automations</a>
+                <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Watch demo</a>
+                <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact sales</a>
+              </div>
+            </div>
+            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
+            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
+            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
+          </div>
+          <div class="py-6">
+            <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>
+<section id="main">
+  <div class="hero min-h-screen bg-base-400">
+    <div class="hero-content text-center">
+      <img class="rounded-box" src="images/terboted_a_very_colorful_interstellar_deity_with_unfathomable_p_b74ffa0f-1616-44ec-bbed-59d3c1d8ce8c.png" width="100%"/>
+      <div class="max-w-md">
+       
+        <h1 class="text-5xl font-bold">Hello there</h1>
+        <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+        <button class="btn btn-primary">Get Started</button>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col w-full md:flex-row">
+    <div class="grid flex-grow h-200 card bg-base-300 rounded-box place-items-center"><img class="rounded-box" src="/Volumes/2TB/html_site/images/clowm1.jpeg"/></div> 
+    <div class="grid flex-grow h-200 card bg-base-300 rounded-box place-items-center"><img class="rounded-box" src="images/-beesbio_mech047881189f124fa2873e75509ca8df10_00000.jpg"  height="500px"/></div> 
+    <div class="divider lg:divider-horizontal"></div> 
+    <div class="grid flex-grow h-200 card bg-base-300 rounded-box place-items-center"><img class="rounded-box" src="images/6dc367e1c7f0475983026fc23fcfcb3d_00000.jpeg"/></div>
+
+
+  </div>
+</div>
+</section>
+  </body>
+</html>
