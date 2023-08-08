@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>hls.js demo</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.15.2/ace.js"></script>
+    <script src="./js/hls.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="getHTMLMediaElement.js"></script>
+
+
+
+
+
+    <link rel="icon" sizes="192x192" href="../../../images/webrtc-icon-192x192.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+  
+<script>
+    worker.onmessage = (event) => {
+        const {data} = event;
+        message.innerHTML = 'Complete transcoding';
+        const video = document.getElementById('output-video');
+        video.src = URL.createObjectURL(new Blob([data.buffer], { type: 'video/webm' }));
+    }
+    worker.onerror = (error) => console.log(error);
+  </script>
+  
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+  </head>
+  <body>
+
+
+    <div class="main-container">
+   
+  
+        <video id="rightVideo" style="width: 100%" autoplay controls muted ></video>
+      </div>
+      <canvas
+      id="bufferedCanvas"
+      width="720"
+      height="15"
+      class="videoCentered"
+      onclick="onClickBufferedRange(event);"
+      style="height: fit-content"
+    ></canvas>
+    <br />
+    <div
+    class="center"
+    style="text-align: center; display: none"
+    id="toggleButtons"
+  >
+    <button
+      type="button"
+      class="btn btn-sm demo-tab-btn"
+      data-tab="playbackControlTab"
+      onclick="toggleTabClick(this);"
+    >
+      Playback
+    </button>
+    <button
+      type="button"
+      class="btn btn-sm demo-tab-btn"
+      data-tab="timelineTab"
+      onclick="toggleTabClick(this);"
+    >
+      Timeline
+    </button>
+    <button
+      type="button"
+      class="btn btn-sm demo-tab-btn"
+      data-tab="qualityLevelControlTab"
+      onclick="toggleTabClick(this);"
+    >
+      Quality-levels
+    </button>
+    <button
+      type="button"
+      class="btn btn-sm demo-tab-btn"
+      data-tab="audioTrackControlTab"
+      onclick="toggleTabClick(this);"
+    >
+      Audio-tracks
+    </button>
+    <button
+      type="button"
+      class="btn btn-sm demo-tab-btn"
+      data-tab="metricsDisplayTab"
+      onclick="toggleTabClick(this); showMetrics();"
+    >
+      Real-time metrics
+    </button>
+    <button
+      type="button"
+      class="btn btn-sm demo-tab-btn"
+      data-tab="statsDisplayTab"
+      onclick="toggleTabClick(this);"
+    >
+      Buffer &amp; Statistics
+    </button>
+  </div>
+
+  <div
+    class="center demo-tab"
+    id="playbackControlTab"
+    style="display: none"
+  >
+    <br />
+    <center>
+      <p>
+        <span>
+          <button
+            type="button"
+            class="btn btn-sm btn-info"
+            title="video.play()"
+            onclick="$('#video')[0].play()"
+          >
+            Play
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-info"
+            title="video.pause()"
+            onclick="$('#video')[0].pause()"
+          >
+            Pause
+          </button>
+    
+         
+          <img type="button" id="btn_fem" class="from_bottom" src="./images/fem_pink.png">
+          </button>
+          <img type="button" id="btn_couples" class="from_bottom" src="./images/couple.png" width="13%">
+        </button>
+        <img type="button" id="nips_btn" class="from_bottom" src="./images/fave.png" width="135px"></button>
+        <img type="button" id="btn_fet" class="from_bottom" src="./images/tit.png" width="135px"></button>
+      </span>
+   
+        <span>
+          <button
+            type="button"
+            class="btn btn-sm btn-info"
+            title="video.playbackRate = text input"
+            onclick="$('#video')[0].defaultPlaybackRate=$('#video')[0].playbackRate=$('#playback_rate').val();"
+          >
+            Playback rate
+          </button>
+          <input
+            type="number"
+            value="1"
+            id="playback_rate"
+            size="8"
+            style="width: 3em"
+            onkeydown="if(window.event.keyCode=='13'){$('#video')[0].defaultPlaybackRate=$('#video')[0].playbackRate=$('#playback_rate').val();}"
+          />
+        </span>
+        <span>
+          <button
+            type="button"
+            class="btn btn-sm btn-info"
+            title="video.currentTime -= 10"
+            onclick="$('#video')[0].currentTime-=10"
+          >
+            - 10 s
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-info"
+            title="video.currentTime += 10"
+            onclick="$('#video')[0].currentTime+=10"
+          >
+            + 10 s
+          </button>
+        </span>
+        <span>
+          <button
+            type="button"
+            class="btn btn-sm btn-info"
+            title="video.currentTime = text input"
+            onclick="$('#video')[0].currentTime=$('#seek_pos').val();"
+          >
+            Seek to
+          </button>
+          <input
+            type="number"
+            id="seek_pos"
+            size="8"
+            style="width: 7em"
+            onkeydown="if(window.event.keyCode=='13'){$('#video')[0].currentTime=$('#seek_pos').val();}"
+          />
+        </span>
+      </p>
+      <p>
+        <span>
+          <button
+            type="button"
+            class="btn btn-xs btn-warning"
+            title="hls.startLoad()"
+            onclick="hls.startLoad()"
+          >
+            Start loading
+          </button>
+          <button
+            type="button"
+            class="btn btn-xs btn-warning"
+            title="hls.stopLoad()"
+            onclick="hls.stopLoad()"
+          >
+            Stop loading
+          </button>
+        </span>
+        <span>
+          <button
+            type="button"
+            class="btn btn-xs btn-warning"
+            title="hls.attachMedia(video)"
+            onclick="hls.attachMedia($('#video')[0])"
+          >
+            Attach media
+          </button>
+          <button
+            type="button"
+            class="btn btn-xs btn-warning"
+            title="hls.detachMedia()"
+            onclick="hls.detachMedia()"
+          >
+            Detach media
+          </button>
+        </span>
+      </p>
+      <p>
+        <span>
+          <button
+            type="button"
+            class="btn btn-xs btn-warning"
+            title="hls.recoverMediaError()"
+            onclick="hls.recoverMediaError()"
+          >
+            Recover media-error
+          </button>
+          <button
+            type="button"
+            class="btn btn-xs btn-warning"
+            title="hls.swapAudioCodec()"
+            onclick="hls.swapAudioCodec()"
+          >
+            Swap audio codec
+          </button>
+        </span>
+      </p>
+      <p>
+        <span>
+          <button
+            type="button"
+            class="btn btn-xs btn-default"
+            onclick="$('#streamSelect')[0].selectedIndex++;$('#streamSelect').change()"
+          >
+            Next video
+          </button>
+          <button 
+            type="button"
+            class="btn btn-xs btn-default btn-dump"
+            title="Save dumped audio mp4 appends"
+            onclick="createfMP4('audio');"
+          >
+            Create audio-fmp4
+          </button>
+          <button id="btn_rec" onclick="listen(this)"
+            type="button"
+            class="btn btn-xs btn-default btn-dump"
+            title="Save dumped video mp4 appends"
+            onclick="createfMP4('video')"
+          >
+            Create video-fmp4
+          </button>
+          <img type="button" id="btn_ds" class="from_bottom" src="./images/ds.png" height="25px">
+        </button>
+        </span>
+      </p>
+    </center>
+   
+        <video id="video" class="videoCentered"  autoplay muted loop width="1280px" height="720px" ></video>
+        <div style="margin-top: 10px;" id="recording-player">
+        <video id="player" autoplay mute controls></video>
+      </div>
+        <button id="btnStartRecording" class='btn btn-xs btn-default'>start</button>
+        <button id="btnStopRecording" class='btn btn-xs btn-default' >stop</button>
+        <button id="playAndRecord" class="btn btn-xs btn-default" >Play and Record</button>
+     
+
+      <script>
+        Metro.makePlugin($("#framerate input"), "slider", {
+      min: 10,
+      max: 60,
+      accuracy: 0.04,
+      hint: true
+    });
+        const supported = navigator.mediaDevices.getSupportedConstraints();
+
+const supports = navigator.mediaDevices.getSupportedConstraints();
+
+if (
+  !supports["width"] ||
+  !supports["height"] ||
+  !supports["frameRate"] ||
+  !supports["facingMode"]
+) {
+  // We're missing needed properties, so handle that error.
+} else {
+  const constraints = {
+    width: { min: 640, ideal: 1920, max: 1920 },
+    height: { min: 400, ideal: 1080 },
+    aspectRatio: 1.777777778,
+    frameRate: { max: 60 },
+    facingMode: { exact: "user" },
+  };
+
+  myTrack
+    .applyConstraints(constraints)
+    .then(() => {
+      /* do stuff if constraints applied successfully */
+    })
+    .catch((reason) => {
+      /* failed to apply constraints; reason is why */
+    });
+}
+        document.querySelector(".playAndRecord").addEventListener("click", () => {
+  const playbackElement = document.getElementById("player");
+  const captureStream = playbackElement.captureStream();
+  playbackElement.play();
+});
+          (function() {
+              var params = {},
+                  r = /([^&=]+)=?([^&]*)/g;
+
+              function d(s) {
+                  return decodeURIComponent(s.replace(/\+/g, ' '));
+              }
+
+              var match, search = window.location.search;
+              while (match = r.exec(search.substring(1))) {
+                  params[d(match[1])] = d(match[2]);
+
+                  if (d(match[2]) === 'true' || d(match[2]) === 'false') {
+                      params[d(match[1])] = d(match[2]) === 'true' ? true : false;
+                  }
+              }
+
+              window.params = params;
+          })();
+
+          function addStreamStopListener(stream, callback) {
+              stream.addEventListener('ended', function() {
+                  callback();
+                  callback = function() {};
+              }, false);
+              stream.addEventListener('inactive', function() {
+                  callback();
+                  callback = function() {};
+              }, false);
+              stream.getTracks().forEach(function(track) {
+                  track.addEventListener('ended', function() {
+                      callback();
+                      callback = function() {};
+                  }, false);
+                  track.addEventListener('inactive', function() {
+                      callback();
+                      callback = function() {};
+                  }, false);
+              });
+          }
+      </script>
+
+      <script>
+          var video = document.getElementById('recording-player');
+          video.controls = false;
+          var mediaElement = getHTMLMediaElement('recording-player', {
+              title: 'Recording status: inactive',
+              buttons: ['full-screen' /*, 'take-snapshot'*/ ],
+              showOnMouseEnter: false,
+              width: 400,
+              onTakeSnapshot: function() {
+                  var canvas = document.createElement('canvas');
+                  canvas.width = mediaElement.clientWidth;
+                  canvas.height = mediaElement.clientHeight;
+
+                  var context = canvas.getContext('2d');
+                  context.drawImage(recordingPlayer, 0, 0, canvas.width, canvas.height);
+
+                  window.open(canvas.toDataURL('image/png'));
+              }
+          });
+          document.getElementById('recording-player').appendChild(mediaElement);
+
+          var div = document.createElement('section');
+          mediaElement.media.parentNode.appendChild(div);
+          mediaElement.media.muted = false;
+          mediaElement.media.autoplay = true;
+          mediaElement.media.playsinline = true;
+          div.appendChild(mediaElement.media);
+
+          var recordingPlayer = mediaElement.media;
+          var recordingMedia = document.querySelector('.recording-media');
+          var mediaContainerFormat = document.querySelector('.media-container-format');
+          var mimeType = 'video/webm';
+          var fileExtension = 'webm';
+          var type = 'video';
+          var recorderType;
+          var defaultWidth;
+          var defaultHeight;
+
+          var btnStartRecording = document.querySelector('#btn-start-recording');
+
+          window.onbeforeunload = function() {
+              btnStartRecording.disabled = false;
+              recordingMedia.disabled = false;
+              mediaContainerFormat.disabled = false;
+
+              chkFixSeeking.parentNode.style.display = 'inline-block';
+          };
+
+          btnStartRecording.onclick = function(event) {
+              var button = btnStartRecording;
+
+              if (button.innerHTML === 'Stop Recording') {
+                  btnPauseRecording.style.display = 'none';
+                  button.disabled = true;
+                  button.disableStateWaiting = true;
+                  setTimeout(function() {
+                      button.disabled = false;
+                      button.disableStateWaiting = false;
+                  }, 2000);
+
+                  button.innerHTML = 'Start Recording';
+
+                  function stopStream() {
+                      if (button.stream && button.stream.stop) {
+                          button.stream.stop();
+                          button.stream = null;
+                      }
+
+                      if (button.stream instanceof Array) {
+                          button.stream.forEach(function(stream) {
+                              stream.stop();
+                          });
+                          button.stream = null;
+                      }
+
+                      videoBitsPerSecond = null;
+                      var html = 'Recording status: stopped';
+                      html += '<br>Size: ' + bytesToSize(button.getBlob().size);
+                      recordingPlayer.parentNode.parentNode.querySelector('h2').innerHTML = html;
+                  }
+
+                  if (button) {
+                      if (button.length) {
+                          button.stopRecording(function(url) {
+                              if (!button) {
+                                  button.recordingEndedCallback(url);
+                                  stopStream();
+
+                                  saveToDiskOrOpenNewTab(button);
+                                  return;
+                              }
+
+                              button.stopRecording(function(url) {
+                                  button.recordingEndedCallback(url);
+                                  stopStream();
+                              });
+                          });
+                      } else {
+                          button.stopRecording(function(url) {
+                              if (button.blobs && button.blobs.length) {
+                                  var blob = new File(button.blobs, getFileName(fileExtension), {
+                                      type: mimeType
+                                  });
+
+                                  button.getBlob = function() {
+                                      return blob;
+                                  };
+
+                                  url = URL.createObjectURL(blob);
+                              }
+
+                           
+
+                              button.recordingEndedCallback(url);
+                              saveToDiskOrOpenNewTab(button.recordRTC);
+                              stopStream();
+                          });
+                      }
+                  }
+
+                  return;
+              }
+
+            }
+          
+        
+</script>
+
+        <video id="output-video" autoplay mute controls></video><br/>
+        <input type="file" id="uploader">
+     
+          <label for="homepage">Add your homepage:</label>
+          <input type="url" id="homepage" name="homepage"><br><br>
+          <input type="submit">
+   
+          <script>
+            const { createFFmpeg } = './ffmpeg';
+     
+          async function tanscode() {
+          const { createFFmpeg, fetchFile } = FFmpeg;
+          const ffmpeg = createFFmpeg({ log: true });
+          const transcode = async ({ target: { files } }) => {
+            const { name } = files[0];
+            await ffmpeg.load();
+            ffmpeg.FS('writeFile', name, await fetchFile(files[0]));
+            await ffmpeg.run('-i', name,  '/Volumes/12tb/cams/output.mp4');
+            const data = ffmpeg.FS('readFile', '/Volumes/12tb/cams/output.mp4');
+            const video = document.getElementById('player');
+            video.src = URL.createObjectURL(new Blob([data.buffer], { type: 'video/mp4' }));
+          }
+          document
+          .getElementById('rightVideo').addEventListener('change', transcode)
+          console.log("transcoding session")
+      
+          .callback('transcoding')
+          }
+          //  .getElementById('video').addEventListener('change', transcode);
+        </script>
+ </section>
+     
+      <br />
+      </div>
+     
+      <br />
+      <div id="log">
+        <div class="inner"></div>
+      </div>
+      <div class="flex-container">
+        <h2>
+            <p id="message"></p>
+            <strong>Log:</strong></h2>
+        <br />
+        <h3> <pre id="log"></pre>
+            <span class="error"></span><br>
+            <span class="warn"><span><br>
+                <span id="counter"></span><br>
+            <span id="timer"></span>
+            <span class="error"></span><br>
+            <span class="info"><span><br>
+      <label class="center">Status:</label>
+      <pre id="statusOut" class="center" style="white-space: pre-wrap"></pre>
+
+      <label class="center">Error:</label>
+      <pre id="errorOut" class="center" style="white-space: pre-wrap"></pre>
+
+    
+      </div>
+      <div id="controls">
+        <div class="demo-controls-wrapper">
+          <select id="streamSelect" class="innerControls">
+            <option value="" selected>
+              Select a test-stream from drop-down menu. Or enter custom URL
+              below
+            </option>
+          </select>
+
+          <input id="streamURL" class="innerControls" type="text" value="" />
+
+          <label
+            class="innerControls"
+            title="Uncheck this to disable loading of streams selected from the drop-down above."
+          >
+            Enable streaming:
+            <input id="enableStreaming" type="checkbox" checked />
+          </label>
+
+          <label
+            class="innerControls"
+            title="When a media error occurs, attempt to recover playback by calling `hls.recoverMediaError()`."
+          >
+            Auto-recover media-errors:
+            <input id="autoRecoverError" type="checkbox" checked />
+          </label>
+
+          <label
+            class="innerControls"
+            title="Stop loading and playback if playback under-buffer stalls. This can help debug stall errors."
+          >
+            Stop on first stall:
+            <input id="stopOnStall" type="checkbox" unchecked />
+          </label>
+
+          <label class="innerControls"  onclick="listen(this)">
+            Dump transmuxed fMP4 data:
+            <input id="dumpfMP4" type="checkbox" unchecked />
+          </label>
+
+          <label class="innerControls">
+            Metrics history (max limit, -1 is unlimited):
+            <input id="limitMetrics" style="width: 8em" type="number" />
+          </label>
+
+          <label class="innerControls">
+            HTML video element width:
+            <select id="videoSize" style="float: right">
+              <option value="240px">240px</option>
+              <option value="426px">426px</option>
+              <option value="640px">640px</option>
+              <option value="720px">720px</option>
+              <option value="854px">854px</option>
+              <option value="1280px">1280px</option>
+              <option value="1920px">1920px</option>
+              <option value="80%">Responsive (80%)</option>
+              <option value="100%">Responsive (100%)</option>
+            </select>
+          </label>
+
+          <label class="innerControls">
+            Current player size:
+            <span id="currentSize"></span>
+          </label>
+          <label class="innerControls">
+            Current video resolution:
+            <span id="currentResolution"></span>
+          </label>
+
+          <label class="innerControls permalink">
+            Permalink:&nbsp;&nbsp;<span id="StreamPermalink"></span>
+          </label>
+        </div>
+
+        <div class="config-editor-wrapper">
+          <div class="config-editor-container">
+            <div id="config-editor">Loading...</div>
+          </div>
+          <div class="config-editor-commands">
+            <label for="config-persistence">
+              Persist
+              <input
+                name="config-persistence"
+                id="config-persistence"
+                type="checkbox"
+              />
+            </label>
+            <button name="config-apply" onclick="applyConfigEditorValue()">
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="center demo-tab demo-timeline-chart-container"
+        id="timelineTab"
+        style="display: none"
+      >
+        <canvas id="timeline-chart" style="touch-action: manipulation"></canvas>
+      </div>
+
+      <div
+        class="center demo-tab"
+        id="qualityLevelControlTab"
+        style="display: none"
+      >
+        <center>
+          <table>
+            <tr>
+              <td>
+                <p>Currently played level:</p>
+              </td>
+              <td>
+                <div id="currentLevelControl" style="display: inline"></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Next level loaded:</p>
+              </td>
+              <td>
+                <div id="nextLevelControl" style="display: inline"></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Currently loaded level:</p>
+              </td>
+              <td>
+                <div id="loadLevelControl" style="display: inline"></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Cap-limit level (maximum):</p>
+              </td>
+              <td>
+                <div id="levelCappingControl" style="display: inline"></div>
+              </td>
+            </tr>
+          </table>
+        </center>
+      </div>
+
+      <div
+        class="center demo-tab"
+        id="audioTrackControlTab"
+        style="display: none"
+      >
+        <table>
+          <tr>
+            <td>Current audio-track:</td>
+            <td><div id="audioTrackControl" style="display: inline"></div></td>
+          </tr>
+          <tr>
+            <td>Language / Name:</td>
+            <td>
+              <div id="audioTrackLabel" style="display: inline">
+                None selected
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="center demo-tab" id="metricsDisplayTab" style="display: none">
+        <br />
+        <div id="metricsButton">
+          <button
+            type="button"
+            class="btn btn-xs btn-info"
+            onclick="$('#metricsButtonWindow').toggle();$('#metricsButtonFixed').toggle();windowSliding=!windowSliding; refreshCanvas()"
+          >
+            toggle sliding/fixed window</button
+          ><br />
+          <div id="metricsButtonWindow">
+            <button
+              type="button"
+              class="btn btn-xs btn-info"
+              onclick="timeRangeSetSliding(0)"
+            >
+              window ALL
+            </button>
+            <button
+              type="button"
+              class="btn btn-xs btn-info"
+              onclick="timeRangeSetSliding(2000)"
+            >
+              2s
+            </button>
+            <button
+              type="button"
+              class="btn btn-xs btn-info"
+              onclick="timeRangeSetSliding(5000)"
+            >
+              5s
+            </button>
+            <button
+              type="button"
+              class="btn btn-xs btn-info"
+              onclick="timeRangeSetSliding(10000)"
+            >
+              10s
+            </button>
+            <button
+              type="button"
+              class="btn btn-xs btn-info"
+              onclick="timeRangeSetSliding(20000)"
+            >
+              20s
+            </button>
+            <button
+              type="button"
+              class="btn btn-xs btn-info"
+              onclick="timeRangeSetSliding(30000)"
+            >
+              30s
+            </button>
+            <button
+              type="button"
+              class="btn btn-xs btn-info"
+              onclick="timeRangeSetSliding(60000)"
+            >
+              60s
+            </button>
+            <button
+              type="button"
+              class="btn btn-xs btn-info"
+              onclick="timeRangeSetSliding(120000)"
+            >
+              120s</button
+            ><br />
+            <button
+              type="button"
+              class="btn btn-xs btn-info"
+              onclick="timeRangeZoomIn()"
+            >
+              Window Zoom In
+            </button>
+            <button
+              type="button"
+              class="btn btn-xs btn-info"
+              onclick="timeRangeZoomOut()"
+            >
+              Window Zoom Out</button
+            ><br />
+            <button
+              type="button"
+              class="btn btn-xs btn-info"
+              onclick="timeRangeSlideLeft()"
+            >
+              <<< Window Slide
+            </button>
+            <button
+              type="button"
+              class="btn btn-xs btn-info"
+              onclick="timeRangeSlideRight()"
+            >
+              Window Slide >>></button
+            ><br />
+          </div>
+          <div id="metricsButtonFixed">
+            <button
+              type="button"
+              class="btn btn-xs btn-info"
+              onclick="windowStart=$('#windowStart').val()"
+            >
+              fixed window start(ms)
+            </button>
+            <input
+              type="text"
+              id="windowStart4"
+              defaultValue="0"
+              size="8"
+              onkeydown="if(window.event.keyCode=='13'){windowStart=$('#windowStart').val();}"
+            />
+            <button
+              type="button"
+              class="btn btn-xs btn-info"
+              onclick="windowEnd=$('#windowEnd').val()"
+            >
+              fixed window end(ms)
+            </button>
+            <input
+              type="text"
+              id="windowEnd4"
+              defaultValue="10000"
+              size="8"
+              onkeydown="if(window.event.keyCode=='13'){windowEnd=$('#windowEnd').val();}"
+            /><br />
+          </div>
+
+        <div class="config-editor-wrapper">
+          <div class="config-editor-container">
+            <div id="config-editor4">Loading...</div>
+          </div>
+          <div class="config-editor-commands">
+            <label for="config-persistence">
+              Persist
+              <input
+                name="config-persistence"
+                id="config-persistence4"
+                type="checkbox"
+              />
+            </label>
+            <button name="config-apply" onclick="applyConfigEditorValue()">
+              Apply
+            </button>
+          </div>
+        </div>
+
+          <button
+            type="button"
+            class="btn btn-xs btn-success"
+            onclick="goToMetrics()"
+            style="font-size: 18px"
+          >
+            metrics link
+          </button>
+          <button
+            type="button"
+            class="btn btn-xs btn-success"
+            onclick="goToMetricsPermaLink()"
+            style="font-size: 18px"
+          >
+            metrics permalink
+          </button>
+          <button
+            type="button"
+            class="btn btn-xs btn-success"
+            onclick="copyMetricsToClipBoard()"
+            style="font-size: 18px"
+          >
+            copy metrics to clipboard
+          </button>
+          <canvas
+            id="bufferTimerange_c"
+            width="640"
+            height="100"
+            style="border: 1px solid #000000"
+            onmousedown="timeRangeCanvasonMouseDown(event)"
+            onmousemove="timeRangeCanvasonMouseMove(event)"
+            onmouseup="timeRangeCanvasonMouseUp(event)"
+            onmouseout="timeRangeCanvasonMouseOut(event);"
+          ></canvas>
+          <canvas
+            id="bitrateTimerange_c"
+            width="640"
+            height="115"
+            style="border: 1px solid #000000"
+          ></canvas>
+          <canvas
+            id="bufferWindow_c"
+            width="640"
+            height="100"
+            style="border: 1px solid #000000"
+            onmousemove="windowCanvasonMouseMove(event);"
+          ></canvas>
+          <canvas
+            id="videoEvent_c"
+            width="640"
+            height="15"
+            style="border: 1px solid #000000"
+          ></canvas>
+          <canvas
+            id="loadEvent_c"
+            width="640"
+            height="15"
+            style="border: 1px solid #000000"
+          ></canvas
+          ><br />
+        </div>
+      </div>
+
+      <div class="center demo-tab" id="statsDisplayTab" style="display: none">
+        <br />
+        <label>Buffer state:</label>
+        <pre id="bufferedOut"></pre>
+        <label>General stats:</label>
+        <pre id="statisticsOut"></pre>
+      </div>
+    </div>
+
+
+ 
+    <footer><br /><br /><br /><br /><br /><br /></footer>
+
+ <div id="header1"></div>
+
+<script>
+  //female cams
+   btn_fem.onclick = function() {
+    var dv = document.getElementById('header1');
+
+// remove all child nodes
+while (dv.hasChildNodes()) {
+    dv.removeChild(dv.lastChild);
+}
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var data = JSON.parse(this.responseText);
+                console.log(data)
+                for (let i = 1; i < 500; i++) {
+                    var d = new Date();
+                    const thumb = document.createElement('img');
+                   // thumb.setAttribute("id", 'btn_' + data.results[i].username);
+                    //thumb.setAttribute("class", 'hh');
+                   
+       
+                    const link = document.createElement('a');
+                    link.setAttribute('href', 'http://127.0.0.1:5501/hls.js/demo/index.html?src=https://edge18-lax.live.mmcdn.com/live-hls/amlst:' + data.results[i].username + '/playlist.m3u8');
+                   link.setAttribute('type', 'button');
+                   link.setAttribute('value', 'Load new document');
+                //   link.setAttribute('target', 'search_iframe');
+                   var video = document.getElementById('video');
+                    video.src = 'https://edge18-lax.live.mmcdn.com/live-hls/amlst:' + data.results[i].username + '/playlist.m3u8';
+                    
+                   
+                    header1.appendChild(link);
+                    $(thumb).attr("src", 'https://cbjpeg.stream.highwebmedia.com/riw/' + data.results[i].username + '.jpg?' + d.getTime());
+                    link.append(thumb)
+
+
+                    function newDoc() {
+  window.location.assign("https://www.w3schools.com")
+}   
+        }
+    }
+}
+
+        xhttp.open("GET", "https://chaturbate.com/api/public/affiliates/onlinerooms/?wm=aqAcE&client_ip=request_ip&limit=500&hd=true&gender=f&embed_video_only=1" );
+        xhttp.send();
+    }
+   
+
+   //remove old cams
+
+
+   //couples cams
+ 
+   btn_couples.onclick = function() {
+        var dv = document.getElementById('header1');
+
+        // remove all child nodes
+        while (dv.hasChildNodes()) {
+            dv.removeChild(dv.lastChild);
+        }
+
+  
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var data = JSON.parse(this.responseText);
+                console.log(data)
+                for (let i = 1; i < 500; i++) {
+                    var d = new Date();
+                    const thumb = document.createElement('img');
+                   // thumb.setAttribute("id", 'btn_' + data.results[i].username);
+                    //thumb.setAttribute("class", 'hh');
+                   
+       
+                    const link = document.createElement('a');
+                    link.setAttribute('href', 'http://127.0.0.1:5501/demo/index.html?src=https://edge18-lax.live.mmcdn.com/live-hls/amlst:' + data.results[i].username + '/playlist.m3u8');
+                   link.setAttribute('type', 'button');
+                   link.setAttribute('value', 'Load new document');
+                //   link.setAttribute('target', 'search_iframe');
+                   var video = document.getElementById('video');
+                    video.src = 'https://edge18-lax.live.mmcdn.com/live-hls/amlst:' + data.results[i].username + '/playlist.m3u8';
+                    
+                   
+                    header1.appendChild(link);
+                    $(thumb).attr("src", 'https://cbjpeg.stream.highwebmedia.com/riw/' + data.results[i].username + '.jpg?' + d.getTime());
+                    link.append(thumb)
+
+
+                    function newDoc() {
+  window.location.assign("https://www.w3schools.com")
+}   
+        }
+    }
+}
+
+        xhttp.open("GET", "https://chaturbate.com/api/public/affiliates/onlinerooms/?wm=aqAcE&client_ip=request_ip&limit=500&hd=true&gender=c&embed_video_only=1" );
+        xhttp.send();
+    }
+  
+btn_fet.onclick = function fet() {
+  var dv = document.getElementById('header1');
+
+// remove all child nodes
+while (dv.hasChildNodes()) {
+    dv.removeChild(dv.lastChild);
+}
+
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var data = JSON.parse(this.responseText);
+        console.log(data)
+        for (let i = 1; i < 500; i++) {
+            var d = new Date();
+            const thumb = document.createElement('img');
+           // thumb.setAttribute("id", 'btn_' + data.results[i].username);
+            //thumb.setAttribute("class", 'hh');
+           
+
+            const link = document.createElement('a');
+            link.setAttribute('href', 'http://127.0.0.1:5501/demo/index.html?src=https://edge18-lax.live.mmcdn.com/live-hls/amlst:' + data.results[i].username + '/playlist.m3u8');
+           link.setAttribute('type', 'button');
+           link.setAttribute('value', 'Load new document');
+        //   link.setAttribute('target', 'search_iframe');
+           var video = document.getElementById('video');
+            video.src = 'https://edge18-lax.live.mmcdn.com/live-hls/amlst:' + data.results[i].username + '/playlist.m3u8';
+            
+           
+            header1.appendChild(link);
+            $(thumb).attr("src", 'https://cbjpeg.stream.highwebmedia.com/riw/' + data.results[i].username + '.jpg?' + d.getTime());
+            link.append(thumb)
+
+
+
+}
+}
+}
+
+xhttp.open("GET", "https://chaturbate.com/api/public/affiliates/onlinerooms/?wm=aqAcE&client_ip=request_ip&limit=500&hd=true&gender=f&tag=big_nipples&tag=bhairy&embed_video_only=1" );
+xhttp.send();
+}
+
+
+var settings = {
+  url: 'https://edge18-lax.live.mmcdn.com/live-hls/amlst:pafosstar/playlist.m3u8', // streaming Url Vod or live stream
+  duration: 20, // Duration of dumping
+  bandwidth: 300000, // Bandwidth for multibitrate stream (optional)
+  filename: 'dump.mp4', // Filename
+  temporary_folder: '/Volumes/12tb/cams', // Temporary Folder for the chunck ts files
+  retry : 3 // if 404 error, number of retry
+};
+
+var dump = new hlsdump(settings, function (err, result) {
+  if (err !== null) {
+    console.error('error');
+    console.error(err);
+  } else {
+    console.log('result');
+    console.log(result);
+  }
+});
+
+dump.on('playlist', function (playlist) {
+  console.log("New playlist :");
+  console.log(playlist);
+});
+
+dump.on('error', function (err) {
+  console.error("Error:");
+  console.error(err);
+});
+
+dump.on('downloaded', function (files) {
+  console.log("Downloaded:");
+  console.log(files);
+});
+
+dump.on('done', function () {
+  console.log("Done");
+});
+
+dump.start();
+
+
+
+</script>
+
+    <!-- demo build -->
+    
+   
+
+    <footer><br /><br /><br /><br /><br /><br /></footer>
+
+
+   
+    
+<div id="button.c1"></div>
+    <!-- demo build -->
+       <!-- Demo page required libs -->
+       <script src="canvas.js"></script>
+       <script src="metrics.js"></script>
+       <script src="./js/webrtc.js" async></script>
+      
+    <script src="hls-demo-custom4.js"></script>
+  
+ 
+  
+  
+  
+  </body>
+</html>
