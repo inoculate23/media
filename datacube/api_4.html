@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>t3D Datacube</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<script src="js/stringify.js"></script>
+        
+		<script src="js/xhr.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+
+      
+     
+        <style>
+			
+html,
+body {
+   height: 100%;
+   width:100%;
+ 
+   font-family: 'Roboto Mono', monospace;
+   margin: 0px;
+   background-color: black;
+}
+
+
+         
+
+          
+		
+
+			#menu {
+				position: absolute;
+				bottom: 55px;
+				width: 100%;
+				text-align: center;
+			}
+
+			.element {
+				width: 305px;
+				height: 210px;
+		
+               
+				box-shadow: 0px 0px 12px rgba(219, 168, 12, 0.8);
+				border: 1px solid rgba(234, 91, 20, 0.45);
+				font-family: Helvetica, sans-serif;
+				text-align: center;
+				line-height: normal;
+				cursor: default;
+			
+			}
+			.thumb {
+				width: 200px;
+				height: 100px;
+		
+				box-shadow: 0px 0px 12px rgba(239, 186, 13, 0.85);
+				border: 5px solid rgba(236, 36, 14, 0.45);
+				border-radius: 14px;
+            padding: 5px;
+				
+			}
+
+		#container {
+			overflow: visible;;
+		};
+
+				
+
+				.element .details {
+					
+				
+				
+					font-size: 12px;
+					color: rgba(127,255,255,0.75);
+					border-radius: 14px;
+            padding: 10px;
+				}
+
+			button {
+				color: rgba(127,255,255,0.75);
+				background: transparent;
+				outline: 1px solid rgba(127,255,255,0.75);
+				border: 0px;
+				padding: 5px 10px;
+				cursor: pointer;
+			}
+
+			button:hover {
+				background-color: rgba(0,255,255,0.5);
+			}
+
+			button:active {
+				color: #000000;
+				background-color: rgba(0,255,255,0.75);
+			}
+		
+        #data-table {
+            height:100%;
+            width: 100%;
+			
+        }
+		</style>
+          
+
+
+
+	</head>
+            
+	<body>
+		<div id='header1'></div>
+			<div id='container'></div>
+
+		
+		<div id="menu">
+			<button id="table">TABLE</button>
+			<button id="sphere">SPHERE</button>
+			<button id="helix">HELIX</button>
+			<button id="grid">GRID</button>
+		</div>
+
+		<!-- Import maps polyfill -->
+		<!-- Remove this when import maps will be widely supported -->
+		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "./build/three.module.js",
+					"three/addons/": "./jsm/"
+				}
+			}
+		</script>
+
+		<script type="module">
+
+			import * as THREE from 'three';
+			import { TWEEN } from 'three/addons/libs/tween.module.min.js';
+			import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
+			import { CSS3DRenderer, CSS3DObject } from '/jsm/renderers/CSS3DRenderer.js';
+			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+			let container;
+
+
+
+let targetRotation = 0.5;
+
+
+let pointerX = 0;
+
+
+let windowHalfX = window.innerWidth / 2;
+
+
+let camera, scene, renderer;
+			let controls;
+
+			const objects = [];
+			const targets = { table: [], sphere: [], helix: [], grid: [] };
+
+			init();
+			animate();
+
+			function init() {
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+
+				scene = new THREE.Scene();
+
+				camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, .5, 15000 );
+				camera.position.z = 12000;
+				scene.add( camera );
+
+				const light = new THREE.PointLight( 0xffffff, 0.8 );
+				camera.add( light );
+
+
+				// table
+
+				for ( let i = 0; i < table.length; i += 1 ) {
+
+					const element = document.createElement( 'div' );
+					element.className = 'element';
+					element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
+
+				
+			
+					const details = document.createElement( 'img' );
+					details.className = 'image_url';
+					details.src = table[ i ];
+					element.appendChild( details );
+
+
+
+					const objectCSS = new CSS3DObject( element );
+					objectCSS.position.x = Math.random() * 4000 - 2000;
+					objectCSS.position.y = Math.random() * 4000 - 2000;
+					objectCSS.position.z = Math.random() * 4000 - 2000;
+					scene.add( objectCSS );
+
+					objects.push( objectCSS );
+
+					//
+
+					const object = new THREE.Object3D();
+					object.position.x = ( table[ i + 3 ] * 140 ) - 1330;
+					object.position.y = - ( table[ i + 4 ] * 180 ) + 990;
+
+					targets.table.push( object );
+
+				}
+
+				// sphere
+
+				const vector = new THREE.Vector3();
+
+				for ( let i = 0, l = objects.length; i < l; i ++ ) {
+
+					const phi = Math.acos( - 1 + ( 2 * i ) / l );
+					const theta = Math.sqrt( l * Math.PI ) * phi;
+
+					const object = new THREE.Object3D();
+
+					object.position.setFromSphericalCoords( 800, phi, theta );
+
+					vector.copy( object.position ).multiplyScalar( 2 );
+
+					object.lookAt( vector );
+
+					targets.sphere.push( object );
+
+				}
+
+				// helix
+
+				for ( let i = 0, l = objects.length; i < l; i ++ ) {
+
+					const theta = i * 0.175 + Math.PI;
+					const y = - ( i * 8 ) + 450;
+
+					const object = new THREE.Object3D();
+
+					object.position.setFromCylindricalCoords( 900, theta, y );
+
+					vector.x = object.position.x * 2;
+					vector.y = object.position.y;
+					vector.z = object.position.z * 2;
+
+					object.lookAt( vector );
+
+					targets.helix.push( object );
+
+				}
+
+				// grid
+
+				for ( let i = 0; i < objects.length; i ++ ) {
+
+					const object = new THREE.Object3D();
+
+					object.position.x = ( ( i % 5 ) * 400 ) - 900;
+					object.position.y = ( - ( Math.floor( i / 5 ) % 5 ) * 400 ) + 800;
+					object.position.z = ( Math.floor( i / 25 )  * 400) - 300;
+
+					targets.grid.push( object );
+
+				
+				}
+
+				//
+
+				renderer = new CSS3DRenderer();
+			
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.getElementById( 'container' ).appendChild( renderer.domElement );
+
+		
+
+				container.style.touchAction = 'none';
+				container.addEventListener( 'pointerdown', onPointerDown );
+
+
+				//
+
+				controls = new OrbitControls( camera, renderer.domElement );
+				controls.minDistance = 50;
+				controls.maxDistance = 6000;
+				controls.addEventListener( 'change', render );
+
+				const buttonTable = document.getElementById( 'table' );
+				buttonTable.addEventListener( 'click', function () {
+
+					transform( targets.data-table, 2000 );
+
+				} );
+
+				const buttonSphere = document.getElementById( 'sphere' );
+				buttonSphere.addEventListener( 'click', function () {
+
+					transform( targets.sphere, 2000 );
+
+				} );
+
+				const buttonHelix = document.getElementById( 'helix' );
+				buttonHelix.addEventListener( 'click', function () {
+
+					transform( targets.helix, 2000 );
+
+				} );
+
+				const buttonGrid = document.getElementById( 'grid' );
+				buttonGrid.addEventListener( 'click', function () {
+
+					transform( targets.grid, 2000 );
+
+				} );
+
+				transform( targets.table, 2000 );
+
+				//
+
+				window.addEventListener( 'resize', onWindowResize );
+
+			}
+
+			function transform( targets, duration ) {
+
+				TWEEN.removeAll();
+
+				for ( let i = 0; i < objects.length; i ++ ) {
+
+					const object = objects[ i ];
+					const target = targets[ i ];
+
+					new TWEEN.Tween( object.position )
+						.to( { x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration )
+						.easing( TWEEN.Easing.Exponential.InOut )
+						.start();
+
+					new TWEEN.Tween( object.rotation )
+						.to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )
+						.easing( TWEEN.Easing.Exponential.InOut )
+						.start();
+
+				}
+
+				new TWEEN.Tween( this )
+					.to( {}, duration * 2 )
+					.onUpdate( render )
+					.start();
+
+			}
+
+			function onWindowResize() {
+
+				windowHalfX = window.innerWidth / 2;
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				render();
+
+			}
+
+			
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+				TWEEN.update();
+
+				controls.update();
+				render();
+				
+
+			}
+
+			//
+
+			function onPointerDown( event ) {
+
+if ( event.isPrimary === false ) return;
+
+pointerXOnPointerDown = event.clientX - windowHalfX;
+targetRotationOnPointerDown = targetRotation;
+
+document.addEventListener( 'pointermove', onPointerMove );
+document.addEventListener( 'pointerup', onPointerUp );
+
+}
+
+function onPointerMove( event ) {
+
+if ( event.isPrimary === false ) return;
+
+pointerX = event.clientX - windowHalfX;
+
+targetRotation = targetRotationOnPointerDown + ( pointerX - pointerXOnPointerDown ) * 0.02;
+
+}
+
+function onPointerUp() {
+
+if ( event.isPrimary === false ) return;
+
+document.removeEventListener( 'pointermove', onPointerMove );
+document.removeEventListener( 'pointerup', onPointerUp );
+
+}
+
+
+
+function render() {
+
+
+renderer.render( scene, camera );
+
+}
+
+
+		</script>
+
+
+
+	
+	</body>
+</html>
