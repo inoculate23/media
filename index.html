@@ -11,139 +11,104 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <style>
-            body {
-                overflow: hidden;
-                margin: 0px;
-                background-image: url('./uv/images/uncanny_valley_2000px.jpeg');
-                background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
-            }
-            iframe {
-                z-index:99;
-                display: block;  /* iframes are inline by default */   
-                height: 100vh;  /* Set height to 100% of the viewport height */   
-                width: 100vw;  /* Set width to 100% of the viewport width */     
-                border: none; /* Remove default border */
-          z-index: -7;
-          position: absolute;
-            }
-          .navbar  {
-                margin-left: 0px;
-                z-index:999;
-                background-color:aliceblue;
-        }
-        .navbar-center {
-            margin-left: 40px;
-            z-index:999;
-            background-color:aliceblue;
-        }
-        .stripe-buy-button {
-            width: 100px;
-        }
-        .synthwave {
-            background-color:aliceblue;
-        }
-    </style>
-  </head>
-  <body data-theme="dark" class="h-full bg-[color:var(--html-bg-color,theme(colors.white))]">
-    
-  
-        
-
-        <div class="navbar">
-          <div class="navbar-center">
-  
-            <img src="http://inoculate.media/logos_325x325_trans.png" width="100px">
-            
-            
-              <a class="btn btn-success text-xxl" id="name">Inoculate Media and Haawke Neural Technology</a>
-              <a href="http://haawke.neural.inoculate.media/" class="btn btn-success"  target="_blank">Gallery</a>
-              <a href="http://inoculate.media/main.html" class="btn btn-success"  target="_blank">Projects</a>
-              <a href="http://haawke.neural.inoculate.media/" class="btn btn-success" target="_blank">About</a>
-              <a href="mailto:craig@inoculate.media&cc=terbo@inoculate.media&subject=Web Contact" target="_blank" class="btn btn-warning text-xl">Contact</a>
-            <div class="navbar-end">   
-
-            
-              </div>
-            </div>   
-      
-    </div>
-
-    
-            <div class="text_container">
-
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>  
+       <link
+       href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css"
+       rel="stylesheet"
+       type="text/css"
+     />
+     <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
+     <script src="https://cdn.tailwindcss.com"></script>
+       <style>
+           body {
+               overflow:scroll;
+               margin: 0px;
+               background-image: url('./uv/images/uncanny_valley_2000px.jpeg');
+               background-repeat: no-repeat; /* Do not repeat the image */
+ background-size: contain; /* Resize the background image to cover the entire container */
+           }
+           #iframe {
+               z-index:09;
+               display: block;  /* iframes are inline by default */   
+               height: 100vh;  /* Set height to 100% of the viewport height */   
+               width: 100vw;  /* Set width to 100% of the viewport width */     
+               border: none;
+               position:absolute; /* Remove default border */
        
-          </div>
+         position: absolute;
+           }
+         .navbar  {
+               margin-left: 5px;
+               z-index:999;
+               background-color:rgb(255, 255, 255);
+       }
+       .navbar-center {
+           margin-left: 40px;
+           z-index:999;
+           background-color:rgb(255, 255, 255);
+       }
+       .stripe-buy-button {
+           width: 100px;
+       }
+       .synthwave {
+           background-color:rgb(255, 255, 255);
+       }
+       .text_container  {
+           width:75%;
+           margin-left: 9%;
+
+      
+       }
+       .btn {
+        margin:15;
+       }
+       .btn-success {
+        margin-left:15;
+       }
+   </style>
+ </head>
+ <body data-theme="dark" class="h-full bg-[color:var(--html-bg-color,theme(colors.white))]">
+   
+ 
+       
+
+       <div class="navbar">
+         <div class="navbar-center">
+ 
+           <img src="http://inoculate.media/logos_325x325_trans.png" width="100px">
+           
+           
+             <a class="btn btn-success text-xxl" id="name">Inoculate Media and Haawke Neural Technology</a>
+             <a href="http://haawke.neural.inoculate.media/" class="btn btn-success"  target="_blank">Gallery</a>
+             <a href="http://inoculate.media/main.html" class="btn btn-success"  target="_blank">Projects</a>
+             <a href="http://haawke.neural.inoculate.media/" class="btn btn-success" target="_blank">About</a>
+             <a href="mailto:craig@inoculate.media&cc=terbo@inoculate.media&subject=Web Contact" target="_blank" class="btn btn-warning text-xl">Contact</a>
+           <div class="navbar-end">   
+
+           
+             </div>
+           </div>   
+     
+   </div>
          
-          <div class="sketchfab-embed-wrapper"> <iframe title="Sparrow Hawk" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="1920" height="1080" src="https://sketchfab.com/models/af6cd289de294bd9b4366cfd85f15e8f/embed?autostart=1&camera=0&preload=1&transparent=1&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_hint=0&ui_theme=dark"> </iframe> </div>
+   <div class="sketchfab-embed-wrapper"> <iframe title="Sparrow Hawk" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="1920" height="1080" src="https://sketchfab.com/models/af6cd289de294bd9b4366cfd85f15e8f/embed?autostart=1&camera=0&preload=1&transparent=1&ui_infos=0&ui_watermark_link=0&ui_watermark=0&ui_hint=0&ui_theme=dark"> </iframe> </div>
        
 		
-				<div class="text_container">
-			<h3>
-				</div>
+			
 		</div>
    
        <br>
-       <a href="#0" id="info1" class="close" title="info">Close</a>
+      
 
         <div class="text_container">
          
             <a href="./uv/info.html" id="info" class="info popup-trigger" title="info">What is this?</a>
             <a href="http://inoculate.media/uv/index_pre_event.html" id="info2" class="info popup-trigger" title="info">Enter</a>
-            <a href="https://buy.stripe.com/aEUg0t6MI9Ca9a05kk" class="info3 popup-trigger" target="_blank" title="info">Purchase tickets</a>
+            <a href="https://buy.stripe.com/aEUg0t6MI9Ca9a05kk" id="info3" class="info3 popup-trigger" target="_blank" title="info">Purchase tickets</a>
 
 </div>
 
-           </div><br><br>
-           <div class="text_container">
-           
-</div>
-            </div>
-            <div class="popup" role="alert">
-              <div class="popup-container">
-               
-                <h3>
-          <br>
-          <br>
-                <blockquote><p>The uncanny valley is a theory in aesthetics suggesting a humanoid object appearing almost, but not exactly, like a real human can evoke feelings of eeriness or revulsion, rather than familiarity, due to the object’s proximity to reality yet noticeable imperfections.</p></blockquote></h3>
-                <h3>Key Takeaways</h3>
-              
-             
-               
-                <ul>
-                <li>"The uncanny valley is the hypothesized relationship between the extent to which a humanoid resembles an actual human and the negative emotional response such a humanoid evokes.</li>
-                <li>The violation of human <a href="https://www.simplypsychology.org/social-roles.html">norms,</a> the salience of mortality, the avoidance of pathogens, the challenge to human identity and discord between <a href="https://www.simplypsychology.org/perception-theories.html">perceptual cues</a> may explain the uncanny valley.</li>
-                <li>Research has been conducted on the uncanny valley in various contexts, and the means developed to overcome the phenomenon include both the increase and the decrease of humanoids’ anthropomorphic attributes.</li>
-                <li>The role of heterogeneous phenomena, cultural constructs, and humans’ greater natural familiarity with fellow humans seem to challenge the scientific semblance of the uncanny valley theory." </li></ul>
-                    Ayesh Perera, Researcher, B.A, MTS, Harvard University</h3><br><br>
-    
-           
-                The original music, coding, and animation are by <a href="https://music.metason.net/artistinfo?name=xkp&born=">Craig Ellenwood</a> who used ai, machine learning, neural networks, alongside conventional electronoc music instruments. The visuals that make up "Uncanny Valley are generated in real-time in a <a href="https://en.wikipedia.org/wiki/WebGL">WebGL</a> canvas by analyizing the audio spectrum via <a href="https://en.wikipedia.org/wiki/WebRTCWebRTC">WebRTC</a> and a  <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">fast fourrier transform (FFT) function.</a>
-                Craig noticed that the FFT pattern looked like a landscape and later that night he read about the uncanny valley theory and this project which is ongoing was born, Your ticket allows you to come back and see how it changes, as ai never sleeps. Your ticket also enables you to use some of the art and music tools for yourself.  This is a family friendly exhibit, we hope in some way, it inspires.
-                Thank you for your interest. 
-                <div>
-<br>
-<img src="./uv/images/14.jpeg" width="260px"/>
-<a href="./uv/images/Mori_Uncanny_Valley.svg.png"> <img src ="./uv/images/Mori_Uncanny_Valley.svg.png" width="310px>" /></a>
-<a href="https://inoculate.media/main/cv.pdf"><img src="./uv/images/cv.png" width="190px"></a><br>
-From left to right: art by TerboTed, a graph representation of the uncanny valley, artist bio of Craig Ellenwood
-
-                     </div>
-            </div></div></div>     </div>  
-          
-    </div>
-            </div>
-          </div>
-          </div>
-           
-              </div> 
-            </div> 
-       
-    
-           
-            <script src="./js/modal.js"></script>  
+   
            
         </body>
     </html>
