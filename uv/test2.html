@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="haawke" />
+        <title>fft</title>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.123/build/three.js"></script>
+        <link rel="stylesheet" href="./css/style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/three@0.129/examples/js/libs/dat.gui.min.js"></script>
+        <style>
+            body {
+                overflow: hidden;
+                margin: 0px;
+            }
+        </style>
+        <!-- Import maps polyfill -->
+        <!-- Remove this when import maps will be widely supported -->
+        <script async src="./js/es-module-shims.js"></script>
+
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "./build/three.module.js"
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <script type="module">
+           
+            import { OrbitControls } from './jsm/OrbitControls.js'
+            import Stats from './jsm/stats.module.js'
+            let camera, scene, renderer;
+
+let t = 0;
+
+const day = new THREE.Color(0xB8F4FF);
+const duskdawn = new THREE.Color(0xFF571F);
+
+init();
+animate();
+
+function init() {
+
+  camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 10);
+  camera.position.z = 1;
+
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color();
+
+    const canvas = document.createElement('canvas');
+                canvas.width = 256;
+                canvas.height = 512;
+
+                let alpha;
+                let desynchronized;
+                let colorSpace;
+                let willReadFrequently;
+
+                let ImageSmoothingQuality;
+
+                let globalAlpha;
+                let globalCompositeOperation;
+
+                let imageSmoothingEnabled;
+                let imageSmoothingQuality;
+
+                const ctx = canvas.getContext('2d');
+                alpha = 'true';
+                desynchronized = 'true';
+                colorSpace = 'srgb';
+                willReadFrequently = 'true';
+                ImageSmoothingQuality = 'high';
+                globalAlpha = '.50';
+                globalCompositeOperation = 'source-over';
+                imageSmoothingEnabled = 'true';
+                imageSmoothingQuality = 'high';
+
+                const texture = new THREE.Texture(canvas);
+                texture.minFilter = THREE.LinearFilter;
+                texture.magFilter = THREE.LinearFilter;
+
+                const plane = new THREE.Mesh(
+                    new THREE.PlaneGeometry(20, 20, 256, 256),
+                    new THREE.MeshStandardMaterial({
+                        wireframe: true,
+                        color: new THREE.Color(0x1b2233),
+                        displacementMap: texture,
+                        displacementScale: 10, 
+                    })   
+                );
+                plane.rotateX(-Math.PI / 2);
+                scene.add(plane);
+
+
+  renderer = new THREE.WebGLRenderer({
+    antialias: true
+  });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+
+}
+
+function animate() {
+
+  requestAnimationFrame(animate);
+
+  t += 0.01;
+
+  scene.background.copy(day).lerp(duskdawn, 0.5 * (Math.sin(t) + 1));
+
+  renderer.render(scene, camera);
+
+}
+        </script>
+        <audio id="song" autoplay controls>
+            
+            <source src="http://inoculate.media/assets/june.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+          </audio>
+         
+    </body>
+</html>
