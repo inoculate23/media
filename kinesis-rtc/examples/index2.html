@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./loader.css">
+    <link rel="stylesheet" href="loader.css">
     <link rel="stylesheet" href="./app.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
@@ -38,11 +38,11 @@
             <h4>AWS Credentials</h4>
             <div class="form-group">
                 <label for="accessKeyId">Access Key ID</label>
-                <input type="text" class="form-control" id="accessKeyId" placeholder="Access key id" required>
+                <input type="text" class="form-control" id="accessKeyId" placeholder="Access key id" value="AKIA2NQPGVZDDOJDYENU"  required>
             </div>
             <div class="form-group">
                 <label for="secretAccessKey">Secret Access Key</label>
-                <input type="password" class="form-control" id="secretAccessKey" placeholder="Secret access key" required>
+                <input type="password" class="form-control" id="secretAccessKey" placeholder="Secret access key" value="eX/NAAkAKaGH0G70raQmLVDqonRDBsQQ4wOeKyC/" required>
             </div>
             <div class="form-group">
                 <label for="sessionToken">Session Token <small>(optional)</small></label>
@@ -52,7 +52,7 @@
             <div>
                 <label for="channelName">Channel Name</label>
                 <div class="form-group input-group">
-                    <input type="text" class="form-control" id="channelName" placeholder="Channel" required>
+                    <input type="text" class="form-control" id="channelName" placeholder="Channel" value="testing4" required>
                     <div class="input-group-append">
                         <button id="create-channel-button" type="submit" class="btn btn-primary" title="Create a signaling channel with this name.">Create Channel</button>
                     </div>
@@ -74,11 +74,11 @@
                     <label for="sendVideo" class="form-check-label">Send Video</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="sendAudio" value="audio">
+                    <input class="form-check-input" type="checkbox" id="sendAudio" value="audio" checked>
                     <label for="sendAudio" class="form-check-label">Send Audio</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="openDataChannel" value="datachannel">
+                    <input class="form-check-input" type="checkbox" id="openDataChannel" value="datachannel" checked>
                     <label for="openDataChannel" class="form-check-label">Open DataChannel</label>
                     <span data-delay="{ &quot;hide&quot;: 1500 }" data-position="auto" tabindex="0" class="text-info ml-1" data-toggle="tooltip" data-html="true" title="
                     <p>Open a channel which can be used for bidirectional peer-to-peer transfers of data, hence the name.</p>
@@ -161,7 +161,7 @@
             <h4>Amazon KVS WebRTC DQP</h4>
             <div class="form-group">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="enableDQPmetrics" value="enableDQPmetrics">
+                    <input class="form-check-input" type="checkbox" id="enableDQPmetrics" value="enableDQPmetrics" checked>
                     <label for="enableDQPmetrics" class="form-check-label">Enable KVS WebRTC DQP Test and Metrics <small>(Viewer only)</small></label>
                     <span data-delay="{ &quot;hide&quot;: 1500 }" data-position="auto" tabindex="0" class="text-info ml-1" data-toggle="tooltip" data-html="true" title="
                     <p>Enables the test and metrics for the Amazon KVS WebRTC Device Qualification Program.</p>
@@ -172,6 +172,7 @@
             <hr>
             <div>
                 <button id="master-button" type="submit" class="btn btn-primary">Start Master</button>
+
                 <button id="viewer-button" type="submit" class="btn btn-primary">Start Viewer</button>
             </div>
         </form>
@@ -287,7 +288,7 @@
 
 <div id="test"></div>
 
-<script src="./kvs-webrtc.js"></script>
+<script src="../kvs-webrtc.js"></script>
 <script src="./master.js"></script>
 <script src="./viewer.js"></script>
 <script src="./createSignalingChannel.js"></script>
