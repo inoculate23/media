@@ -60,10 +60,28 @@
 .TradeGothicLTBoldCondensed {
   font-family:'Trade Gothic LT W01 Bd CnNo-20';
 }
-			#craig {
-				background-color:blue;
-				color:white:
-			}
+		.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 			.button {
   transition-duration: 0.4s;
 }
@@ -76,19 +94,20 @@
 	</head>
 	<img id="banner" width="100%" src="banner.png" width="1800px" />
 	<header id="header1">
-		<button id="music" onclick="play_music()">Play Music</button>
-		<button id="music" onclick="storytime()">Story Time with Weird Uncle</button>
-		<button id="live" onclick="live()">Live shoe cam</button>
-		<button id="movies" onclick="movies()">Horror</button>
-		<button id="torture" onclick="torture()">Torture</button>
-		<button id="craig" onclick="call_craig()"><a href="tel:7027761124">☎ Craig</button>
+		<button class="button" id="music" onclick="play_music()">Play Music</button>
+		 <button onclick="document.getElementById('uncle').play();">Story Time with Weird Uncle</button>
+		<button class="button" id="live" onclick="live()">Live shoe cam</button>
+		<button class="button" id="movies" onclick="movies()">Horror</button>
+		<button class="button" id="torture" onclick="torture()">Torture</button>
+		<button class="button" id="craig" onclick="call_craig()"><a href="tel:7027761124">☎ Craig</button>
 		
 		
 
 
 		
 	<body>
-
+<audio id="uncle" src="sheepfucker.mp3" preload="auto"></audio>
+ 
 		<div id="container.top">
 			<article class="all-browsers">
 			<img id="long" src="long.jpeg" width="1550px"/>
