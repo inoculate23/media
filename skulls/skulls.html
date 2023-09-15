@@ -18,6 +18,14 @@
 				margin:25px;
 				
 			}
+			#wrapper {
+    position: relative;
+}
+#wrapper div, #wrapper video {
+    position: absolute;
+    top: 0;
+}
+
 			#long {
 				width:1550px"
 				
@@ -117,8 +125,19 @@
 		<button class="button" id="craig" onclick="call_craig()"><a href="tel:7027761124">☎ Craig</button>
 
 	      <audio id="uncle" src="Charlie.mp3" preload="auto"></audio>
- <video id="live" loop mute src="https://inoculate.media/skulls/53408DF1-6A84-4C9B-B940-54259B853120-8181-00000233A8B21138.mp4" width="420px">LIVE shoe cam</video>
-		<div id="container.top">
+<div id="wrapper">
+	<video id="live" loop mute src="https://inoculate.media/skulls/53408DF1-6A84-4C9B-B940-54259B853120-8181-00000233A8B21138.mp4" width="420px"></video>
+	 <div id="form">
+        <p>I am over the video</p>
+        <form>
+            <label for="input">Form Input Label</label>
+            <input id="input" name="input" value="" />
+            <button type="submit">Submit</button>
+        </form>            
+    </div>
+</div>
+
+	      <div id="container.top">
 			<article class="all-browsers">
 			<img id="long" src="long.jpeg" width="1550px"/>
 			</article>
