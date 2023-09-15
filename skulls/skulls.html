@@ -10,8 +10,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,200&display=swap" rel="stylesheet">
 		<style>
 			body {
-				background-color: #fff;
+				background-image: ("blood.jpeg")
 				color: #000;
+				repeat: no-repeat;
+				
 			}
 			a {
 				color: #48f;
@@ -83,7 +85,8 @@ let m = new THREE.ShaderMaterial({
         	vec2 uv = (vUv - 0.5) * vec2(ratio, 1.);
           gl_FragColor = vec4( mix( color1, color2, length(uv)), 1. );
         }`
-    })let m = new THREE.ShaderMaterial({
+    })
+	m = new THREE.ShaderMaterial({
     uniforms: {
       color1: { value: new THREE.Color(0xff00ff)},
       color2: { value: new THREE.Color(0xff0000)},
