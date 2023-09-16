@@ -1,276 +1,317 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Mistress Minder</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link type="text/css" rel="stylesheet" href="main.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,200&display=swap" rel="stylesheet">
-		<style>
-			html, body {
-				background-image: url("bloody_hell.jpg");
-				background-color: #000000;
-				repeat: no-repeat;
-				background-size: cover;
-				overflow-x: hidden;
-				margin:10px;
-				
-			}
-			#wrapper {
-    position: relative;
-}
-.wrapper {
-margin-right: auto; /* 1 */
-margin-left: auto; /* 1 */
-max-width:1160px; /* 2 */
-padding-right: 10px; /* 3 */
-padding-left: 10px; /* 3 */
-}
 
-			#wrapper {
-margin-right: auto; /* 1 */
-margin-left: auto; /* 1 */
-max-width:1160px; /* 2 */
-padding-right: 10px; /* 3 */
-padding-left: 10px; /* 3 */
-}
+<head>
+    <title>Mistress Minder</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,200&display=swap" rel="stylesheet">
+    <style>
+        html,
+        body {
+            background-color: #000000;
+            repeat: no-repeat;
+            background-size: cover;
+            overflow-x: hidden;
+            margin: 10px;
+        }
+        
+        #wrapper {
+            position: relative;
+        }
+        
+        .wrapper {
+            margin-right: auto;
+            /* 1 */
+            margin-left: auto;
+            /* 1 */
+            max-width: 1160px;
+            /* 2 */
+            padding-right: 10px;
+            /* 3 */
+            padding-left: 10px;
+            /* 3 */
+        }
+        
+        #wrapper {
+            margin-right: auto;
+            /* 1 */
+            margin-left: auto;
+            /* 1 */
+            max-width: 1160px;
+            /* 2 */
+            padding-right: 10px;
+            /* 3 */
+            padding-left: 10px;
+            /* 3 */
+        }
+        
+        #long {
+            width: 1350px"
+
+        }
+        
+        #banner {
+            width: 1920px;
+        }
+        
+        a {
+            color: #48f;
+        }
+        
+        h2 {
+            font-family: 'Josefin Sans', sans-serif;
+            color: #fff;
+        }
+        
+        h3 {
+            font-family: 'Josefin Sans', sans-serif;
+            color: #fff;
+        }
+        
+        article {
+            display: block;
+            width: auto;
+        }
+        
+        body {
+            font-family: sans-serif;
+        }
+        
+        .TradeGothicLTRoman {
+            font-family: 'Trade Gothic LT W01 Roman';
+        }
+        
+        .TradeGothicLTOblique {
+            font-family: 'Trade Gothic LT W01 Oblique';
+        }
+        
+        .TradeGothicLTBold {
+            font-family: 'Trade Gothic LT W01 Bold';
+        }
+        
+        .TradeGothicLTBoldCondensed {
+            font-family: 'Trade Gothic LT W01 Bd CnNo-20';
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: red;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 9px #999;
+        }
+        
+        .button:hover {
+            background-color: purple
+        }
+        
+        .button:active {
+            background-color: red;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+        
+        .button {
+            transition-duration: 0.4s;
+        }
+        
+        .form {
+            color: white;
+        }
+        
+        .button:hover {
+            background-color: red;
+            color: white;
+        }
+        
+        @import "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css";
+        @mixin clearfix() {
+            *zoom: 1;
+            &:before,
+            &:after {
+                content: " ";
+                display: table;
+            }
+            &:after {
+                clear: both;
+                display: block;
+                font-size: 0;
+                height: 0;
+                visibility: hidden;
+            }
+        }
+        
+        @mixin media($type) {
+            @if $type==tablet {
+                /* Small devices (tablets, 768px and up) */
+                @media (min-width: 768px) and (max-width: 991px) {
+                    @content;
+                }
+            }
+            @else if $type==mediumDesktop {
+                /* Medium devices (desktops, 992px and up) */
+                @media (min-width: 992px) and (max-width: 1100px) {
+                    @content;
+                }
+            }
+            @else if $type==largeDesktop {
+                /* Large devices (large desktops, 1200px and up) */
+                @media (min-width: 1200px) {
+                    @content;
+                }
+            }
+        }
+    </style>
+</head>
+<div class="container">
 
 
+    <audio id="audio"> <source src="https://public1967.s3.us-west-2.amazonaws.com/DJ%20Kraig%20-2019%20Burning%20Man%20-%20Metamorphosis%20Mix%20-%20Thursday%20Sunset%202.mp3?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHwaCXVzLXdlc3QtMSJIMEYCIQDEYoGAkwCp7%2Fs9AaUwetcVmYWHWa9CLha1dN69%2FN3o0AIhAJNi5mMify1PQfnmRGaEPrxFfrfXyDqr74PTsC1783xKKuQCCGUQABoMNzE2MjE3NjkxNzE4IgwYEv5hr4N0F5QvtlgqwQKVj5DUwEA0H1DC0khmJW8DeMly5qH4xVNETwptatSU%2B%2F%2BQsUcSa8MS3hFEQAmeSkrMg4R%2BLiCwLOA4QSTErSNhDm0BEksAperGrUH9tELEUG8O7ysG4mWf1TI4pmvI9gmcWG%2B6mEaGxhXHmsEuGDGAFO4s8P9HFEZ2qs9%2F9cMRpZzHQ%2Bxa9mfQUod6BiGPQ06ThYWOnmWgI6vbPmJlrcRsyDhZRyNbc24ie45MfP5AWkdD1wApiJzCD9g29o668jktAI5s1FHz4wBLwdaRqgmSGmZ9F1B2RiPtUClr3zxr2jmSg0FG2a7SZBBQtYITczfhuz%2FwEdsP8fvCmFuDGAWmFAF%2B8CvxObvq0Rya1KE%2FWFJAZ0V9VlkjpnC0LrOInELizirYdqajRvqxhEjIfQum7JSL3MYHASPdoSHhkNTNm%2Fgw%2BeKSqAY6sgJrtF%2FDLByraIpa024ZmnfJOUTSYRn0dBiI5rv3ga4mhV3oQbdiYPkWr7u5TCodOi3n2EAmbMuLPbEQCyTuL%2BntP56X6bvvC1e6JogzCQkS28nT3qfB9%2B8y7RdwGT83XGkB7Vz02iOOoHQ2kB18XjFSMHCMyMJvdlDBVG7nLN1JT9Ya%2BhS24GgtEkM1mTNTLQjtwwSr%2F2dgK%2FDL88QQj2mis3SnErmt7Z9cjLoRGZId9ZYcXLu4erGbL1Be0I4PuDA73LWbP%2FaLJSrQWuJ6VzoUyuPb%2FjxiArPlxJS6R5yB4wtFSqiJPNgJg%2B2bSLjp2qhInSSGqoR7%2BtsJ82DJgm7jjqYZ1k1dNh%2BWABiOxP2luSNl8YKEw7Eoffexh0OzP35lJ%2Fl4Z4F4t64EA8gX6qkwwEk%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230915T193853Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Credential=ASIA2NQPGVZDMZUDPBNW%2F20230915%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=7637fefde577db3de0e76db66681869b977bf719b455ea66e136b7fa2d181d2a"
+        data-track-number="1" /> Your browser does not support HTML5 audio.
+    </audio>
 
-			#long {
-				width:1350px"
-				
-			}
-			#banner {
-				width:1920px;
-			}
-			a {
-				color: #48f;
-			}
-			h2 {
-				font-family: 'Josefin Sans', sans-serif;
-				color: #fff;
-			}
-			h3 {
-				font-family: 'Josefin Sans', sans-serif;
-				color: #fff;
-			}
-			container.top {
-				margin-bottom: 88;
-				z-index: 20;
-				position:relative;
-			}
-	
-		}
-			article {
-  display: block;
-				width:1150px:
-				
-					
-}
-			body {
-  font-family: sans-serif;
-}
+    <div class="player">
 
-.TradeGothicLTRoman {
-  font-family: 'Trade Gothic LT W01 Roman';
-}
-
-.TradeGothicLTOblique {
-  font-family:'Trade Gothic LT W01 Oblique';  
-}
-
-.TradeGothicLTBold {
-  font-family:'Trade Gothic LT W01 Bold';
-}
-
-.TradeGothicLTBoldCondensed {
-  font-family:'Trade Gothic LT W01 Bd CnNo-20';
-}
-		.button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 20px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: red;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 9px #999;
-}
-
-.button:hover {background-color: purple}
-
-.button:active {
-  background-color: red;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-			.button {
-  transition-duration: 0.4s;
-}
-.form {
-	color:white;
-}
-.button:hover {
-  background-color: red;
-  color: white;
-}
-			@import "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css";
-
-//General mixins 
-
-//Clearfix mixin
-@mixin clearfix() {
-  *zoom: 1;
-  &:before, &:after {
-    content: " ";
-    display: table;
-  } 
-  &:after {
-    clear: both;
-    display: block; 
-    font-size: 0; 
-    height: 0;    
-    visibility: hidden; 
-  }      
-}
-
-//Media query mixin
-@mixin media($type) {
-  @if $type == tablet {/* Small devices (tablets, 768px and up) */
-    @media (min-width: 768px) and (max-width: 991px) {
-      @content;
-    } 
-  }
-  @else if $type == mediumDesktop {/* Medium devices (desktops, 992px and up) */
-    @media (min-width: 992px) and (max-width: 1100px) {
-      @content;
-    }     
-  }
-  @else if $type == largeDesktop {/* Large devices (large desktops, 1200px and up) */
-    @media (min-width: 1200px) {
-      @content;
-    }       
-  }
-}
-
-audio(controls='')
-  source(src='
-		</style>
-	</head>
-	<div class="container">
-
-  <audio id="audio" <source src="https://public1967.s3.us-west-2.amazonaws.com/DJ%20Kraig%20-2019%20Burning%20Man%20-%20Metamorphosis%20Mix%20-%20Thursday%20Sunset%202.mp3?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHwaCXVzLXdlc3QtMSJIMEYCIQDEYoGAkwCp7%2Fs9AaUwetcVmYWHWa9CLha1dN69%2FN3o0AIhAJNi5mMify1PQfnmRGaEPrxFfrfXyDqr74PTsC1783xKKuQCCGUQABoMNzE2MjE3NjkxNzE4IgwYEv5hr4N0F5QvtlgqwQKVj5DUwEA0H1DC0khmJW8DeMly5qH4xVNETwptatSU%2B%2F%2BQsUcSa8MS3hFEQAmeSkrMg4R%2BLiCwLOA4QSTErSNhDm0BEksAperGrUH9tELEUG8O7ysG4mWf1TI4pmvI9gmcWG%2B6mEaGxhXHmsEuGDGAFO4s8P9HFEZ2qs9%2F9cMRpZzHQ%2Bxa9mfQUod6BiGPQ06ThYWOnmWgI6vbPmJlrcRsyDhZRyNbc24ie45MfP5AWkdD1wApiJzCD9g29o668jktAI5s1FHz4wBLwdaRqgmSGmZ9F1B2RiPtUClr3zxr2jmSg0FG2a7SZBBQtYITczfhuz%2FwEdsP8fvCmFuDGAWmFAF%2B8CvxObvq0Rya1KE%2FWFJAZ0V9VlkjpnC0LrOInELizirYdqajRvqxhEjIfQum7JSL3MYHASPdoSHhkNTNm%2Fgw%2BeKSqAY6sgJrtF%2FDLByraIpa024ZmnfJOUTSYRn0dBiI5rv3ga4mhV3oQbdiYPkWr7u5TCodOi3n2EAmbMuLPbEQCyTuL%2BntP56X6bvvC1e6JogzCQkS28nT3qfB9%2B8y7RdwGT83XGkB7Vz02iOOoHQ2kB18XjFSMHCMyMJvdlDBVG7nLN1JT9Ya%2BhS24GgtEkM1mTNTLQjtwwSr%2F2dgK%2FDL88QQj2mis3SnErmt7Z9cjLoRGZId9ZYcXLu4erGbL1Be0I4PuDA73LWbP%2FaLJSrQWuJ6VzoUyuPb%2FjxiArPlxJS6R5yB4wtFSqiJPNgJg%2B2bSLjp2qhInSSGqoR7%2BtsJ82DJgm7jjqYZ1k1dNh%2BWABiOxP2luSNl8YKEw7Eoffexh0OzP35lJ%2Fl4Z4F4t64EA8gX6qkwwEk%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230915T193853Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Credential=ASIA2NQPGVZDMZUDPBNW%2F20230915%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=7637fefde577db3de0e76db66681869b977bf719b455ea66e136b7fa2d181d2a" data-track-number="1" />
-    			
-    			Your browser does not support HTML5 audio.
-    		</audio>
-
-  <div class="player">
-
-    <div class="large-toggle-btn">
-      <i class="large-play-btn"><span class="screen-reader-text">Large toggle button</span></i>
-    </div>
-    <!-- /.play-box -->
-
-    <div class="info-box">
-      <div class="track-info-box">
-        <div class="track-title-text"></div>
-        <div class="audio-time">
-          <span class="current-time">00:00</span> /
-          <span class="duration">00:00</span>
+        <div class="large-toggle-btn">
+            <i class="large-play-btn"><span class="screen-reader-text">Large toggle button</span></i>
         </div>
-      </div>
-      <!-- /.info-box -->
+        <!-- /.play-box -->
 
-      <div class="progress-box">
-        <div class="progress-cell">
-          <div class="progress">
-            <div class="progress-buffer"></div>
-            <div class="progress-indicator"></div>
-          </div>
+        <div class="info-box">
+            <div class="track-info-box">
+                <div class="track-title-text"></div>
+                <div class="audio-time">
+                    <span class="current-time">00:00</span> /
+                    <span class="duration">00:00</span>
+                </div>
+            </div>
+            <!-- /.info-box -->
+
+            <div class="progress-box">
+                <div class="progress-cell">
+                    <div class="progress">
+                        <div class="progress-buffer"></div>
+                        <div class="progress-indicator"></div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
+        <!-- /.progress-box -->
+
+        <div class="controls-box">
+            <i class="previous-track-btn disabled"><span class="screen-reader-text">Previous track button</span></i>
+            <i class="next-track-btn"><span class="screen-reader-text">Next track button</span></i>
+        </div>
+        <!-- /.controls-box -->
 
     </div>
-    <!-- /.progress-box -->
-
-    <div class="controls-box">
-      <i class="previous-track-btn disabled"><span class="screen-reader-text">Previous track button</span></i>
-      <i class="next-track-btn"><span class="screen-reader-text">Next track button</span></i>
-    </div>
-    <!-- /.controls-box -->
-
-  </div>
-  <!-- /.player -->
+    <!-- /.player -->
 
 
-  
-
-	
-		
-		
 
 
-		
-	<body>
-<article data-r-c data-join>
-    <section data-c1-1 class="red">
-        <!-- column content -->
 
 
-      <header id="header1">
 
-		<button class="button" id="music" onclick="play_music()">Play Music</button>
-		 <button class="button" onclick="document.getElementById('uncle').play();">Story Time with Weird Uncle</button>
-	 <button class="button" onclick="document.getElementById('live').play();">Live shoe cam</button>
-		<button class="button" id="movies" onclick="movies()">Horror</button>
-		<button class="button" id="torture" onclick="torture()">Torture</button>
-	      <button class="button" id="webcam" onclick="webcam()"Conference><a href=https://inoculate.media/skulls/SL_Conference.html</button>
-		<button class="button" id="craig" onclick="call_craig()"><a href="tel:7027761124">☎ Craig</button>
 
-	      <audio id="uncle" src="Charlie.mp3" preload="auto"></audio>
 
-	      <div id="container.top">
-			<article class="all-browsers">
-			<img id="1" src="1.jpeg" width="1150px"/>
-				<img id="2" src="2.jpeg" width="1150px"/>
-			
-		</div>
-		      <section id="auction">
-	      <div id="wrapper">
-	<video id="live" autoplay loop mute src="https://inoculate.media/skulls/53408DF1-6A84-4C9B-B940-54259B853120-8181-00000233A8B21138.mp4" width=1680px"></video>
-	 <div id="form">
+
+    <body>
+        <article data-r-c data-join>
+            <section data-c1-1 class="red">
+                <!-- column content -->
+
+
+                <header id="header1">
+
+                    <button class="button" id="music" onclick="play_music()">Play Music</button>
+                    <button class="button" onclick="document.getElementById('uncle').play();">Story Time with Weird Uncle</button>
+                    <button class="button" onclick="document.getElementById('live').play();">Live shoe cam</button>
+                    <button class="button" id="movies" onclick="movies()">Horror</button>
+                    <button class="button" id="torture" onclick="torture()">Torture</button>
+                    <button class="button" id="webcam" onclick="webcam()"> Conference Calls<a href=https://inoculate.media/skulls/SL_Conference.html></a></button>
+                    <button class="button" id="craig" onclick="call_craig()"><a href="tel:7027761124">☎ Craig</button></a>
+                </header>
+
+                <audio id="uncle" src="Charlie.mp3" preload="auto"></audio>
+
+                <div id="container.top">
+                    <article class="all-browsers">
+                        <img id="1" src="1.jpeg" width="1150px" />
+                        <img id="2" src="2.jpeg" width="1150px" />
+
+                </div>
+                <section id="auction">
+                    <div id="wrapper">
+                        <video id="live" autoplay loop mute src="https://inoculate.media/skulls/53408DF1-6A84-4C9B-B940-54259B853120-8181-00000233A8B21138.mp4" width=1680px "></video>
+	 <div id="form ">
         <p>Live Auction Item:<br>
 		Pleaser brand leather heels.<br>
-		High bid=$12.00 Time remaining: 6 days</p>
+        <div class="flex-container ">
+            <h2>
+                <p id="message "></p>
+                <strong>Summerlin Shoe Auction</strong></h2>
+            <br />
+            <h3> <pre id="log "></pre>
+                <span class="error "></span><br>
+                <span class="warn "><span><br>
+                    <span id="counter "></span><br>
+                <span id="timer "></span>
+                <span class="error "></span><br>
+                <span class="info "><span><br>
+                </div>
+                <span id="timer "></span><br><br>
+                            <span id="counter "></span><br><br>
+                    </div>
+                    <script>
+                        var timer = document.getElementById('timer');
+                        var counter = document.getElementById('counter');
+                        var interval = setInterval(function() {
+                            timer.innerHTML = new Date();
+                            counter.innerHTML = (Math.random() * 100).toString().replace('.', '');
+                        }, 1000);
+                        </script>
+                </div>
+
       
     </div>
-</div>
+    
+                  
+            </div>
+            <img class="logo " src="images/logo1.png " width="850px " height="300px ">
+
+
 		      </section>
-	<section id="art">	      
- <div id="container.mid">
-	 <article class="all-browsers">
-<img id="3" src="3.jpeg" width="1550px"/>
-				<img id="4" src="4.jpeg" width="1150px"/>
+	<section id="art ">	      
+ <div id="container.mid ">
+	 <article class="all-browsers ">
+<img id="3 " src="3.jpeg " width="1550px "/>
+				<img id="4 " src="4.jpeg " width="1150p "/>
 
 	 </section>
  </div>
 
-		<iframe src="https://svgspritemaker.netlify.app/" width="1700px" height="1000px"></iframe>iframe>
+		<iframe src="https://svgspritemaker.netlify.app/ " width="1700px " height="1000px "></iframe>
 		<!-- Import maps polyfill -->
 		<!-- Remove this when import maps will be widely supported -->
-		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js "></script>
 
-		<script type="importmap">
+		<script type="importmap ">
 			{
-				"imports": {
-					"three": "https://inoculate.media/skulls/build/three.module.js"
+				"imports ": {
+					"three ": "https://inoculate.media/skulls/build/three.module.js "
 				}
 			}
 			
