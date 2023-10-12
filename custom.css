@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanitk&display=swap');
+html,
+body {
+    background-color: black;
+    margin: 15px;
+}
+
+h1 {
+    font-family: 'Kanit', sans-serif;
+    color: rgb(240, 181, 17);
+}
+
+h2 {
+    font-family: 'Rubik', sans-serif;
+    color: white;
+}
+
+h3 {
+    font-family: 'Rubik', sans-serif;
+    color: lightslategrey;
+}
