@@ -1,6 +1,4 @@
-import * as THREE from 'https://inoculate.media/assets/release/js/build/three'
-import { OrbitControls } from 'https://inoculate.media/assets/release/js/jsm/OrbitControls.js'
-import Stats from 'https://inoculate.media/assets/release/js/jsm/stats.module.js'
+import * as THREE from 'https://inoculate.media/assets/release/js/build/three';
 let camera, scene, renderer;
 
 let t = 0;
