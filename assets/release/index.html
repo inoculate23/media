@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="haawke" />
+    <title>Inoculate Media & Haawke Neural Tech</title>
+
+    <link rel="stylesheet" href="./uv/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html,
+        body {
+            overflow: scroll;
+            margin: 0px;
+        }
+        
+        .navbar {
+            margin-left: 5px;
+            z-index: 999;
+            background-color: rgb(255, 255, 255);
+        }
+        
+        .navbar-center {
+            margin-left: 40px;
+            z-index: 999;
+            background-color: rgb(253, 252, 252);
+        }
+        
+        .synthwave {
+            background-color: rgb(81, 81, 82);
+        }
+        
+        .text_container {
+            width: 75%;
+            margin-left: 9%;
+        }
+        
+        .btn {
+            margin: 15;
+        }
+        
+        .btn-success {
+            margin-left: 15;
+        }
+        
+        #cover {
+            height: 45%;
+            margin-left: 15%;
+            margin-right: 15%;
+            margin-top: 0;
+        }
+        
+        #wrapper {
+            width: 100%;
+            margin: 0px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            background-color: rgb(76, 76, 76);
+        }
+        
+        #stripe {
+            width: 25%;
+            margin: 0;
+        }
+        
+        canvas {
+            z-index: 0;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <script type="module" src="https://inoculate.media/assets/release/js/lerp.js"></script>
+</head>
+
+<body data-theme="dark" class="h-full bg-[color:var(--html-bg-color,theme(colors.white))]">
+
+
+
+
+    <div class="navbar">
+        <div class="navbar-center">
+
+
+
+
+            <a class="btn btn-success text-xxl" id="name">Inoculate Media and Haawke Neural Technology</a>
+            <a href="http://haawke.neural.inoculate.media/" class="btn btn-success" target="_blank">Gallery</a>
+            <a href="http://inoculate.media/main.html" class="btn btn-success" target="_blank">Projects</a>
+            <a href="http://haawke.neural.inoculate.media/" class="btn btn-success" target="_blank">About</a>
+            <a href="mailto:craig@inoculate.media&cc=terbo@inoculate.media&subject=Web Contact" target="_blank" class="btn btn-warning text-xl">Contact</a>
+            <div class="navbar-end">
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+    </div>
+    <div id="wrapper">
+
+
+
+
+        <div>
+            <img id="cover" src="https://inoculate.media/assets/iani1200.png" height="45%" />
+        </div>
+        <div>
+            <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+            <stripe-pricing-table pricing-table-id="prctbl_1O2AVLHwjWHMrWswj57itCOq" publishable-key="pk_live_51NXgznHwjWHMrWswLeqQc1I03udUSJBwyMK8OQISWzCEwTEJWusvXTHxKHQYy6vtCnZq2z6uuq01pM2KYD5bHVPO002GfJaKkY">
+            </stripe-pricing-table>
+        </div>
+    </div>
+</body>
+
+</html>
