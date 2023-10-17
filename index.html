@@ -15,6 +15,9 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
     <style>
         html,
         body {
@@ -44,6 +47,16 @@
             margin-left: 9%;
         }
         
+        h2 {
+            font-family: 'Josefin Sans', sans-serif;
+            color: white;
+        }
+        
+        h3 {
+            font-family: 'Josefin Sans', sans-serif;
+            color: white;
+        }
+        
         .btn {
             margin: 15;
         }
@@ -57,6 +70,7 @@
             margin-left: 15%;
             margin-right: 15%;
             margin-top: 0;
+            position: relative;
         }
         
         #wrapper {
@@ -110,12 +124,30 @@
 
     </div>
     <div id="wrapper">
+        <button id="presale" href="#stripe">Pre-sale offers</button>
 
 
 
-
-        <div>
-            <img id="cover" src="https://inoculate.media/assets/iani1200.png" height="45%" />
+        <div class="clearfix">
+            <div>
+                <img id="cover" src="https://inoculate.media/assets/iani1200.png" height="45%" />
+            </div>
+            <div class="text_container">
+                <p>
+                    <h2>Inoculate Media is pleased to announce the upcoming release of Les Barons | The Barons new full works. "Wax Cylinder Recordings of Primitive Cultures" examines a moment very "now"... the emergence and the space that ai and machine
+                        learning are convergng with our daily lives. </h2>
+                </p>
+                <p>
+                    <h3> Les Barons spent two years learning various technologies so as to infuse every aspect of the release with authenticity, creatiity, and thought-provoking questions that we should all be examining such as, what ARE the pros and cons
+                        of turning much of our self-reliance over to machines? Wax cylinders is releasing in a few formats, a standdard audio download, an interactive VR video game that allows you to explore a world and experiment with various at and
+                        machine learning applications, right in the game. The game was recorded wih new spatial sound and let's you remix the audio in an infiite number of possibilities. Finally, the release is also being crowdsourced for a vinyl release.
+                    </h3>
+                </p>
+                <p>
+                    <h3> Les Barons | The Barons is a project of Craig Ellenwood, formerly a member of the legendary industrial psychedelic techno group: Psychc TV and founder of the music componant of Burning Man.
+                    </h3>
+                </p>
+            </div>
         </div>
         <div>
             <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
