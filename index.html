@@ -15,8 +15,8 @@
             --left-button-hover-color: rgba(161, 11, 11, 0.3);
             --right-bg-color: rgba(43, 43, 43, 0.8);
             --right-button-hover-color: rgba(92, 92, 92, 0.3);
-            --hover-width: 75%;
-            --other-width: 25%;
+            --hover-width: 65%;
+            --other-width: 35%;
             --speed: 1000ms;
         }
         
@@ -48,6 +48,7 @@
             top: 30%;
             transform: translateX(-50%);
             white-space: wrap;
+            overflow: scroll;
         }
         
         .button {
@@ -165,6 +166,11 @@
                 top: 70%;
             }
         }
+        
+        #stripe2 {
+            width: 100%;
+            margin-bottom: 0px;
+        }
     </style>
 </head>
 
@@ -195,7 +201,7 @@
         </div>
         <div class="split right">
             <h1>Wax Cylinder Recordings of Primitive Cultures</h1>
-            <a href="#stripe" class="button">Purchase</a>
+            <a href="#stripe2" class="button">Purchase</a>
 
             <h2>
                 <p>Inoculate Media is pleased to announce the upcoming release of Les Barons | The Barons new full works. </p><br>
@@ -211,15 +217,14 @@
                     Les Barons | The Barons is a project of Craig Ellenwood, formerly a member of the legendary industrial psychedelic techno group: Psychc TV and founder of the music componant of Burning Man.</h2>
             </p>
             </h2>
+
+
         </div>
     </div>
 
-    <section id="stripe">
+    <section id="stripe2">
         <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-
         <stripe-pricing-table pricing-table-id="prctbl_1O2AVLHwjWHMrWswj57itCOq" publishable-key="pk_live_51NXgznHwjWHMrWswLeqQc1I03udUSJBwyMK8OQISWzCEwTEJWusvXTHxKHQYy6vtCnZq2z6uuq01pM2KYD5bHVPO002GfJaKkY">
-
-
         </stripe-pricing-table>
     </section>
 
