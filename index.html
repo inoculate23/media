@@ -2,10 +2,6 @@
 <html>
 
 <head>
-        <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="haawke" />
-    <title>Inoculate Media & Haawke Neural Tech</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css" rel="stylesheet" type="text/css" />
@@ -19,8 +15,8 @@
             --left-button-hover-color: rgba(161, 11, 11, 0.3);
             --right-bg-color: rgba(43, 43, 43, 0.8);
             --right-button-hover-color: rgba(92, 92, 92, 0.3);
-            --hover-width: 65%;
-            --other-width: 35%;
+            --hover-width: 75%;
+            --other-width: 25%;
             --speed: 1000ms;
         }
         
@@ -45,14 +41,13 @@
         }
         
         h2 {
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: #fff;
             position: absolute;
             left: 50%;
             top: 30%;
             transform: translateX(-50%);
             white-space: wrap;
-            overflow: scroll;
         }
         
         .button {
@@ -170,11 +165,6 @@
                 top: 70%;
             }
         }
-        
-        #stripe2 {
-            width: 100%;
-            margin-bottom: 0px;
-        }
     </style>
 </head>
 
@@ -205,7 +195,7 @@
         </div>
         <div class="split right">
             <h1>Wax Cylinder Recordings of Primitive Cultures</h1>
-            <a href="#stripe2" class="button">Purchase</a>
+            <a href="#stripe" class="button">Purchase</a>
 
             <h2>
                 <p>Inoculate Media is pleased to announce the upcoming release of Les Barons | The Barons new full works. </p><br>
@@ -221,14 +211,15 @@
                     Les Barons | The Barons is a project of Craig Ellenwood, formerly a member of the legendary industrial psychedelic techno group: Psychc TV and founder of the music componant of Burning Man.</h2>
             </p>
             </h2>
-
-
         </div>
     </div>
 
-    <section id="stripe2">
+    <section id="stripe">
         <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+
         <stripe-pricing-table pricing-table-id="prctbl_1O2AVLHwjWHMrWswj57itCOq" publishable-key="pk_live_51NXgznHwjWHMrWswLeqQc1I03udUSJBwyMK8OQISWzCEwTEJWusvXTHxKHQYy6vtCnZq2z6uuq01pM2KYD5bHVPO002GfJaKkY">
+
+
         </stripe-pricing-table>
     </section>
 
