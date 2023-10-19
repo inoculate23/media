@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="haawke" />
+    <title>Inoculate Media & Haawke Neural Tech</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script type="module" src="https://inoculate.media/assets/release/js/lerp.js"></script>
+
+    <style>
+        /* CSS for layout */
+        
+         :root {
+            --container-bg-color: #333;
+            --left-button-hover-color: rgba(161, 11, 11, 0.3);
+            --right-bg-color: rgba(43, 43, 43, 0.8);
+            --right-button-hover-color: rgba(92, 92, 92, 0.3);
+            --hover-width: 65%;
+            --other-width: 35%;
+            --speed: 1000ms;
+        }
+        
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 20%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            color: #fff;
+            position: absolute;
+            left: 45%;
+            right: 6%;
+            top: 30%;
+            transform: translateX(-50%);
+            white-space: wrap;
+            overflow-y: visible;
+        }
+        
+        .button {
+            display: block;
+            position: relative;
+            top: 14%;
+            left: 50%;
+            height: 4.0rem;
+            padding-top: .8rem;
+            width: 25rem;
+            text-align: center;
+            color: #fff;
+            border: #5ef811 solid 0.2rem;
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            transform: translateX(-20%);
+        }
+        
+        .split.left .button:hover {
+            background-color: black;
+            border-color: var(--left-button-hover-color);
+        }
+        
+        .split.right .button:hover {
+            background-color: var(--right-button-hover-color);
+            border-color: var(--right-button-hover-color);
+        }
+        
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: var(--container-bg-color);
+        }
+        
+        .split {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            overflow: scroll;
+        }
+        
+        .split.left {
+            left: 0;
+            background: url("https://inoculate.media/assets/iani1200.png") center center no-repeat;
+            background-size: cover;
+        }
+        
+        .split.left:before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: var(--left-bg-color);
+        }
+        
+        .split.right {
+            right: 0;
+            background: url("https://image.ibb.co/m3ZbRb/programmer.png") center center no-repeat;
+            background-size: cover;
+        }
+        
+        .split.right:before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: var(--right-bg-color);
+        }
+        
+        .split.left,
+        .split.right,
+        .split.right:before,
+        .split.left:before {
+            transition: var(--speed) all ease-in-out;
+        }
+        
+        .hover-left .left {
+            width: var(--hover-width);
+        }
+        
+        .hover-left .right {
+            width: var(--other-width);
+        }
+        
+        .hover-left .right:before {
+            z-index: 2;
+        }
+        
+        .hover-right .right {
+            width: var(--hover-width);
+        }
+        
+        .hover-right .left {
+            width: var(--other-width);
+        }
+        
+        .hover-right .left:before {
+            z-index: 2;
+        }
+        
+        @media (max-width: 800px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .button {
+                width: 12rem;
+            }
+        }
+        
+        @media (max-height: 700px) {
+            .button {
+                top: 70%;
+            }
+        }
+        
+        #stripe2 {
+            width: 100%;
+            height: 75%;
+            margin-bottom: 0px;
+            margin-left: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-center">
+
+
+
+
+            <a class="btn btn-success text-xxl" id="name">Inoculate Media and Haawke Neural Technology</a>
+            <a href="http://haawke.neural.inoculate.media/" class="btn btn-success" target="_blank">Gallery</a>
+            <a href="http://inoculate.media/main.html" class="btn btn-success" target="_blank">Projects</a>
+            <a href="http://haawke.neural.inoculate.media/" class="btn btn-success" target="_blank">About</a>
+            <a href="mailto:craig@inoculate.media&cc=terbo@inoculate.media&subject=Web Contact" target="_blank" class="btn btn-warning text-xl">Contact</a>
+            <div class="navbar-end">
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="split left">
+
+
+        </div>
+        <div class="split right">
+            <h1>Wax Cylinder Recordings of Primitive Cultures</h1>
+            <a href="#stripe2" class="button">Purchase</a>
+
+            <h2>
+                <p>Inoculate Media is pleased to announce the upcoming release of Les Barons | The Barons new full works. </p><br>
+                <p>
+                    "Wax Cylinder Recordings of Primitive Cultures" examines a moment very "now"... the emergence and the spaces that ai and machine learning are converging with our daily lives. Les Barons spent two years learning various technologies so as to infuse every
+                    aspect of the release with authenticity, creativity, and thought-provoking questions that we should all be examining such as, what ARE the pros and cons of turning much of our self-reliance over to machines?
+                </p><br>
+                <p>
+                    Wax cylinders is releasing in a few formats (wax cylinder is not one of them), a standard audio download, an interactive VR video game that allows you to explore a world and experiment with various at and machine learning applications, right in the game.
+                    The game was recorded wih new spatial sound and let's you remix the audio in an infiite number of possibilities. Finally, the release is also being crowdsourced for a vinyl release.
+                </p><br>
+                <p>
+                    Les Barons | The Barons is a project of Craig Ellenwood, formerly a member of the legendary industrial psychedelic techno group: Psychc TV and founder of the music componant of Burning Man.</h2>
+            </p>
+            </h2>
+
+
+        </div>
+
+    </div>
+    <div class="container2">
+
+        <section id="stripe2">
+            <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+            <stripe-pricing-table pricing-table-id="prctbl_1O2AVLHwjWHMrWswj57itCOq" publishable-key="pk_live_51NXgznHwjWHMrWswLeqQc1I03udUSJBwyMK8OQISWzCEwTEJWusvXTHxKHQYy6vtCnZq2z6uuq01pM2KYD5bHVPO002GfJaKkY">
+            </stripe-pricing-table>
+        </section>
+
+
+    </div>
+
+    <img src="./footer.png" />
+
+    </div>
+
+    <script>
+        const left = document.querySelector(".left");
+        const right = document.querySelector(".right");
+        const container = document.querySelector(".container");
+
+        left.addEventListener("mouseenter", () => {
+            container.classList.add("hover-left");
+        });
+
+        left.addEventListener("mouseleave", () => {
+            container.classList.remove("hover-left");
+        });
+
+        right.addEventListener("mouseenter", () => {
+            container.classList.add("hover-right");
+        });
+
+        right.addEventListener("mouseleave", () => {
+            container.classList.remove("hover-right");
+        });
+    </script>
+</body>
+
+</html>
