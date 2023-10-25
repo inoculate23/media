@@ -38,7 +38,7 @@
             color: #fff;
             position: absolute;
             left: 50%;
-            top: 2%;
+            top: 0%;
             transform: translateX(-50%);
             white-space: nowrap;
         }
@@ -49,11 +49,23 @@
             position: absolute;
             left: 10%;
             right: 10%;
-            top: 24%;
+            top: 20%;
             transform: translateX(0%);
             white-space: wrap;
             overflow-y: visible;
         }
+        h3 {
+            font-size: 1.2rem;
+            color: #939494;
+            position: relative;
+            left: 20%;
+            right: 20%;
+          
+            transform: translateX(0%);
+            white-space: wrap;
+            overflow-y: visible;
+        }
+      
         
         .button {
             display: block;
@@ -86,15 +98,15 @@
         .container {
             position: relative;
             width: 100%;
-            height: 119%;
+            height: 100%;
             background: var(--container-bg-color);
         }
         
         .split {
             position: relative;
             width: 100%;
-            height: 100%;
-            overflow: scroll;
+            height: 110%;
+            overflow: hidden;
         }
         
         .split.left {
@@ -115,14 +127,14 @@
             background-size: cover;
             width: 100%;
             height: 100%;
-            margin-top: -4%;
+            margin-top: 0%;
         }
         
         .split.right:before {
             position: absolute;
             content: "";
             width: 100%;
-            height: 100%;
+            height: 108%;
             background: var(--right-bg-color);
         }
         
@@ -175,15 +187,11 @@
         #stripe2 {
             width: 100%;
             height: 100%;
-            margin-bottom: 0px;
+            margin-top: 55px;
             margin-left: 0px;
         }
         
-        #player {
-            margin-left: 10%;
-            margin-right: 15%;
-            margin-top: 45%;
-        }
+
         
         #colab {
             margin-left: 40%;
@@ -205,7 +213,7 @@
 
             <a class="btn btn-success text-xxl" id="name">Inoculate Media and Haawke Neural Technology</a>
             <a href="http://haawke.neural.inoculate.media/" class="btn btn-success" target="_blank">Gallery</a>
-            <a href="http://inoculate.media/main.html" class="btn btn-success" target="_blank">Projects</a>
+            <a class='btn btn-success' href='http://inoculate.media/main' target='_blank'>Projects</a>
             <a href="http://haawke.neural.inoculate.media/" class="btn btn-success" target="_blank">About</a>
             <a href="mailto:craig@inoculate.media&cc=terbo@inoculate.media&subject=Web Contact" target="_blank" class="btn btn-warning text-xl">Contact</a>
 
@@ -232,89 +240,34 @@
         </h1>
 
 
+
         <h2>
-            <p>Inoculate Media is pleased to announce the upcoming release of Les Barons | The Barons new full works. </p><br>
+            <p>Inoculate Media is pleased to announce the upcoming release of Les Barons | The Barons new audio work. </p><br>
             <p>
-                "Wax Cylinder Recordings of Primitive Cultures" examines a moment very "now"... the emergence and the spaces that ai and machine learning are converging with our daily lives. Les Barons spent two years learning various technologies so as to infuse every
-                aspect of the release with authenticity, creativity, and thought-provoking questions that we should all be examining such as, what ARE the pros and cons of turning much of our self-reliance over to machines? Each track involves some level
-                of experimentation with machine learning, whether it be generation/sythesis, classification, or text-to-audio.
+                "Wax Cylinder Recordings of Primitive Cultures" examines a moment very "now"... the emergence and the spaces that artificial intelligence and machine learning are converging with our daily lives. Les Barons spent two years learning various technologies to infuse every aspect with authenticity, creativity, and thought-provoking questions that we should all be examining such as, what ARE the pros and cons of turning much of our self-reliance over to machines? Each track involves some level of experimentation with machine learning, whether it be generation and synthesis, classification, or text-to-audio.
             </p><br>
             <p>
-                Wax cylinders is releasing in a few formats (wax cylinder is not one of them): a standard audio download, an interactive VR video game that allows you to explore a world and experiment with various at and machine learning applications, right in the game.
-                The game was recorded wih new spatial sound and let's you remix the audio in an infiite number of possibilities. Finally, the release is also being crowdsourced for a vinyl release.
+                Wax Cylinders will be available in a few different formats (wax cylinder is not one of them): a standard audio download, an interactive VR video game that allows you to explore a world and experiment with various ai and machine learning applications, right in the game.
+                The game was recorded with a new spatial sound technology and you can remix the audio in an infinite number of possibilities. Finally, the release is also being crowdsourced for a vinyl release.
             </p><br>
             <p>
-                Les Barons | The Barons is a project of Craig Ellenwood, formerly a member of the legendary industrial psychedelic techno group: Psychic TV and founder of the music componant of Burning Man.
+                Les Barons | The Barons is a project of Craig Ellenwood, formerly a member of the legendary industrial psychedelic techno group: Psychic TV and founder of the music component of Burning Man.
 
             </p>
             <br>
             <p>
-                Procession (sample) - Explore and run the code that made this song, click "Open in Colab".
+               Explore and run the code that made this song, click "Open in Colab".
 
-                <a href="https://colab.research.google.com/drive/10YYZTlOeLNcLBl4iyuHxWLGmGXuGHJOt?usp=sharing"><img src="colab.png" id="collab" alt="colab" />
-        </h2>
+
+                <a href="https://colab.research.google.com/drive/10YYZTlOeLNcLBl4iyuHxWLGmGXuGHJOt?usp=sharing"><img src="colab.png" id="collab" alt="colab" /></i>
+       
         </a>
         </p>
 
 
         <div id="player">
-            <script type="module" src="./js/wavesurfer.js"></script>
-            <style>
-                #waveform {
-                    cursor: pointer;
-                    position: relative;
-                }
-                
-                #hover {
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    z-index: 10;
-                    pointer-events: none;
-                    height: 100%;
-                    width: 0;
-                    mix-blend-mode: overlay;
-                    background: rgba(255, 255, 255, 0.5);
-                    opacity: 0;
-                    transition: opacity 0.2s ease;
-                }
-                
-                #waveform:hover #hover {
-                    opacity: 1;
-                }
-                
-                #time,
-                #duration {
-                    position: absolute;
-                    z-index: 11;
-                    top: 50%;
-                    margin-top: -1px;
-                    transform: translateY(-50%);
-                    font-size: 11px;
-                    background: rgba(0, 0, 0, 0.75);
-                    padding: 2px;
-                    color: #dddddd;
-                }
-                
-                #time {
-                    left: 0;
-                }
-                
-                #duration {
-                    right: 0;
-                }
-            </style>
-            <div id="waveform">
-                <div id="time">0:00</div>
-                <div id="duration">0:00</div>
-                <div id="hover"></div>
-
-            </div>
-
-
-
-        </div>
-
+            <iframe width="100%" height="202" src="https://www.bandlab.com/embed/?id=63cb8f53-2773-ee11-9937-000d3a41ec2a" frameborder="0" allowfullscreen></iframe>        </div>
+    </h2>
         <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
         <script src="https://mediafiles.botpress.cloud/64836f9d-6508-4977-9961-2a236e647773/webchat/config.js" defer></script>
     </div>
@@ -332,11 +285,16 @@
     </div>
 
     <img src="./footer.png" />
+   <h3>Copyright 2023 Inoculate Media and Haawke Neural Technology |  <a href="mailto:info@inoculate.media">Email Inoculate Media</a>
+
+<br>
+
 
     </div>
 
     
-    <script src="https://gist.github.com/inoculate23/e4c1abbf80a8238f5500e2bcb0dc8612.js"></script>
+   
 </body>
 
 </html>
+
