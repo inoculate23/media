@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: https://inoculate.media/sitemap.xml
