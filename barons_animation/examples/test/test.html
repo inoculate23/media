@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic example - three-projected-material</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+  </head>
+  <body>
+    <script type="module">
+     import Stats from "three/examples/jsm/libs/stats.module"
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
+
+// Core boilerplate code deps
+import { createCamera, createComposer, createRenderer, runApp } from "./core-utils"
+
+global.THREE = THREE
+
+/**************************************************
+ * 0. Tweakable parameters for the scene
+ *************************************************/
+const params = {
+  // general scene params
+}
+
+
+/**************************************************
+ * 1. Initialize core threejs components
+ *************************************************/
+// Create the scene
+let scene = new THREE.Scene()
+
+// Create the renderer via 'createRenderer',
+// 1st param receives additional WebGLRenderer properties
+// 2nd param receives a custom callback to further configure the renderer
+let renderer = createRenderer({ antialias: true })
+
+// Create the camera
+// Pass in fov, near, far and camera position respectively
+let camera = createCamera(45, 1, 1000, { x: 0, y: 5, z: -15 })
+
+// The RenderPass is already created in 'createComposer'
+let composer = createComposer(renderer, scene, camera, (comp) => {
+})
+
+/**************************************************
+ * 2. Build your scene in this threejs app
+ * This app object needs to consist of at least the async initScene() function (it is async so the animate function can wait for initScene() to finish before being called)
+ * initScene() is called after a basic threejs environment has been set up, you can add objects/lighting to you scene in initScene()
+ * if your app needs to animate things(i.e. not static), include a updateScene(interval, elapsed) function in the app as well
+ *************************************************/
+ import { loadSceneBackground } from "./functions"
+ import Background from "./images/terboted_neon_landscape_of_spare_colonies_of_small_homes_on_a_f_b6f177bb-d77a-4882-a9e0-20d99b8fcb3b.png";
+
+
+let app = {
+  async initScene() {
+    // OrbitControls
+    this.controls = new OrbitControls(camera, renderer.domElement)
+    this.controls.enableDamping = true
+
+   // Environment
+   await loadSceneBackground(scene, Background)
+
+    // GUI controls
+    const gui = new dat.GUI()
+
+    // Stats - show fps
+    this.stats1 = new Stats()
+    this.stats1.showPanel(0) // Panel 0 = fps
+    this.stats1.domElement.style.cssText = "position:absolute;top:0px;left:0px;"
+    // this.container is the parent DOM element of the threejs canvas element
+    this.container.appendChild(this.stats1.domElement)
+  },
+  // @param {number} interval - time elapsed between 2 frames
+  // @param {number} elapsed - total time elapsed since app start
+  updateScene(interval, elapsed) {
+    this.controls.update()
+    this.stats1.update()
+  }
+}
+
+/**************************************************
+ * 3. Run the app
+ * 'runApp' will do most of the boilerplate setup code for you:
+ * e.g. HTML container, window resize listener, mouse move/touch listener for shader uniforms, THREE.Clock() for animation
+ * Executing this line puts everything together and runs the app
+ * ps. if you don't use custom shaders, pass undefined to the 'uniforms'(2nd-last) param
+ * ps. if you don't use post-processing, pass undefined to the 'composer'(last) param
+ *************************************************/
+runApp(app, scene, renderer, camera, true, undefined, composer)
+</script>
+</body>
+</html>
