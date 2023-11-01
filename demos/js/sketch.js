@@ -10,7 +10,7 @@ function setup() {
   fft.setInput(mic);
 }
 function setup() {
-  createCanvas(windowWidth, 250);
+  createCanvas(1280, 250);
 }
 
 
@@ -18,9 +18,7 @@ function setup() {
 function draw() {
   background(31, 33, 36);
 
-  function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
-  }
+
   let spectrum = fft.analyze();
 
   beginShape();
