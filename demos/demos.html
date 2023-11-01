@@ -26,6 +26,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet"  href="./css/main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
 
     <style>
         /* CSS for layout */
@@ -84,7 +86,9 @@
             overflow-y: visible;
         }
       
-
+        canvas {
+            display: block;
+          }
         .button {
             display: block;
             position: relative;
@@ -269,6 +273,7 @@
     </div>
     <div class="grid-4 block">
     <h1>Audio Demos</h1> 
+    <iframe src="https://editor.p5js.org/inoculate23/full/Xa-yVrlhM"></iframe>
     </div>
     <div class="grid-container">
         <div class="grid-1 block">
@@ -281,12 +286,16 @@
           <div class="grid-3 block">
             <a href="https://octahedrone.netlify.app/"><img sclass="img" src="./images/octahedrone.png" width="100%"/><h2>Generative audio with ThreeJS</h2></a>
         </div>
-          <div class="grid-4 block">
+        <div class="grid-4 block">
+           <canvas id="defaultCanvas"></canvas>
+        </div>
+    </div>
+        <div class="footer block">
             <img src="./images/footer_logo.png" />
             <h3>Copyright 2023 Inoculate Media and Haawke Neural Technology |  <a href="mailto:info@inoculate.media">Email Inoculate Media</a>
          
-        </div>
-      </div>
+      
+    </div>
       
  
 
@@ -296,7 +305,7 @@
 
     </div>
 
-    
+    <script src="./js/sketch.js"></script>  
    
 </body>
 
