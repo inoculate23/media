@@ -25,12 +25,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet"  href="./css/main.css" />
 
     <style>
         /* CSS for layout */
         
          :root {
-            --container-bg-color: #333;
+            --container-bg-color: #2b2b2b;
             --left-button-hover-color: rgba(161, 11, 11, 0.3);
             --right-bg-color: rgba(43, 43, 43, 0.8);
             --right-button-hover-color: rgba(92, 92, 92, 0.3);
@@ -72,10 +73,11 @@
         }
         h3 {
             font-size: 1.2rem;
-            color: #939494;
+            color: #dfe4e4;
             position: relative;
-            left: 20%;
+            left: 15%;
             right: 20%;
+            bottom:0;
           
             transform: translateX(0%);
             white-space: wrap;
@@ -116,7 +118,7 @@
             margin-top:-50px;
             width: 100%;
             height: 100%;
-            background: var(--container-bg-color);
+            background-color: #160920;
         }
         
         .split {
@@ -208,7 +210,9 @@
             margin-left: 0px;
         }
         
-
+.img {
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;}
         
         #colab {
             margin-left: 40%;
@@ -230,8 +234,9 @@
             height:700px;
             width:90%;
             margin:5%;
-            padding20px;
+            
         }
+  
     </style>
 </head>
 
@@ -262,21 +267,30 @@
 
 
     </div>
-
-
-<div id="wrapper">
+    <div class="grid-4 block">
     <h1>Audio Demos</h1> 
-       <a href="https://inoculate.media/demos/roll.html"><img src="./images/roll_prev.png" width="35%"/><h2>Generative piano with Magenta + Tensorflow</h2></a>
-       <br>
-       <br>
-       <a href="https://inoculate.media/demos/diatonic.html"><img src="./images/diatonic.png" width="35%"/><h2>Generative chords with Magenta + Tensorflow + midi output</h2></a>
+    </div>
+    <div class="grid-container">
+        <div class="grid-1 block">
+            <a href="https://inoculate.media/demos/roll.html"><img class="img" src="./images/roll_prev.png" width="100%"/><h2>Generative piano with Magenta + Tensorflow</h2></a>
+        </div>
+        <div class="grid-2 block">
+            <a href="https://inoculate.media/demos/diatonic.html"><img sclass="img" src="./images/diatonic.png" width="100%"/><h2>Generative chords with Magenta + Tensorflow + midi output</h2></a>
 
-
+        </div>
+          <div class="grid-3 block">
+            <a href="https://octahedrone.netlify.app/"><img sclass="img" src="./images/octahedrone.png" width="100%"/><h2>Generative audio with ThreeJS</h2></a>
+        </div>
+          <div class="grid-4 block">
+            <img src="./images/footer_logo.png" />
+            <h3>Copyright 2023 Inoculate Media and Haawke Neural Technology |  <a href="mailto:info@inoculate.media">Email Inoculate Media</a>
+         
+        </div>
       </div>
+      
+ 
 
-    <img src="./images/footer_logo.png" />
-   <h3>Copyright 2023 Inoculate Media and Haawke Neural Technology |  <a href="mailto:info@inoculate.media">Email Inoculate Media</a>
-
+ 
 <br>
 
 
