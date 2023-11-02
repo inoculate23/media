@@ -1,7 +1,7 @@
 let mic, fft;
 
 function setup() {
-  createCanvas(1500, 245);
+  createCanvas(1700, 245);
   fill(23, 166, 199);
 
   mic = new p5.AudioIn();
@@ -17,7 +17,7 @@ function draw() {
 
   beginShape();
   for (i = 0; i < spectrum.length; i++) {
-    vertex(i, map(spectrum[i], 20, 205, height, 100));
+    vertex(i, map(spectrum[i], 10, 255, height, 100));
   }
   endShape();
 }
