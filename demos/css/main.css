@@ -66,6 +66,10 @@
     grid-row: 2;
     margin: 5px;
   }
+  .nain {
+    width:95%;
+    height:250px;
+  }
 @media screen and (max-width: 60em) {
   .grid-4 {
     grid-column: 1 / 5;
