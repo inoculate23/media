@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <!-- Primary Meta Tags -->
+    <title>Inoculate Media & Haawke Neural Tech</title>
+    <meta name="title" content="Inoculate Media & Haawke Neural Tech" />
+    <meta name="description" content="Inoculate Media is a Las Vegas based creative agency specializing in machine learning, data science, and ai. Check our Les Barons new record, the world's first record about and made with ai" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://inoculate.media/" />
+    <meta property="og:title" content="Inoculate Media & Haawke Neural Tech" />
+    <meta property="og:description" content="Inoculate Media is a Las Vegas based creative agency specializing in machine learning, data science, and ai. Check our Les Barons new record, the world's first record about and made with ai" />
+    <meta property="og:image" content="https://inoculate.media/assets/iansi1200.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://inoculate.media/" />
+    <meta property="twitter:title" content="Inoculate Media & Haawke Neural Tech" />
+    <meta property="twitter:description" content="Inoculate Media is a Las Vegas based creative agency specializing in machine learning, data science, and ai. Check our Les Barons new record, the world's first record about and made with ai" />
+    <meta property="twitter:image" content="https://inoculate.media/assets/iansi1200.png" />
+
+    <!-- Meta Tags Generated with https://metatags.io -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        /* CSS for layout */
+        
+         :root {
+            --left-button-hover-color: rgba(161, 11, 11, 0.3);
+            --right-bg-color: rgba(43, 43, 43, 0.8);
+            --right-button-hover-color: rgba(92, 92, 92, 0.3);
+            --hover-width: 65%;
+            --other-width: 35%;
+            --speed: 1000ms;
+        }
+        
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+        
+        h1 {
+            font-size: 2.7rem;
+            color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 0%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-top: 5%;
+            margin-left: 40%;
+            margin-right: 40%;
+            transform: translateX(0%);
+            white-space: wrap;
+            overflow-y: visible;
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+            color: #939494;
+            position: relative;
+            left: 20%;
+            right: 20%;
+            transform: translateX(0%);
+            white-space: wrap;
+            overflow-y: visible;
+        }
+        
+        .navbar {
+            background-image: url('locomotiv.jpeg');
+        }
+        
+        .button {
+            display: block;
+            position: relative;
+            top: 16%;
+            left: 30%;
+            height: 4.0rem;
+            padding-top: .8rem;
+            width: 25rem;
+            text-align: center;
+            color: #fff;
+            background-color: #5dbd2d;
+            font-size: 1.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            transform: translateX(-20%);
+        }
+        
+        .split.left .button:hover {
+            background-color: black;
+            border-color: var(--left-button-hover-color);
+        }
+        
+        .split.right .button:hover {
+            background-color: var(--right-button-hover-color);
+            border-color: var(--right-button-hover-color);
+        }
+        
+        .container {
+            position: relative;
+            width: 85%;
+            height: 100%;
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-top: 7%;
+            background: var(--container-bg-color);
+        }
+        
+        .iframe {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: var(--container-bg-color);
+        }
+        
+        #title {
+            position: relative;
+            width: 100%;
+            height: 90%;
+            margin-top: 6%;
+            background: var(--container-bg-color);
+        }
+        
+        .split {
+            position: relative;
+            width: 100%;
+            height: 110%;
+            overflow: hidden;
+        }
+        
+        .split.left {
+            left: 0;
+        }
+        
+        .split.left:before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: var(--left-bg-color);
+        }
+        
+        .split.right {
+            right: 0;
+            background: url("https://image.ibb.co/m3ZbRb/programmer.png") center center no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            margin-top: 0%;
+        }
+        
+        .split.right:before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 108%;
+            background: var(--right-bg-color);
+        }
+        
+        .split.left,
+        .split.right,
+        .split.right:before,
+        .split.left:before {
+            transition: var(--speed) all ease-in-out;
+        }
+        
+        .hover-left .left {
+            width: var(--hover-width);
+        }
+        
+        .hover-left .right {
+            width: var(--other-width);
+        }
+        
+        .hover-left .right:before {
+            z-index: 2;
+        }
+        
+        .hover-right .right {
+            width: var(--hover-width);
+        }
+        
+        .hover-right .left {
+            width: var(--other-width);
+        }
+        
+        .hover-right .left:before {
+            z-index: 2;
+        }
+        
+        @media (max-width: 800px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .button {
+                width: 12rem;
+            }
+        }
+        
+        @media (max-height: 700px) {
+            .button {
+                top: 70%;
+            }
+        }
+        
+        #stripe2 {
+            width: 100%;
+            height: 100%;
+            margin-top: 55px;
+            margin-left: 0px;
+        }
+        
+        #colab {
+            width: 95%;
+            Height: 100%;
+        }
+        
+        hr {
+            display: block;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            margin-left: auto;
+            margin-right: auto;
+            border-style: inset;
+            border-width: 1px;
+        }
+    </style>
+    <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.7.1/gradio.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="navbar-center">
+
+            <a class="btn btn-success text-xxl" id="name">Inoculate Media and Haawke Neural Technology</a>
+            <a href="http://haawke.neural.inoculate.media/" class="btn btn-success" target="_blank">Gallery</a>
+            <a class='btn btn-success' href='http://inoculate.media/main' target='_blank'>Projects</a>
+            <a class='btn btn-success' href='https://huggingface.co/HaawkeNeural' target='_blank'>Research</a>
+            <a class='btn btn-success' href='https://inoculate.media/demos/demos.html' target='_blank'>Audio Demos</a>
+            <a href="http://haawke.neural.inoculate.media/" class="btn btn-success" target="_blank">About</a>
+            <a href="mailto:craig@inoculate.media&cc=terbo@inoculate.media&subject=Web Contact" target="_blank" class="btn btn-warning text-xl">Contact</a>
+            <a href='https://github.com/inoculate23' target='_blank'><img src="./images/gh.png" height="45px" alt="github" /></a>
+            <a href='https://www.youtube.com/@inoculatemedia' target='_blank'><img src="./images/youtube.png" height="45px" alt="youtube" /></a>
+            <a href='https://twitter.com/MediaInoculate' target='_blank'><img src="./images/twitter.png" height="45px" alt="twitter" /></a>
+            <div class="navbar-end">
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="container">
+
+        <h2>Image Classification</h2>
+        <p>Machine learning image classification is a technique that uses algorithms to automatically categorize and label images based on their visual features. It is a subfield of machine learning and computer vision that aims to teach computers how to
+            recognize and understand images. In image classification, a machine learning model is trained on a dataset of labeled images. The model learns to identify patterns and features in the images that are indicative of different classes or categories.
+            Once trained, the model can then be used to classify new, unseen images into the learned categories. Image classification has a wide range of applications across various industries. Here are some notable use cases:</p>
+
+        <li>
+            <p><strong>Object Recognition</strong>: Image classification is commonly used for object recognition tasks, where the goal is to identify and classify specific objects within an image. For example, in autonomous vehicles, image classification
+                is used to detect and classify pedestrians, traffic signs, and other vehicles.</p>
+        </li>
+        <li>
+            <p><strong>Medical Imaging</strong>: Image classification plays a crucial role in medical imaging, aiding in the diagnosis and treatment of various diseases. It can be used to classify medical images such as X-rays, MRIs, and CT scans, helping
+                doctors identify abnormalities and make accurate diagnoses.</p>
+        </li>
+        <li>
+            <p><strong>Quality Control</strong>: Image classification is employed in manufacturing industries for quality control purposes. It can be used to automatically inspect and classify products based on visual defects or specific characteristics.
+                This helps ensure that only high-quality products reach the market.</p>
+        </li>
+        <li>
+            <p><strong>Security and Surveillance</strong>: Image classification is utilized in security and surveillance systems to detect and classify objects or individuals of interest. It can be used for facial recognition, identifying suspicious activities,
+                or detecting unauthorized access.</p>
+        </li>
+        <li>
+            <p><strong>E-commerce</strong>: Image classification is widely used in e-commerce platforms to improve the user experience. It enables automatic product categorization, allowing users to search and filter products based on visual attributes.
+                This helps customers find relevant products quickly and easily.</p>
+        </li>
+        <br>
+        <p>These are just a few examples of the many applications of machine learning image classification. The technology continues to evolve, and its potential impact across industries is vast. By leveraging the power of machine learning, image classification
+            enables computers to understand and interpret visual information, opening up new possibilities for automation, efficiency, and innovation.</p>
+        <br> Below you will find and be able to try two image classifiers that we have fine-tuned from the originals,.
+    </div>
+    </div>
+
+    <iframe class="iframe" src="https://haawkeneural-google-vit-base-patch16-224.hf.space" frameborder="0"></iframe>
+    <hr>
+
+    <iframe class="iframe" src="https://haawkeneural-nvidia-mit-b0-image-classifiction.hf.space" frameborder="0"></iframe>
+    <hr>
+
+
+    <img src="./footer.png" />
+    <h3>Copyright 2023 Inoculate Media and Haawke Neural Technology | <a href="mailto:info@inoculate.media">Email Inoculate Media</a>
+
+        <br>
+
+
+        </div>
+
+
+
+</body>
+
+</html>
