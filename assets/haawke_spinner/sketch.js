@@ -48,7 +48,7 @@ function draw() {
  ambientLight(10, 0,9)
    texture(img5);
    pointLight(25, 233, 210, locX, locY, 200);
-    box(204, 200);
+    box(104, 100);
   shiny;
   smooth()
    pop()
@@ -68,7 +68,7 @@ function draw() {
         ambientLight(25,15,00)
 
   directionalLight(255, 0, 200, 40.25, 70.25, 0);
-      box(424, 420, 600);  
+      box(324, 320, 500);  
  push();
   strokeWeight(9);
   normalMaterial();
