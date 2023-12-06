@@ -4,9 +4,9 @@ html, body {
 }
 canvas {
   display: block;
-  background-color: black;
-  width: 1700px;
-  height: 600px;
+  background-color: white;
+  width: 700px;
+  height: 400px;
 }
  
 #container {
