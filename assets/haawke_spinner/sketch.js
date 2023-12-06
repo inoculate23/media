@@ -48,7 +48,7 @@ function draw() {
  ambientLight(10, 0,9)
    texture(img5);
    pointLight(25, 233, 210, locX, locY, 200);
-    box(104, 100);
+    box(200, 200);
   shiny;
   smooth()
    pop()
