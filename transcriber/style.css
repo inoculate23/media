@@ -18,7 +18,9 @@ canvas {
     margin-bottom: 1%;
     position: absolute;
 }
-
+    .navbar {
+            background-image: url('locomotiv.jpeg');
+        }
 #logo {
     margin-top: 7%;
     margin-left: 15px;
