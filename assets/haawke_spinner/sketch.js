@@ -3,7 +3,7 @@ let fontBold;
 
 
 function setup() {
-  createCanvas(1920, 1080, WEBGL);
+  createCanvas(700, 360, WEBGL);
   frameRate(60);
 
 
