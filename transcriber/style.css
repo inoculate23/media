@@ -1,0 +1,61 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: 292f3e;
+    overflow-x: hidden;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#footer_text {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 1%;
+    position: absolute;
+}
+
+#logo {
+    margin-top: 7%;
+    margin-left: 15px;
+}
+
+#container {
+    height: 100%;
+    width: 100%;
+    /* mobile viewport bug fix */
+    min-height: -webkit-fill-available;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#sketch {
+    position: relative;
+    background-color: green;
+}
+
+#inputs {
+    position: relative;
+    margin-left: 25px;
+    margin-bottom: 10%;
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+}
+
+#foo {
+    position: relative;
+    border-color: dimgrey;
+    background-color: white;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: dimgrey;
+}
