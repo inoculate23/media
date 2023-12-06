@@ -7,9 +7,12 @@ function setup() {
     background(255, 255, 255);
     fill(0, 0, 0, 255);
     // instructions:
+    textSize(52);
+    textAlign(CENTER);
+    text("AI Transcription", width / 7, height / 7);
     textSize(32);
     textAlign(CENTER);
-    text("say something", width / 2, height / 2);
+    text("say something, or transcribe lyrics, or a video call", width / 2, height / 2);
     myRec.onResult = showResult;
     myRec.start();
 }
