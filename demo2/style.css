@@ -63,7 +63,19 @@ margin-top:-50px;
  overflow-x: hidden;
    z-index:1;
 }
-
+.tabs-lifted {
+margin-top:10%;
+	margin-left:20px;
+	z-index: 6;
+position:absolute;
+}
+.tabs {
+	margin-top:30px;
+	margin-left:20px;
+	z-index: 6;
+position:absolute;
+	
+}
 canvas {
     position: absolute;
     top: 0;
