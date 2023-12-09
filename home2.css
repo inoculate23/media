@@ -33,7 +33,7 @@
 }
 
 html,
-body, iframe {
+body, #iframe {
 
 
     font-family: sans-serif;
@@ -49,7 +49,7 @@ body, iframe {
         -ms-user-select: none;
             user-select: none;
 }
-   iframe 
+   #iframe 
 {
  display: block; 
  width: 100%; 
