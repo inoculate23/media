@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viva Las Vegas</title>
+
+    <style>
+        #vegas {
+            z-index: 4;
+            position: absolute;
+            width: 1920px;
+            height: 100vh;
+            margin-top: 0%;
+            margin-left: -20%;
+            zoom: 14.5;
+        }
+        
+        #audio {
+            z-index: 4;
+        }
+        
+        #video {
+            z-index: 1;
+            position: absolute;
+            width: 2040;
+            height: 100vh;
+            margin: left -30px;
+        }
+        
+        .sketchfab-embed-wrapper {
+            z-index: 4;
+            position: absolute;
+            width: 1920px;
+            height: 100vh;
+            margin-top: 0%;
+            margin-left: -20%;
+            zoom: 14.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sketchfab-embed-wrapper"> <iframe id="vegas" title="Welcome To Fabulous Las Vegas" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered
+            web-share src="https://sketchfab.com/models/41b5b230ad3f4f3d91f56be393a764c8/embed?autospin=1&autostart=1&camera=0&transparent=1"> </iframe> </div>
+
+    <video autoplay id="video" src="Atomic.mp4" loop mute></video>
+
+    <audio id="audio" src="viva.mp3" autoplay loop controls></audio>
+</body>
+
+</html>
