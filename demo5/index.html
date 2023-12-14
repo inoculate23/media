@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,22 +15,65 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+.price-info{
+  margin: 0 auto;
+  margin-top:100px;
+  width:310px;
+}
+.info{
+  width:20px;
+  height:20px;
+  background-color:teal;
+  color:#fff;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+}
+.hidden{
+  display:none;
+}
+.popup_actual_inr {
+  width:500px;
+}
+</style>
 </head>
 
 <body>
     <div role="tablist" class="tabs tabs-lifted">
-        <a role="tab" href="https://inoculate.media/main.html" class="tab">Demo1</a>
-        <a role="tab" href="https://inoculate.media/home/2.html" class="tab">Demo2</a>
-        <a role="tab" href="https://inoculate.media/home/3.html" class="tab">Demo3</a>
-        <a role="tab" href="https://inoculate.media/home/4.html" class="tab">Demo4</a>
-        <a role="tab" href="https://inoculate.media/home/5.html" class="tab">Demo5</a>
+        <a class='tab' href='https://inoculate.media/main.html' 
+class='tab'>Demo1</a>
+        <a role="tab" href="https://inoculate.media/demo2/index.html" class="tab">Demo2</a>
+        <a role="tab" href="https://inoculate.media/demo3/index.html" class="tab">Demo3</a>
+        <a role="tab" href="https://inoculate.media/demo4/index.html" class="tab">Demo4</a>
+        <a role="tab" href="https://inoculate.media/demo5/index.html" class="tab">Demo5</a>
     </div>
+
+<div class="price-info" >
+  <span class="actual-price">Webcam to Posenet (abstracted)</span>
+  <span class="info" id="price-pop">?</span>
+</div>
+
+
+
+<div class="info_msg hidden" id="popover-cont">
+	<span class="price_info">
+		<span class="seller_price">
+			<span class="popup_actual_inr"><span><p>PoseNet is a powerful technology that allows computers to understand and track human poses in real-time. It uses deep learning algorithms to analyze images or videos and accurately estimate the positions of different body parts.</p><br>
+
+<p>In simpler terms, think of PoseNet as a virtual "skeleton" that can be overlaid on a person's image or video. It can detect and track the positions of key body joints such as the head, shoulders, elbows, wrists, hips, knees, and ankles. This information is then used to create a digital representation of the person's pose.</p><br>
+
+<p>PoseNet works by leveraging a deep neural network trained on a large dataset of labeled human poses. This training enables the model to learn the relationships between different body parts and how they move together. Once the model is trained, it can accurately predict the positions of body joints in new images or videos.</p><br>
+
+</span></span>
+</div>
 
     <div class="btm-nav">
 
-        <a href="https://inoculate.media/main.html">
+        <a href='https://inoculate.media/main'>
             <button class="active" role="link">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
 		<span class="btm-nav-label">Home</span>
@@ -40,13 +85,13 @@
 		<span class="btm-nav-label">Demo Reel</span>
   </button></a>
 
-        <a href="https://inoculate.media/invent_yourself/index.html">
+        <a href='https://inoculate.media/invent_yourself/'>
             <i class="fa-solid fa-film"></i>
             <button role="link">
 		<span class="btm-nav-label">Projection Mapping</span>
   </button></a>
 
-        <a href="https://inoculate.media/datacube/index.html">
+        <a href='https://inoculate.media/datacube/'>
             <i class="fa-solid fa-terminal"></i>
             <button role="link">
 		<span class="btm-nav-label">Data Art/Coding</span>
@@ -58,7 +103,7 @@
 		<span class="btm-nav-label">Bio/CV</span>
   </button></a>
 
-        <a href="https://inoculate.media/santa.html">
+        <a href='https://inoculate.media/santa'>
             <i class="fa-solid fa-sleigh"></i>
             <button role="link">
     
@@ -73,6 +118,32 @@
 	
   </button>
     </div>
+<script>
+$(function(){
+    $(".info").popover({
+        html : true,
+        trigger:'manual',
+        placement:'bottom',
+        content: function() {
+          return $(".info_msg").html();
+        }
+    }).on("mouseenter",function(){
+      var _this = this;
+      $(this).popover("show");
+      $(".popover").on("mouseleave", function () {
+        $(_this).popover('hide');
+    });
+    }).on("mouseleave", function () {
+        var _this = this;
+        setTimeout(function () {
+            if (!$(".popover:hover").length) {
+                $(_this).popover("hide")
+            }
+        }, 100);
+});
+});
+
+</script>
 </body>
 <script src="./mySketch.js"></script>
 <script src="./tab2.js"></script>
