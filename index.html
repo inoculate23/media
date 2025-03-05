@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <!-- Primary Meta Tags -->
+<title>Inoculate Media & Haawke Neural Tech</title>
+<meta name="title" content="Inoculate Media & Haawke Neural Tech" />
+<meta name="description" content="Inoculate Media is a Las Vegas based creative agency specializing in machine learning, data science, and ai. Check our Les Barons new record, the world's first record about and made with ai" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://inoculate23.github.io/media/" />
+<meta property="og:title" content="Inoculate Media & Haawke Neural Tech" />
+<meta property="og:description" content="Inoculate Media is a Las Vegas based creative agency specializing in machine learning, data science, and ai. Check our Les Barons new record, the world's first record about and made with ai" />
+<meta property="og:image" content="https://inoculate23.github.io/media/assets/iansi1200.png" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://inoculate23.github.io/media/" />
+<meta property="twitter:title" content="Inoculate Media & Haawke Neural Tech" />
+<meta property="twitter:description" content="Inoculate Media is a Las Vegas based creative agency specializing in machine learning, data science, and ai. Check our Les Barons new record, the world's first record about and made with ai" />
+<meta property="twitter:image" content="https://inoculate23.github.io/media/assets/iansi1200.png" />
+
+<!-- Meta Tags Generated with https://metatags.io -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        /* CSS for layout */
+        
+         :root {
+            --container-bg-color: #333;
+            --left-button-hover-color: rgba(161, 11, 11, 0.3);
+            --right-bg-color: rgba(43, 43, 43, 0.8);
+            --right-button-hover-color: rgba(92, 92, 92, 0.3);
+            --hover-width: 65%;
+            --other-width: 35%;
+            --speed: 1000ms;
+        }
+        
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+        
+        h1 {
+            font-size: 2.7rem;
+            color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 0%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+        
+        h2 {
+            font-size: 1.2rem;
+            color: #fff;
+            position: absolute;
+            left: 10%;
+            right: 10%;
+            top: 20%;
+            transform: translateX(0%);
+            white-space: wrap;
+            overflow-y: visible;
+        }
+        h3 {
+            font-size: 1.2rem;
+            color: #939494;
+            position: relative;
+            left: 20%;
+            right: 20%;
+          
+            transform: translateX(0%);
+            white-space: wrap;
+            overflow-y: visible;
+        }
+      .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+      .navbar {
+            background-image: url('locomotiv.jpeg');
+        }
+        .button {
+            display: block;
+            position: relative;
+            top: 16%;
+            left: 30%;
+            height: 4.0rem;
+            padding-top: .8rem;
+            width: 25rem;
+            text-align: center;
+            color: #fff;
+            background-color: #5dbd2d;
+            font-size: 1.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            transform: translateX(-20%);
+        }
+        
+        .split.left .button:hover {
+            background-color: black;
+            border-color: var(--left-button-hover-color);
+        }
+        
+        .split.right .button:hover {
+            background-color: var(--right-button-hover-color);
+            border-color: var(--right-button-hover-color);
+        }
+        
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: var(--container-bg-color);
+        }
+        
+        .split {
+            position: relative;
+            width: 100%;
+            height: 110%;
+            overflow: hidden;
+        }
+        
+        .split.left {
+            left: 0;
+        }
+        
+        .split.left:before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: var(--left-bg-color);
+        }
+        
+        .split.right {
+            right: 0;
+            background: url("https://image.ibb.co/m3ZbRb/programmer.png") center center no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            margin-top: 0%;
+        }
+        
+        .split.right:before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 108%;
+            background: var(--right-bg-color);
+        }
+        
+        .split.left,
+        .split.right,
+        .split.right:before,
+        .split.left:before {
+            transition: var(--speed) all ease-in-out;
+        }
+        
+        .hover-left .left {
+            width: var(--hover-width);
+        }
+        
+        .hover-left .right {
+            width: var(--other-width);
+        }
+        
+        .hover-left .right:before {
+            z-index: 2;
+        }
+        
+        .hover-right .right {
+            width: var(--hover-width);
+        }
+        
+        .hover-right .left {
+            width: var(--other-width);
+        }
+        
+        .hover-right .left:before {
+            z-index: 2;
+        }
+        
+        @media (max-width: 800px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .button {
+                width: 12rem;
+            }
+        }
+        
+        @media (max-height: 700px) {
+            .button {
+                top: 70%;
+            }
+        }
+        
+        #stripe2 {
+            width: 100%;
+            height: 100%;
+            margin-top: 55px;
+            margin-left: 0px;
+        }
+        
+
+        
+        #colab {
+            margin-left: 40%;
+            margin-right: 45%;
+            margin-top: 44%;
+            z-index: 0;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+<div class="navbar bg-neutral text-neutral-content">
+
+		<a href="./index.html" target='_self'>  <button class="btn btn-secondary text-xl">Inoculate Media</button></a>
+	<a href="https://haawke.com/contact" target='_blank'><button class="btn btn-success text-xl">Contact</button></a>
+</div>
+
+
+
+
+    <div class="container">
+
+     <iframe id="iframe" src="https://653d4b41f49c4e5567d276eb--radiant-douhua-afee2c.netlify.app/" height="100%" width="100%"></iframe>
+
+    </div>
+    <div class="split right">
+        <h1>"Wax Cylinder Recordings of Primitive Cultures"
+            <a href="#stripe2" class="button">Purchase</a><br>
+        </h1>
+
+
+
+        <h2>
+            <p>Inoculate Media is pleased to announce the upcoming release of Les Barons | The Barons new audio work. </p><br>
+            <p>
+                "Wax Cylinder Recordings of Primitive Cultures" examines a moment very "now"... the emergence and the spaces that artificial intelligence and machine learning are converging with our daily lives. Les Barons spent two years learning various technologies to infuse every aspect with authenticity, creativity, and thought-provoking questions that we should all be examining such as, what ARE the pros and cons of turning much of our self-reliance over to machines? Each track involves some level of experimentation with machine learning, whether it be generation and synthesis, classification, or text-to-audio.
+            </p><br>
+            <p>
+                Wax Cylinders will be available in a few different formats (wax cylinder is not one of them): a standard audio download, an interactive VR video game that allows you to explore a world and experiment with various ai and machine learning applications, right in the game.
+                The game was recorded with a new spatial sound technology and you can remix the audio in an infinite number of possibilities. Finally, the release is also being crowdsourced for a vinyl release.
+            </p><br>
+            <p>
+              
+                Les Barons | The Barons is a project of Craig Ellenwood, formerly a member of the legendary industrial psychedelic techno group: Psychic TV and founder of the music component of Burning Man.
+
+            </p>
+           
+           This project is supported with Cloud TPUs from Google's TPU Research Cloud (TRC) and Google's generous donation of these resources.
+           <br>
+          
+
+            <a href="https://colab.research.google.com/drive/10YYZTlOeLNcLBl4iyuHxWLGmGXuGHJOt?usp=sharing"><img src="colab.png" id="collab" alt="colab" />
+              
+   
+    </a>
+    </p>
+
+
+        <div id="player">
+            <iframe width="100%" height="185px" src="https://www.bandlab.com/embed/?id=63cb8f53-2773-ee11-9937-000d3a41ec2a" frameborder="0" allowfullscreen></iframe>        </div>
+    </h2>
+        <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+        <script src="https://mediafiles.botpress.cloud/64836f9d-6508-4977-9961-2a236e647773/webchat/config.js" defer></script>
+    </div>
+
+
+    <div class="container2">
+
+        <section id="stripe2">
+    <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+<stripe-pricing-table pricing-table-id="prctbl_1OfxQvHwjWHMrWswXjSF83mz"
+publishable-key="pk_live_51NXgznHwjWHMrWswLeqQc1I03udUSJBwyMK8OQISWzCEwTEJWusvXTHxKHQYy6vtCnZq2z6uuq01pM2KYD5bHVPO002GfJaKkY">
+</stripe-pricing-table>
+        </section>
+
+
+    </div>
+
+    <img src="./footer.png" />
+   <h3>Copyright 2023 Inoculate Media and Haawke Neural Technology |  <a href="mailto:inoculate.media@gmail.com">Email Inoculate Media</a>
+
+<br>
+
+
+    </div>
+
+    
+   
+</body>
+</html>
